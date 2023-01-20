@@ -6,8 +6,8 @@ from myapp.models import *
 import datetime
 
 
-database_name='pg'
-database_password = ''
+database_name='cpg'
+database_password = '#123.com#'
 database_user = 'root'
 database_host = 'localhost'
 
@@ -773,7 +773,7 @@ def jan_unpaid_rent(request):
         context = {
             'up': pg1_new_guest.objects.all().filter(jan_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
-            'month_name': 'JANUARY'
+            'month_name': 'JANUARY',
         }
         return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def feb_unpaid_rent(request):
