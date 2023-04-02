@@ -12,7 +12,7 @@ def branch_index(request):
 def guest_creation(request):
     if 'username' in request.session:
         context = {
-            'rn' : pg3_rooom.objects.all()
+            'rn' : pg1_rooom.objects.all()
         }
         return render(request, 'branches/branch3/guests/guest_creation.html',context)
 
@@ -797,9 +797,9 @@ def april_make_payments(request,id):
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg3_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg2_regform.objects.get(id=id)
+            'sd' : pg3_regform.objects.get(id=id)
         }
         return render(request, 'branches/branch3/payments/details_of_months/april/april_make_payments.html', context)
 

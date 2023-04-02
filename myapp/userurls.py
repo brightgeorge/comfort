@@ -363,40 +363,40 @@ urlpatterns = [
 
     path('choose_months3/', branch3.choose_months, name='choose_months3'),
 
-    path('jan3/', branch3.jan, name='jan'),
+    path('jan3/', branch3.jan, name='jan3'),
     path('jan_manke_payments3/<id>', branch1.jan_manke_payments, name='jan_manke_payments3'),
 
     path('feb3/', branch3.feb, name='feb3'),
     path('feb_manke_payments3/<id>', branch3.feb_manke_payments, name='feb_manke_payments3'),
 
-    path('march3/', branch3.march, name='march'),
+    path('march3/', branch3.march, name='march3'),
     path('march_manke_payments3/<id>', branch3.march_manke_payments, name='march_manke_payments3'),
 
-    path('april3/', branch3.april, name='april'),
+    path('april3/', branch3.april, name='april3'),
     path('april_make_payments3/<id>', branch3.april_make_payments, name='april_make_payments3'),
 
-    path('may3/', branch3.may, name='may'),
+    path('may3/', branch3.may, name='may3'),
     path('may_make_payments3/<id>', branch3.may_make_payments, name='may_make_payments3'),
 
-    path('june3/', branch3.june, name='june'),
+    path('june3/', branch3.june, name='june3'),
     path('june_make_payments3/<id>', branch3.june_make_payments, name='june_make_payments3'),
 
-    path('july3/', branch3.july, name='july'),
+    path('july3/', branch3.july, name='july3'),
     path('july_make_payments3/<id>', branch3.july_make_payments, name='july_make_payments3'),
 
-    path('aug3/', branch3.aug, name='aug'),
+    path('aug3/', branch3.aug, name='aug3'),
     path('aug_make_payments2/<id>', branch3.aug_make_payments, name='aug_make_payments3'),
 
-    path('sept3/', branch3.sept, name='sept'),
+    path('sept3/', branch3.sept, name='sept3'),
     path('sept_make_payments2/<id>', branch3.sept_make_payments, name='sept_make_payments3'),
 
-    path('oct3/', branch3.oct, name='oct'),
+    path('oct3/', branch3.oct, name='oct3'),
     path('oct_make_payments3/<id>', branch3.oct_make_payments, name='oct_make_payments3'),
 
-    path('nov3/', branch3.nov, name='nov'),
+    path('nov3/', branch3.nov, name='nov3'),
     path('nov_make_payments3/<id>', branch3.nov_make_payments, name='nov_make_payments3'),
 
-    path('dec3/', branch3.dec, name='dec'),
+    path('dec3/', branch3.dec, name='dec3'),
     path('dec_make_payments3/<id>', branch3.dec_make_payments, name='dec_make_payments3'),
 
     #payments end here
