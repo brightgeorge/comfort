@@ -231,8 +231,72 @@ urlpatterns = [
 
 #unpaid rent end here
 
+#paid rent start here
+    path('paid_rent_choose_months2/',branch2.paid_rent_choose_months,name='paid_rent_choose_months2'),
+
+    path('jan_paid_rent2/', branch2.jan_paid_rent, name='jan_paid_rent2'),
+    path('feb_paid_rent2/', branch2.feb_paid_rent, name='feb_paid_rent2'),
+    path('mar_paid_rent2/', branch2.mar_paid_rent, name='mar_paid_rent2'),
+    path('april_paid_rent2/', branch2.april_paid_rent, name='april_paid_rent2'),
+
+    path('may_paid_rent2/', branch2.may_paid_rent, name='may_paid_rent2'),
+    path('june_paid_rent2/', branch2.june_paid_rent, name='june_paid_rent2'),
+    path('july_paid_rent2/', branch2.july_paid_rent, name='july_paid_rent2'),
+    path('aug_paid_rent2/', branch2.aug_paid_rent, name='aug_paid_rent2'),
+
+    path('sept_paid_rent2/', branch2.sept_paid_rent, name='sept_paid_rent2'),
+    path('oct_paid_rent2/', branch2.oct_paid_rent, name='oct_paid_rent2'),
+    path('nov_paid_rent2/', branch2.nov_paid_rent, name='nov_paid_rent2'),
+    path('dec_paid_rent2/', branch2.dec_paid_rent, name='dec_paid_rent2'),
+
+#paid rent end here
+
 
 #*********reports end here
+
+#payments start here
+
+    path('choose_months2/', branch2.choose_months, name='choose_months2'),
+
+    path('jan2/', branch2.jan, name='jan'),
+    path('jan_manke_payments2/<id>', branch1.jan_manke_payments, name='jan_manke_payments2'),
+
+    path('feb2/', branch2.feb, name='feb'),
+    path('feb_manke_payments2/<id>', branch2.feb_manke_payments, name='feb_manke_payments2'),
+
+    path('march2/', branch2.march, name='march'),
+    path('march_manke_payments2/<id>', branch2.march_manke_payments, name='march_manke_payments2'),
+
+    path('april2/', branch2.april, name='april'),
+    path('april_make_payments2/<id>', branch2.april_make_payments, name='april_make_payments2'),
+
+    path('may2/', branch2.may, name='may'),
+    path('may_make_payments2/<id>', branch2.may_make_payments, name='may_make_payments2'),
+
+    path('june2/', branch2.june, name='june'),
+    path('june_make_payments2/<id>', branch2.june_make_payments, name='june_make_payments2'),
+
+    path('july2/', branch2.july, name='july'),
+    path('july_make_payments2/<id>', branch2.july_make_payments, name='july_make_payments2'),
+
+    path('aug2/', branch2.aug, name='aug'),
+    path('aug_make_payments2/<id>', branch2.aug_make_payments, name='aug_make_payments2'),
+
+    path('sept2/', branch2.sept, name='sept'),
+    path('sept_make_payments2/<id>', branch2.sept_make_payments, name='sept_make_payments2'),
+
+    path('oct2/', branch2.oct, name='oct'),
+    path('oct_make_payments2/<id>', branch2.oct_make_payments, name='oct_make_payments2'),
+
+    path('nov2/', branch2.nov, name='nov'),
+    path('nov_make_payments2/<id>', branch2.nov_make_payments, name='nov_make_payments2'),
+
+    path('dec2/', branch2.dec, name='dec'),
+    path('dec_make_payments2/<id>', branch2.dec_make_payments, name='dec_make_payments2'),
+
+    #payments end here
+
+
 
 #****************************************************************************************************
 #BRANCH TWO END HERE

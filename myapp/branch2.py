@@ -446,190 +446,190 @@ def dec_unpaid_rent(request):
 
 def paid_rent_choose_months(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch1/reports/paid_rent_choose_months.html')
+        return render(request, 'branches/branch2/reports/paid_rent_choose_months.html')
 
 def jan_paid_rent(request):
     if 'username' in request.session:
         l=[]
-        unp=pg1_regform.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp=pg2_regform.objects.all().filter(jan_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.jan_rent))
             break
         s=''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(jan_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def feb_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(feb_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.feb_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(feb_rent_flag=200, flag=1),
             'name': request.session['username'],'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def mar_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(march_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.march_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(march_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def april_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(april_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(april_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.april_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(april_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(april_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 
 def may_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(may_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(may_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.may_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(may_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(may_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def june_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(june_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(june_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.june_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(june_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(june_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def july_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(july_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(july_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.july_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(july_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(july_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def aug_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(aug_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(aug_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.aug_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(aug_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(aug_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 
 def sept_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(sept_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(sept_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.sept_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(sept_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(sept_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def oct_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(oct_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(oct_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.oct_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(oct_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(oct_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 def nov_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(nov_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(nov_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.nov_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(nov_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(nov_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 
 def dec_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(dec_rent_flag=200, flag=1)
+        unp = pg2_regform.objects.all().filter(dec_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.dec_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(dec_rent_flag=200, flag=1),
+            'up': pg2_regform.objects.all().filter(dec_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent.html', context)
 
 
 #*********paid rent end here ************
@@ -640,50 +640,50 @@ def dec_paid_rent(request):
 ################################
 
 ##################################
-#PAYMENTS END HERE
+#PAYMENTS START HERE
 ################################
 
 def choose_months(request):
     if 'username' in request.session:
-        return  render(request,'branches/branch1/payments/choose_months.html')
+        return  render(request,'branches/branch2/payments/choose_months.html')
 
 #jan make payments start here
 def jan(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,jan_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,jan_rent_flag__gt=99),
             'roomno':rn,
 
         }
-        return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/jan/jan.html',context)
 
 def jan_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.jan_rent = amt
             jp.jan_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,jan_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,jan_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1,jan_rent_flag__gt=99),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1,jan_rent_flag__gt=99),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/jan/jan_manke_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/jan/jan_manke_payments.html', context)
 
 #jan make payments start here
 
@@ -692,37 +692,37 @@ def feb(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,feb_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,feb_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/feb/feb.html',context)
 
 def feb_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.feb_rent = amt
             jp.feb_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,feb_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,feb_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/feb/feb_manke_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/feb/feb_manke_payments.html', context)
 
 #feb make payments start here
 
@@ -731,37 +731,37 @@ def march(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,march_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,march_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/march/march.html',context)
 
 def march_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.march_rent = amt
             jp.march_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,march_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,march_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/march/march_manke_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/march/march_manke_payments.html', context)
 
 #march make payments start here
 
@@ -771,37 +771,37 @@ def april(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,april_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,april_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/april/april.html',context)
 
 def april_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.april_rent = amt
             jp.april_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,april_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,april_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/april/april_make_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/april/april_make_payments.html', context)
 
 #april make payments start here
 
@@ -810,37 +810,37 @@ def may(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,may_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,may_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/may/may.html',context)
 
 def may_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.may_rent = amt
             jp.may_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,may_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,may_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/may/may_make_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/may/may_make_payments.html', context)
 
 #may make payments start here
 
@@ -849,37 +849,37 @@ def june(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,june_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,june_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/june/june.html',context)
 
 def june_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.june_rent = amt
             jp.june_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,june_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,june_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/june/june.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/june/june_make_payments.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/june/june_make_payments.html', context)
 
 #june make payments start here
 
@@ -888,37 +888,37 @@ def july(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,july_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,july_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/july/july.html',context)
 
 def july_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.july_rent = amt
             jp.july_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,july_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,july_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/july/july_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/july/july_make_payments.html', context)
 
 #july make payments start here
 
@@ -927,37 +927,37 @@ def aug(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,aug_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,aug_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/aug/aug.html',context)
 
 def aug_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.aug_rent = amt
             jp.aug_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,aug_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,aug_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/aug/aug_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/aug/aug_make_payments.html', context)
 
 #aug make payments start here
 
@@ -966,37 +966,37 @@ def sept(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,sept_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,sept_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/sept/sept.html',context)
 
 def sept_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.sept_rent = amt
             jp.sept_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,sept_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,sept_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/sept/sept_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/sept/sept_make_payments.html', context)
 
 #sept make payments start here
 
@@ -1005,37 +1005,37 @@ def oct(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,oct_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,oct_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/oct/oct.html',context)
 
 def oct_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.oct_rent = amt
             jp.oct_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,oct_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,oct_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/oct/oct_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/oct/oct_make_payments.html', context)
 
 #oct make payments start here
 
@@ -1044,37 +1044,37 @@ def nov(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,nov_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,nov_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/nov/nov.html',context)
 
 def nov_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.nov_rent = amt
             jp.nov_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,nov_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,nov_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/nov/nov_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/nov/nov_make_payments.html', context)
 
 #nov make payments start here
 
@@ -1083,37 +1083,37 @@ def dec(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,dec_rent_flag__gt=99),
+            'pd':pg2_regform.objects.all().filter(room_no=rn,flag=1,dec_rent_flag__gt=99),
             'roomno':rn,
         }
-        return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
+        return render(request, 'branches/branch2/payments/details_of_months/dec/dec.html',context)
 
 def dec_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            jp = pg2_regform.objects.get(id=id)
             jp.dec_rent = amt
             jp.dec_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno= pg2_regform.objects.all().filter(id=id)
             l=[]
             for i in rno:
                 l.append(i.room_no)
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,dec_rent_flag__gt=99),
+                'pd': pg2_regform.objects.all().filter(room_no=s, flag=1,dec_rent_flag__gt=99),
             }
-            return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg2_regform.objects.all().filter(room_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg2_regform.objects.get(id=id)
         }
-        return render(request,'branches/branch1/payments/details_of_months/dec/dec_make_payments.html', context)
+        return render(request,'branches/branch2/payments/details_of_months/dec/dec_make_payments.html', context)
 
 #dec make payments start here
 
