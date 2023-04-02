@@ -67,67 +67,35 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR3</li>
       <li>
-        <a href="{% url 'admin_dashboard' %}">
+        <a href="{% url 'branch_index' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
       <li>
-        <a href="">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Orders</span>
+        <a href="{% url 'unpaid_rent_choose_months' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'paid_rent_choose_months' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
         </a>
       </li>
 
       <li>
-        <a href="">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Items</span>
+        <a href="{% url 'choose_months' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
         </a>
       </li>
 
        <li>
-        <a href="">
-          <i class="zmdi zmdi-share text-info"></i> <span>Branches</span>
+        <a href="{% url 'view_all_guests' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests</span>
         </a>
       </li>
-
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-face"></i> <span>Users</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>Category</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>Department</span>
-        </a>
-      </li>
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>UOM</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="calendar.html">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
-
-       <li>
-        <a href="register.html" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
-        </a>
-      </li>
-
 
       <li>
         <a href="{% url 'logout' %}">
@@ -216,8 +184,8 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'view_all_users' %}"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">User Creation Form </div>
+		  <a href="{% url 'view_all_guests' %}"> <button class="mybutton button1">X Close</button></a>
+           <div class="card-title">Registration Form Branch1 Guests</div>
 
 
                {% if messages %}
@@ -234,62 +202,146 @@
 
 		   
            <hr>
-            <form action="{% url 'user_regi' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'update_guest_creation' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
-				<label for="input-11">Employee Code</label>
-				<input type="text" class="form-control col-lg-2" id="input-11" placeholder="Enter Employee Code" style="display:inline;" name="code" required>
+				<label for="cars1">Room No</label>
+				<select id="cars1" class="col-lg-2 form-control" style="display:inline;" name="roomno" required>
+					<option style="background-color:white;">{{sd.room_no}}</option>
+					{% for i in rn %}
+					<option value="{{i.roon_no}}" >{{i.roon_no}}</option>
+                    {% endfor %}
+				</select>
 				
-				
-				
-				<label for="input-12">Employee Name</label>
-				<input type="text" class="form-control col-lg-6" id="input-12" placeholder="Enter Employee Name" style="display:inline;" name="name" required>
+				<label for="input-12">Name</label>
+				<input type="text" class="form-control col-lg-8" id="input-12" value="{{sd.name}}" style="display:inline;" name="name" required>
 				
 			</div>
 
                 <div class="form-group">
 
-				<label for="input-4" class="col-lg-3">User Name</label>
-				<input type="text" class="form-control col-lg-2" id="input-4" placeholder="Enter User Name" style="display:inline;" name="username" required>
+				<label for="input-4" class="col-lg-3">Room Type</label>
+				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="roomtype" required>
+					<option style="background-color:white;">{{sd.room_type}}</option>
+					<option value="1 Share" >1 Share</option>
+					<option value="2 Share" >2 Share</option>
+                    <option value="3 Share" >3 Share</option>
+					<option value="4 Share" >4 Share</option>
+				</select>
 
 				<label for="input-4" class="col-lg-2"></label>
 
-				<label for="input-15" class="col-lg-2">Password</label>
-				<input type="text" class="form-control col-lg-2" id="input-15" placeholder="Enter Password" style="display:inline;" name="password" required>
+				<label for="input-15" class="col-lg-2">Monthly Rent</label>
+				<input type="text" class="form-control col-lg-2" id="input-15" value="{{sd.monthly_rent}}" style="display:inline;" name="monthlyrent" required>
 
 			</div>
 
                 <div class="form-group">
 
-				<label for="role" class="col-lg-3">Role</label>
-				<select id="role" class="col-lg-2 form-control" style="display:inline;" name="role" required>
-					<option style="background-color:white;">Select</option>
-					<option value="Admin" >Admin</option>
-					<option value="Branch1" >Branch1</option>
-                    <option value="Branch2" >Branch2</option>
-                    <option value="Branch3" >Branch3</option>
-                    <option value="Branch4" >Branch4</option>
-                    <option value="Branch5" >Branch5</option>
-				</select>
+				<label for="input-4" class="col-lg-3">Advance</label>
+				<input type="text" class="form-control col-lg-2" id="input-4" value="{{sd.advance}}" style="display:inline;" name="advance" required>
+
 				<label for="input-4" class="col-lg-2"></label>
-                    <label for="input-4" class="col-lg-2">Branch</label>
-				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="branch" required>
-					<option style="background-color:white;">Select</option>
-					<option value="Branch1" >Branch1</option>
-					<option value="Branch2" >Branch2</option>
-                    <option value="Branch3" >Branch3</option>
-                    <option value="Branch4" >Branch4</option>
-                    <option value="Branch5" >Branch5</option>
-				</select>
+
+				<label for="input-15" class="col-lg-2">age</label>
+				<input type="text" class="form-control col-lg-2" id="input-15" value="{{sd.age}}" style="display:inline;" name="age" required>
 
 			</div>
+
+                 <div class="form-group">
+
+				<label for="input-4" class="col-lg-3">DOB ({{sd.dob}})</label>
+				<input type="date" class="form-control col-lg-2" id="input-3" name="dob" required {{sd.dob}} style="display:inline;"  >
+
+				<label for="input-4" class="col-lg-1"></label>
+
+                     <label for="input-15" class="col-lg-3">Education Qualification</label>
+				<input type="text" class="form-control col-lg-2" id="input-15" value="{{sd.edu_qualification}}" style="display:inline;" name="eduqualification" required>
+
+
+
+			</div>
+
+                <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">Mail Id</label>
+				<input type="text" class="form-control col-lg-3" id="input-4" value="{{sd.mail_id}}" style="display:inline;" name="mailid" required>
+
+				<label for="input-4" class="col-lg-1"></label>
+
+                    <label for="input-15" class="col-lg-2">Self Mobile No</label>
+				<input type="text" class="form-control col-lg-3" id="input-15" value="{{sd.self_mob_no}}" style="display:inline;" name="selfmobno" required>
+
+
+
+			</div>
+
+                <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">ID Proof Type</label>
+				<input type="text" class="form-control col-lg-3" id="input-4" value="{{sd.id_proof_type}}" style="display:inline;" name="idprooftype" required>
+
+				<label for="input-4" class="col-lg-1"></label>
+
+				<label for="input-15" class="col-lg-2">ID Proof No</label>
+				<input type="text" class="form-control col-lg-3" id="input-15" value="{{sd.id_proof_no}}" style="display:inline;" name="idproofno" required>
+
+			</div>
+
+<h5>Company/Education Institute Details</h5>
+                <hr>
+                 <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">Present Employee</label>
+				<input type="text" class="form-control col-lg-3" id="input-4" value="{{sd.prsnt_employee}}" style="display:inline;" name="presentemployee" required>
+
+				<label for="input-4" class="col-lg-1"></label>
+
+				<label for="input-15" class="col-lg-2">Contact No</label>
+				<input type="text" class="form-control col-lg-3" id="input-15" value="{{sd.prsnt_emp_contact_no}}" style="display:inline;" name="pemployeecontactno" required>
+
+			</div>
+                <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">Address</label>
+				<input type="text" class="form-control col-lg-9" id="input-4" value="{{sd.prsnt_emp_address}}" style="display:inline;" name="pempaddress" required>
+
+			</div>
+
+<h5>Parents Details</h5>
+<hr>
+                <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">Father Name</label>
+				<input type="text" class="form-control col-lg-3" id="input-4" value="{{sd.fname}}" style="display:inline;" name="fname" required>
+
+				<label for="input-4" class="col-lg-1"></label>
+
+				<label for="input-15" class="col-lg-2">Father Mob No</label>
+				<input type="text" class="form-control col-lg-3" id="input-15" value="{{sd.fmob_no}}" style="display:inline;" name="fmobno" required>
+
+			</div>
+
+
+                <div class="form-group">
+
+				<label for="input-4" class="col-lg-2">Emergency Cotact No</label>
+				<input type="text" class="form-control col-lg-3" id="input-4" value="{{sd.emg_contact_no}}" style="display:inline;" name="emgcontactno" required>
+
+				<label for="input-4" class="col-lg-1"></label>
+
+				<label for="input-15" class="col-lg-2">Relationship</label>
+				<input type="text" class="form-control col-lg-3" id="input-15" value="{{sd.relationship}}" style="display:inline;" name="relatioship" required>
+
+			</div>
+
 		   
            <div class="form-group">
-            <label for="input-2">Description</label>
+            <label for="input-2">Your Permanent Address</label>
             
            </div>
 		   <div class="form-group">
-		   <textarea name="description" rows="5" cols="47" name="description"></textarea>
+		   <textarea name="paddress" rows="5" cols="47" >{{sd.permanent_address}}</textarea>
 		   </div>
          <!--  <div class="form-group py-2">
              <div class="icheck-material-white">
@@ -303,7 +355,7 @@
                         </div></br>
 
            <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create</button>
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Update</button>
           </div>
           </form>
          </div>

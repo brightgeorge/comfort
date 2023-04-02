@@ -3,6 +3,7 @@ from django.urls import path
 from . import views
 from . import branch1
 from . import branch2
+from . import branch3
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -300,6 +301,110 @@ urlpatterns = [
 
 #****************************************************************************************************
 #BRANCH TWO END HERE
+#***********************************
+
+#****************************************************************************************************
+#BRANCH THREE START HERE
+#***********************************
+
+    path('branch_index3/', branch3.branch_index, name='branch_index3'),
+
+    path('guest_creation3/', branch3.guest_creation, name='guest_creation3'),
+    path('guest_creation_regi3/', branch3.guest_creation_regi, name='guest_creation_regi3'),
+    path('view_all_guests3/', branch3.view_all_guests, name='view_all_guests3'),
+    path('update_guest_creation3/<id>', branch3.update_guest_creation, name='update_guest_creation3'),
+
+#*********reports start here
+
+#unpaid rent start here
+    path('unpaid_rent_choose_months3/',branch3.unpaid_rent_choose_months,name='unpaid_rent_choose_months3'),
+
+    path('jan_unpaid_rent3/', branch3.jan_unpaid_rent, name='jan_unpaid_rent3'),
+    path('feb_unpaid_rent3/', branch3.feb_unpaid_rent, name='feb_unpaid_rent3'),
+    path('mar_unpaid_rent3/', branch3.mar_unpaid_rent, name='mar_unpaid_rent3'),
+    path('april_unpaid_rent3/', branch3.april_unpaid_rent, name='april_unpaid_rent3'),
+
+    path('may_unpaid_rent3/', branch3.may_unpaid_rent, name='may_unpaid_rent3'),
+    path('june_unpaid_rent3/', branch3.june_unpaid_rent, name='june_unpaid_rent3'),
+    path('july_unpaid_rent3/', branch3.july_unpaid_rent, name='july_unpaid_rent3'),
+    path('aug_unpaid_rent3/', branch3.aug_unpaid_rent, name='aug_unpaid_rent3'),
+
+    path('sept_unpaid_rent3/', branch3.sept_unpaid_rent, name='sept_unpaid_rent3'),
+    path('oct_unpaid_rent3/', branch3.oct_unpaid_rent, name='oct_unpaid_rent3'),
+    path('nov_unpaid_rent3/', branch3.nov_unpaid_rent, name='nov_unpaid_rent3'),
+    path('dec_unpaid_rent3/', branch3.dec_unpaid_rent, name='dec_unpaid_rent3'),
+
+#unpaid rent end here
+
+#paid rent start here
+    path('paid_rent_choose_months3/',branch3.paid_rent_choose_months,name='paid_rent_choose_months3'),
+
+    path('jan_paid_rent3/', branch3.jan_paid_rent, name='jan_paid_rent3'),
+    path('feb_paid_rent3/', branch3.feb_paid_rent, name='feb_paid_rent3'),
+    path('mar_paid_rent3/', branch3.mar_paid_rent, name='mar_paid_rent3'),
+    path('april_paid_rent3/', branch3.april_paid_rent, name='april_paid_rent3'),
+
+    path('may_paid_rent3/', branch3.may_paid_rent, name='may_paid_rent3'),
+    path('june_paid_rent3/', branch3.june_paid_rent, name='june_paid_rent3'),
+    path('july_paid_rent3/', branch3.july_paid_rent, name='july_paid_rent3'),
+    path('aug_paid_rent3/', branch3.aug_paid_rent, name='aug_paid_rent3'),
+
+    path('sept_paid_rent3/', branch3.sept_paid_rent, name='sept_paid_rent3'),
+    path('oct_paid_rent3/', branch3.oct_paid_rent, name='oct_paid_rent3'),
+    path('nov_paid_rent3/', branch3.nov_paid_rent, name='nov_paid_rent3'),
+    path('dec_paid_rent3/', branch3.dec_paid_rent, name='dec_paid_rent3'),
+
+#paid rent end here
+
+
+#*********reports end here
+
+#payments start here
+
+    path('choose_months3/', branch3.choose_months, name='choose_months3'),
+
+    path('jan3/', branch3.jan, name='jan'),
+    path('jan_manke_payments3/<id>', branch1.jan_manke_payments, name='jan_manke_payments3'),
+
+    path('feb3/', branch3.feb, name='feb3'),
+    path('feb_manke_payments3/<id>', branch3.feb_manke_payments, name='feb_manke_payments3'),
+
+    path('march3/', branch3.march, name='march'),
+    path('march_manke_payments3/<id>', branch3.march_manke_payments, name='march_manke_payments3'),
+
+    path('april3/', branch3.april, name='april'),
+    path('april_make_payments3/<id>', branch3.april_make_payments, name='april_make_payments3'),
+
+    path('may3/', branch3.may, name='may'),
+    path('may_make_payments3/<id>', branch3.may_make_payments, name='may_make_payments3'),
+
+    path('june3/', branch3.june, name='june'),
+    path('june_make_payments3/<id>', branch3.june_make_payments, name='june_make_payments3'),
+
+    path('july3/', branch3.july, name='july'),
+    path('july_make_payments3/<id>', branch3.july_make_payments, name='july_make_payments3'),
+
+    path('aug3/', branch3.aug, name='aug'),
+    path('aug_make_payments2/<id>', branch3.aug_make_payments, name='aug_make_payments3'),
+
+    path('sept3/', branch3.sept, name='sept'),
+    path('sept_make_payments2/<id>', branch3.sept_make_payments, name='sept_make_payments3'),
+
+    path('oct3/', branch3.oct, name='oct'),
+    path('oct_make_payments3/<id>', branch3.oct_make_payments, name='oct_make_payments3'),
+
+    path('nov3/', branch3.nov, name='nov'),
+    path('nov_make_payments3/<id>', branch3.nov_make_payments, name='nov_make_payments3'),
+
+    path('dec3/', branch3.dec, name='dec'),
+    path('dec_make_payments3/<id>', branch3.dec_make_payments, name='dec_make_payments3'),
+
+    #payments end here
+
+
+
+#****************************************************************************************************
+#BRANCH THREE END HERE
 #***********************************
 
     path('logout/',views.logout,name='logout'),

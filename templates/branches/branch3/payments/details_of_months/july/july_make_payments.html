@@ -25,7 +25,7 @@
   <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
-  
+
   <style>
 .mybutton {
   border: none;
@@ -46,7 +46,7 @@
 
 
 </style>
-  
+
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -67,67 +67,35 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR3</li>
       <li>
-        <a href="{% url 'admin_dashboard' %}">
+        <a href="{% url 'branch_index' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
       <li>
-        <a href="">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Orders</span>
+        <a href="{% url 'unpaid_rent_choose_months' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'paid_rent_choose_months' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
         </a>
       </li>
 
       <li>
-        <a href="">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Items</span>
+        <a href="{% url 'choose_months' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
         </a>
       </li>
 
        <li>
-        <a href="">
-          <i class="zmdi zmdi-share text-info"></i> <span>Branches</span>
+        <a href="{% url 'view_all_guests' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests</span>
         </a>
       </li>
-
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-face"></i> <span>Users</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>Category</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>Department</span>
-        </a>
-      </li>
-       <li>
-        <a href="">
-          <i class="zmdi zmdi-grid"></i> <span>UOM</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="calendar.html">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
-        </a>
-      </li>
-
-       <li>
-        <a href="register.html" target="_blank">
-          <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
-        </a>
-      </li>
-
 
       <li>
         <a href="{% url 'logout' %}">
@@ -135,12 +103,11 @@
         </a>
       </li>
 
-
     </ul>
 
    </div>
    <!--End sidebar-wrapper-->
-  
+
 
 <!--Start topbar header-->
 <header class="topbar-nav">
@@ -158,7 +125,7 @@
       </form>
     </li>
   </ul>
-     
+
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
@@ -208,7 +175,7 @@
 </header>
 <!--End topbar header-->
 <div class="clearfix"></div>
-	
+
   <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -216,8 +183,8 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'view_all_users' %}"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">User Creation Form </div>
+		  <a href="{% url 'july' %}"> <button class="mybutton button1">X Close</button></a>
+           <div class="card-title">JULY RENT PAYING FORM </div>
 
 
                {% if messages %}
@@ -232,78 +199,17 @@
        {% endfor %}
             {% endif %}
 
-		   
+
            <hr>
-            <form action="{% url 'user_regi' %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'july_make_payments' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
-				<label for="input-11">Employee Code</label>
-				<input type="text" class="form-control col-lg-2" id="input-11" placeholder="Enter Employee Code" style="display:inline;" name="code" required>
-				
-				
-				
-				<label for="input-12">Employee Name</label>
-				<input type="text" class="form-control col-lg-6" id="input-12" placeholder="Enter Employee Name" style="display:inline;" name="name" required>
-				
+				<label for="input-11">Enter Amount</label>
+				<input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.monthly_rent}}" style="display:inline;" name="janamt" required>
 			</div>
-
-                <div class="form-group">
-
-				<label for="input-4" class="col-lg-3">User Name</label>
-				<input type="text" class="form-control col-lg-2" id="input-4" placeholder="Enter User Name" style="display:inline;" name="username" required>
-
-				<label for="input-4" class="col-lg-2"></label>
-
-				<label for="input-15" class="col-lg-2">Password</label>
-				<input type="text" class="form-control col-lg-2" id="input-15" placeholder="Enter Password" style="display:inline;" name="password" required>
-
-			</div>
-
-                <div class="form-group">
-
-				<label for="role" class="col-lg-3">Role</label>
-				<select id="role" class="col-lg-2 form-control" style="display:inline;" name="role" required>
-					<option style="background-color:white;">Select</option>
-					<option value="Admin" >Admin</option>
-					<option value="Branch1" >Branch1</option>
-                    <option value="Branch2" >Branch2</option>
-                    <option value="Branch3" >Branch3</option>
-                    <option value="Branch4" >Branch4</option>
-                    <option value="Branch5" >Branch5</option>
-				</select>
-				<label for="input-4" class="col-lg-2"></label>
-                    <label for="input-4" class="col-lg-2">Branch</label>
-				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="branch" required>
-					<option style="background-color:white;">Select</option>
-					<option value="Branch1" >Branch1</option>
-					<option value="Branch2" >Branch2</option>
-                    <option value="Branch3" >Branch3</option>
-                    <option value="Branch4" >Branch4</option>
-                    <option value="Branch5" >Branch5</option>
-				</select>
-
-			</div>
-		   
-           <div class="form-group">
-            <label for="input-2">Description</label>
-            
-           </div>
-		   <div class="form-group">
-		   <textarea name="description" rows="5" cols="47" name="description"></textarea>
-		   </div>
-         <!--  <div class="form-group py-2">
-             <div class="icheck-material-white">
-            <input type="checkbox" id="user-checkbox1" checked=""/>
-            <label for="user-checkbox1">I Agree Terms & Conditions</label>
-            </div>
-           </div>-->
-                <div>
-                            Enable/Disable  &nbsp; &nbsp;  &nbsp;
-                            <input type="checkbox" checked data-toggle="toggle" name="eanable_disable">
-                        </div></br>
 
            <div class="form-group">
-            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Create</button>
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
           </div>
           </form>
          </div>
@@ -318,12 +224,12 @@
 
     </div>
     <!-- End container-fluid-->
-    
+
    </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-	
+
 	<!--Start footer-->
 	<footer class="footer">
       <div class="container">
@@ -333,28 +239,28 @@
       </div>
     </footer>
 	<!--End footer-->
-	
+
 	<!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
-	
+
 		<p class="mb-0">Settings</p>
       <hr>
-      
+
       <ul>
         <li style="background-color:red;border:1px solid white;"><a href="uom_creation.html">Create New UOM</a></li>
         <li style="background-color:red;border:1px solid white;"><a href="create_category.html">Create New Category</a></li>
         <li style="background-color:red;border:1px solid white;">Create New Kitchen</li>
-        
-        
+
+
       </ul>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
-      
+
       <ul class="switcher">
         <li id="theme1"></li>
         <li id="theme2"></li>
@@ -366,7 +272,7 @@
 
       <p class="mb-0">Gradient Background</p>
       <hr>
-      
+
       <ul class="switcher">
         <li id="theme7"></li>
         <li id="theme8"></li>
@@ -378,11 +284,11 @@
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
-      
+
      </div>
    </div>
   <!--end color switcher-->
-   
+
   </div><!--End wrapper-->
 
 
@@ -390,16 +296,16 @@
   <script src="{% static 'admindashboard/assets/js/jquery.min.js' %}"></script>
   <script src="{% static 'admindashboard/assets/js/popper.min.js' %}"></script>
   <script src="{% static 'admindashboard/assets/js/bootstrap.min.js' %}"></script>
-	
+
  <!-- simplebar js -->
   <script src="{% static 'admindashboard/assets/plugins/simplebar/js/simplebar.js' %}"></script>
   <!-- sidebar-menu js -->
   <script src="{% static 'admindashboard/assets/js/sidebar-menu.js' %}"></script>
-  
+
   <!-- Custom scripts -->
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
-  
 
-	
+
+
 </body>
 </html>
