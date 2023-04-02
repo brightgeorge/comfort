@@ -70,11 +70,11 @@ class pg1_regform(models.Model):
     flag = models.IntegerField()
 
 class pg1_rooom(models.Model):
-    roon_no = models.IntegerField()
+    roon_no = models.CharField(max_length=20)
     created_by = models.CharField(max_length=100)
 
 class pg2_rooom(models.Model):
-    roon_no = models.IntegerField()
+    roon_no = models.CharField(max_length=20)
     created_by = models.CharField(max_length=100)
 
 
@@ -138,7 +138,7 @@ class pg2_regform(models.Model):
 
 #PG THEREE START HERE
 class pg3_rooom(models.Model):
-    roon_no = models.IntegerField()
+    roon_no = models.CharField(max_length=20)
     created_by = models.CharField(max_length=100)
 
 
