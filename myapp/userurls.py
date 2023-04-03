@@ -105,6 +105,8 @@ urlpatterns = [
 # REPORTS START HERE
 ################################
 
+    path('guest_basic_details/',branch1.guest_basic_details,name='guest_basic_details'),
+
 ##################################
 #PAYMENTS END HERE
 ################################

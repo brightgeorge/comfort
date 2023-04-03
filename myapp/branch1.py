@@ -277,6 +277,18 @@ def delete_guest_creation(request):
 #REPORTS START HERE
 ################################
 
+#**basic guest details start here
+
+def guest_basic_details(request):
+    context = {
+        'up': pg1_regform.objects.all().filter(april_rent_flag=100, flag=1).order_by('room_no'),
+        'name': request.session['username'],
+        'month_name': 'APRIL'
+    }
+    return render(request,'branches/branch1/reports/print/guest_basic_details.html',context)
+
+#**basic guest details end here
+
 def unpaid_rent(request):
     import datetime
     print(datetime.datetime.now())

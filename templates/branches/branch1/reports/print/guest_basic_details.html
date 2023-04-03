@@ -266,26 +266,26 @@ function exportTableToExcel(tableID, filename = ''){
 
                 <tr>
 					<th style="text-align:center" bgcolor="yellow">SN</th>
-                    <th style="text-align:center" bgcolor="yellow">Paid Date</th>
                     <th style="text-align:center" bgcolor="yellow">Room No</th>
+                    <th style="text-align:center" bgcolor="yellow">Paid Date</th>
 					<th style="text-align:center" bgcolor="yellow">Name</th>
+                    <th style="text-align:center" bgcolor="yellow">Mob No</th>
+                    <th style="text-align:center" bgcolor="yellow">Advance</th>
                     <th style="text-align:center" bgcolor="yellow">Rent Amount</th>
-                    <th style="text-align:center" bgcolor="yellow">Balance</th>
-					<th style="text-align:center" bgcolor="yellow">Mob No</th>
-					<th style="text-align:center" bgcolor="yellow">Whats app</th>
+                    <th style="text-align:center" bgcolor="yellow">Remark</th>
 
                 </tr>
                 {% for i in up %}
 				   <tr>
-
                     <td>{{forloop.counter}}</td>
+                       <td>{{i.room_no}}</td>
                         <td></td>
-				   <td>{{i.room_no}}</td>
                     <td>{{i.name}}</td>
+                       <td><a href="tel:{{i.self_mob_no}}">Call {{i.self_mob_no}}</a></td>
+                       <td>{{i.advance}}</td>
                        <td>{{i.monthly_rent}}</td>
                        <td>{{i.permanent_address}}</td>
-                    <td><a href="tel:{{i.self_mob_no}}">Call {{i.self_mob_no}}</a></td>
-                       <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob_no}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent, Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span style="background-color:green">Send Msg</span> </a></td>
+
                    </tr>
                 {% endfor %}
 
@@ -382,6 +382,6 @@ function exportTableToExcel(tableID, filename = ''){
   <!-- Index js -->
   <script src="{% static 'admindashboard//assets/js/index.js' %}"></script>
 
-  
+
 </body>
 </html>
