@@ -214,8 +214,9 @@
 <label for="input-4" class="col-lg-2">Choose Room No</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="rno" required>
 					<option style="background-color:white;">Select</option>
-					<option value="214" >214</option>
-					<option value="215" >215</option>
+                    {% for i in room %}
+					<option value="{{i.roon_no}}" >{{i.roon_no}}</option>
+					{% endfor %}
 				</select>
 
 

@@ -178,7 +178,7 @@ def guest_creation_regi(request):
 def view_all_guests(request):
     if 'username' in request.session:
         context = {
-            'pg1_guests' : pg1_regform.objects.all().filter(flag=1),
+            'pg1_guests' : pg1_regform.objects.all().filter(flag=1).order_by('room_no'),
         }
         return render(request,'branches/branch1/guests/view_all_guests.html',context)
     return render(request, 'index.html')
@@ -771,6 +771,7 @@ def april(request):
         context={
             'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,april_rent_flag__gt=99),
             'roomno':rn,
+            'room' : pg1_rooom.objects.all()
         }
         return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
 
