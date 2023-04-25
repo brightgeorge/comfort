@@ -51,7 +51,7 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION br1</li>
        <li>
         <a href="{% url 'admin_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
@@ -224,7 +224,7 @@
 	<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">View all Room of {{brname}}
+	     <div class="card-header">br1 View all Room of {{brname}}
 		  <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -243,6 +243,8 @@
                        <th>Manage</th>
 						<th>Sl No</th>
                      <th>Roon No</th>
+                       <th>Roon Name</th>
+                       <th>Share Type</th>
                      <th>Created By</th>
 
                    </tr>
@@ -262,6 +264,8 @@
               </div></td>
                     <td>{{forloop.counter}}</td>
 				   <td>{{i.roon_no}}</td>
+                       <td>{{i.room_name}}</td>
+                       <td>{{i.share_type}}</td>
                     <td>{{i.created_by}}</td>
                    </tr>
                 {% endfor %}

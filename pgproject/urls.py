@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 import myapp.userurls
+import branch2app.b2userurls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(myapp.userurls)),
+    path('br2/',include(branch2app.b2userurls)),
 
 ]

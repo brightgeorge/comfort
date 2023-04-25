@@ -52,8 +52,9 @@
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
+
        <li>
-        <a href="{% url 'branch_index' %}">
+        <a href="{% url 'branch1_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
@@ -75,9 +76,25 @@
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'choose_months_advance' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance</span>
+        </a>
+      </li>
+
        <li>
-        <a href="{% url 'view_all_guests' %}">
+        <a href="{% url 'view_all_new_guest' %}">
           <i class="zmdi zmdi-face"></i> <span>Guests</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
         </a>
       </li>
 
@@ -213,8 +230,9 @@
 <label for="input-4" class="col-lg-2">Choose Room No</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="rno" required>
 					<option style="background-color:white;">Select</option>
-					<option value="214" >214</option>
-					<option value="215" >215</option>
+					{% for i in room %}
+					<option value="{{i.roon_no}}" >{{i.room_name}}</option>
+					{% endfor %}
 				</select>
 
 
@@ -262,12 +280,12 @@
                    </thead>
                    <tbody>
                    {% for i in pd %}
-{% if i.aug_rent_flag == 100 %}
+{% if i.auguest_rent_flag == 100 %}
 				   <tr>
                        <td><a href="{% url 'aug_make_payments' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
-                    <td>{{i.aug_rent}}</td>
+                    <td>{{i.auguest_rent}}</td>
                    </tr>
 
                    {% else %}
@@ -276,7 +294,7 @@
                        <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Already Paid</button> </td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
-                    <td>{{i.aug_rent}}</td>
+                    <td>{{i.auguest_rent}}</td>
                    </tr>
                     {% endif %}
                 {% endfor %}

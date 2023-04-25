@@ -5,273 +5,617 @@ from django.contrib import messages
 from myapp.models import *
 import datetime
 
-def branch_index(request):
-    if 'username' in request.session:
-        return render(request, 'branches/branch1/branch_index.html')
+database_name='pg'
+database_password = ''
+database_user = 'root'
+database_host = 'localhost'
 
-def guest_creation(request):
+import pymysql as py
+import pymysql.cursors
+
+#new guest start here
+
+def branch1_dashboard(request):
     if 'username' in request.session:
+        return render(request,'branches/branch1/branch1index.html')
+    return render(request,'index.html')
+
+def admit_guest(request):
+    return render(request,'branches/branch1/new_guest/admit_guest.html')
+
+def br1_admit_guest(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            selfmob = request.POST.get('selfmobno')
+            chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+            if chk_mob == True:
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 2 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+
+                }
+                messages.info(request, 'guest already exists')
+                #return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest(request)
+            else:
+                name = request.POST.get('name')
+                advance = request.POST.get('advance')
+                monthlyrent = request.POST.get('monthlyrent')
+                selfmob = request.POST.get('selfmobno')
+                age = request.POST.get('age')
+                address = request.POST.get('paddress')
+                pname = request.POST.get('pname')
+                pmob = request.POST.get('pmob')
+
+                ic = pg1_new_beds.objects.get(id=id)
+                ic.name = name
+                ic.advance = advance
+                ic.monthly_rent = monthlyrent
+                ic.self_mob = selfmob
+                ic.age = age
+                ic.permanent_address = address
+                ic.parent_name = pname
+                ic.parent_mob = pmob
+
+                import datetime
+                ic.guest_join_date = datetime.date.today()
+                d = datetime.datetime.now()
+                ic.guest_join_month = d.strftime("%m")
+
+                gcsaves = pg1_new_guest.objects.all()
+                a = len(gcsaves)
+                ic.guest_code = int(a)+1
+                ic.flag = 2
+                ic.save()
+##################################################
+                gd=[]
+                gud=pg1_new_beds.objects.all().filter(id=id)
+                for i in gud:
+                    gd.append(i.roon_no)
+                    gd.append(i.room_name)
+                    gd.append(i.bed_no)
+                    gd.append(i.bed_code)
+                    gd.append(i.share_type)
+                print(gd)
+                ic = pg1_new_guest()
+
+                ic.roon_no = gd[0]
+                ic.room_name = gd[1]
+                ic.bed_no = gd[2]
+
+                ic.created_by = request.session['username']
+                ic.bed_code = gd[3]
+                ic.share_type = gd[4]
+
+                ic.name = name
+                ic.advance = advance
+                ic.monthly_rent = monthlyrent
+                ic.self_mob = selfmob
+                ic.age = age
+                ic.permanent_address = address
+                ic.parent_name = pname
+                ic.parent_mob = pmob
+
+                import datetime
+                ic.guest_join_date = datetime.date.today()
+                d = datetime.datetime.now()
+                ic.guest_join_month = d.strftime("%m")
+
+                gcsaves = pg1_new_guest.objects.all()
+                a = len(gcsaves)
+                ic.guest_code = int(a)+1
+
+                import datetime
+
+                print(datetime.datetime.now())
+                x = datetime.datetime.now()
+                print(x.strftime("%x"))
+                r = x.strftime("%x")
+                # r='11/2/23'
+                print('my', r)
+                print(type(r))
+                l = []
+                for i in r:
+                    l.append(i)
+                print(l)
+
+                ll = []
+                for i in l:
+                    ll.append(l[0])
+                    ll.append(l[1])
+                    break
+                print(ll)
+
+                s = ''
+                s = ''.join(ll)
+                print('mystr', s)
+                ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+
+                tot = 0
+                for i in ml:
+                    tot = tot + 1
+                    if i == s:
+                        tot = tot - 1
+                        break
+                print('mytit', tot)
+
+                n = 12 - tot
+                print(n)
+
+                nn = []
+
+                for i in range(n):
+                    nn.append(100)
+
+                    # nns=''
+                    # nns=''.join(nn)
+                nns = nn
+
+                tot = 0
+                for i in ml:
+                    tot = tot + 1
+                    if i == s:
+                        tot = tot - 1
+                        ml[tot:] = nns
+
+                print(ml)
+                il = []
+                for i in ml:
+                    il.append(int(i))
+                print(il)
+
+                ic.jan_rent = 0
+                ic.jan_advance = ''
+                ic.jan_due_amt = ''
+                ic.jan_rent_flag = il[0]
+
+                ic.feb_rent = 0
+                ic.feb_advance = ''
+                ic.feb_due_amt = ''
+                ic.feb_rent_flag = il[1]
+
+                ic.march_rent = 0
+                ic.march_advance = ''
+                ic.march_due_amt = ''
+                ic.march_rent_flag = il[2]
+
+                ic.april_rent = 0
+                ic.april_advance = ''
+                ic.april_due_amt = ''
+                ic.april_rent_flag = il[3]
+
+                ic.may_rent = 0
+                ic.may_advance = ''
+                ic.may_due_amt = ''
+                ic.may_rent_flag = il[4]
+
+                ic.june_rent = 0
+                ic.june_advance = ''
+                ic.june_due_amt = ''
+                ic.june_rent_flag = il[5]
+
+                ic.july_rent = 0
+                ic.july_advance = ''
+                ic.july_due_amt = ''
+                ic.july_rent_flag = il[6]
+
+                ic.auguest_rent = 0
+                ic.auguest_advance = ''
+                ic.auguest_due_amt = ''
+                ic.auguest_rent_flag = il[7]
+
+                ic.sept_rent = 0
+                ic.sept_advance = ''
+                ic.sept_due_amt = ''
+                ic.sept_rent_flag = il[8]
+
+                ic.october_rent = 0
+                ic.october_advance = ''
+                ic.october_due_amt = ''
+                ic.october_rent_flag = il[9]
+
+                ic.nov_rent = 0
+                ic.nov_advance = ''
+                ic.nov_due_amt = ''
+                ic.nov_rent_flag = il[10]
+
+                ic.dec_rent = 0
+                ic.dec_advance = ''
+                ic.dec_due_amt = ''
+                ic.dec_rent_flag = il[11]
+
+                ic.flag = 2
+
+                ic.save()
+
+                l = []
+                data = pg1_new_beds.objects.all()
+                for i in data:
+                    l.append(i.share_type)
+                print('l', l)
+                context = {
+                    'brname': 'BRANCH 2 Room Creation Form',
+                    'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                    'rn1': l[0]
+                }
+                messages.info(request, 'guest added created sucessfully')
+                #return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+                return view_all_new_guest(request)
+
         context = {
-            'rn' : pg1_rooom.objects.all()
+            'sd' : pg1_new_beds.objects.get(id=id)
         }
-        return render(request, 'branches/branch1/guests/guest_creation.html',context)
+        return render(request,'branches/branch1/new_guest/new_guest_creation_page.html',context)
+    return render(request,'index.html')
 
-def guest_creation_regi(request):
-    print(request)
-    room_no = request.POST.get('roomno')
-    name = request.POST.get('name')
-    room_type = request.POST.get('roomtype')
-    monthly_rent = request.POST.get('monthlyrent')
-    advance = request.POST.get('advance')
-    age = request.POST.get('age')
-    dom = request.POST.get('dob')
-    edu_qulification = request.POST.get('eduqualification')
-    mail_id = request.POST.get('mailid')
-    self_mob_no = request.POST.get('selfmobno')
-    id_proof_type = request.POST.get('idprooftype')
-    id_proof_no = request.POST.get('idproofno')
 
-    prsnts_emp_name = request.POST.get('presentemployee')
-    prsnts_contact_no = request.POST.get('pemployeecontactno')
-    prsnts_emp_address = request.POST.get('pempaddress')
-
-    father_name =  request.POST.get('fname')
-    father_mob_no = request.POST.get('fmobno')
-    emg_contact_no = request.POST.get('emgcontactno')
-    relationship = request.POST.get('relatioship')
-
-    permanent_address = request.POST.get('paddress')
-    #join_date = datetime.datetime.now()
-    fl = request.POST.get('eanable_disable')
-
-    chk = 11
-    if fl == None:
-        chk = 0
-    else:
-        chk = 1
-
-    gc = pg1_regform()
-
-    gc.room_no = room_no
-    gc.name = name
-    gc.room_type = room_type
-    gc.monthly_rent = monthly_rent
-    gc.advance = advance
-    gc.age = age
-    gc.dob = dom
-    gc.edu_qualification = edu_qulification
-    gc.mail_id = mail_id
-    gc.self_mob_no = self_mob_no
-    gc.id_proof_type = id_proof_type
-    gc.id_proof_no = id_proof_no
-
-    gc.prsnt_employee = prsnts_emp_name
-    gc.prsnt_emp_contact_no = prsnts_contact_no
-    gc.prsnt_emp_address = prsnts_emp_address
-
-    gc.fname = father_name
-    gc.fmob_no = father_mob_no
-    gc.emg_contact_no = emg_contact_no
-    gc.relationship = relationship
-
-    gc.permanent_address = permanent_address
-    import datetime
-    gc.join_date = datetime.datetime.now()
-
-    import datetime
-    print(datetime.datetime.now())
-    x = datetime.datetime.now()
-    print(x.strftime("%x"))
-    r = x.strftime("%x")
-    # r='11/2/23'
-    print('my', r)
-    print(type(r))
-    l = []
-    for i in r:
-        l.append(i)
-    print(l)
-
-    ll = []
-    for i in l:
-        ll.append(l[0])
-        ll.append(l[1])
-        break
-    print(ll)
-
-    s = ''
-    s = ''.join(ll)
-    print('mystr', s)
-    ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
-
-    tot = 0
-    for i in ml:
-        tot = tot + 1
-        if i == s:
-            tot = tot - 1
-            break
-    print('mytit', tot)
-
-    n = 12 - tot
-    print(n)
-
-    nn = []
-
-    for i in range(n):
-        nn.append(100)
-
-    # nns=''
-    # nns=''.join(nn)
-    nns = nn
-
-    tot = 0
-    for i in ml:
-        tot = tot + 1
-        if i == s:
-            tot = tot - 1
-            ml[tot:] = nns
-
-    print(ml)
-    il = []
-    for i in ml:
-        il.append(int(i))
-    print(il)
-    # print(datetime.date.today())
-
-    gc.jan_rent = 0
-    gc.jan_rent_flag = il[0]
-    gc.feb_rent = 0
-    gc.feb_rent_flag = il[1]
-    gc.march_rent = 0
-    gc.march_rent_flag = il[2]
-    gc.april_rent = 0
-    gc.april_rent_flag = il[3]
-
-    gc.may_rent = 0
-    gc.may_rent_flag = il[4]
-    gc.june_rent = 0
-    gc.june_rent_flag = il[5]
-    gc.july_rent = 0
-    gc.july_rent_flag = il[6]
-    gc.aug_rent = 0
-    gc.aug_rent_flag = il[7]
-
-    gc.sept_rent = 0
-    gc.sept_rent_flag = il[8]
-    gc.oct_rent = 0
-    gc.oct_rent_flag = il[9]
-    gc.nov_rent = 0
-    gc.nov_rent_flag = il[10]
-    gc.dec_rent = 0
-    gc.dec_rent_flag = il[11]
-
-    gc.year = 0
-    gc.month = 0
-    gc.branch_name = 0
-    gc.flag = chk
-    gc.save()
-    context = {
-        'pg1_guests': pg1_regform.objects.all().filter(flag=1),
-    }
-
-    return render(request, 'branches/branch1/guests/view_all_guests.html',context)
-
-def view_all_guests(request):
+def view_all_new_guest(request):
     if 'username' in request.session:
-        context = {
-            'pg1_guests' : pg1_regform.objects.all().filter(flag=1).order_by('room_no'),
-        }
-        return render(request,'branches/branch1/guests/view_all_guests.html',context)
-    return render(request, 'index.html')
+        l=[]
+        data=pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
 
-def update_guest_creation(request,id):
+        ll=[]
+        #rsdata=room_pg1.objects.all().order_by(id)
+        rsdata=room_pg1.objects.all().order_by('roon_no')
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        fll = []
+        print(ll[0:7])
+
+        g1_data=pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+        print(len(l))
+        print('214 39', ll[39])
+        print('215 40', ll[40])
+        print('216 41',ll[41])
+        print('217 42', ll[42])
+        print('217 43', ll[43])
+        print('217 44', ll[44])
+
+        print('mysl inci',ll[0:8])
+        print('mys weocnd list',ll[8:26])
+        print('mys thidr list 2222', ll[26:44])
+        g=[]
+        g=ll[0:8]
+        print('g',len(g))
+        fi=[]
+        fi=ll[8:26]
+        print('fi',len(fi))
+        sen=[]
+        sen = ll[26:44]
+        print('sen',len(sen))
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1':l[0],
+            'table_height' : '40px',
+
+            'g1':ll[0],
+            'g1_data':pg1_new_beds.objects.all().filter(roon_no=1),
+            #'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[31],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+
+            'rs207': ll[32],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[33],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            'rs209': ll[34],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+            'rs210': ll[35],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[36],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[37],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            'rs213': ll[38],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+
+            'rs214': ll[39],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            'rs215': ll[40],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+            'rs216': ll[41],
+            '216_data': pg1_new_beds.objects.all().filter(roon_no=216),
+            'rs217': ll[42],
+            '217_data': pg1_new_beds.objects.all().filter(roon_no=217),
+            'rs218': ll[43],
+            '218_data': pg1_new_beds.objects.all().filter(roon_no=218),
+            ##############################################
+            'myl':ll,
+
+        }
+        return render(request,'branches/branch1/new_guest/view_all_new_guest.html',context)
+    return render(request,'index.html')
+
+
+def update_br1_admit_guest(request, id):
     if request.method == 'POST':
-        print(request)
-        room_no = request.POST.get('roomno')
-        name = request.POST.get('name')
-        room_type = request.POST.get('roomtype')
-        monthly_rent = request.POST.get('monthlyrent')
-        advance = request.POST.get('advance')
-        age = request.POST.get('age')
-        dom = request.POST.get('dob')
-        edu_qulification = request.POST.get('eduqualification')
-        mail_id = request.POST.get('mailid')
-        self_mob_no = request.POST.get('selfmobno')
-        id_proof_type = request.POST.get('idprooftype')
-        id_proof_no = request.POST.get('idproofno')
+        selfmob = request.POST.get('selfmobno')
+        #chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
+            data = pg1_new_beds.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 2 Room Creation Form',
+                'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
 
-        prsnts_emp_name = request.POST.get('presentemployee')
-        prsnts_contact_no = request.POST.get('pemployeecontactno')
-        prsnts_emp_address = request.POST.get('pempaddress')
-
-        father_name =  request.POST.get('fname')
-        father_mob_no = request.POST.get('fmobno')
-        emg_contact_no = request.POST.get('emgcontactno')
-        relationship = request.POST.get('relatioship')
-
-        permanent_address = request.POST.get('paddress')
-        #join_date = datetime.datetime.now()
-        fl = request.POST.get('eanable_disable')
-
-        chk = 11
-        if fl == None:
-            chk = 0
+            }
+            messages.info(request, 'guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return view_all_new_guest(request)
         else:
-            chk = 1
+            name = request.POST.get('name')
+            advance = request.POST.get('advance')
+            monthlyrent = request.POST.get('monthlyrent')
+            selfmob = request.POST.get('selfmobno')
+            age = request.POST.get('age')
+            address = request.POST.get('paddress')
+            pname = request.POST.get('pname')
+            pmob = request.POST.get('pmob')
 
-        gc = pg1_regform.objects.get(id=id)
+            ic = pg1_new_beds.objects.get(id=id)
+            ic.name = name
+            ic.advance = advance
+            ic.monthly_rent = monthlyrent
+            ic.self_mob = selfmob
+            ic.age = age
+            ic.permanent_address = address
+            ic.parent_name = pname
+            ic.parent_mob = pmob
 
-        gc.room_no = room_no
-        gc.name = name
-        gc.room_type = room_type
-        gc.monthly_rent = monthly_rent
-        gc.advance = advance
-        gc.age = age
-        gc.dob = dom
-        gc.edu_qualification = edu_qulification
-        gc.mail_id = mail_id
-        gc.self_mob_no = self_mob_no
-        gc.id_proof_type = id_proof_type
-        gc.id_proof_no = id_proof_no
+            ic.flag = 2
+            ic.save()
+            ##################################################
+            gd = []
+            gud = pg1_new_beds.objects.all().filter(id=id)
+            for i in gud:
+                gd.append(i.guest_code)
 
-        gc.prsnt_employee = prsnts_emp_name
-        gc.prsnt_emp_contact_no = prsnts_contact_no
-        gc.prsnt_emp_address = prsnts_emp_address
+            gc = pg1_new_guest.objects.get(guest_code=gd[0])
+            gc.created_by = request.session['username']
 
-        gc.fname = father_name
-        gc.fmob_no = father_mob_no
-        gc.emg_contact_no = emg_contact_no
-        gc.relationship = relationship
+            gc.name = name
+            gc.advance = advance
+            gc.monthly_rent = monthlyrent
+            gc.self_mob = selfmob
+            gc.age = age
+            gc.permanent_address = address
+            gc.parent_name = pname
+            gc.parent_mob = pmob
 
-        gc.permanent_address = permanent_address
-        import datetime
-        gc.join_date = datetime.datetime.now()
+            gc.flag = 2
+            gc.save()
 
-
-
-        gc.year = 0
-        gc.month = 0
-        gc.branch_name = 0
-        gc.flag = chk
-        gc.save()
-
-        context = {
-            'pg1_guests': pg1_regform.objects.all().filter(flag=1),
-        }
-
-        return render(request, 'branches/branch1/guests/view_all_guests.html', context)
+            messages.info(request, 'guest updated sucessfully')
+            return view_all_new_guest(request)
 
     context = {
-        'pg1_guests': pg1_regform.objects.all().filter(flag=1),
-        'sd':pg1_regform.objects.get(id=id),
-        'rn': pg1_rooom.objects.all()
+        'sd': pg1_new_beds.objects.get(id=id)
     }
+    return render(request, 'branches/branch1/new_guest/update_br1_admit_guest.html', context)
 
-    return render(request, 'branches/branch1/guests/update_guest_creation.html',context)
 
-def delete_guest_creation(request):
-    de=pg1_regform.objects.get(id=id)
-    de.delet()
-    return render(request,'')
+def vacate_br1_guest(request, id):
+    if request.method == 'POST':
+        selfmob = request.POST.get('selfmobno')
+        #chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
+            data = pg1_new_beds.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 2 Room Creation Form',
+                #'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
+
+            }
+            messages.info(request, 'guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return view_all_new_guest(request)
+        else:
+
+            gd = []
+            gud = pg1_new_beds.objects.all().filter(id=id)
+            for i in gud:
+                gd.append(i.guest_code)
+
+            gc = pg1_new_guest.objects.get(guest_code=gd[0])
+            gc.created_by = request.session['username']
+            # gc.roon_no = gd[1]
+            import datetime
+            gc.guest_vacated_date = datetime.date.today()
+            d = datetime.datetime.now()
+            gc.guest_vacate_month = d.strftime("%m")
+            gc.flag = 3
+            gc.save()
+
+            ic = pg1_new_beds.objects.get(id=id)
+            ic.name = ''
+            ic.advance = ''
+            ic.monthly_rent = ''
+            ic.self_mob = ''
+            ic.age = 0
+            ic.permanent_address = ''
+            ic.parent_name = ''
+            ic.parent_mob = 0
+
+            ic.guest_code = 0
+            ic.remark = ''
+            ic.guest_join_date = ''
+            ic.guest_join_month = ''
+            ic.guest_vacated_date = ''
+            ic.guest_vacate_month = ''
+
+            ic.jan_rent = 0
+            ic.jan_advance = ''
+            ic.jan_due_amt = ''
+            ic.jan_rent_rec_date = ''
+            ic.jan_rent_flag = 0
+
+            ic.feb_rent = 0
+            ic.feb_advance = ''
+            ic.feb_due_amt = ''
+            ic.feb_rent_rec_date = ''
+            ic.feb_rent_flag = 0
+
+            ic.march_rent = 0
+            ic.march_advance = ''
+            ic.march_due_amt = ''
+            ic.march_rent_rec_date = ''
+            ic.march_rent_flag = 0
+
+            ic.april_rent = 0
+            ic.april_advance = ''
+            ic.april_due_amt = ''
+            ic.april_rent_rec_date = ''
+            ic.april_rent_flag = 0
+
+            ic.may_rent = 0
+            ic.may_advance = ''
+            ic.may_due_amt = ''
+            ic.may_rent_rec_date = ''
+            ic.may_rent_flag = 0
+
+            ic.june_rent = 0
+            ic.june_advance = ''
+            ic.june_due_amt = ''
+            ic.june_rent_rec_date = ''
+            ic.june_rent_flag = 0
+
+            ic.july_rent = 0
+            ic.july_advance = ''
+            ic.july_due_amt = ''
+            ic.july_rent_rec_date = ''
+            ic.july_rent_flag = 0
+
+            ic.auguest_rent = 0
+            ic.auguest_advance = ''
+            ic.auguest_due_amt = ''
+            ic.auguest_rent_rec_date = ''
+            ic.auguest_rent_flag = 0
+
+            ic.sept_rent = 0
+            ic.sept_advance = ''
+            ic.sept_due_amt = ''
+            ic.sept_rent_rec_date = ''
+            ic.sept_rent_flag = 0
+
+            ic.october_rent = 0
+            ic.october_advance = ''
+            ic.october_due_amt = ''
+            ic.october_rent_rec_date = ''
+            ic.october_rent_flag = 0
+
+            ic.nov_rent = 0
+            ic.nov_advance = ''
+            ic.nov_due_amt = ''
+            ic.nov_rent_rec_date = ''
+            ic.nov_rent_flag = 0
+
+            ic.dec_rent = 0
+            ic.dec_advance = ''
+            ic.dec_due_amt = ''
+            ic.dec_rent_rec_date = ''
+            ic.dec_rent_flag = 0
+
+            ic.flag = 3
+            ic.save()
+            ##################################################
+
+
+            messages.info(request, 'guest Vacated sucessfully')
+            return view_all_new_guest(request)
+
+    context = {
+        'sd': pg1_new_beds.objects.get(id=id)
+    }
+    return render(request, 'branches/branch1/new_guest/vacate_br1_guest.html', context)
+
+
+#new guest end here
+################################
 
 ##################################
 #REPORTS START HERE
@@ -281,9 +625,10 @@ def delete_guest_creation(request):
 
 def guest_basic_details(request):
     context = {
-        'up': pg1_regform.objects.all().filter(april_rent_flag=100, flag=1).order_by('room_no'),
+        'up': pg1_new_guest.objects.all().filter(april_rent_flag=100, flag=1).order_by('roon_no'),
         'name': request.session['username'],
-        'month_name': 'APRIL'
+        'month_name': 'APRIL',
+        'rs':8
     }
     return render(request,'branches/branch1/reports/print/guest_basic_details.html',context)
 
@@ -325,130 +670,145 @@ def unpaid_rent(request):
     print(dic[s])
     p=dic[s]
 
-    aa='pg1_regform.objects.all().filter('
+    aa='pg1_new_guest.objects.all().filter('
     bb='=100,flag=1),'
     c=aa+p+bb
     print(c)
-    z=pg1_regform.objects.all().filter(march_rent_flag=100,flag=1),
+    z=pg1_new_guest.objects.all().filter(march_rent_flag=100,flag=1),
     context = {
         'up': z,
         'name' : request.session['username']
     }
-    return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+    return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 
 def paid_rent(request):
     context = {
-        'up': pg1_regform.objects.all().filter(march_rent_flag=200,flag=1),
+        'up': pg1_new_guest.objects.all().filter(march_rent_flag=200,flag=1),
         'name' : request.session['username']
     }
-    return render(request, 'branches/branch1/reports/paid_rent.html', context)
+    return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 
 #************unpaid rent start here********
 
 def unpaid_rent_choose_months(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch1/reports/unpaid_rent_choose_months.html')
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent_choose_months.html')
 
 def jan_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(jan_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JANUARY'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def feb_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(feb_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def mar_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(march_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def april_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(april_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name':'APRIL'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 
 def may_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(may_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(may_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
-            'month_name': 'MAY'
+            'month_name': 'MAY',
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def june_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(june_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def july_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(july_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def aug_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(aug_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 
 def sept_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(sept_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def oct_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(oct_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(oct_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 def nov_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(nov_rent_flag=100, flag=1).order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 
 def dec_unpaid_rent(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_regform.objects.all().filter(dec_rent_flag=100, flag=1).order_by('room_no').order_by('room_no'),
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=100, flag=2).order_by('roon_no').order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch1/reports/unpaid_rent.html', context)
+        return render(request, 'branches/branch1/reports/unpaid_rent/unpaid_rent.html', context)
 
+#details_of_unpaid_guests start here
+
+def details_of_unpaid_guests(request,id):
+    rno = pg1_new_guest.objects.all().filter(id=id)
+    l = []
+    for i in rno:
+        l.append(str(i.roon_no))
+    s = ''.join(l)
+    context = {
+        'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
+        'user_details': pg1_new_guest.objects.all().filter(id=id),
+    }
+    return render(request,'branches/branch1/reports/unpaid_rent/details_of_unpaid_guests.html',context)
+
+#details_of_unpaid_guests end here
 
 #*********unpaid rent end here ************
 
@@ -456,199 +816,216 @@ def dec_unpaid_rent(request):
 
 def paid_rent_choose_months(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch1/reports/paid_rent_choose_months.html')
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent_choose_months.html')
 
 def jan_paid_rent(request):
     if 'username' in request.session:
         l=[]
-        unp=pg1_regform.objects.all().filter(jan_rent_flag=200, flag=1)
+        unp=pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.jan_rent))
             break
         s=''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(jan_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def feb_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(feb_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.feb_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(feb_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
             'name': request.session['username'],'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def mar_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(march_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.march_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(march_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def april_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(april_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.april_rent))
-            break
+
+        print(l)
         s = ''.join(l)
+        print(s)
         context = {
-            'up': pg1_regform.objects.all().filter(april_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2),
             'name': request.session['username'],
-            'amt': s,
+            'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 
 def may_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(may_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.may_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(may_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def june_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(june_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.june_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(june_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def july_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(july_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.july_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(july_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def aug_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(aug_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.aug_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(aug_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 
 def sept_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(sept_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.sept_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(sept_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def oct_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(oct_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(oct_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.oct_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(oct_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(oct_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 def nov_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(nov_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.nov_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(nov_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 
 def dec_paid_rent(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_regform.objects.all().filter(dec_rent_flag=200, flag=1)
+        unp = pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2)
         for i in unp:
             l.append(str(i.dec_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_regform.objects.all().filter(dec_rent_flag=200, flag=1),
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch1/reports/paid_rent.html', context)
+        return render(request, 'branches/branch1/reports/paid_rent/paid_rent.html', context)
 
 
 #*********paid rent end here ************
+
+#details_of_paid_guests start here
+
+def details_of_paid_guests(request,id):
+    rno = pg1_new_guest.objects.all().filter(id=id)
+    l = []
+    for i in rno:
+        l.append(str(i.roon_no))
+    s = ''.join(l)
+    context = {
+        'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
+        'user_details': pg1_new_guest.objects.all().filter(id=id),
+    }
+    return render(request,'branches/branch1/reports/paid_rent/details_of_paid_guests.html',context)
+
+#details_of_paid_guests end here
 
 
 ##################################
 #REPORTS END HERE
 ################################
-
 ##################################
 #PAYMENTS END HERE
 ################################
@@ -662,8 +1039,9 @@ def jan(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,jan_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
             'roomno':rn,
+            'room_name' : room_pg1.objects.all(),
 
         }
         return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
@@ -672,26 +1050,47 @@ def jan_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
+            jp.remark = remark
+            jp.jan_due_amt = remark
+            jp.jan_rent_rec_date = datetime.date.today()
             jp.jan_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.jan_rent = amt
+            jp.remark = remark
+            jp.jan_due_amt = remark
+            jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_rent_flag = 200
+            jp.save()
+
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,jan_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1,jan_rent_flag__gt=99),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2,jan_rent_flag__gt=99),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/jan/jan_manke_payments.html', context)
 
@@ -702,7 +1101,7 @@ def feb(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,feb_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
             'roomno':rn,
         }
         return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
@@ -711,26 +1110,46 @@ def feb_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
+            jp.remark = remark
+            jp.feb_due_amt = remark
+            jp.feb_rent_rec_date = datetime.date.today()
             jp.feb_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.feb_rent = amt
+            jp.remark = remark
+            jp.feb_due_amt = remark
+            jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,feb_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/feb/feb_manke_payments.html', context)
 
@@ -741,7 +1160,7 @@ def march(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,march_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
             'roomno':rn,
         }
         return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
@@ -750,26 +1169,46 @@ def march_manke_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
+            jp.remark = remark
+            jp.march_due_amt = remark
+            jp.march_rent_rec_date = datetime.date.today()
             jp.march_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.march_rent = amt
+            jp.remark = remark
+            jp.march_due_amt = remark
+            jp.march_rent_rec_date = datetime.date.today()
+            jp.march_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,march_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/march/march_manke_payments.html', context)
 
@@ -781,9 +1220,10 @@ def april(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,april_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,april_rent_flag__gt=99),
             'roomno':rn,
-            'room' : pg1_rooom.objects.all()
+            'room' : room_pg1.objects.all(),
+            #'room_name': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
 
@@ -791,26 +1231,50 @@ def april_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
+            jp.remark = remark
+            jp.april_due_amt = remark
+            jp.april_rent_rec_date = datetime.date.today()
             jp.april_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.april_rent = amt
+            jp.remark = remark
+            jp.april_due_amt = remark
+            jp.april_rent_rec_date = datetime.date.today()
+            jp.april_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,april_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
+                'room': room_pg1.objects.all(),
+                'user_details' : pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/april/april_make_payments.html', context)
 
@@ -821,8 +1285,10 @@ def may(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,may_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,may_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
+
         }
         return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
 
@@ -830,26 +1296,49 @@ def may_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
+            jp.remark = remark
+            jp.may_due_amt = remark
+            jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.may_rent = amt
+            jp.remark = remark
+            jp.may_due_amt = remark
+            jp.may_rent_rec_date = datetime.date.today()
+            jp.may_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,may_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/may/may_make_payments.html', context)
 
@@ -860,8 +1349,9 @@ def june(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,june_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,june_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
 
@@ -869,26 +1359,49 @@ def june_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
+            jp.remark = remark
+            jp.june_due_amt = remark
+            jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.june_rent = amt
+            jp.remark = remark
+            jp.june_due_amt = remark
+            jp.june_rent_rec_date = datetime.date.today()
+            jp.june_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,june_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch1/payments/details_of_months/june/june_make_payments.html', context)
 
@@ -899,8 +1412,9 @@ def july(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,july_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,july_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
 
@@ -908,26 +1422,50 @@ def july_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
+            jp.remark = remark
+            jp.july_due_amt = remark
+            jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.july_rent = amt
+            jp.remark = remark
+            jp.july_due_amt = remark
+            jp.july_rent_rec_date = datetime.date.today()
+            jp.july_rent_flag = 200
+            jp.save()
+
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,july_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/july/july_make_payments.html', context)
 
@@ -938,8 +1476,9 @@ def aug(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,aug_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,auguest_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
 
@@ -947,26 +1486,48 @@ def aug_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
-            jp.aug_rent = amt
-            jp.aug_rent_flag = 200
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.auguest_rent = amt
+            jp.remark = remark
+            jp.auguest_due_amt = remark
+            jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.auguest_rent = amt
+            jp.remark = remark
+            jp.auguest_due_amt = remark
+            jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,aug_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/aug/aug_make_payments.html', context)
 
@@ -977,8 +1538,9 @@ def sept(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,sept_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,sept_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
 
@@ -986,26 +1548,49 @@ def sept_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.sept_rent = amt
+            jp.remark = remark
+            jp.sept_due_amt = remark
+            jp.sept_rent_rec_date = datetime.date.today()
             jp.sept_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.sept_rent = amt
+            jp.remark = remark
+            jp.sept_due_amt = remark
+            jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,sept_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=1),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/sept/sept_make_payments.html', context)
 
@@ -1016,8 +1601,9 @@ def oct(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,oct_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,october_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
 
@@ -1025,26 +1611,49 @@ def oct_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
-            jp.oct_rent = amt
-            jp.oct_rent_flag = 200
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.october_rent = amt
+            jp.remark = remark
+            jp.october_due_amt = remark
+            jp.october_rent_rec_date = datetime.date.today()
+            jp.october_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.october_rent = amt
+            jp.remark = remark
+            jp.october_due_amt = remark
+            jp.october_rent_rec_date = datetime.date.today()
+            jp.october_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,oct_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/oct/oct_make_payments.html', context)
 
@@ -1055,8 +1664,9 @@ def nov(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,nov_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,nov_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
 
@@ -1064,26 +1674,48 @@ def nov_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.nov_rent = amt
+            jp.remark = remark
+            jp.nov_due_amt = remark
+            jp.nov_rent_rec_date = datetime.date.today()
             jp.nov_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.nov_rent = amt
+            jp.remark = remark
+            jp.nov_due_amt = remark
+            jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,nov_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/nov/nov_make_payments.html', context)
 
@@ -1094,8 +1726,9 @@ def dec(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
         context={
-            'pd':pg1_regform.objects.all().filter(room_no=rn,flag=1,dec_rent_flag__gt=99),
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,dec_rent_flag__gt=99),
             'roomno':rn,
+            'room': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
 
@@ -1103,26 +1736,48 @@ def dec_make_payments(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
-            jp = pg1_regform.objects.get(id=id)
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
             jp.dec_rent = amt
+            jp.remark = remark
+            jp.dec_due_amt = remark
+            jp.dec_rent_rec_date = datetime.date.today()
             jp.dec_rent_flag = 200
             jp.save()
 
-            rno= pg1_regform.objects.all().filter(id=id)
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll', l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.dec_rent = amt
+            jp.remark = remark
+            jp.dec_due_amt = remark
+            jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_rent_flag = 200
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
             for i in rno:
-                l.append(i.room_no)
+                l.append(str(i.roon_no))
             s=''.join(l)
             context = {
-                'pd': pg1_regform.objects.all().filter(room_no=s, flag=1,dec_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
             }
             return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
 
         context = {
-            'pd': pg1_regform.objects.all().filter(room_no=rn, flag=1),
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_regform.objects.get(id=id)
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
         return render(request,'branches/branch1/payments/details_of_months/dec/dec_make_payments.html', context)
 
@@ -1131,3 +1786,2629 @@ def dec_make_payments(request,id):
 ##################################
 #PAYMENTS END HERE
 ################################
+
+##################################
+#ADVANCE START HERE
+################################
+
+def choose_months_advance(request):
+    if 'username' in request.session:
+        return  render(request,'branches/branch1/advance/choose_months_advance.html')
+
+
+def jan_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/jan/jan_advance.html',context)
+    return render(request,'index.html')
+
+def jan_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.jan_advance = amt
+            jp.remark = remark
+            jp.jan_due_amt = remark
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.jan_advance = amt
+            jp.remark = remark
+            jp.jan_due_amt = remark
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/jan/jan_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+
+def feb_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/feb/feb_advance.html',context)
+    return render(request,'index.html')
+
+def feb_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.feb_advance = amt
+            jp.remark = remark
+            jp.feb_due_amt = remark
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.feb_advance = amt
+            jp.remark = remark
+            jp.feb_due_amt = remark
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/feb/feb_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def march_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/march/march_advance.html',context)
+    return render(request,'index.html')
+
+def march_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.march_advance = amt
+            jp.remark = remark
+            jp.march_due_amt = remark
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.march_advance = amt
+            jp.remark = remark
+            jp.march_due_amt = remark
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/march/march_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/march/march_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def april_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,april_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/april/april_advance.html',context)
+    return render(request, 'index.html')
+
+def april_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.april_advance = amt
+            jp.remark = remark
+            jp.april_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.april_advance = amt
+            jp.remark = remark
+            jp.april_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/april/april_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/april/april_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def may_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,may_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/may/may_advance.html',context)
+    return render(request, 'index.html')
+
+def may_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.may_advance = amt
+            jp.remark = remark
+            jp.may_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.may_advance = amt
+            jp.remark = remark
+            jp.may_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/may/may_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/may/may_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def june_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,june_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/june/june_advance.html',context)
+    return render(request, 'index.html')
+
+def june_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.june_advance = amt
+            jp.remark = remark
+            jp.june_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.june_advance = amt
+            jp.remark = remark
+            jp.june_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/june/june_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/june/june_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def july_advane(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,july_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/july/july_advance.html',context)
+    return render(request, 'index.html')
+
+def july_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.july_advance = amt
+            jp.remark = remark
+            jp.july_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.july_advance = amt
+            jp.remark = remark
+            jp.july_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/july/july_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/july/july_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def auguest_advance(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,auguest_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/aug/aug_advance.html',context)
+    return render(request, 'index.html')
+
+def auguest_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.auguest_advance = amt
+            jp.remark = remark
+            jp.auguest_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.auguest_advance = amt
+            jp.remark = remark
+            jp.auguest_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
+                'room': room_pg1.objects.all(),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/aug/aug_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/aug/aug_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def sept_advance(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,sept_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/sept/sept_advance.html',context)
+    return render(request, 'index.html')
+
+def sept_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.sept_advance = amt
+            jp.remark = remark
+            jp.sept_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.sept_advance = amt
+            jp.remark = remark
+            jp.sept_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/sept/sept_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/sept/sept_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def october_advance(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,october_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/oct/oct_advance.html',context)
+    return render(request, 'index.html')
+
+def october_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.october_advance = amt
+            jp.remark = remark
+            jp.october_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.october_advance = amt
+            jp.remark = remark
+            jp.october_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/oct/oct_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/oct/oct_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def nov_advance(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,nov_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/nov/nov_advance.html',context)
+    return render(request, 'index.html')
+
+def nov_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.nov_advance = amt
+            jp.remark = remark
+            jp.nov_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.nov_advance = amt
+            jp.remark = remark
+            jp.nov_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/nov/nov_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/nov/nov_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+def dec_advance(request):
+    if 'username' in request.session:
+        rn = request.POST.get('rno')
+        context={
+            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,dec_rent_flag__gt=99),
+            'roomno':rn,
+            'room': room_pg1.objects.all(),
+
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/dec/dec_advance.html',context)
+    return render(request, 'index.html')
+
+def dec_make_payments_advance(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.dec_advance = amt
+            jp.remark = remark
+            jp.dec_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+            gc = ''.join(l)
+            print('lll',l)
+
+            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            jp.dec_advance = amt
+            jp.remark = remark
+            jp.dec_due_amt = remark
+            #jp.may_rent_rec_date = datetime.date.today()
+
+            jp.save()
+
+            rno= pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in rno:
+                l.append(str(i.roon_no))
+            s=''.join(l)
+            context = {
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
+            }
+            return render(request, 'branches/branch1/advance/details_of_months/dec/dec_advance.html',context)
+        rn = request.POST.get('rno')
+
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
+            'roomno': rn,
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'room': room_pg1.objects.all(),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/advance/details_of_months/dec/dec_make_payments_advance.html', context)
+    return render(request, 'index.html')
+
+
+##################################
+#ADVANCE END HERE
+################################
+
+##################################
+#PRINT OUTS START HERE
+################################
+def detail_guest_general(request):
+    if 'username' in request.session:
+        l=[]
+        data=pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll=[]
+        rsdata=room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data=pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1':l[0],
+            'table_height' : '40px',
+
+            'g1':ll[0],
+            'g1_data':pg1_new_beds.objects.all().filter(roon_no=1),
+            #'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/detail_guest_general.html',context)
+    return render(request, 'index.html')
+
+def jan_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/jan_print.html',context)
+    return render(request, 'index.html')
+
+
+def jan_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_jan select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor(pymysql.cursors.DictCursor)
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.jan = 1
+            bc.save()
+            return feb_print(request)
+
+    return render(request,'index.html')
+
+def jan_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/print_outs/jan_months_close_page.html')
+        if chk == False:
+            return feb_print(request)
+    return render(request,'index.html')
+
+
+def feb_print(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,
+                              database=database_name)
+            query = 'create table myapp_branch1_closing_jan select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor(pymysql.cursors.DictCursor)
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.jan = 1
+            bc.save()
+
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/feb_print.html',context)
+    return render(request, 'index.html')
+
+def feb_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(feb='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_feb select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.feb = 1
+            bc.save()
+            return march_print(request)
+    return render(request,'index.html')
+
+def feb_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(feb='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/feb_months_close_page.html')
+        if chk == False:
+            return feb_print(request)
+    return render(request,'index.html')
+
+def march_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/march_print.html',context)
+    return render(request, 'index.html')
+
+
+def mar_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(mar='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_mar select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.mar = 1
+            bc.save()
+            return march_print(request)
+    return render(request,'index.html')
+
+def mar_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(mar='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/mar_months_close_page.html')
+        if chk == False:
+            return feb_print(request)
+    return render(request,'index.html')
+
+
+def april_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/april_print.html',context)
+    return render(request, 'index.html')
+
+
+def apr_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(apr='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_apr select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.apr = 1
+            bc.save()
+            return march_print(request)
+    return render(request,'index.html')
+
+def apr_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(apr='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/apr_months_close_page.html')
+        if chk == False:
+            return feb_print(request)
+    return render(request,'index.html')
+
+
+def may_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/may_print.html',context)
+    return render(request, 'index.html')
+
+def may_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(may='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_may select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.may = 1
+            bc.save()
+            return may_print(request)
+    return render(request,'index.html')
+
+def may_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(may='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/may_months_close_page.html')
+        if chk == False:
+            return may_print(request)
+    return render(request,'index.html')
+
+
+def june_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/june_print.html',context)
+    return render(request, 'index.html')
+
+def jun_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jun='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_jun select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.jun = 1
+            bc.save()
+            return june_print(request)
+    return render(request,'index.html')
+
+def jun_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jun='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/jun_months_close_page.html')
+        if chk == False:
+            return june_print(request)
+    return render(request,'index.html')
+
+
+def july_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/july_print.html',context)
+    return render(request, 'index.html')
+
+
+def jul_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jul='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_jul select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.jul = 1
+            bc.save()
+            return july_print(request)
+    return render(request,'index.html')
+
+def jul_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jul='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/jul_months_close_page.html')
+        if chk == False:
+            return july_print(request)
+    return render(request,'index.html')
+
+
+def aug_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/aug_print.html',context)
+    return render(request, 'index.html')
+
+
+def aug_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(aug='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_aug select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.aug = 1
+            bc.save()
+            return aug_print(request)
+    return render(request,'index.html')
+
+def aug_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(aug='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/aug_months_close_page.html')
+        if chk == False:
+            return aug_print(request)
+    return render(request,'index.html')
+
+
+def sept_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/sept_print.html',context)
+    return render(request, 'index.html')
+
+
+def sep_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(sep='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_sep select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.sep = 1
+            bc.save()
+            return sept_print(request)
+    return render(request,'index.html')
+
+def sep_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(sep='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/sep_months_close_page.html')
+        if chk == False:
+            return sept_print(request)
+    return render(request,'index.html')
+
+
+def oct_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/oct_print.html',context)
+    return render(request, 'index.html')
+
+
+def oct_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(oct='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_oct select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.oct = 1
+            bc.save()
+            return oct_print(request)
+    return render(request,'index.html')
+
+def oct_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(oct='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/oct_months_close_page.html')
+        if chk == False:
+            return oct_print(request)
+    return render(request,'index.html')
+
+
+def nov_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/nov_print.html',context)
+    return render(request, 'index.html')
+
+
+def nov_close(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(nov='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table myapp_branch1_closing_nov select * from myapp_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch1')
+            bc.nov = 1
+            bc.save()
+            return nov_print(request)
+    return render(request,'index.html')
+
+def nov_close_decision_page(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(nov='', branch_name='branch1').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch1/close_months/nov_months_close_page.html')
+        if chk == False:
+            return nov_print(request)
+    return render(request,'index.html')
+
+
+
+def dec_print(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch1/print_outs/dec_print.html',context)
+    return render(request, 'index.html')
+
+##################################
+#PRINT OUTS END HERE
+################################
+
+##################################
+#VACATE GUEST DETAILS START HERE
+################################
+
+def viewall_vacate_guest(request):
+    context = {
+        'vg' : pg1_new_guest.objects.all().filter(flag=3,remark__gt='0').exclude(remark = '').order_by('-id')
+    }
+    return render(request,'branches/branch1/vacate_guest/viewall_vacate_guest.html',context)
+
+def details_of_vacate_guest(request,id):
+    context = {
+        'user_details': pg1_new_guest.objects.all().filter(id=id),
+    }
+    return render(request,'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+#***********vacate guest payments start here*******
+
+def jan_manke_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.jan_rent = amt
+            jp.remark = remark
+            jp.jan_due_amt = remark
+            jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_rent_flag = 200
+            jp.save()
+
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id)
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/payments/details_of_months/jan/jan_manke_payments_vacate.html', context)
+
+
+def feb_manke_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.feb_rent = amt
+            jp.remark = remark
+            jp.feb_due_amt = remark
+            jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request, 'branches/branch1/payments/details_of_months/feb/feb_manke_payments_vacate.html', context)
+
+def march_manke_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.march_rent = amt
+            jp.remark = remark
+            jp.march_due_amt = remark
+            jp.march_rent_rec_date = datetime.date.today()
+            jp.march_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request, 'branches/branch1/payments/details_of_months/march/march_manke_payments_vacate.html', context)
+
+
+def april_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.april_rent = amt
+            jp.remark = remark
+            jp.april_due_amt = remark
+            jp.april_rent_rec_date = datetime.date.today()
+            jp.april_rent_flag = 200
+            jp.save()
+
+            context = {
+                'user_details' : pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html', context)
+    return render(request,'index.html')
+
+
+
+def may_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.may_rent = amt
+            jp.remark = remark
+            jp.may_due_amt = remark
+            jp.may_rent_rec_date = datetime.date.today()
+            jp.may_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html', context)
+
+
+def june_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.june_rent = amt
+            jp.remark = remark
+            jp.june_due_amt = remark
+            jp.june_rent_rec_date = datetime.date.today()
+            jp.june_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id)
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id)
+        }
+        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html', context)
+
+
+def july_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.july_rent = amt
+            jp.remark = remark
+            jp.july_due_amt = remark
+            jp.july_rent_rec_date = datetime.date.today()
+            jp.july_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html', context)
+
+def aug_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.auguest_rent = amt
+            jp.remark = remark
+            jp.auguest_due_amt = remark
+            jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_rent_flag = 200
+            jp.save()
+
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html', context)
+
+
+def sept_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.sept_rent = amt
+            jp.remark = remark
+            jp.sept_due_amt = remark
+            jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_rent_flag = 200
+            jp.save()
+
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html', context)
+
+def oct_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.october_rent = amt
+            jp.remark = remark
+            jp.october_due_amt = remark
+            jp.october_rent_rec_date = datetime.date.today()
+            jp.october_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html', context)
+
+
+def nov_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.nov_rent = amt
+            jp.remark = remark
+            jp.nov_due_amt = remark
+            jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html', context)
+
+def dec_make_payments_vacate(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            amt=request.POST.get('janamt')
+            remark = request.POST.get('janremark')
+
+            jp = pg1_new_guest.objects.get(id=id)
+            jp.dec_rent = amt
+            jp.remark = remark
+            jp.dec_due_amt = remark
+            jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_rent_flag = 200
+            jp.save()
+            context = {
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+            }
+            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html', context)
+
+
+#************vacate guest payments end here*******
+
+##################################
+#VACATE GUEST DETAILS END HERE
+################################
+
+def pysql (request):
+    chk = branch_closing.objects.all().filter(jan='',branch_name='branch1').exists()
+    print(chk)
+    if chk == True:
+
+        conn = py.connect(host=database_host, user=database_user, password=database_password, database=database_name)
+        query = 'create table myapp_branch1_closing_jan select * from myapp_pg1_new_beds'
+        # create cursor object to execute the query
+        cur = conn.cursor(pymysql.cursors.DictCursor)
+        cur.execute(query)
+
+        bc=branch_closing.objects.get(branch_name='branch1')
+        bc.jan = 1
+        bc.save()
+
+        return render (request,'branches/branch1/test.html')
+    return branch1_dashboard (request)
+

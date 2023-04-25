@@ -1,9 +1,13 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from . import admin_branch1
+
 from . import branch1
 from . import branch2
 from . import branch3
+
+d='test'
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -18,97 +22,87 @@ urlpatterns = [
     path('user_update/<id>', views.user_update, name='user_update'),
     # ****user end here ******
 
-    path('registration_form_create/',views.registration_form_create,name='registration_form_create'),
-    path('update_registration_form/',views.update_registration_form,name='update_registration_form'),
-
+#branch one start here
+    path('branch1_dashboard/',branch1.branch1_dashboard,name='branch1_dashboard'),
 #**room creation start here
 
-    path('select_branch/',views.select_branch,name='select_branch'),
-    path('branch1_room_create_regi/',views.branch1_room_create_regi,name='branch1_room_create_regi'),
-    path('view_all_rooms/',views.view_all_rooms,name='view_all_rooms'),
-    path('delete_room/<id>',views.delete_room,name='delete_room'),
+    #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
+    path('branch1_room_create_regi/',admin_branch1.branch1_room_create_regi,name='branch1_room_create_regi'),
+    path('view_all_rooms/',admin_branch1.view_all_rooms,name='view_all_rooms'),
+    path('delete_room/<id>',admin_branch1.delete_room,name='delete_room'),
 
-    path('branch1_room_create/',views.branch1_room_create,name='branch1_room_create'),
-
+    path('branch1_room_create/',admin_branch1.branch1_room_create,name='branch1_room_create'),
 
 #**room creation end here
+#bed creation start here
 
-#****************************************************************************************************
-#head office Reports start HERE
-#***********************************
+    path('pg1_bed_create_regi/', admin_branch1.pg1_bed_create_regi, name='pg1_bed_create_regi'),
+    path('pg1_view_all_beds/', admin_branch1.pg1_view_all_beds, name='pg1_view_all_beds'),
+    # path('delete_room/<id>', views.delete_room, name='delete_room'),
 
-#**unpadid start here**
+    path('pg1_bed_create/', admin_branch1.pg1_bed_create, name='pg1_bed_create'),
 
-    path('select_month_all_branch_unpaid_rent/', views.select_month_all_branch_unpaid_rent, name='select_month_all_branch_unpaid_rent'),
-    path('all_branch_unpaid_rent/', views.all_branch_unpaid_rent, name='all_branch_unpaid_rent'),
+#bed creation end here
+#guest
+    path('br1_admit_guest/<id>',branch1.br1_admit_guest,name='br1_admit_guest'),
+    path('view_all_new_guest/',branch1.view_all_new_guest,name='view_all_new_guest'),
+    path('update_br1_admit_guest/<id>',branch1.update_br1_admit_guest,name='update_br1_admit_guest'),
+    path('vacate_br1_guest/<id>',branch1.vacate_br1_guest,name='vacate_br1_guest'),
+    #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
+    #path('admit_guest/',views.admit_guest,name='admit_guest'),
+#guest end here
 
-    path('all_jan_unpaid_rent/', views.all_jan_unpaid_rent, name='all_jan_unpaid_rent'),
-    path('all_feb_unpaid_rent/', views.all_feb_unpaid_rent, name='all_feb_unpaid_rent'),
-    path('all_mar_unpaid_rent/', views.all_mar_unpaid_rent, name='all_mar_unpaid_rent'),
-    path('all_april_unpaid_rent/', views.all_april_unpaid_rent, name='all_april_unpaid_rent'),
+#*********reports start here
 
-    path('all_may_unpaid_rent/', views.all_may_unpaid_rent, name='all_may_unpaid_rent'),
-    path('all_june_unpaid_rent/', views.all_june_unpaid_rent, name='all_june_unpaid_rent'),
-    path('all_july_unpaid_rent/', views.all_july_unpaid_rent, name='all_july_unpaid_rent'),
-    path('all_aug_unpaid_rent/', views.all_aug_unpaid_rent, name='all_aug_unpaid_rent'),
+#unpaid rent start here
+    path('unpaid_rent_choose_months/',branch1.unpaid_rent_choose_months,name='unpaid_rent_choose_months'),
 
-    path('all_sept_unpaid_rent/', views.all_sept_unpaid_rent, name='all_sept_unpaid_rent'),
-    path('all_oct_unpaid_rent/', views.all_oct_unpaid_rent, name='all_oct_unpaid_rent'),
-    path('all_nov_unpaid_rent/', views.all_nov_unpaid_rent, name='all_nov_unpaid_rent'),
-    path('all_dec_unpaid_rent/', views.all_dec_unpaid_rent, name='all_dec_unpaid_rent'),
+    path('jan_unpaid_rent/', branch1.jan_unpaid_rent, name='jan_unpaid_rent'),
+    path('feb_unpaid_rent/', branch1.feb_unpaid_rent, name='feb_unpaid_rent'),
+    path('mar_unpaid_rent/', branch1.mar_unpaid_rent, name='mar_unpaid_rent'),
+    path('april_unpaid_rent/', branch1.april_unpaid_rent, name='april_unpaid_rent'),
 
-#**unpaid end here**
-#**paid start here
+    path('may_unpaid_rent/', branch1.may_unpaid_rent, name='may_unpaid_rent'),
+    path('june_unpaid_rent/', branch1.june_unpaid_rent, name='june_unpaid_rent'),
+    path('july_unpaid_rent/', branch1.july_unpaid_rent, name='july_unpaid_rent'),
+    path('aug_unpaid_rent/', branch1.aug_unpaid_rent, name='aug_unpaid_rent'),
 
-    path('select_month_all_branch_paid_rent/', views.select_month_all_branch_paid_rent, name='select_month_all_branch_paid_rent'),
+    path('sept_unpaid_rent/', branch1.sept_unpaid_rent, name='sept_unpaid_rent'),
+    path('oct_unpaid_rent/', branch1.oct_unpaid_rent, name='oct_unpaid_rent'),
+    path('nov_unpaid_rent/', branch1.nov_unpaid_rent, name='nov_unpaid_rent'),
+    path('dec_unpaid_rent/', branch1.dec_unpaid_rent, name='dec_unpaid_rent'),
 
-    path('all_jan_paid_rent/', views.all_jan_paid_rent, name='all_jan_paid_rent'),
-    path('all_feb_paid_rent/', views.all_feb_paid_rent, name='all_feb_paid_rent'),
-    path('all_mar_paid_rent/', views.all_mar_paid_rent, name='all_mar_paid_rent'),
-    path('all_april_paid_rent/', views.all_april_paid_rent, name='all_april_paid_rent'),
+    path('details_of_unpaid_guests/<id>',branch1.details_of_unpaid_guests,name='details_of_unpaid_guests'),
 
-    path('all_may_paid_rent/', views.all_may_paid_rent, name='all_may_paid_rent'),
-    path('all_june_paid_rent/', views.all_june_paid_rent, name='all_june_paid_rent'),
-    path('all_july_paid_rent/', views.all_july_paid_rent, name='all_july_paid_rent'),
-    path('all_aug_paid_rent/', views.all_aug_paid_rent, name='all_aug_paid_rent'),
+#unpaid rent end here
 
-    path('all_sept_paid_rent/', views.all_sept_paid_rent, name='all_sept_paid_rent'),
-    path('all_oct_paid_rent/', views.all_oct_paid_rent, name='all_oct_paid_rent'),
-    path('all_nov_paid_rent/', views.all_nov_paid_rent, name='all_nov_paid_rent'),
-    path('all_dec_paid_rent/', views.all_dec_paid_rent, name='all_dec_paid_rent'),
+#paid rent start here
+    path('paid_rent_choose_months/',branch1.paid_rent_choose_months,name='paid_rent_choose_months'),
 
-    #**paid end here
+    path('jan_paid_rent/', branch1.jan_paid_rent, name='jan_paid_rent'),
+    path('feb_paid_rent/', branch1.feb_paid_rent, name='feb_paid_rent'),
+    path('mar_paid_rent/', branch1.mar_paid_rent, name='mar_paid_rent'),
+    path('april_paid_rent/', branch1.april_paid_rent, name='april_paid_rent'),
 
-#****************************************************************************************************
-#head office Reports  HERE
-#***********************************
+    path('may_paid_rent/', branch1.may_paid_rent, name='may_paid_rent'),
+    path('june_paid_rent/', branch1.june_paid_rent, name='june_paid_rent'),
+    path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
+    path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
 
-#****************************************************************************************************
-#BRANCH ONE START HERE
-#***********************************
+    path('sept_paid_rent/', branch1.sept_paid_rent, name='sept_paid_rent'),
+    path('oct_paid_rent/', branch1.oct_paid_rent, name='oct_paid_rent'),
+    path('nov_paid_rent/', branch1.nov_paid_rent, name='nov_paid_rent'),
+    path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
 
-    path('branch_index/',branch1.branch_index,name='branch_index'),
+    path('details_of_paid_guests/<id>',branch1.details_of_paid_guests,name='details_of_paid_guests'),
 
-    path('guest_creation/',branch1.guest_creation,name='guest_creation'),
-    path('guest_creation_regi/', branch1.guest_creation_regi, name='guest_creation_regi'),
-    path('view_all_guests/',branch1.view_all_guests,name='view_all_guests'),
-    path('update_guest_creation/<id>', branch1.update_guest_creation, name='update_guest_creation'),
+#paid rent end here
 
-##################################
-# REPORTS START HERE
-################################
 
-    path('unpaid_rent/',branch1.unpaid_rent,name='unpaid_rent'),
-    path('paid_rent/',branch1.paid_rent,name='paid_rent'),
+#*********reports end here
 
 ##################################
-# REPORTS START HERE
-################################
-
-    path('guest_basic_details/',branch1.guest_basic_details,name='guest_basic_details'),
-
-##################################
-#PAYMENTS END HERE
+#PAYMENTS START HERE
 ################################
 
     path('choose_months/',branch1.choose_months,name='choose_months'),
@@ -149,267 +143,125 @@ urlpatterns = [
     path('dec/',branch1.dec,name='dec'),
     path('dec_make_payments/<id>',branch1.dec_make_payments,name='dec_make_payments'),
 
-#*********reports start here
-
-#unpaid rent start here
-    path('unpaid_rent_choose_months/',branch1.unpaid_rent_choose_months,name='unpaid_rent_choose_months'),
-
-    path('jan_unpaid_rent/', branch1.jan_unpaid_rent, name='jan_unpaid_rent'),
-    path('feb_unpaid_rent/', branch1.feb_unpaid_rent, name='feb_unpaid_rent'),
-    path('mar_unpaid_rent/', branch1.mar_unpaid_rent, name='mar_unpaid_rent'),
-    path('april_unpaid_rent/', branch1.april_unpaid_rent, name='april_unpaid_rent'),
-
-    path('may_unpaid_rent/', branch1.may_unpaid_rent, name='may_unpaid_rent'),
-    path('june_unpaid_rent/', branch1.june_unpaid_rent, name='june_unpaid_rent'),
-    path('july_unpaid_rent/', branch1.july_unpaid_rent, name='july_unpaid_rent'),
-    path('aug_unpaid_rent/', branch1.aug_unpaid_rent, name='aug_unpaid_rent'),
-
-    path('sept_unpaid_rent/', branch1.sept_unpaid_rent, name='sept_unpaid_rent'),
-    path('oct_unpaid_rent/', branch1.oct_unpaid_rent, name='oct_unpaid_rent'),
-    path('nov_unpaid_rent/', branch1.nov_unpaid_rent, name='nov_unpaid_rent'),
-    path('dec_unpaid_rent/', branch1.dec_unpaid_rent, name='dec_unpaid_rent'),
-
-#unpaid rent end here
-
-#paid rent start here
-    path('paid_rent_choose_months/',branch1.paid_rent_choose_months,name='paid_rent_choose_months'),
-
-    path('jan_paid_rent/', branch1.jan_paid_rent, name='jan_paid_rent'),
-    path('feb_paid_rent/', branch1.feb_paid_rent, name='feb_paid_rent'),
-    path('mar_paid_rent/', branch1.mar_paid_rent, name='mar_paid_rent'),
-    path('april_paid_rent/', branch1.april_paid_rent, name='april_paid_rent'),
-
-    path('may_paid_rent/', branch1.may_paid_rent, name='may_paid_rent'),
-    path('june_paid_rent/', branch1.june_paid_rent, name='june_paid_rent'),
-    path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
-    path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
-
-    path('sept_paid_rent/', branch1.sept_paid_rent, name='sept_paid_rent'),
-    path('oct_paid_rent/', branch1.oct_paid_rent, name='oct_paid_rent'),
-    path('nov_paid_rent/', branch1.nov_paid_rent, name='nov_paid_rent'),
-    path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
-
-#paid rent end here
-
-
-#*********reports end here
-
 ##################################
 #PAYMENTS END HERE
 ################################
 
-#****************************************************************************************************
-#BRANCH ONE END HERE
-#***********************************
-#****************************************************************************************************
-#BRANCH TWO START HERE
-#***********************************
+##################################
+#ADVANCE START HERE
+################################
+
+    path('choose_months_advance/',branch1.choose_months_advance,name='choose_months_advance'),
+
+    path('april_advane/', branch1.april_advane, name='april_advane'),
+    path('april_make_payments_advance/<id>', branch1.april_make_payments_advance, name='april_make_payments_advance'),
+
+    path('may_advane/',branch1.may_advane,name='may_advane'),
+    path('may_make_payments_advance/<id>', branch1.may_make_payments_advance, name='may_make_payments_advance'),
+    path('june_advane/',branch1.june_advane,name='june_advane'),
+    path('june_make_payments_advance/<id>', branch1.june_make_payments_advance, name='june_make_payments_advance'),
+    path('july_advane/',branch1.july_advane,name='july_advane'),
+    path('july_make_payments_advance/<id>', branch1.july_make_payments_advance, name='july_make_payments_advance'),
+    path('auguest_advance/', branch1.auguest_advance, name='auguest_advance'),
+    path('auguest_make_payments_advance/<id>', branch1.auguest_make_payments_advance, name='auguest_make_payments_advance'),
+
+    path('sept_advance/', branch1.sept_advance, name='sept_advance'),
+    path('sept_make_payments_advance/<id>', branch1.sept_make_payments_advance,name='sept_make_payments_advance'),
+    path('october_advance/', branch1.october_advance, name='october_advance'),
+    path('october_make_payments_advance/<id>', branch1.october_make_payments_advance, name='october_make_payments_advance'),
+    path('nov_advance/', branch1.nov_advance, name='nov_advance'),
+    path('nov_make_payments_advance/<id>', branch1.nov_make_payments_advance,name='nov_make_payments_advance'),
+    path('dec_advance/', branch1.dec_advance, name='dec_advance'),
+    path('dec_make_payments_advance/<id>', branch1.dec_make_payments_advance, name='dec_make_payments_advance'),
+
+    ##################################
+#ADVANCE END HERE
+################################
+
+##################################
+#PRINT OUTS START HERE
+################################
+
+    path('detail_guest_general/',branch1.detail_guest_general,name='detail_guest_general'),
+
+    path('jan_print/',branch1.jan_print,name='jan_print'),
+    path('feb_print/',branch1.feb_print,name='feb_print'),
+    path('march_print/',branch1.march_print,name='march_print'),
+    path('april_print/',branch1.april_print,name='april_print'),
+
+    path('may_print/',branch1.may_print,name='may_print'),
+    path('june_print/',branch1.june_print,name='june_print'),
+    path('july_print/', branch1.july_print, name='july_print'),
+    path('aug_print/', branch1.aug_print, name='aug_print'),
+
+    path('sept_print/', branch1.sept_print, name='sept_print'),
+    path('oct_print/', branch1.oct_print, name='oct_print'),
+    path('nov_print/', branch1.nov_print, name='nov_print'),
+    path('dec_print/', branch1.dec_print, name='dec_print'),
+
+##################################
+#PRINT OUTS END HERE
+################################
+
+    path('jan_close/',branch1.jan_close,name='jan_close'),
+    path('jan_close_decision_page/',branch1.jan_close_decision_page,name='jan_close_decision_page'),
+    path('feb_close/',branch1.feb_close,name='feb_close'),
+    path('feb_close_decision_page/',branch1.feb_close_decision_page,name='feb_close_decision_page'),
+    path('mar_close/', branch1.mar_close, name='mar_close'),
+    path('mar_close_decision_page/', branch1.mar_close_decision_page, name='mar_close_decision_page'),
+    path('apr_close/', branch1.apr_close, name='apr_close'),
+    path('apr_close_decision_page/', branch1.apr_close_decision_page, name='apr_close_decision_page'),
+
+    path('may_close/', branch1.may_close, name='may_close'),
+    path('may_close_decision_page/', branch1.may_close_decision_page, name='may_close_decision_page'),
+    path('jun_close/', branch1.jun_close, name='jun_close'),
+    path('jun_close_decision_page/', branch1.jun_close_decision_page, name='jun_close_decision_page'),
+    path('jul_close/', branch1.jul_close, name='jul_close'),
+    path('jul_close_decision_page/', branch1.jul_close_decision_page, name='jul_close_decision_page'),
+    path('aug_close/', branch1.aug_close, name='aug_close'),
+    path('aug_close_decision_page/', branch1.aug_close_decision_page, name='aug_close_decision_page'),
+
+    path('sep_close/', branch1.sep_close, name='sep_close'),
+    path('sep_close_decision_page/', branch1.sep_close_decision_page, name='sep_close_decision_page'),
+    path('oct_close/', branch1.oct_close, name='oct_close'),
+    path('oct_close_decision_page/', branch1.oct_close_decision_page, name='oct_close_decision_page'),
+    path('nov_close/', branch1.nov_close, name='nov_close'),
+    path('nov_close_decision_page/', branch1.nov_close_decision_page, name='nov_close_decision_page'),
+
+    ##################################
+#VACATE GUEST DETAILS START HERE
+################################
+
+    path('viewall_vacate_guest/',branch1.viewall_vacate_guest,name='viewall_vacate_guest'),
+    path('details_of_vacate_guest/<id>',branch1.details_of_vacate_guest,name='details_of_vacate_guest'),
+
+#********vacate guest payments start here**********
+
+    path('jan_manke_payments_vacate/<id>', branch1.jan_manke_payments_vacate, name='jan_manke_payments_vacate'),
+    path('feb_manke_payments_vacate/<id>', branch1.feb_manke_payments_vacate, name='feb_manke_payments_vacate'),
+    path('march_manke_payments_vacate/<id>', branch1.march_manke_payments_vacate, name='march_manke_payments_vacate'),
+    path('april_make_payments_vacate/<id>', branch1.april_make_payments_vacate, name='april_make_payments_vacate'),
+
+    path('may_make_payments_vacate/<id>', branch1.may_make_payments_vacate, name='may_make_payments_vacate'),
+    path('june_make_payments_vacate/<id>', branch1.june_make_payments_vacate, name='june_make_payments_vacate'),
+    path('july_make_payments_vacate/<id>', branch1.july_make_payments_vacate, name='july_make_payments_vacate'),
+    path('aug_make_payments_vacate/<id>', branch1.aug_make_payments_vacate, name='aug_make_payments_vacate'),
+
+    path('sept_make_payments_vacate/<id>', branch1.sept_make_payments_vacate, name='sept_make_payments_vacate'),
+    path('oct_make_payments_vacate/<id>', branch1.oct_make_payments_vacate, name='oct_make_payments_vacate'),
+    path('nov_make_payments_vacate/<id>', branch1.nov_make_payments_vacate, name='nov_make_payments_vacate'),
+    path('dec_make_payments_vacate/<id>', branch1.dec_make_payments_vacate, name='dec_make_payments_vacate'),
 
-    path('branch_index2/', branch2.branch_index, name='branch_index'),
+#********vacate guest payments end here**********
 
-    path('guest_creation2/', branch2.guest_creation, name='guest_creation2'),
-    path('guest_creation_regi2/', branch2.guest_creation_regi, name='guest_creation_regi2'),
-    path('view_all_guests2/', branch2.view_all_guests, name='view_all_guests2'),
-    path('update_guest_creation2/<id>', branch2.update_guest_creation, name='update_guest_creation2'),
+##################################
+#VACATE GUEST DETAILS END HERE
+################################
 
-#*********reports start here
+#branch one end here
 
-#unpaid rent start here
-    path('unpaid_rent_choose_months2/',branch2.unpaid_rent_choose_months,name='unpaid_rent_choose_months2'),
-
-    path('jan_unpaid_rent2/', branch2.jan_unpaid_rent, name='jan_unpaid_rent2'),
-    path('feb_unpaid_rent2/', branch2.feb_unpaid_rent, name='feb_unpaid_rent2'),
-    path('mar_unpaid_rent2/', branch2.mar_unpaid_rent, name='mar_unpaid_rent2'),
-    path('april_unpaid_rent2/', branch2.april_unpaid_rent, name='april_unpaid_rent2'),
-
-    path('may_unpaid_rent2/', branch2.may_unpaid_rent, name='may_unpaid_rent2'),
-    path('june_unpaid_rent2/', branch2.june_unpaid_rent, name='june_unpaid_rent2'),
-    path('july_unpaid_rent2/', branch2.july_unpaid_rent, name='july_unpaid_rent2'),
-    path('aug_unpaid_rent2/', branch2.aug_unpaid_rent, name='aug_unpaid_rent2'),
-
-    path('sept_unpaid_rent2/', branch2.sept_unpaid_rent, name='sept_unpaid_rent2'),
-    path('oct_unpaid_rent2/', branch2.oct_unpaid_rent, name='oct_unpaid_rent2'),
-    path('nov_unpaid_rent2/', branch2.nov_unpaid_rent, name='nov_unpaid_rent2'),
-    path('dec_unpaid_rent2/', branch2.dec_unpaid_rent, name='dec_unpaid_rent2'),
-
-#unpaid rent end here
-
-#paid rent start here
-    path('paid_rent_choose_months2/',branch2.paid_rent_choose_months,name='paid_rent_choose_months2'),
-
-    path('jan_paid_rent2/', branch2.jan_paid_rent, name='jan_paid_rent2'),
-    path('feb_paid_rent2/', branch2.feb_paid_rent, name='feb_paid_rent2'),
-    path('mar_paid_rent2/', branch2.mar_paid_rent, name='mar_paid_rent2'),
-    path('april_paid_rent2/', branch2.april_paid_rent, name='april_paid_rent2'),
-
-    path('may_paid_rent2/', branch2.may_paid_rent, name='may_paid_rent2'),
-    path('june_paid_rent2/', branch2.june_paid_rent, name='june_paid_rent2'),
-    path('july_paid_rent2/', branch2.july_paid_rent, name='july_paid_rent2'),
-    path('aug_paid_rent2/', branch2.aug_paid_rent, name='aug_paid_rent2'),
-
-    path('sept_paid_rent2/', branch2.sept_paid_rent, name='sept_paid_rent2'),
-    path('oct_paid_rent2/', branch2.oct_paid_rent, name='oct_paid_rent2'),
-    path('nov_paid_rent2/', branch2.nov_paid_rent, name='nov_paid_rent2'),
-    path('dec_paid_rent2/', branch2.dec_paid_rent, name='dec_paid_rent2'),
-
-#paid rent end here
-
-
-#*********reports end here
-
-#payments start here
-
-    path('choose_months2/', branch2.choose_months, name='choose_months2'),
-
-    path('jan2/', branch2.jan, name='jan2'),
-    path('jan_manke_payments2/<id>', branch1.jan_manke_payments, name='jan_manke_payments2'),
-
-    path('feb2/', branch2.feb, name='feb2'),
-    path('feb_manke_payments2/<id>', branch2.feb_manke_payments, name='feb_manke_payments2'),
-
-    path('march2/', branch2.march, name='march2'),
-    path('march_manke_payments2/<id>', branch2.march_manke_payments, name='march_manke_payments2'),
-
-    path('april2/', branch2.april, name='april2'),
-    path('april_make_payments2/<id>', branch2.april_make_payments, name='april_make_payments2'),
-
-    path('may2/', branch2.may, name='may2'),
-    path('may_make_payments2/<id>', branch2.may_make_payments, name='may_make_payments2'),
-
-    path('june2/', branch2.june, name='june2'),
-    path('june_make_payments2/<id>', branch2.june_make_payments, name='june_make_payments2'),
-
-    path('july2/', branch2.july, name='july2'),
-    path('july_make_payments2/<id>', branch2.july_make_payments, name='july_make_payments2'),
-
-    path('aug2/', branch2.aug, name='aug2'),
-    path('aug_make_payments2/<id>', branch2.aug_make_payments, name='aug_make_payments2'),
-
-    path('sept2/', branch2.sept, name='sept2'),
-    path('sept_make_payments2/<id>', branch2.sept_make_payments, name='sept_make_payments2'),
-
-    path('oct2/', branch2.oct, name='oct2'),
-    path('oct_make_payments2/<id>', branch2.oct_make_payments, name='oct_make_payments2'),
-
-    path('nov2/', branch2.nov, name='nov2'),
-    path('nov_make_payments2/<id>', branch2.nov_make_payments, name='nov_make_payments2'),
-
-    path('dec2/', branch2.dec, name='dec2'),
-    path('dec_make_payments2/<id>', branch2.dec_make_payments, name='dec_make_payments2'),
-
-    #payments end here
-
-
-
-#****************************************************************************************************
-#BRANCH TWO END HERE
-#***********************************
-
-#****************************************************************************************************
-#BRANCH THREE START HERE
-#***********************************
-
-    path('branch_index3/', branch3.branch_index, name='branch_index3'),
-
-    path('guest_creation3/', branch3.guest_creation, name='guest_creation3'),
-    path('guest_creation_regi3/', branch3.guest_creation_regi, name='guest_creation_regi3'),
-    path('view_all_guests3/', branch3.view_all_guests, name='view_all_guests3'),
-    path('update_guest_creation3/<id>', branch3.update_guest_creation, name='update_guest_creation3'),
-
-#*********reports start here
-
-#unpaid rent start here
-    path('unpaid_rent_choose_months3/',branch3.unpaid_rent_choose_months,name='unpaid_rent_choose_months3'),
-
-    path('jan_unpaid_rent3/', branch3.jan_unpaid_rent, name='jan_unpaid_rent3'),
-    path('feb_unpaid_rent3/', branch3.feb_unpaid_rent, name='feb_unpaid_rent3'),
-    path('mar_unpaid_rent3/', branch3.mar_unpaid_rent, name='mar_unpaid_rent3'),
-    path('april_unpaid_rent3/', branch3.april_unpaid_rent, name='april_unpaid_rent3'),
-
-    path('may_unpaid_rent3/', branch3.may_unpaid_rent, name='may_unpaid_rent3'),
-    path('june_unpaid_rent3/', branch3.june_unpaid_rent, name='june_unpaid_rent3'),
-    path('july_unpaid_rent3/', branch3.july_unpaid_rent, name='july_unpaid_rent3'),
-    path('aug_unpaid_rent3/', branch3.aug_unpaid_rent, name='aug_unpaid_rent3'),
-
-    path('sept_unpaid_rent3/', branch3.sept_unpaid_rent, name='sept_unpaid_rent3'),
-    path('oct_unpaid_rent3/', branch3.oct_unpaid_rent, name='oct_unpaid_rent3'),
-    path('nov_unpaid_rent3/', branch3.nov_unpaid_rent, name='nov_unpaid_rent3'),
-    path('dec_unpaid_rent3/', branch3.dec_unpaid_rent, name='dec_unpaid_rent3'),
-
-#unpaid rent end here
-
-#paid rent start here
-    path('paid_rent_choose_months3/',branch3.paid_rent_choose_months,name='paid_rent_choose_months3'),
-
-    path('jan_paid_rent3/', branch3.jan_paid_rent, name='jan_paid_rent3'),
-    path('feb_paid_rent3/', branch3.feb_paid_rent, name='feb_paid_rent3'),
-    path('mar_paid_rent3/', branch3.mar_paid_rent, name='mar_paid_rent3'),
-    path('april_paid_rent3/', branch3.april_paid_rent, name='april_paid_rent3'),
-
-    path('may_paid_rent3/', branch3.may_paid_rent, name='may_paid_rent3'),
-    path('june_paid_rent3/', branch3.june_paid_rent, name='june_paid_rent3'),
-    path('july_paid_rent3/', branch3.july_paid_rent, name='july_paid_rent3'),
-    path('aug_paid_rent3/', branch3.aug_paid_rent, name='aug_paid_rent3'),
-
-    path('sept_paid_rent3/', branch3.sept_paid_rent, name='sept_paid_rent3'),
-    path('oct_paid_rent3/', branch3.oct_paid_rent, name='oct_paid_rent3'),
-    path('nov_paid_rent3/', branch3.nov_paid_rent, name='nov_paid_rent3'),
-    path('dec_paid_rent3/', branch3.dec_paid_rent, name='dec_paid_rent3'),
-
-#paid rent end here
-
-
-#*********reports end here
-
-#payments start here
-
-    path('choose_months3/', branch3.choose_months, name='choose_months3'),
-
-    path('jan3/', branch3.jan, name='jan3'),
-    path('jan_manke_payments3/<id>', branch1.jan_manke_payments, name='jan_manke_payments3'),
-
-    path('feb3/', branch3.feb, name='feb3'),
-    path('feb_manke_payments3/<id>', branch3.feb_manke_payments, name='feb_manke_payments3'),
-
-    path('march3/', branch3.march, name='march3'),
-    path('march_manke_payments3/<id>', branch3.march_manke_payments, name='march_manke_payments3'),
-
-    path('april3/', branch3.april, name='april3'),
-    path('april_make_payments3/<id>', branch3.april_make_payments, name='april_make_payments3'),
-
-    path('may3/', branch3.may, name='may3'),
-    path('may_make_payments3/<id>', branch3.may_make_payments, name='may_make_payments3'),
-
-    path('june3/', branch3.june, name='june3'),
-    path('june_make_payments3/<id>', branch3.june_make_payments, name='june_make_payments3'),
-
-    path('july3/', branch3.july, name='july3'),
-    path('july_make_payments3/<id>', branch3.july_make_payments, name='july_make_payments3'),
-
-    path('aug3/', branch3.aug, name='aug3'),
-    path('aug_make_payments2/<id>', branch3.aug_make_payments, name='aug_make_payments3'),
-
-    path('sept3/', branch3.sept, name='sept3'),
-    path('sept_make_payments2/<id>', branch3.sept_make_payments, name='sept_make_payments3'),
-
-    path('oct3/', branch3.oct, name='oct3'),
-    path('oct_make_payments3/<id>', branch3.oct_make_payments, name='oct_make_payments3'),
-
-    path('nov3/', branch3.nov, name='nov3'),
-    path('nov_make_payments3/<id>', branch3.nov_make_payments, name='nov_make_payments3'),
-
-    path('dec3/', branch3.dec, name='dec3'),
-    path('dec_make_payments3/<id>', branch3.dec_make_payments, name='dec_make_payments3'),
-
-    #payments end here
-
-
-
-#****************************************************************************************************
-#BRANCH THREE END HERE
-#***********************************
-
+    path('pysql/',branch1.pysql,name='pysql'+d),
+    #logout
     path('logout/',views.logout,name='logout'),
-
 
 ]

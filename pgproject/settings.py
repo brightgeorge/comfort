@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'branch2app',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,7 @@ WSGI_APPLICATION = 'pgproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pg',
+        'NAME': 'cpg',
         'USER': 'root',
         #'PASSWORD': '#123.com#',
         'PASSWORD': '',

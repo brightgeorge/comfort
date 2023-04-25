@@ -67,33 +67,50 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION B2</li>
-      <li>
-        <a href="{% url 'branch_index' %}">
+      <li class="sidebar-header">MAIN NAVIGATION</li>
+
+       <li>
+        <a href="{% url 'branch1_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
       <li>
-        <a href="{% url 'unpaid_rent_choose_months2' %}">
+        <a href="{% url 'unpaid_rent_choose_months' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
         </a>
       </li>
        <li>
-        <a href="{% url 'paid_rent_choose_months2' %}">
+        <a href="{% url 'paid_rent_choose_months' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
         </a>
       </li>
 
       <li>
-        <a href="{% url 'choose_months2' %}">
+        <a href="{% url 'choose_months' %}">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'choose_months_advance' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance</span>
+        </a>
+      </li>
+
        <li>
-        <a href="{% url 'view_all_guests2' %}">
+        <a href="{% url 'view_all_new_guest' %}">
           <i class="zmdi zmdi-face"></i> <span>Guests</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
         </a>
       </li>
 
