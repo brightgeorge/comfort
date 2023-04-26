@@ -438,6 +438,34 @@ def view_all_new_guest(request):
             '318_data': pg1_new_beds.objects.all().filter(roon_no=62),
 
             ########################
+
+            'rs401': ll[62],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=63),
+            'rs402': ll[63],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=64),
+            'rs403': ll[64],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=65),
+            'rs404': ll[65],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=66),
+            'rs405': ll[66],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=67),
+            'rs406': ll[67],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=68),
+
+            'rs407': ll[68],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=69),
+            'rs408': ll[69],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=70),
+            'rs409': ll[70],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=71),
+            'rs410': ll[71],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=72),
+            'rs411': ll[72],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=73),
+            'rs412': ll[73],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=74),
+
+            ###########################
             'myl':ll,
 
         }
