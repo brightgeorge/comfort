@@ -2838,7 +2838,7 @@ def jan_close_decision_page(request):
         chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch1/print_outs/jan_months_close_page.html')
+            return render(request, 'branches/branch1/close_months/jan_months_close_page.html')
         if chk == False:
             return feb_print(request)
     return render(request,'index.html')
