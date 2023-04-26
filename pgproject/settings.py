@@ -87,14 +87,13 @@ WSGI_APPLICATION = 'pgproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cpg',
+        'NAME': 'pg',
         'USER': 'root',
-        'PASSWORD': '#123.com#',
-        #'PASSWORD': '',
+        #'PASSWORD': '#123.com#',
+        'PASSWORD': '',
         'HOST': 'localhost',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

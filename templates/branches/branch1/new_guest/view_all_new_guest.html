@@ -1985,15 +1985,6 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
- <tr>
-
-                {% for i in myl %}
-                <td>{{forloop.counter}}=</td>
-    <td>{{i}} </td>
-                <td>,</td>
-                {% endfor %}
-</tr>
-
 
                 </tbody>
               </table>
@@ -2003,16 +1994,7 @@ function exportTableToExcel(tableID, filename = ''){
         </div>
       </div><!--End Row-->
 
-        <table>
-            <tr>
 
-                {% for i in myl %}
-                <td>{{forloop.counter}}=</td>
-    <td>{{i}} </td>
-                <td>,</td>
-                {% endfor %}
-</tr>
-        </table>
 
 
 

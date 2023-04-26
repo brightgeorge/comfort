@@ -5,6 +5,7 @@ from django.contrib import messages
 from myapp.models import *
 import datetime
 
+
 database_name='pg'
 database_password = ''
 database_user = 'root'

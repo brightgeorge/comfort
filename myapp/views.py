@@ -22,6 +22,7 @@ def login_request(request):
             role=loginobj.role
 
             if role=='Admin':
+
                 tusers=login.objects.all()
                 tu=len(tusers)
 
