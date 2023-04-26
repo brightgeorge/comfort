@@ -395,7 +395,49 @@ def view_all_new_guest(request):
             '217_data': pg1_new_beds.objects.all().filter(roon_no=43),
             'rs218': ll[43],
             '218_data': pg1_new_beds.objects.all().filter(roon_no=44),
+
             ##############################################
+
+            'rs301': ll[44],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=45),
+            'rs302': ll[45],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=46),
+            'rs303': ll[46],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=47),
+            'rs304': ll[47],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=48),
+            'rs305': ll[48],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=49),
+            'rs306': ll[49],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=50),
+
+            'rs307': ll[50],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=51),
+            'rs308': ll[51],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=52),
+            'rs309': ll[52],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=53),
+            'rs310': ll[53],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=54),
+            'rs311': ll[54],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=55),
+            'rs312': ll[55],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=56),
+            'rs313': ll[56],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=57),
+
+            'rs314': ll[57],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=58),
+            'rs315': ll[58],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=59),
+            'rs316': ll[59],
+            '316_data': pg1_new_beds.objects.all().filter(roon_no=60),
+            'rs317': ll[60],
+            '317_data': pg1_new_beds.objects.all().filter(roon_no=61),
+            'rs318': ll[61],
+            '318_data': pg1_new_beds.objects.all().filter(roon_no=62),
+
+            ########################
             'myl':ll,
 
         }
