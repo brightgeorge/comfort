@@ -270,6 +270,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};"></th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
                   </tr>
                 {% endfor %}
 
@@ -278,7 +279,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{g2}}">G2</th>
                       {% for i in g2_data %}
 
-                    <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -291,7 +292,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{g3}}">G3</th>
                       {% for i in g3_data %}
 
-                    <th></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -303,9 +304,7 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g5}}">G5</th>
                       {% for i in g5_data %}
-                    <th scope="row" style="height:{{table_height}};">
-
-                    </th>
+                   <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -317,9 +316,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                     <th scope="row" rowspan="{{g6}}">G6</th>
                       {% for i in g6_data %}
-                    <th scope="row" style="height:{{table_height}};">
-
-                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -331,24 +328,18 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g7}}">G7</th>
                       {% for i in g7_data %}
-                    <th scope="row" style="height:{{table_height}};">
-
-              </div>
-                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
-                  </tr>
                 {% endfor %}
 
                  <tr>
                     <th scope="row" rowspan="{{g8}}">G8</th>
                       {% for i in g8_data %}
-                    <th scope="row" style="height:{{table_height}};">
-
-                    </th>
+                   <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -360,9 +351,7 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g9}}">G9</th>
                       {% for i in g9_data %}
-                    <th scope="row" style="height:{{table_height}};">
-
-                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};"></th>
@@ -691,6 +680,190 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
                 {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs206}}">206</th>
+                      {% for i in 206_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs207}}">207</th>
+                      {% for i in 207_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs208}}">208</th>
+                      {% for i in 208_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs209}}">209</th>
+                      {% for i in 209_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs210}}">210</th>
+                      {% for i in 210_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs211}}">211</th>
+                      {% for i in 211_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs212}}">212</th>
+                      {% for i in 212_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs213}}">213</th>
+                      {% for i in 213_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs214}}">214</th>
+                      {% for i in 214_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs215}}">215</th>
+                      {% for i in 215_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs216}}">216</th>
+                      {% for i in 216_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs217}}">217</th>
+                      {% for i in 217_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs218}}">218</th>
+                      {% for i in 218_data %}
+                    <th scope="row" style="height:{{table_height}};">
+
+                    </th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <!- --------------------------------------------  -->
 
 
                 </tbody>
