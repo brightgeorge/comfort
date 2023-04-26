@@ -264,10 +264,10 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{g1}}">G1</th>
                       {% for i in g1_data %}
 
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
@@ -279,10 +279,10 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{g2}}">G2</th>
                       {% for i in g2_data %}
 
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
@@ -292,10 +292,10 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{g3}}">G3</th>
                       {% for i in g3_data %}
 
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
@@ -304,10 +304,10 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g5}}">G5</th>
                       {% for i in g5_data %}
-                   <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                   <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
@@ -316,10 +316,10 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                     <th scope="row" rowspan="{{g6}}">G6</th>
                       {% for i in g6_data %}
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
@@ -328,21 +328,22 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g7}}">G7</th>
                       {% for i in g7_data %}
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                    </tr>
                 {% endfor %}
 
                  <tr>
                     <th scope="row" rowspan="{{g8}}">G8</th>
                       {% for i in g8_data %}
-                   <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                   <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
@@ -351,10 +352,10 @@ function exportTableToExcel(tableID, filename = ''){
                 <tr>
                     <th scope="row" rowspan="{{g9}}">G9</th>
                       {% for i in g9_data %}
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};"></th>
+                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
