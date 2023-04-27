@@ -51,7 +51,7 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR2</li>
 
        <li>
         <a href="{% url 'branch1_dashboard' %}">
@@ -224,7 +224,7 @@
         </div>
     </div>
  </div>  
-<form action="{% url 'may_advane' %}" method="post">
+<form action="{% url 'may_advane_branch2' %}" method="post">
     {% csrf_token %}<br>
  <div class="form-group">
 <label for="input-4" class="col-lg-2">Choose Room No</label>
@@ -283,7 +283,7 @@
                    {% if i.may_rent_flag == 100 %}
 
 				   <tr>
-                       <td><a href="{% url 'may_make_payments_advance' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                       <td><a href="{% url 'may_make_payments_advance_branch2' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.advance}}</td>
                     <td>{{i.may_advance}}</td>

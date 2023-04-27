@@ -51,11 +51,11 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR2</li>
 
        <li>
-        <a href="{% url 'branch1_dashboard' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+        <a href="{% url 'branch1_dashboard_branch2' %}">
+          <i class="zmdi zmdi-view-dashboard_branch2"></i> <span>Dashboard</span>
         </a>
       </li>
 
@@ -224,13 +224,13 @@
         </div>
     </div>
  </div>  
-<form action="{% url 'jan' %}" method="post">
+<form action="{% url 'jan_advance_branch2' %}" method="post">
     {% csrf_token %}<br>
  <div class="form-group">
 <label for="input-4" class="col-lg-2">Choose Room No</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="rno" required>
 					<option style="background-color:white;">Select</option>
-                    {% for i in room_name %}
+                    {% for i in room %}
 					<option value="{{i.roon_no}}" >{{i.room_name}}</option>
                     {% endfor %}
 
@@ -283,7 +283,7 @@
                    {% for i in pd %}
 
 				   <tr>
-                       <td><a href="{% url 'jan_manke_payments' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                       <td><a href="{% url 'jan_make_payments_advance_branch2' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
                     <td>{{i.jan_rent}}</td>

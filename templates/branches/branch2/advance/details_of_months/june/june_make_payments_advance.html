@@ -67,7 +67,7 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR2</li>
 
        <li>
         <a href="{% url 'branch1_dashboard' %}">
@@ -200,7 +200,7 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'june_advane' %}"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'june_advane_branch2' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title">JUNE ADVANCE PAYING FORM </div>
 
 
@@ -218,7 +218,7 @@
 
 
            <hr>
-            <form action="{% url 'june_make_payments_advance' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'june_make_payments_advance_branch2' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Enter Amount</label>

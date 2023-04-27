@@ -1867,7 +1867,7 @@ def dec_make_payments(request,id):
 
 def choose_months_advance(request):
     if 'username' in request.session:
-        return  render(request,'branches/branch1/advance/choose_months_advance.html')
+        return render(request,'branches/branch1/advance/choose_months_advance.html')
 
 
 def jan_advane(request):

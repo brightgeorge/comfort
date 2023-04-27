@@ -200,7 +200,7 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'view_all_new_guest_branch2' %}"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'view_all_new_guest2' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title">Registration Form Branch1 Guests</div>
 
 
@@ -218,7 +218,7 @@
 
 		   
            <hr>
-            <form action="{% url 'br1_admit_guest_branch2' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'br1_admit_guest2' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 
