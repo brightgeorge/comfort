@@ -585,6 +585,601 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
+                  <! ---------------------------------------------------------- -->
+
+                <tr>
+                    <th scope="row" rowspan="{{rs201}}">201</th>
+                      {% for i in 201_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                <tr>
+                    <th scope="row" rowspan="{{rs202}}">202</th>
+                      {% for i in 202_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs203}}">203</th>
+                      {% for i in 203_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs204}}">204</th>
+                      {% for i in 204_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs205}}">205</th>
+                      {% for i in 205_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+
+                <tr>
+                    <th scope="row" rowspan="{{rs206}}">206</th>
+                      {% for i in 206_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs207}}">207</th>
+                      {% for i in 207_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs208}}">208</th>
+                      {% for i in 208_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs209}}">209</th>
+                      {% for i in 209_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs210}}">210</th>
+                      {% for i in 210_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs211}}">211</th>
+                      {% for i in 211_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs212}}">212</th>
+                      {% for i in 212_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs213}}">213</th>
+                      {% for i in 213_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs214}}">214</th>
+                      {% for i in 214_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+
+
+                 <tr>
+                    <th scope="row" rowspan="{{rs215}}">215</th>
+                      {% for i in 215_data %}
+                    {% if i.flag == 2 %}
+                    <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_br1_admit_guest' id=i.id %}">Update Guest</a>
+                <a class="dropdown-item" href="{% url 'vacate_br1_guest' id=i.id %}">Vacate Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% else %}
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'br1_admit_guest' id=i.id %}">Admit Guest</a>
+
+               </div>
+              </div>
+                    </th>
+                      {% endif %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+                  </tr>
+                {% endfor %}
+
+
+
+
+
+
+
+
 
 
                 </tbody>
