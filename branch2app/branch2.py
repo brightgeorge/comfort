@@ -257,6 +257,7 @@ def br1_admit_guest2(request,id):
 
 
 def view_all_new_guest2(request):
+    
     if 'username' in request.session:
         l=[]
         data=pg1_new_beds.objects.all()
@@ -376,6 +377,44 @@ def view_all_new_guest2(request):
             # 'g1_data':g1_data,
             'rs315': ll[37],
             '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
 
         }
         return render(request,'branches/branch2/new_guest/view_all_new_guest.html',context)
