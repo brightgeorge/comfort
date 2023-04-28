@@ -6,8 +6,8 @@ from django.contrib import messages
 from branch2app.models import *
 import datetime
 
-database_name='pg'
-database_password = ''
+database_name='cpg'
+database_password = '#123.com#'
 database_user = 'root'
 database_host = 'localhost'
 
@@ -790,7 +790,7 @@ def sept_unpaid_rent2(request):
 def oct_unpaid_rent2(request):
     if 'username' in request.session:
         context = {
-            'up': pg1_new_guest.objects.all().filter(oct_rent_flag=100, flag=2).order_by('roon_no'),
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
@@ -949,7 +949,7 @@ def aug_paid_rent2(request):
         l = []
         unp = pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2)
         for i in unp:
-            l.append(str(i.aug_rent))
+            l.append(str(i.auguest_rent))
             break
         s = ''.join(l)
         context = {
@@ -978,13 +978,13 @@ def sept_paid_rent2(request):
 def oct_paid_rent2(request):
     if 'username' in request.session:
         l = []
-        unp = pg1_new_guest.objects.all().filter(oct_rent_flag=200, flag=2)
+        unp = pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2)
         for i in unp:
-            l.append(str(i.oct_rent))
+            l.append(str(i.october_rent))
             break
         s = ''.join(l)
         context = {
-            'up': pg1_new_guest.objects.all().filter(oct_rent_flag=200, flag=2),
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'OCTOBER'
@@ -1304,6 +1304,7 @@ def april_make_payments2(request,id):
         return render(request, 'branches/branch2/payments/details_of_months/april/april_make_payments.html', context)
 
 #april make payments start here
+
 
 #may make payments start here
 def may2(request):
@@ -2584,98 +2585,170 @@ def dec_make_payments_advance2(request,id):
 ##################################
 #PRINT OUTS START HERE
 ################################
-def detail_guest_general(request):
+def detail_guest_general2(request):
     if 'username' in request.session:
-        l=[]
-        data=pg1_new_beds.objects.all()
+        l = []
+        data = pg1_new_beds.objects.all()
         for i in data:
             l.append(i.share_type)
 
-        ll=[]
-        rsdata=room_pg1.objects.all()
+        ll = []
+        rsdata = room_pg1.objects.all()
         for i in rsdata:
             ll.append(i.share_type)
 
-        g1_data=pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        #print(ll[8])
-        #print(ll[9])
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
 
         context = {
             'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1':l[0],
-            'table_height' : '40px',
+            'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
 
-            'g1':ll[0],
-            'g1_data':pg1_new_beds.objects.all().filter(roon_no=1),
-            #'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
+            'rs101': ll[0],
             '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
+            # 'g1_data':g1_data,
+            'rs102': ll[1],
             '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
+            'rs103': ll[2],
             '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
+            # 'g1_data':g1_data,
+            'rs104': ll[3],
             '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
+            'rs106': ll[4],
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
+            # 'g1_data':g1_data,
+            'rs107': ll[5],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
+            'rs108': ll[6],
             '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
+            # 'g1_data':g1_data,
+            'rs109': ll[7],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
 
-            'rs201': ll[26],
+            'rs201': ll[8],
             '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
+            # 'g1_data':g1_data,
+            'rs202': ll[9],
             '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
+            'rs203': ll[10],
             '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
+            # 'g1_data':g1_data,
+            'rs204': ll[11],
             '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
+            'rs205': ll[12],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[13],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+            # 'g1_data':g1_data,
+            'rs207': ll[14],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[15],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            # 'g1_data':g1_data,
+            'rs209': ll[16],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+
+            'rs210': ll[17],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[18],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[19],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            # 'g1_data':g1_data,
+            'rs213': ll[20],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[21],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            # 'g1_data':g1_data,
+            'rs215': ll[22],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+
+            'rs301': ll[23],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=301),
+            # 'g1_data':g1_data,
+            'rs302': ll[24],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=302),
+            'rs303': ll[25],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=303),
+            # 'g1_data':g1_data,
+            'rs304': ll[26],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=304),
+            'rs305': ll[27],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=305),
+            'rs306': ll[28],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=306),
+            # 'g1_data':g1_data,
+            'rs307': ll[29],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=307),
+            'rs308': ll[30],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs309': ll[31],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=309),
+
+            'rs310': ll[32],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=310),
+            'rs311': ll[33],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=311),
+            'rs312': ll[34],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=312),
+            # 'g1_data':g1_data,
+            'rs313': ll[35],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[36],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            # 'g1_data':g1_data,
+            'rs315': ll[37],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
         }
-        return render(request,'branches/branch1/print_outs/detail_guest_general.html',context)
+
+        return render(request,'branches/branch2/print_outs/detail_guest_general.html',context)
     return render(request, 'index.html')
 
-def jan_print(request):
+def jan_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -2763,40 +2836,40 @@ def jan_print(request):
             'rs205': ll[30],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
         }
-        return render(request,'branches/branch1/print_outs/jan_print.html',context)
+        return render(request,'branches/branch2/print_outs/jan_print.html',context)
     return render(request, 'index.html')
 
 
-def jan_close(request):
+def jan_close2(request):
     if 'username' in request.session:
-        chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
+        chk = branch_closing.objects.all().filter(jan='', branch_name='branch2').exists()
         print(chk)
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
-            query = 'create table myapp_branch1_closing_jan select * from myapp_pg1_new_beds'
+            query = 'create table branch2app_branch1_closing_jan select * from branch2app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor(pymysql.cursors.DictCursor)
             cur.execute(query)
 
-            bc = branch_closing.objects.get(branch_name='branch1')
+            bc = branch_closing.objects.get(branch_name='branch2')
             bc.jan = 1
             bc.save()
-            return feb_print(request)
+            return feb_print2(request)
 
     return render(request,'index.html')
 
-def jan_close_decision_page(request):
+def jan_close_decision_page2(request):
     if 'username' in request.session:
-        chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
+        chk = branch_closing.objects.all().filter(jan='', branch_name='branch2').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch1/print_outs/months_close_page.html')
+            return render(request, 'branches/branch2/close_months/jan_months_close_page.html')
         if chk == False:
-            return feb_print(request)
+            return feb_print2(request)
     return render(request,'index.html')
 
 
-def feb_print(request):
+def feb_print2(request):
     if 'username' in request.session:
         chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()
         print(chk)
@@ -2898,38 +2971,38 @@ def feb_print(request):
             'rs205': ll[30],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
         }
-        return render(request,'branches/branch1/print_outs/feb_print.html',context)
+        return render(request,'branches/branch2/print_outs/feb_print.html',context)
     return render(request, 'index.html')
 
-def feb_close(request):
+def feb_close2(request):
     if 'username' in request.session:
-        chk = branch_closing.objects.all().filter(feb='', branch_name='branch1').exists()
+        chk = branch_closing.objects.all().filter(feb='', branch_name='branch2').exists()
         print(chk)
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
-            query = 'create table myapp_branch1_closing_feb select * from myapp_pg1_new_beds'
+            query = 'create table branch2app_branch1_closing_feb select * from branch2app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
 
-            bc = branch_closing.objects.get(branch_name='branch1')
+            bc = branch_closing.objects.get(branch_name='branch2')
             bc.feb = 1
             bc.save()
-            return march_print(request)
+            return march_print2(request)
 
     return render(request,'index.html')
 
-def feb_close_decision_page(request):
+def feb_close_decision_page2(request):
     if 'username' in request.session:
-        chk = branch_closing.objects.all().filter(feb='', branch_name='branch1').exists()
+        chk = branch_closing.objects.all().filter(feb='', branch_name='branch2').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch1/print_outs/months_close_page.html')
+            return render(request, 'branches/branch2/close_months/feb_months_close_page.html')
         if chk == False:
-            return feb_print(request)
+            return march_print2(request)
     return render(request,'index.html')
 
-def march_print(request):
+def march_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -3017,472 +3090,39 @@ def march_print(request):
             'rs205': ll[30],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
         }
-        return render(request,'branches/branch1/print_outs/march_print.html',context)
-    return render(request, 'index.html')
-
-
-def april_print(request):
-    if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
-        ll = []
-        rsdata = room_pg1.objects.all()
-        for i in rsdata:
-            ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
-
-        context = {
-            'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
-
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
-            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
-            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
-            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
-            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
-            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
-            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
-
-            'rs201': ll[26],
-            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
-            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
-            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
-            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
-            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
-        }
-        return render(request,'branches/branch1/print_outs/april_print.html',context)
-    return render(request, 'index.html')
-
-
-def may_print(request):
-    if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
-        ll = []
-        rsdata = room_pg1.objects.all()
-        for i in rsdata:
-            ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
-
-        context = {
-            'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
-
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
-            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
-            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
-            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
-            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
-            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
-            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
-
-            'rs201': ll[26],
-            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
-            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
-            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
-            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
-            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
-        }
-        return render(request,'branches/branch1/print_outs/may_print.html',context)
-    return render(request, 'index.html')
-
-
-def june_print(request):
-    if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
-        ll = []
-        rsdata = room_pg1.objects.all()
-        for i in rsdata:
-            ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
-
-        context = {
-            'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
-
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
-            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
-            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
-            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
-            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
-            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
-            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
-
-            'rs201': ll[26],
-            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
-            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
-            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
-            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
-            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
-        }
-        return render(request,'branches/branch1/print_outs/june_print.html',context)
-    return render(request, 'index.html')
-
-
-def july_print(request):
-    if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
-        ll = []
-        rsdata = room_pg1.objects.all()
-        for i in rsdata:
-            ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
-
-        context = {
-            'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
-
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
-            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
-            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
-            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
-            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
-            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
-            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
-
-            'rs201': ll[26],
-            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
-            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
-            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
-            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
-            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
-        }
-        return render(request,'branches/branch1/print_outs/july_print.html',context)
-    return render(request, 'index.html')
-
-
-def aug_print(request):
-    if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
-        ll = []
-        rsdata = room_pg1.objects.all()
-        for i in rsdata:
-            ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
-
-        context = {
-            'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
-
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
-            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
-            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
-            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
-            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
-            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
-            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
-
-            'rs201': ll[26],
-            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
-            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
-            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
-            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
-            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
-        }
-        return render(request,'branches/branch1/print_outs/aug_print.html',context)
+        return render(request,'branches/branch2/print_outs/march_print.html',context)
     return render(request, 'index.html')
 
 
 
-def sept_print(request):
+def mar_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(mar='', branch_name='branch2').exists()
+        print('MARCH CLOS',chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_mar select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.mar = 1
+            bc.save()
+            return april_print2(request)
+    return render(request,'index.html')
+
+def mar_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(mar='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/mar_months_close_page.html')
+        if chk == False:
+            return april_print2(request)
+    return render(request,'index.html')
+
+def april_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -3495,87 +3135,380 @@ def sept_print(request):
             ll.append(i.share_type)
 
         g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
 
         context = {
             'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
             'table_height': '40px',
 
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
+            'rs101': ll[0],
             '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
+            # 'g1_data':g1_data,
+            'rs102': ll[1],
             '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
+            'rs103': ll[2],
             '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
+            # 'g1_data':g1_data,
+            'rs104': ll[3],
             '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
+            'rs106': ll[4],
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
+            # 'g1_data':g1_data,
+            'rs107': ll[5],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
+            'rs108': ll[6],
             '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
+            # 'g1_data':g1_data,
+            'rs109': ll[7],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
 
-            'rs201': ll[26],
+            'rs201': ll[8],
             '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
+            # 'g1_data':g1_data,
+            'rs202': ll[9],
             '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
+            'rs203': ll[10],
             '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
+            # 'g1_data':g1_data,
+            'rs204': ll[11],
             '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
+            'rs205': ll[12],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[13],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+            # 'g1_data':g1_data,
+            'rs207': ll[14],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[15],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            # 'g1_data':g1_data,
+            'rs209': ll[16],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+
+            'rs210': ll[17],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[18],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[19],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            # 'g1_data':g1_data,
+            'rs213': ll[20],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[21],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            # 'g1_data':g1_data,
+            'rs215': ll[22],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+
+            'rs301': ll[23],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=301),
+            # 'g1_data':g1_data,
+            'rs302': ll[24],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=302),
+            'rs303': ll[25],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=303),
+            # 'g1_data':g1_data,
+            'rs304': ll[26],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=304),
+            'rs305': ll[27],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=305),
+            'rs306': ll[28],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=306),
+            # 'g1_data':g1_data,
+            'rs307': ll[29],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=307),
+            'rs308': ll[30],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs309': ll[31],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=309),
+
+            'rs310': ll[32],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=310),
+            'rs311': ll[33],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=311),
+            'rs312': ll[34],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=312),
+            # 'g1_data':g1_data,
+            'rs313': ll[35],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[36],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            # 'g1_data':g1_data,
+            'rs315': ll[37],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
         }
-        return render(request,'branches/branch1/print_outs/sept_print.html',context)
+
+        return render(request,'branches/branch2/print_outs/april_print.html',context)
+    return render(request,'index.html')
+
+
+def apr_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(apr='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_apr select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.apr = 1
+            bc.save()
+            return may_print2(request)
+    return render(request,'index.html')
+
+def apr_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(apr='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/apr_months_close_page.html')
+        if chk == False:
+            return may_print2(request)
+    return render(request,'index.html')
+
+
+
+def may_print2(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'rs101': ll[0],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            # 'g1_data':g1_data,
+            'rs102': ll[1],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[2],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            # 'g1_data':g1_data,
+            'rs104': ll[3],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs106': ll[4],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            # 'g1_data':g1_data,
+            'rs107': ll[5],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[6],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            # 'g1_data':g1_data,
+            'rs109': ll[7],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+
+            'rs201': ll[8],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            # 'g1_data':g1_data,
+            'rs202': ll[9],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[10],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            # 'g1_data':g1_data,
+            'rs204': ll[11],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[12],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[13],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+            # 'g1_data':g1_data,
+            'rs207': ll[14],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[15],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            # 'g1_data':g1_data,
+            'rs209': ll[16],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+
+            'rs210': ll[17],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[18],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[19],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            # 'g1_data':g1_data,
+            'rs213': ll[20],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[21],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            # 'g1_data':g1_data,
+            'rs215': ll[22],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+
+            'rs301': ll[23],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=301),
+            # 'g1_data':g1_data,
+            'rs302': ll[24],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=302),
+            'rs303': ll[25],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=303),
+            # 'g1_data':g1_data,
+            'rs304': ll[26],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=304),
+            'rs305': ll[27],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=305),
+            'rs306': ll[28],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=306),
+            # 'g1_data':g1_data,
+            'rs307': ll[29],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=307),
+            'rs308': ll[30],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs309': ll[31],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=309),
+
+            'rs310': ll[32],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=310),
+            'rs311': ll[33],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=311),
+            'rs312': ll[34],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=312),
+            # 'g1_data':g1_data,
+            'rs313': ll[35],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[36],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            # 'g1_data':g1_data,
+            'rs315': ll[37],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+        }
+        return render(request,'branches/branch2/print_outs/may_print.html',context)
     return render(request, 'index.html')
 
 
 
-def oct_print(request):
+def may_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(may='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_may select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.may = 1
+            bc.save()
+            return june_print2(request)
+    return render(request,'index.html')
+
+def may_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(may='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/may_months_close_page.html')
+        if chk == False:
+            return june_print2(request)
+    return render(request,'index.html')
+
+
+
+def june_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -3588,86 +3521,375 @@ def oct_print(request):
             ll.append(i.share_type)
 
         g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print(ll)
-        print(ll[8])
-        print(ll[9])
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
 
         context = {
             'brname': 'BRANCH 2 Room Creation Form',
-            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
             'table_height': '40px',
 
-            'g1': ll[0],
-            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
-            # 'g1_data':g1_data,
-            'g2': ll[1],
-            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'g3': ll[2],
-            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
-            'g5': ll[3],
-            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
-            'g6': ll[4],
-            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
-            'g7': ll[5],
-            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
-            'g8': ll[6],
-            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
-            'g9': ll[7],
-            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
-            'rs101': ll[8],
+            'rs101': ll[0],
             '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            'rs102': ll[9],
+            # 'g1_data':g1_data,
+            'rs102': ll[1],
             '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[10],
+            'rs103': ll[2],
             '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
-            'rs104': ll[11],
+            # 'g1_data':g1_data,
+            'rs104': ll[3],
             '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs105': ll[12],
-            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
-            'rs106': ll[13],
+            'rs106': ll[4],
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
-            'rs107': ll[14],
+            # 'g1_data':g1_data,
+            'rs107': ll[5],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[15],
+            'rs108': ll[6],
             '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
-            'rs109': ll[16],
+            # 'g1_data':g1_data,
+            'rs109': ll[7],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
-            'rs110': ll[17],
-            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
-            'rs111': ll[18],
-            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
-            'rs112': ll[19],
-            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
-            'rs113': ll[20],
-            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
-            'rs114': ll[21],
-            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
-            'rs115': ll[22],
-            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
-            'rs116': ll[23],
-            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
-            'rs117': ll[24],
-            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
-            'rs118': ll[25],
-            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
 
-            'rs201': ll[26],
+            'rs201': ll[8],
             '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
-            'rs202': ll[27],
+            # 'g1_data':g1_data,
+            'rs202': ll[9],
             '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
-            'rs203': ll[28],
+            'rs203': ll[10],
             '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
-            'rs204': ll[29],
+            # 'g1_data':g1_data,
+            'rs204': ll[11],
             '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
-            'rs205': ll[30],
+            'rs205': ll[12],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[13],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+            # 'g1_data':g1_data,
+            'rs207': ll[14],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[15],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            # 'g1_data':g1_data,
+            'rs209': ll[16],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+
+            'rs210': ll[17],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[18],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[19],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            # 'g1_data':g1_data,
+            'rs213': ll[20],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[21],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            # 'g1_data':g1_data,
+            'rs215': ll[22],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+
+            'rs301': ll[23],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=301),
+            # 'g1_data':g1_data,
+            'rs302': ll[24],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=302),
+            'rs303': ll[25],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=303),
+            # 'g1_data':g1_data,
+            'rs304': ll[26],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=304),
+            'rs305': ll[27],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=305),
+            'rs306': ll[28],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=306),
+            # 'g1_data':g1_data,
+            'rs307': ll[29],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=307),
+            'rs308': ll[30],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs309': ll[31],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=309),
+
+            'rs310': ll[32],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=310),
+            'rs311': ll[33],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=311),
+            'rs312': ll[34],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=312),
+            # 'g1_data':g1_data,
+            'rs313': ll[35],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[36],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            # 'g1_data':g1_data,
+            'rs315': ll[37],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
         }
-        return render(request,'branches/branch1/print_outs/oct_print.html',context)
+        return render(request,'branches/branch2/print_outs/june_print.html',context)
+    return render(request, 'index.html')
+
+def jun_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jun='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_jun select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.jun = 1
+            bc.save()
+            return july_print2(request)
+    return render(request,'index.html')
+
+def jun_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jun='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/jun_months_close_page.html')
+        if chk == False:
+            return july_print2(request)
+    return render(request,'index.html')
+
+
+def july_print2(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print('room share type of branch22', ll)
+        print('room share type of branchl0', ll[0])
+        print('room share type of branchl1', ll[1])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'rs101': ll[0],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            # 'g1_data':g1_data,
+            'rs102': ll[1],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[2],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            # 'g1_data':g1_data,
+            'rs104': ll[3],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs106': ll[4],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            # 'g1_data':g1_data,
+            'rs107': ll[5],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[6],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            # 'g1_data':g1_data,
+            'rs109': ll[7],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+
+            'rs201': ll[8],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            # 'g1_data':g1_data,
+            'rs202': ll[9],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[10],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            # 'g1_data':g1_data,
+            'rs204': ll[11],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[12],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+            'rs206': ll[13],
+            '206_data': pg1_new_beds.objects.all().filter(roon_no=206),
+            # 'g1_data':g1_data,
+            'rs207': ll[14],
+            '207_data': pg1_new_beds.objects.all().filter(roon_no=207),
+            'rs208': ll[15],
+            '208_data': pg1_new_beds.objects.all().filter(roon_no=208),
+            # 'g1_data':g1_data,
+            'rs209': ll[16],
+            '209_data': pg1_new_beds.objects.all().filter(roon_no=209),
+
+            'rs210': ll[17],
+            '210_data': pg1_new_beds.objects.all().filter(roon_no=210),
+            'rs211': ll[18],
+            '211_data': pg1_new_beds.objects.all().filter(roon_no=211),
+            'rs212': ll[19],
+            '212_data': pg1_new_beds.objects.all().filter(roon_no=212),
+            # 'g1_data':g1_data,
+            'rs213': ll[20],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[21],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            # 'g1_data':g1_data,
+            'rs215': ll[22],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+
+            'rs301': ll[23],
+            '301_data': pg1_new_beds.objects.all().filter(roon_no=301),
+            # 'g1_data':g1_data,
+            'rs302': ll[24],
+            '302_data': pg1_new_beds.objects.all().filter(roon_no=302),
+            'rs303': ll[25],
+            '303_data': pg1_new_beds.objects.all().filter(roon_no=303),
+            # 'g1_data':g1_data,
+            'rs304': ll[26],
+            '304_data': pg1_new_beds.objects.all().filter(roon_no=304),
+            'rs305': ll[27],
+            '305_data': pg1_new_beds.objects.all().filter(roon_no=305),
+            'rs306': ll[28],
+            '306_data': pg1_new_beds.objects.all().filter(roon_no=306),
+            # 'g1_data':g1_data,
+            'rs307': ll[29],
+            '307_data': pg1_new_beds.objects.all().filter(roon_no=307),
+            'rs308': ll[30],
+            '308_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs309': ll[31],
+            '309_data': pg1_new_beds.objects.all().filter(roon_no=309),
+
+            'rs310': ll[32],
+            '310_data': pg1_new_beds.objects.all().filter(roon_no=310),
+            'rs311': ll[33],
+            '311_data': pg1_new_beds.objects.all().filter(roon_no=311),
+            'rs312': ll[34],
+            '312_data': pg1_new_beds.objects.all().filter(roon_no=312),
+            # 'g1_data':g1_data,
+            'rs313': ll[35],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[36],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            # 'g1_data':g1_data,
+            'rs315': ll[37],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+
+            'rs401': ll[38],
+            '401_data': pg1_new_beds.objects.all().filter(roon_no=401),
+            # 'g1_data':g1_data,
+            'rs402': ll[39],
+            '402_data': pg1_new_beds.objects.all().filter(roon_no=402),
+            'rs403': ll[40],
+            '403_data': pg1_new_beds.objects.all().filter(roon_no=403),
+            # 'g1_data':g1_data,
+            'rs404': ll[41],
+            '404_data': pg1_new_beds.objects.all().filter(roon_no=404),
+            'rs405': ll[42],
+            '405_data': pg1_new_beds.objects.all().filter(roon_no=405),
+            'rs406': ll[43],
+            '406_data': pg1_new_beds.objects.all().filter(roon_no=406),
+            # 'g1_data':g1_data,
+            'rs407': ll[44],
+            '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
+            'rs408': ll[45],
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            # 'g1_data':g1_data,
+            'rs409': ll[46],
+            '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
+
+            'rs410': ll[47],
+            '410_data': pg1_new_beds.objects.all().filter(roon_no=410),
+            'rs411': ll[48],
+            '411_data': pg1_new_beds.objects.all().filter(roon_no=411),
+            'rs412': ll[49],
+            '412_data': pg1_new_beds.objects.all().filter(roon_no=412),
+            # 'g1_data':g1_data,
+            'rs413': ll[50],
+            '413_data': pg1_new_beds.objects.all().filter(roon_no=413),
+            'rs414': ll[51],
+            '414_data': pg1_new_beds.objects.all().filter(roon_no=414),
+            # 'g1_data':g1_data,
+            'rs415': ll[52],
+            '415_data': pg1_new_beds.objects.all().filter(roon_no=415),
+
+        }
+        return render(request,'branches/branch2/print_outs/july_print.html',context)
     return render(request, 'index.html')
 
 
-def nov_print(request):
+def jul_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jul='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_jul select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.jul = 1
+            bc.save()
+            return aug_print2(request)
+    return render(request,'index.html')
+
+def jul_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(jul='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/jul_months_close_page.html')
+        if chk == False:
+            return aug_print2(request)
+    return render(request,'index.html')
+
+
+def aug_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -3755,11 +3977,39 @@ def nov_print(request):
             'rs205': ll[30],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
         }
-        return render(request,'branches/branch1/print_outs/nov_print.html',context)
+        return render(request,'branches/branch2/print_outs/aug_print.html',context)
     return render(request, 'index.html')
 
 
-def dec_print(request):
+def aug_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(aug='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_aug select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.aug = 1
+            bc.save()
+            return sept_print2(request)
+    return render(request,'index.html')
+
+def aug_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(aug='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/aug_months_close_page.html')
+        if chk == False:
+            return sept_print2(request)
+    return render(request,'index.html')
+
+
+def sept_print2(request):
     if 'username' in request.session:
         l = []
         data = pg1_new_beds.objects.all()
@@ -3847,7 +4097,367 @@ def dec_print(request):
             'rs205': ll[30],
             '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
         }
-        return render(request,'branches/branch1/print_outs/dec_print.html',context)
+        return render(request,'branches/branch2/print_outs/sept_print.html',context)
+    return render(request, 'index.html')
+
+def sep_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(sep='', branch_name='branch2').exists()
+        print('MYSEP CHDK ',chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_sep select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.sep = 1
+            bc.save()
+            return oct_print2(request)
+    return render(request,'index.html')
+
+def sep_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(sep='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/sep_months_close_page.html')
+        if chk == False:
+            return oct_print2(request)
+    return render(request,'index.html')
+
+
+def oct_print2(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch2/print_outs/oct_print.html',context)
+    return render(request, 'index.html')
+
+
+
+def oct_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(oct='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_oct select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.oct = 1
+            bc.save()
+            return nov_print2(request)
+    return render(request,'index.html')
+
+def oct_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(oct='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/oct_months_close_page.html')
+        if chk == False:
+            return nov_print2(request)
+    return render(request,'index.html')
+
+
+def nov_print2(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch2/print_outs/nov_print.html',context)
+    return render(request, 'index.html')
+
+
+def nov_close2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(nov='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            conn = py.connect(host=database_host, user=database_user, password=database_password,database=database_name)
+            query = 'create table branch2app_branch1_closing_nov select * from branch2app_pg1_new_beds'
+            # create cursor object to execute the query
+            cur = conn.cursor()
+            cur.execute(query)
+
+            bc = branch_closing.objects.get(branch_name='branch2')
+            bc.nov = 1
+            bc.save()
+            return dec_print2(request)
+    return render(request,'index.html')
+
+def nov_close_decision_page2(request):
+    if 'username' in request.session:
+        chk = branch_closing.objects.all().filter(nov='', branch_name='branch2').exists()
+        print(chk)
+        if chk == True:
+            return render(request, 'branches/branch2/close_months/nov_months_close_page.html')
+        if chk == False:
+            return dec_print2(request)
+    return render(request,'index.html')
+
+
+def dec_print2(request):
+    if 'username' in request.session:
+        l = []
+        data = pg1_new_beds.objects.all()
+        for i in data:
+            l.append(i.share_type)
+
+        ll = []
+        rsdata = room_pg1.objects.all()
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
+        print(ll)
+        print(ll[8])
+        print(ll[9])
+
+        context = {
+            'brname': 'BRANCH 2 Room Creation Form',
+            'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+            'rn1': l[0],
+            'table_height': '40px',
+
+            'g1': ll[0],
+            'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
+            'g2': ll[1],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'g3': ll[2],
+            'g3_data': pg1_new_beds.objects.all().filter(roon_no=3),
+            'g5': ll[3],
+            'g5_data': pg1_new_beds.objects.all().filter(roon_no=5),
+            'g6': ll[4],
+            'g6_data': pg1_new_beds.objects.all().filter(roon_no=6),
+            'g7': ll[5],
+            'g7_data': pg1_new_beds.objects.all().filter(roon_no=7),
+            'g8': ll[6],
+            'g8_data': pg1_new_beds.objects.all().filter(roon_no=8),
+            'g9': ll[7],
+            'g9_data': pg1_new_beds.objects.all().filter(roon_no=9),
+            'rs101': ll[8],
+            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
+            'rs102': ll[9],
+            '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
+            'rs103': ll[10],
+            '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
+            'rs104': ll[11],
+            '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
+            'rs105': ll[12],
+            '105_data': pg1_new_beds.objects.all().filter(roon_no=105),
+            'rs106': ll[13],
+            '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
+            'rs107': ll[14],
+            '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
+            'rs108': ll[15],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
+            'rs109': ll[16],
+            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+            'rs110': ll[17],
+            '110_data': pg1_new_beds.objects.all().filter(roon_no=110),
+            'rs111': ll[18],
+            '111_data': pg1_new_beds.objects.all().filter(roon_no=111),
+            'rs112': ll[19],
+            '112_data': pg1_new_beds.objects.all().filter(roon_no=112),
+            'rs113': ll[20],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[21],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[22],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[23],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[24],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+            'rs118': ll[25],
+            '118_data': pg1_new_beds.objects.all().filter(roon_no=118),
+
+            'rs201': ll[26],
+            '201_data': pg1_new_beds.objects.all().filter(roon_no=201),
+            'rs202': ll[27],
+            '202_data': pg1_new_beds.objects.all().filter(roon_no=202),
+            'rs203': ll[28],
+            '203_data': pg1_new_beds.objects.all().filter(roon_no=203),
+            'rs204': ll[29],
+            '204_data': pg1_new_beds.objects.all().filter(roon_no=204),
+            'rs205': ll[30],
+            '205_data': pg1_new_beds.objects.all().filter(roon_no=205),
+        }
+        return render(request,'branches/branch2/print_outs/dec_print.html',context)
     return render(request, 'index.html')
 
 ##################################
@@ -3858,21 +4468,21 @@ def dec_print(request):
 #VACATE GUEST DETAILS START HERE
 ################################
 
-def viewall_vacate_guest(request):
+def viewall_vacate_guest2(request):
     context = {
         'vg' : pg1_new_guest.objects.all().filter(flag=3,remark__gt='0').exclude(remark = '').order_by('-id')
     }
-    return render(request,'branches/branch1/vacate_guest/viewall_vacate_guest.html',context)
+    return render(request,'branches/branch2/vacate_guest/viewall_vacate_guest.html',context)
 
-def details_of_vacate_guest(request,id):
+def details_of_vacate_guest2(request,id):
     context = {
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
-    return render(request,'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+    return render(request,'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
 #***********vacate guest payments start here*******
 
-def jan_manke_payments_vacate(request,id):
+def jan_manke_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -3889,15 +4499,15 @@ def jan_manke_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch1/payments/details_of_months/jan/jan_manke_payments_vacate.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/jan/jan_manke_payments_vacate.html', context)
 
 
-def feb_manke_payments_vacate(request,id):
+def feb_manke_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -3913,14 +4523,14 @@ def feb_manke_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request, 'branches/branch1/payments/details_of_months/feb/feb_manke_payments_vacate.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/feb/feb_manke_payments_vacate.html', context)
 
-def march_manke_payments_vacate(request,id):
+def march_manke_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -3936,15 +4546,15 @@ def march_manke_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request, 'branches/branch1/payments/details_of_months/march/march_manke_payments_vacate.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/march/march_manke_payments_vacate.html', context)
 
 
-def april_make_payments_vacate(request,id):
+def april_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -3961,17 +4571,17 @@ def april_make_payments_vacate(request,id):
             context = {
                 'user_details' : pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html', context)
+        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html', context)
     return render(request,'index.html')
 
 
 
-def may_make_payments_vacate(request,id):
+def may_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -3987,16 +4597,16 @@ def may_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html', context)
+        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html', context)
 
 
-def june_make_payments_vacate(request,id):
+def june_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4012,16 +4622,16 @@ def june_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch1/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html', context)
+        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html', context)
 
 
-def july_make_payments_vacate(request,id):
+def july_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4037,14 +4647,14 @@ def july_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'sd': pg1_new_guest.objects.get(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',context)
 
-def aug_make_payments_vacate(request,id):
+def aug_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4061,15 +4671,15 @@ def aug_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html', context)
 
 
-def sept_make_payments_vacate(request,id):
+def sept_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4086,14 +4696,14 @@ def sept_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html', context)
 
-def oct_make_payments_vacate(request,id):
+def oct_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4109,16 +4719,16 @@ def oct_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html', context)
 
 
-def nov_make_payments_vacate(request,id):
+def nov_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4134,16 +4744,16 @@ def nov_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html', context)
 
 
-def dec_make_payments_vacate(request,id):
+def dec_make_payments_vacate2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
             amt=request.POST.get('janamt')
@@ -4159,12 +4769,12 @@ def dec_make_payments_vacate(request,id):
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch1/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html', context)
 
 
 #************vacate guest payments end here*******

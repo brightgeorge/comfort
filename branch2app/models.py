@@ -214,3 +214,25 @@ class pg1_new_guest(models.Model):
     dec_rent_flag = models.IntegerField()
 
     flag = models.IntegerField()
+
+
+class branch_closing(models.Model):
+    branch_name = models.CharField(max_length=200)
+
+    jan = models.CharField(max_length=200)
+    feb = models.CharField(max_length=200)
+    mar = models.CharField(max_length=200)
+    apr = models.CharField(max_length=200)
+    may = models.CharField(max_length=200)
+    jun = models.CharField(max_length=200)
+
+    jul = models.CharField(max_length=200)
+    aug = models.CharField(max_length=200)
+    sep = models.CharField(max_length=200)
+    oct = models.CharField(max_length=200)
+    nov = models.CharField(max_length=200)
+    dec = models.CharField(max_length=200)
+
+    flag = models.CharField(max_length=200)
+
+

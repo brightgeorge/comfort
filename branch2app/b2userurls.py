@@ -21,7 +21,7 @@ urlpatterns = [
     #path('viewall_vacate_guest/',branch1.viewall_vacate_guest,name='viewall_vacate_guest'+name),
     #path('view_all_users/', views.view_all_users, name='view_all_users'),
     #path('view_all_room/', admin_branch2.view_all_room, name='view_all_room'),
-    path('branch1_dashboard2/', branch2.branch1_dashboard2, name='branch1_dashboard'+name),
+    path('branch1_dashboard2/', branch2.branch1_dashboard2, name='branch1_dashboard2'),
 
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
@@ -111,7 +111,7 @@ urlpatterns = [
     path('jan_make_payments_advance2/<id>', branch2.jan_make_payments_advance2,name='jan_make_payments_advance'+name),
     path('feb_advance2/', branch2.feb_advance2, name='feb_advance'+name),
     path('feb_make_payments_advance2/<id>', branch2.feb_make_payments_advance2,name='feb_make_payments_advance' + name),
-    path('march_advane2/', branch2.march_advance2, name='march_advance'+name),
+    path('march_advance2/', branch2.march_advance2, name='march_advance'+name),
     path('march_make_payments_advance2/<id>', branch2.march_make_payments_advance2,name='march_make_payments_advance'+name),
     path('april_advance2/', branch2.april_advane2, name='april_advane'+name),
     path('april_make_payments_advance2/<id>', branch2.april_make_payments_advance2, name='april_make_payments_advance'+name),
@@ -188,5 +188,86 @@ urlpatterns = [
 
 #*********reports end here
 
+   ##################################
+#VACATE GUEST DETAILS START HERE
+################################
+
+    path('viewall_vacate_guest2/',branch2.viewall_vacate_guest2,name='viewall_vacate_guest2'),
+    path('details_of_vacate_guest2/<id>',branch2.details_of_vacate_guest2,name='details_of_vacate_guest2'),
+
+#********vacate guest payments start here**********
+
+    path('jan_manke_payments_vacate2/<id>', branch2.jan_manke_payments_vacate2, name='jan_manke_payments_vacate2'),
+    path('feb_manke_payments_vacate2/<id>', branch2.feb_manke_payments_vacate2, name='feb_manke_payments_vacate2'),
+    path('march_manke_payments_vacate2/<id>', branch2.march_manke_payments_vacate2, name='march_manke_payments_vacate2'),
+    path('april_make_payments_vacate2/<id>', branch2.april_make_payments_vacate2, name='april_make_payments_vacate2'),
+
+    path('may_make_payments_vacate2/<id>', branch2.may_make_payments_vacate2, name='may_make_payments_vacate2'),
+    path('june_make_payments_vacate2/<id>', branch2.june_make_payments_vacate2, name='june_make_payments_vacate2'),
+    path('july_make_payments_vacate2/<id>', branch2.july_make_payments_vacate2, name='july_make_payments_vacate2'),
+    path('aug_make_payments_vacate2/<id>', branch2.aug_make_payments_vacate2, name='aug_make_payments_vacate2'),
+
+    path('sept_make_payments_vacate2/<id>', branch2.sept_make_payments_vacate2, name='sept_make_payments_vacate2'),
+    path('oct_make_payments_vacate2/<id>', branch2.oct_make_payments_vacate2, name='oct_make_payments_vacate2'),
+    path('nov_make_payments_vacate2/<id>', branch2.nov_make_payments_vacate2, name='nov_make_payments_vacate2'),
+    path('dec_make_payments_vacate2/<id>', branch2.dec_make_payments_vacate2, name='dec_make_payments_vacate2'),
+
+#********vacate guest payments end here**********
+
+##################################
+#VACATE GUEST DETAILS END HERE
+################################
+
+
+
+##################################
+#PRINT OUTS START HERE
+################################
+
+    path('detail_guest_general2/',branch2.detail_guest_general2,name='detail_guest_general2'),
+
+    path('jan_print2/',branch2.jan_print2,name='jan_print2'),
+    path('feb_print2/',branch2.feb_print2,name='feb_print2'),
+    path('march_print2/',branch2.march_print2,name='march_print2'),
+    path('april_print2/',branch2.april_print2,name='april_print2'),
+
+    path('may_print2/',branch2.may_print2,name='may_print2'),
+    path('june_print2/',branch2.june_print2,name='june_print2'),
+    path('july_print2/', branch2.july_print2, name='july_print2'),
+    path('aug_print2/', branch2.aug_print2, name='aug_print2'),
+
+    path('sept_print2/', branch2.sept_print2, name='sept_print2'),
+    path('oct_print2/', branch2.oct_print2, name='oct_print2'),
+    path('nov_print2/', branch2.nov_print2, name='nov_print2'),
+    path('dec_print2/', branch2.dec_print2, name='dec_print2'),
+
+##################################
+#PRINT OUTS END HERE
+################################
+
+    path('jan_close2/', branch2.jan_close2, name='jan_close2'),
+    path('jan_close_decision_page2/', branch2.jan_close_decision_page2, name='jan_close_decision_page2'),
+    path('feb_close/', branch2.feb_close2, name='feb_close2'),
+    path('feb_close_decision_page2/', branch2.feb_close_decision_page2, name='feb_close_decision_page2'),
+    path('mar_close2/', branch2.mar_close2, name='mar_close2'),
+    path('mar_close_decision_page/', branch2.mar_close_decision_page2, name='mar_close_decision_page2'),
+    path('apr_close2/', branch2.apr_close2, name='apr_close2'),
+    path('apr_close_decision_page2/', branch2.apr_close_decision_page2, name='apr_close_decision_page2'),
+
+    path('may_close2/', branch2.may_close2, name='may_close2'),
+    path('may_close_decision_page2/', branch2.may_close_decision_page2, name='may_close_decision_page2'),
+    path('jun_close2/', branch2.jun_close2, name='jun_close2'),
+    path('jun_close_decision_page2/', branch2.jun_close_decision_page2, name='jun_close_decision_page2'),
+    path('jul_close2/', branch2.jul_close2, name='jul_close2'),
+    path('jul_close_decision_page2/', branch2.jul_close_decision_page2, name='jul_close_decision_page2'),
+    path('aug_close2/', branch2.aug_close2, name='aug_close2'),
+    path('aug_close_decision_page2/', branch2.aug_close_decision_page2, name='aug_close_decision_page2'),
+
+    path('sep_close2/', branch2.sep_close2, name='sep_close2'),
+    path('sep_close_decision_page2/', branch2.sep_close_decision_page2, name='sep_close_decision_page2'),
+    path('oct_close2/', branch2.oct_close2, name='oct_close2'),
+    path('oct_close_decision_page2/', branch2.oct_close_decision_page2, name='oct_close_decision_page2'),
+    path('nov_close2/', branch2.nov_close2, name='nov_close2'),
+    path('nov_close_decision_page2/', branch2.nov_close_decision_page2, name='nov_close_decision_page2'),
 
 ]
