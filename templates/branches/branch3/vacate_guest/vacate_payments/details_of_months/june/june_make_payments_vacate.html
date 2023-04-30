@@ -67,7 +67,7 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION BR2</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR3</li>
 
        <li>
         <a href="{% url 'branch1_dashboard3' %}">
@@ -214,7 +214,7 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'viewall_vacate_guest2' %}"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'viewall_vacate_guest3' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title">JUNE RENT PAYING FORM </div>
 
 
@@ -232,7 +232,7 @@
 
 
            <hr>
-            <form action="{% url 'june_make_payments_vacate2' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'june_make_payments_vacate3' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Enter Amount</label>

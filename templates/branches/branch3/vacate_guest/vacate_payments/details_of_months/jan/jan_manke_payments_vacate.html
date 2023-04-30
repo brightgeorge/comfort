@@ -214,7 +214,7 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'viewall_vacate_guest2' %}"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'viewall_vacate_guest3' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title">User Creation Form </div>
 
 
@@ -232,7 +232,7 @@
 
 
            <hr>
-            <form action="{% url 'jan_manke_payments_vacate2' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'jan_manke_payments_vacate3' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Employee Code</label>
