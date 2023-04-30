@@ -83,7 +83,7 @@ def login_request(request):
                     'user': loginobj,
                     'name' : us
                 }
-                return render(request,'branches/branch3/branch_index.html', context)
+                return render(request,'branches/branch3/branch1index.html', context)
 
             else:
                 return render(request,'index.html',context={'user':loginobj})

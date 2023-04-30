@@ -18,10 +18,12 @@ from django.urls import path, include
 
 import myapp.userurls
 import branch2app.b2userurls
+import branch3app.b3userurls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(myapp.userurls)),
     path('br2/',include(branch2app.b2userurls)),
+    path('br3/', include(branch3app.b3userurls)),
 
 ]
