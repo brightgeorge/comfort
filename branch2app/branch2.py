@@ -396,7 +396,7 @@ def view_all_new_guest2(request):
             'rs407': ll[44],
             '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
             'rs408': ll[45],
-            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=408),
             # 'g1_data':g1_data,
             'rs409': ll[46],
             '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
