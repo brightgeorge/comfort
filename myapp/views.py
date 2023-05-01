@@ -84,6 +84,14 @@ def login_request(request):
                     'name' : us
                 }
                 return render(request,'branches/branch3/branch1index.html', context)
+            if role=='Branch4':
+                request.session['username'] = username
+                us = request.session['username']
+                context = {
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch4/branch1index.html', context)
 
             else:
                 return render(request,'index.html',context={'user':loginobj})
