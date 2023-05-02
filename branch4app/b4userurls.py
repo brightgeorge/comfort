@@ -39,6 +39,46 @@ urlpatterns = [
 #guest end here
 
 
+##################################
+#_ADVANCE4 START HERE
+################################
+
+
+path('choose_months_advance4/',branch4.choose_months_advance4,name='choose_months_advance4'),
+
+path('jan_advance4/', branch4.jan_advance4, name='jan_advance4'),
+path('jan_make_payments_advance4/<id>', branch4.jan_make_payments_advance4,name='jan_make_payments_advance4'),
+path('feb_advance4/', branch4.feb_advance4, name='feb_advance4'),
+path('feb_make_payments_advance4/<id>', branch4.feb_make_payments_advance4,name='feb_make_payments_advance4'),
+path('march_advance4/', branch4.march_advance4, name='march_advance4'),
+path('march_make_payments_advance4/<id>', branch4.march_make_payments_advance4,name='march_make_payments_advance4'),
+path('april_advance4/', branch4.april_advance4, name='april_advance4'),
+path('april_make_payments_advance4/<id>', branch4.april_make_payments_advance4, name='april_make_payments_advance4'),
+
+path('may_advance4/',branch4.may_advance4,name='may_advance4'),
+path('may_make_payments_advance4/<id>', branch4.may_make_payments_advance4, name='may_make_payments_advance4'),
+path('june_advance4/',branch4.june_advance4,name='june_advance4'),
+path('june_make_payments_advance4/<id>', branch4.june_make_payments_advance4, name='june_make_payments_advance4'),
+path('july_advance4/',branch4.july_advance4,name='july_advance4'),
+path('july_make_payments_advance4/<id>', branch4.july_make_payments_advance4, name='july_make_payments_advance4'),
+path('auguest_advance4/', branch4.auguest_advance4, name='auguest_advance4'),
+path('auguest_make_payments_advance4/<id>', branch4.auguest_make_payments_advance4, name='auguest_make_payments_advance4'),
+
+path('sept_advance4/', branch4.sept_advance4, name='sept_advance4'),
+path('sept_make_payments_advance4/<id>', branch4.sept_make_payments_advance4,name='sept_make_payments_advance4'),
+path('october_advance4/', branch4.october_advance4, name='october_advance4'),
+path('october_make_payments_advance4/<id>', branch4.october_make_payments_advance4, name='october_make_payments_advance4'),
+path('nov_advance4/', branch4.nov_advance4, name='nov_advance4'),
+path('nov_make_payments_advance4/<id>', branch4.nov_make_payments_advance4,name='nov_make_payments_advance4'),
+path('dec_advance4/', branch4.dec_advance4, name='dec_advance4'),
+path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name='dec_make_payments_advance4'),
+
+
+
+##################################
+#_ADVANCE4 END HERE
+################################
+
 
 
 ##################################
@@ -138,7 +178,87 @@ urlpatterns = [
 
 #*********reports end here
 
+##################################
+#VACATE GUEST DETAILS START HERE
+################################
 
+    path('viewall_vacate_guest4/',branch4.viewall_vacate_guest4,name='viewall_vacate_guest4'),
+    path('details_of_vacate_guest4/<id>',branch4.details_of_vacate_guest4,name='details_of_vacate_guest4'),
+
+#********vacate guest payments start here**********
+
+    path('jan_manke_payments_vacate4/<id>', branch4.jan_manke_payments_vacate4, name='jan_manke_payments_vacate4'),
+    path('feb_manke_payments_vacate4/<id>', branch4.feb_manke_payments_vacate4, name='feb_manke_payments_vacate4'),
+    path('march_manke_payments_vacate4/<id>', branch4.march_manke_payments_vacate4, name='march_manke_payments_vacate4'),
+    path('april_make_payments_vacate4/<id>', branch4.april_make_payments_vacate4, name='april_make_payments_vacate4'),
+
+    path('may_make_payments_vacate4/<id>', branch4.may_make_payments_vacate4, name='may_make_payments_vacate4'),
+    path('june_make_payments_vacate4/<id>', branch4.june_make_payments_vacate4, name='june_make_payments_vacate4'),
+    path('july_make_payments_vacate4/<id>', branch4.july_make_payments_vacate4, name='july_make_payments_vacate4'),
+    path('aug_make_payments_vacate4/<id>', branch4.aug_make_payments_vacate4, name='aug_make_payments_vacate4'),
+
+    path('sept_make_payments_vacate4/<id>', branch4.sept_make_payments_vacate4, name='sept_make_payments_vacate4'),
+    path('oct_make_payments_vacate4/<id>', branch4.oct_make_payments_vacate4, name='oct_make_payments_vacate4'),
+    path('nov_make_payments_vacate4/<id>', branch4.nov_make_payments_vacate4, name='nov_make_payments_vacate4'),
+    path('dec_make_payments_vacate4/<id>', branch4.dec_make_payments_vacate4, name='dec_make_payments_vacate4'),
+
+#********vacate guest payments end here**********
+
+##################################
+#VACATE GUEST DETAILS END HERE
+################################
+
+
+
+##################################
+#PRINT OUTS START HERE
+################################
+
+    path('detail_guest_general4/',branch4.detail_guest_general4,name='detail_guest_general4'),
+
+    path('jan_print4/',branch4.jan_print4,name='jan_print4'),
+    path('feb_print4/',branch4.feb_print4,name='feb_print4'),
+    path('march_print4/',branch4.march_print4,name='march_print4'),
+    path('april_print4/',branch4.april_print4,name='april_print4'),
+
+    path('may_print4/',branch4.may_print4,name='may_print4'),
+    path('june_print4/',branch4.june_print4,name='june_print4'),
+    path('july_print4/', branch4.july_print4, name='july_print4'),
+    path('aug_print4/', branch4.aug_print4, name='aug_print4'),
+
+    path('sept_print4/', branch4.sept_print4, name='sept_print4'),
+    path('oct_print4/', branch4.oct_print4, name='oct_print4'),
+    path('nov_print4/', branch4.nov_print4, name='nov_print4'),
+    path('dec_print4/', branch4.dec_print4, name='dec_print4'),
+
+##################################
+#PRINT OUTS END HERE
+################################
+
+    path('jan_close4/', branch4.jan_close4, name='jan_close4'),
+    path('jan_close_decision_page4/', branch4.jan_close_decision_page4, name='jan_close_decision_page4'),
+    path('feb_close/', branch4.feb_close4, name='feb_close4'),
+    path('feb_close_decision_page4/', branch4.feb_close_decision_page4, name='feb_close_decision_page4'),
+    path('mar_close4/', branch4.mar_close4, name='mar_close4'),
+    path('mar_close_decision_page/', branch4.mar_close_decision_page4, name='mar_close_decision_page4'),
+    path('apr_close4/', branch4.apr_close4, name='apr_close4'),
+    path('apr_close_decision_page4/', branch4.apr_close_decision_page4, name='apr_close_decision_page4'),
+
+    path('may_close4/', branch4.may_close4, name='may_close4'),
+    path('may_close_decision_page4/', branch4.may_close_decision_page4, name='may_close_decision_page4'),
+    path('jun_close4/', branch4.jun_close4, name='jun_close4'),
+    path('jun_close_decision_page4/', branch4.jun_close_decision_page4, name='jun_close_decision_page4'),
+    path('jul_close4/', branch4.jul_close4, name='jul_close4'),
+    path('jul_close_decision_page4/', branch4.jul_close_decision_page4, name='jul_close_decision_page4'),
+    path('aug_close4/', branch4.aug_close4, name='aug_close4'),
+    path('aug_close_decision_page4/', branch4.aug_close_decision_page4, name='aug_close_decision_page4'),
+
+    path('sep_close4/', branch4.sep_close4, name='sep_close4'),
+    path('sep_close_decision_page4/', branch4.sep_close_decision_page4, name='sep_close_decision_page4'),
+    path('oct_close4/', branch4.oct_close4, name='oct_close4'),
+    path('oct_close_decision_page4/', branch4.oct_close_decision_page4, name='oct_close_decision_page4'),
+    path('nov_close4/', branch4.nov_close4, name='nov_close4'),
+    path('nov_close_decision_page4/', branch4.nov_close_decision_page4, name='nov_close_decision_page4'),
 
 
 
