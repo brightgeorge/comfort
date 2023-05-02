@@ -926,7 +926,7 @@ def june_paid_rent2(request):
             'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
-            'month_name': 'JUNE'
+            'month_name': 'JUNE',
         }
         return render(request, 'branches/branch2/reports/paid_rent/paid_rent.html', context)
 def july_paid_rent2(request):
