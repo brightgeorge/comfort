@@ -3585,7 +3585,7 @@ def may_print3(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3715,7 +3715,7 @@ def may_print3(request):
             'rs407': ll[44],
             '407_data': pg1_new_beds.objects.all().filter(roon_no=407),
             'rs408': ll[45],
-            '408_data': pg1_new_beds.objects.all().filter(roon_no=308),
+            '408_data': pg1_new_beds.objects.all().filter(roon_no=408),
             # 'g1_data':g1_data,
             'rs409': ll[46],
             '409_data': pg1_new_beds.objects.all().filter(roon_no=409),
