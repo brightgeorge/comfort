@@ -218,6 +218,7 @@
 
 
            <hr>
+               {% if sd.may_rent_flag == 100 %}
             <form action="{% url 'may_make_payments' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
@@ -233,6 +234,23 @@
             <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
           </div>
           </form>
+               {% else %}
+                <form action="{% url 'may_make_payments' sd.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+			<div class="form-group">
+				<label for="input-11">Enter Amount</label>
+				<input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.may_rent}}" style="display:inline;" name="janamt" required>
+			</div>
+                 <div class="form-group">
+				<label for="input-12">Enter Remark</label>
+				<input type="text" class="form-control col-lg-2" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
+			</div>
+
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
+          </div>
+          </form>
+               {% endif %}
          </div>
          </div>
       </div>
