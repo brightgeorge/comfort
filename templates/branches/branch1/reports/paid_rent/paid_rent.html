@@ -314,9 +314,9 @@ function exportTableToExcel(tableID, filename = ''){
                            <a href="{% url 'details_of_paid_guests' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
 				   <td>{{i.room_name}}</td>
-                       <td>{{ i.april_rent_rec_date }}</td>
+                       <td>{{ i.may_rent_rec_date }}</td>
                     <td>{{i.name|upper}}</td>
-                       <td>{{i.april_rent}}</td>
+                       <td>{{i.may_rent}}</td>
                        <td>{{i.remark}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
                    </tr>
