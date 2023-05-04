@@ -3,6 +3,7 @@ from django.urls import path, include
 
 from . import admin_branch4
 from . import branch4
+from . import reports4
 
 urlpatterns = [
 
@@ -261,5 +262,10 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('nov_close_decision_page4/', branch4.nov_close_decision_page4, name='nov_close_decision_page4'),
 
 
+    path('test/',branch4.pysql,name='pysql'),
+    path('d/', branch4.dynamic, name='dynamic'),
+
+    path('may_print_live4/',reports4.may_print_live4,name='may_print_live4'),
+    path('viewall_vaccant_room4/',reports4.viewall_vaccant_room4,name='viewall_vaccant_room4'),
 
 ]

@@ -5360,6 +5360,31 @@ def pysql(request):
         bc.jan = 1
         bc.save()
 
-        return render(request, 'branches/branch1/test.html')
-    return branch1_dashboard(request)
+        return render(request, 'branches/branch4/test.html')
+    return branch1_dashboard4 (request)
 
+def dynamic(request):
+    if 'username' in request.session:
+        ll=[]
+        rsdata = room_pg1.objects.all().order_by('roon_no')
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        d=[]
+        ddatat=pg1_new_beds.objects.all()
+
+        t='<tr>'
+        t1='</th>'
+        t2='<th scope="row" style="height:{{table_height}};">{{i.name}}</th><th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>'
+
+
+
+        context = {
+
+            'g2': ll[0],
+            'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
+            'mt2':t2,
+
+        }
+        return render(request, 'branches/branch4/test.html',context)
+    return branch1_dashboard4(request)
