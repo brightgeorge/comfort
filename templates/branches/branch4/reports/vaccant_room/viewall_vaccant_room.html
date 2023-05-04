@@ -67,7 +67,14 @@ function exportTableToExcel(tableID, filename = ''){
     }
 }</script>
 
+<style>
 
+@media only screen and (max-width: 600px) {
+  #ts {
+    width:10px;
+  }
+}
+</style>
 
 </head>
 
@@ -243,11 +250,11 @@ function exportTableToExcel(tableID, filename = ''){
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th scope="col">Sl No</th>
+                    <th #ts>Sl No</th>
 
-                    <th scope="col">Room No</th>
-                    <th scope="col">Bed No</th>
-                      <th scope="col">Share Type</th>
+                    <th #ts>Room No</th>
+                    <th #ts>Bed No</th>
+                      <th #ts>Share Type</th>
 
                   </tr>
                 </thead>
@@ -256,11 +263,11 @@ function exportTableToExcel(tableID, filename = ''){
                 {% for i in vr %}
 				   <tr>
 
-                    <td>{{forloop.counter}}</td>
+                    <td #ts>{{forloop.counter}}</td>
 
-				   <td>{{i.room_name}}</td>
-                       <td>{{i.bed_no}}</td>
-                       <td>{{i.share_type}} Share</td>
+				   <td #ts>{{i.room_name}}</td>
+                       <td #ts>{{i.bed_no}}</td>
+                       <td #ts>{{i.share_type}} Share</td>
 
 
 
