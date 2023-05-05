@@ -263,7 +263,7 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
 
 
     path('test/',branch4.pysql,name='pysql'),
-    path('d/', branch4.dynamic, name='dynamic'),
+    path('d4/', branch4.dynamic, name='dynamic'),
 
     path('may_print_live4/',reports4.may_print_live4,name='may_print_live4'),
     path('viewall_vaccant_room4/',reports4.viewall_vaccant_room4,name='viewall_vaccant_room4'),

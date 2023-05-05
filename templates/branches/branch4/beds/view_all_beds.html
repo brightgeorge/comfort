@@ -287,6 +287,29 @@
                    <tbody>
                    {% for i in br %}
 
+                   {% if i.flag == 2 %}
+
+                    <tr>
+                       <td><div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:green;border:1px solid red;" >Adimitted</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#"><span style="color:yellow;">Guest Admitted Selected Room</span></a>
+
+               </div>
+              </div></td>
+                    <td>{{forloop.counter}}</td>
+				   <td>{{i.roon_no}}</td>
+                       <td>{{i.room_name}}</td>
+                       <td>{{i.share_type}}</td>
+                       <td>{{i.bed_no}}</td>
+
+                    <td>{{i.created_by}}</td>
+                   </tr>
+
+                   {% else %}
+
 				   <tr>
                        <td><div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
@@ -305,6 +328,9 @@
 
                     <td>{{i.created_by}}</td>
                    </tr>
+
+                   {% endif %}
+
                 {% endfor %}
 
                  </tbody></table>

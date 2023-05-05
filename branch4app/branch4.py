@@ -5373,17 +5373,11 @@ def dynamic(request):
         d=[]
         ddatat=pg1_new_beds.objects.all()
 
-        t='<tr>'
-        t1='</th>'
-        t2='<th scope="row" style="height:{{table_height}};">{{i.name}}</th><th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>'
-
-
-
         context = {
 
             'g2': ll[0],
             'g2_data': pg1_new_beds.objects.all().filter(roon_no=2),
-            'mt2':t2,
+            'mt2':'page four 4 from dynamic code',
 
         }
         return render(request, 'branches/branch4/test.html',context)
