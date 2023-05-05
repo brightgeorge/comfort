@@ -28,7 +28,7 @@ def branch1_room_create_regi4(request):
                     'brname': 'BRANCH 4'
                 }
                 messages.info(request, 'BRANCH4 roon no already exists')
-                return render(request, 'branches/branch3/rooms/view_all_rooms.html', context)
+                return render(request, 'branches/branch4/rooms/view_all_rooms.html', context)
             else:
                 room_no = request.POST.get('roonno')
                 room_name = request.POST.get('roomname')
