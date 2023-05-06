@@ -177,6 +177,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('dec_paid_rent5/', branch5.dec_paid_rent5, name='dec_paid_rent5'),
 
     path('details_of_paid_guests5/<id>',branch5.details_of_paid_guests5,name='details_of_paid_guests5'),
+    path('full_paid_guest5/',reports5.full_paid_guest5,name='full_paid_guest5'),
 
 #paid rent end here
 

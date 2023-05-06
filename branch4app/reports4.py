@@ -165,3 +165,11 @@ def viewall_vaccant_room4(request):
         'vr': pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
     }
     return render(request, 'branches/branch4/reports/vaccant_room/viewall_vaccant_room.html', context)
+
+
+def full_paid_guest4(request):
+    context = {
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,remark='0').order_by('roon_no')
+    }
+    return render(request, 'branches/branch4/reports/paid_rent/full_paid_guest.html', context)
+

@@ -88,7 +88,7 @@ function exportTableToExcel(tableID, filename = ''){
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR4</li>
 
-       <li>
+      <li>
         <a href="{% url 'branch1_dashboard4' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 4</span>
         </a>
@@ -293,14 +293,14 @@ function exportTableToExcel(tableID, filename = ''){
 	<div class="row">
 	 <div class="col-12 col-lg-12">
 	   <div class="card">
-	     <div class="card-header">View all Paid Rent of {{month_name}}
+	     <div class="card-header">View all Full Paid Rent of {{month_name}}
 		  <div class="card-action">
-              <a class="dropdown-item" href="{% url 'full_paid_guest4' %}"><span style="background-color:red;color:white;">Full Paid Guest 4</span></a>
              <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
-              <i class="icon-options1"></i>
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
              </a>
-              <div class="dropdown-menu1 dropdown-menu-right1">
+              <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#"></a>
 
               </div>
              </div>
@@ -310,29 +310,24 @@ function exportTableToExcel(tableID, filename = ''){
                   <thead>
                    <tr>
 						<th>Sl No</th>
-                       <th>Details</th>
+
                      <th>Roon No</th>
-                       <th>Date</th>
                      <th>Guest Name</th>
-                       <th>Paid Amount</th>
-                       <th>Remark</th>
                      <th>Contact No</th>
+                        <th>Details</th>
                    </tr>
                    </thead>
                    <tbody>
-                   {% for i in up %}
+                   {% for i in fpr %}
 
 				   <tr>
                     <td>{{forloop.counter}}</td>
-                       <td>
-                           <a href="{% url 'details_of_paid_guests4' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
-                       </td>
 				   <td>{{i.room_name}}</td>
-                       <td>{{ i.may_rent_rec_date }}</td>
                     <td>{{i.name|upper}}</td>
-                       <td>{{i.may_rent}}</td>
-                       <td>{{i.remark}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
+                       <td>
+                           <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
+                       </td>
                    </tr>
                 {% endfor %}
 
@@ -372,6 +367,32 @@ function exportTableToExcel(tableID, filename = ''){
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
+
+        <p class="mb-0">Settings</p>
+      <hr>
+
+      <ul>
+        <li><a href="{% url 'jan_paid_rent4' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid 4</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid 4</button> </a></li>
+
+          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid 4</button> </a></li>
+
+           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid 4</button> </a></li>
+
+
+
+          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
+
+
+      </ul>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
