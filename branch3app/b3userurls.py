@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import admin_branch3
 from . import branch3
+from . import reports3
 
 
 urlpatterns = [
@@ -26,7 +27,10 @@ urlpatterns = [
 
     path('pg1_bed_create3/', admin_branch3.pg1_bed_create3, name='pg1_bed_create3'),
 
-#bed creation end here
+    path('single_pg1_bed_create_regi3/', admin_branch3.single_pg1_bed_create_regi3, name='single_pg1_bed_create_regi3'),
+    path('update_bed_basic_details3/<id>', admin_branch3.update_bed_basic_details3, name='update_bed_basic_details3'),
+
+    #bed creation end here
 
 #guest
     path('br1_admit_guest3/<id>',branch3.br1_admit_guest3,name='br1_admit_guest3'),
@@ -261,7 +265,8 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
     path('nov_close3/', branch3.nov_close3, name='nov_close3'),
     path('nov_close_decision_page3/', branch3.nov_close_decision_page3, name='nov_close_decision_page3'),
 
-
+    path('may_print_live3/', reports3.may_print_live3, name='may_print_live3'),
+    path('viewall_vaccant_room3/', reports3.viewall_vaccant_room3, name='viewall_vaccant_room3'),
 
 
 

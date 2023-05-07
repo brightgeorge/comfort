@@ -5,8 +5,9 @@ from django.urls import path
 from . import views
 from . import admin_branch2
 
-from . import branch1
+#from . import branch1
 from . import branch2
+from . import reports2
 
 
 d='test'
@@ -41,7 +42,10 @@ urlpatterns = [
 
     path('pg1_bed_create2/', admin_branch2.pg1_bed_create2, name='pg1_bed_create2'),
 
-#bed creation end here
+    path('single_pg1_bed_create_regi2/', admin_branch2.single_pg1_bed_create_regi2, name='single_pg1_bed_create_regi2'),
+    path('update_bed_basic_details2/<id>', admin_branch2.update_bed_basic_details2, name='update_bed_basic_details2'),
+
+    #bed creation end here
 
 #guest
     path('br1_admit_guest2/<id>',branch2.br1_admit_guest2,name='br1_admit_guest2'),
@@ -182,6 +186,7 @@ urlpatterns = [
     path('dec_paid_rent2/', branch2.dec_paid_rent2, name='dec_paid_rent2'),
 
     path('details_of_paid_guests2/<id>',branch2.details_of_paid_guests2,name='details_of_paid_guests2'),
+    path('full_paid_guest2/', reports2.full_paid_guest2, name='full_paid_guest2'),
 
 #paid rent end here
 
@@ -270,5 +275,8 @@ urlpatterns = [
     path('oct_close_decision_page2/', branch2.oct_close_decision_page2, name='oct_close_decision_page2'),
     path('nov_close2/', branch2.nov_close2, name='nov_close2'),
     path('nov_close_decision_page2/', branch2.nov_close_decision_page2, name='nov_close_decision_page2'),
+
+    path('may_print_live2/', reports2.may_print_live2, name='may_print_live2'),
+    path('viewall_vaccant_room2/', reports2.viewall_vaccant_room2, name='viewall_vaccant_room2'),
 
 ]
