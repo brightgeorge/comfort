@@ -4,8 +4,9 @@ from . import views
 from . import admin_branch1
 
 from . import branch1
-from . import branch2
-from . import branch3
+#from . import branch2
+#from . import branch3
+from . import reports1
 
 d='test'
 
@@ -38,11 +39,14 @@ urlpatterns = [
 
     path('pg1_bed_create_regi/', admin_branch1.pg1_bed_create_regi, name='pg1_bed_create_regi'),
     path('pg1_view_all_beds/', admin_branch1.pg1_view_all_beds, name='pg1_view_all_beds'),
-    # path('delete_room/<id>', views.delete_room, name='delete_room'),
+    path('delete_bed/<id>', admin_branch1.delete_bed, name='delete_bed'),
 
     path('pg1_bed_create/', admin_branch1.pg1_bed_create, name='pg1_bed_create'),
 
-#bed creation end here
+    path('single_pg1_bed_create_regi/', admin_branch1.single_pg1_bed_create_regi, name='single_pg1_bed_create_regi'),
+    path('update_bed_basic_details/<id>', admin_branch1.update_bed_basic_details, name='update_bed_basic_details'),
+
+    #bed creation end here
 #guest
     path('br1_admit_guest/<id>',branch1.br1_admit_guest,name='br1_admit_guest'),
     path('view_all_new_guest/',branch1.view_all_new_guest,name='view_all_new_guest'),
@@ -95,6 +99,7 @@ urlpatterns = [
     path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
 
     path('details_of_paid_guests/<id>',branch1.details_of_paid_guests,name='details_of_paid_guests'),
+    path('full_paid_guest/', reports1.full_paid_guest, name='full_paid_guest'),
 
 #paid rent end here
 
@@ -258,7 +263,10 @@ urlpatterns = [
 #VACATE GUEST DETAILS END HERE
 ################################
 
-#branch one end here
+    path('may_print_live/', reports1.may_print_live, name='may_print_live'),
+    path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
+
+    #branch one end here
 
     path('pysql/',branch1.pysql,name='pysql'+d),
     #logout

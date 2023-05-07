@@ -53,7 +53,7 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION br1</li>
 
-       <li>
+        <li>
         <a href="{% url 'branch1_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
@@ -95,6 +95,17 @@
        <li>
         <a href="{% url 'viewall_vacate_guest' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'view_all_rooms' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Rooms</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'pg1_view_all_beds' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>beds</span>
         </a>
       </li>
 
@@ -272,14 +283,15 @@
                    </thead>
                    <tbody>
                    {% for i in br %}
+                   {% if i.flag == 2 %}
 
-				   <tr>
+                     <tr>
                        <td><div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+              <i class="icon-options1" style="background-color:green;border:1px solid green;">manage</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="{% url 'delete_room' id=i.id %}">Delete Selected Room</a>
+                <a class="dropdown-item" href="{% url 'update_bed_basic_details' id=i.id %}">Update Selected Room</a>
 
                </div>
               </div></td>
@@ -291,6 +303,29 @@
 
                     <td>{{i.created_by}}</td>
                    </tr>
+
+                   {% else %}
+
+				   <tr>
+                       <td><div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="{% url 'delete_bed' id=i.id %}">Delete Selected Bed</a>
+
+               </div>
+              </div></td>
+                    <td>{{forloop.counter}}</td>
+				   <td>{{i.roon_no}}</td>
+                       <td>{{i.room_name}}</td>
+                       <td>{{i.share_type}}</td>
+                       <td>{{i.bed_no}}</td>
+
+                    <td>{{i.created_by}}</td>
+                   </tr>
+
+                   {% endif %}
                 {% endfor %}
 
                  </tbody></table>
