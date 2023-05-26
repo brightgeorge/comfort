@@ -240,7 +240,7 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">BR3 DEC Details</h5>
+              <h5 class="card-title">BR3 MAY Details</h5>
 
 
                 {% if messages %}
@@ -258,7 +258,7 @@ function exportTableToExcel(tableID, filename = ''){
 
                  <tr>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                 <th><button onclick="window.print3()">Print3 this page</button></th>
+                 <th><button onclick="window.print()">Print3 this page</button></th>
                  </tr>
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
@@ -431,6 +431,48 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
+                  <tr>
+                    <th scope="row" rowspan="{{rs110}}">110</th>
+                      {% for i in 110_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.dec_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.dec_advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs111}}">111</th>
+                      {% for i in 111_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.dec_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.dec_advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs112}}">112</th>
+                      {% for i in 112_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.dec_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.dec_advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
 
                 <!-- ------------------------------------------------- -->
 
@@ -995,7 +1037,8 @@ function exportTableToExcel(tableID, filename = ''){
 
       <ul>
 
-  <li><a href="{% url 'jan_print3' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Print3</button> </a></li>
+
+          <li><a href="{% url 'jan_print3' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Print3</button> </a></li>
           <li style="margin-top:5px;"><a href="{% url 'jan_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb Print3</button> </a></li>
          <li style="margin-top:5px;"><a href="{% url 'feb_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March Print3</button> </a></li>
         <li style="margin-top:5px;"><a href="{% url 'mar_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Print3</button> </a></li>
@@ -1009,7 +1052,6 @@ function exportTableToExcel(tableID, filename = ''){
          <li style="margin-top:5px;"><a href="{% url 'sep_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Print3</button> </a></li>
           <li style="margin-top:5px;"><a href="{% url 'oct_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Print3</button> </a></li>
          <li style="margin-top:5px;"><a href="{% url 'nov_close_decision_page3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Print3</button> </a></li>
-
 
 
 
