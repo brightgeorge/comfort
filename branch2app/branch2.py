@@ -1104,6 +1104,7 @@ def jan_manke_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/jan/jan.html',context)
@@ -1165,6 +1166,7 @@ def feb_manke_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/feb/feb.html',context)
@@ -1226,6 +1228,7 @@ def march_manke_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/march/march.html',context)
@@ -1289,8 +1292,8 @@ def april_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
-                'user_details' : pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch2/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
@@ -1356,6 +1359,7 @@ def may_make_payments2(request,id):
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
@@ -1419,6 +1423,8 @@ def june_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/june/june.html',context)
         rn = request.POST.get('rno')
@@ -1483,6 +1489,8 @@ def july_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
@@ -1545,6 +1553,8 @@ def aug_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
@@ -1608,6 +1618,8 @@ def sept_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
@@ -1671,6 +1683,8 @@ def oct_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
@@ -1733,6 +1747,8 @@ def nov_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
@@ -1795,6 +1811,8 @@ def dec_make_payments2(request,id):
             s=''.join(l)
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
+                'room': room_pg1.objects.all(),
             }
             return render(request, 'branches/branch2/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
