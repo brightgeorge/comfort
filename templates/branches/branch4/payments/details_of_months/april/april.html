@@ -304,17 +304,25 @@
                     <td>{{i.april_rent}}</td>
                        <td>{{i.remark}}</td>
                    </tr>
-                   {% else %}
-                   <tr>
-                       <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Already Paid</button> </td>
+
+                    {% elif i.april_due_amt == '0' %}
+
+				   <tr>
+                       <td><a href="{% url 'april_make_payments4' id=i.id %}"> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
                     <td>{{i.april_rent}}</td>
-                       <td>{{i.remark}}</td>
+                   </tr>
+
+                   {% else %}
+
+                   <tr>
+                       <td><a href="{% url 'april_make_payments4' id=i.id %}"><button style="background-color:yellow;border:1px solid white;border-radius:10px;" id="hov">Partially Paid</button></a> </td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.monthly_rent}}</td>
+                    <td>{{i.april_rent}}</td>
                    </tr>
                    {% endif %}
-
-
                 {% endfor %}
 
                  </tbody></table>
