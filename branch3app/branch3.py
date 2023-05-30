@@ -1116,12 +1116,14 @@ def jan_manke_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
             jp.remark = remark
             jp.jan_due_amt = remark
-            jp.jan_rent_rec_date = datetime.date.today()
+            #jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
 
@@ -1136,7 +1138,8 @@ def jan_manke_payments3(request,id):
             jp.jan_rent = amt
             jp.remark = remark
             jp.jan_due_amt = remark
-            jp.jan_rent_rec_date = datetime.date.today()
+            #jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
 
@@ -1179,12 +1182,14 @@ def feb_manke_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
             jp.remark = remark
             jp.feb_due_amt = remark
-            jp.feb_rent_rec_date = datetime.date.today()
+            #jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
 
@@ -1199,7 +1204,8 @@ def feb_manke_payments3(request,id):
             jp.feb_rent = amt
             jp.remark = remark
             jp.feb_due_amt = remark
-            jp.feb_rent_rec_date = datetime.date.today()
+            #jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
 
@@ -1241,12 +1247,14 @@ def march_manke_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
             jp.remark = remark
             jp.march_due_amt = remark
-            jp.march_rent_rec_date = datetime.date.today()
+            #jp.march_rent_rec_date = datetime.date.today()
+            jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
 
@@ -1261,7 +1269,8 @@ def march_manke_payments3(request,id):
             jp.march_rent = amt
             jp.remark = remark
             jp.march_due_amt = remark
-            jp.march_rent_rec_date = datetime.date.today()
+            #jp.march_rent_rec_date = datetime.date.today()
+            jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
 
@@ -1305,12 +1314,14 @@ def april_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
             jp.remark = remark
             jp.april_due_amt = remark
-            jp.april_rent_rec_date = datetime.date.today()
+            #jp.april_rent_rec_date = datetime.date.today()
+            jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
 
@@ -1325,7 +1336,8 @@ def april_make_payments3(request,id):
             jp.april_rent = amt
             jp.remark = remark
             jp.april_due_amt = remark
-            jp.april_rent_rec_date = datetime.date.today()
+            #jp.april_rent_rec_date = datetime.date.today()
+            jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
 
@@ -1371,12 +1383,14 @@ def may_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = remark
-            jp.may_rent_rec_date = datetime.date.today()
+            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
 
@@ -1391,7 +1405,8 @@ def may_make_payments3(request,id):
             jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = remark
-            jp.may_rent_rec_date = datetime.date.today()
+            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
 
@@ -1435,12 +1450,14 @@ def june_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = remark
-            jp.june_rent_rec_date = datetime.date.today()
+            #jp.june_rent_rec_date = datetime.date.today()
+            jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
 
@@ -1456,7 +1473,8 @@ def june_make_payments3(request,id):
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = remark
-            jp.june_rent_rec_date = datetime.date.today()
+            #jp.june_rent_rec_date = datetime.date.today()
+            jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
 
@@ -1500,12 +1518,14 @@ def july_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
             jp.remark = remark
             jp.july_due_amt = remark
-            jp.july_rent_rec_date = datetime.date.today()
+            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
 
@@ -1521,7 +1541,8 @@ def july_make_payments3(request,id):
             jp.july_rent = amt
             jp.remark = remark
             jp.july_due_amt = remark
-            jp.july_rent_rec_date = datetime.date.today()
+            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
 
@@ -1566,12 +1587,14 @@ def aug_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_rent = amt
             jp.remark = remark
             jp.auguest_due_amt = remark
-            jp.auguest_rent_rec_date = datetime.date.today()
+            #jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
 
@@ -1586,7 +1609,8 @@ def aug_make_payments3(request,id):
             jp.auguest_rent = amt
             jp.remark = remark
             jp.auguest_due_amt = remark
-            jp.auguest_rent_rec_date = datetime.date.today()
+            #jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
 
@@ -1630,12 +1654,14 @@ def sept_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_rent = amt
             jp.remark = remark
             jp.sept_due_amt = remark
-            jp.sept_rent_rec_date = datetime.date.today()
+            #jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
 
@@ -1651,7 +1677,8 @@ def sept_make_payments3(request,id):
             jp.sept_rent = amt
             jp.remark = remark
             jp.sept_due_amt = remark
-            jp.sept_rent_rec_date = datetime.date.today()
+            #jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
 
@@ -1695,12 +1722,14 @@ def oct_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_rent = amt
             jp.remark = remark
             jp.october_due_amt = remark
-            jp.october_rent_rec_date = datetime.date.today()
+            #jp.october_rent_rec_date = datetime.date.today()
+            jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
 
@@ -1716,7 +1745,8 @@ def oct_make_payments3(request,id):
             jp.october_rent = amt
             jp.remark = remark
             jp.october_due_amt = remark
-            jp.october_rent_rec_date = datetime.date.today()
+            #jp.october_rent_rec_date = datetime.date.today()
+            jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
 
@@ -1760,12 +1790,14 @@ def nov_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_rent = amt
             jp.remark = remark
             jp.nov_due_amt = remark
-            jp.nov_rent_rec_date = datetime.date.today()
+            #jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
 
@@ -1780,7 +1812,8 @@ def nov_make_payments3(request,id):
             jp.nov_rent = amt
             jp.remark = remark
             jp.nov_due_amt = remark
-            jp.nov_rent_rec_date = datetime.date.today()
+            #jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
 
@@ -1824,12 +1857,14 @@ def dec_make_payments3(request,id):
         if request.method == 'POST':
             amt=request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_rent = amt
             jp.remark = remark
             jp.dec_due_amt = remark
-            jp.dec_rent_rec_date = datetime.date.today()
+            #jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
 
@@ -1844,7 +1879,8 @@ def dec_make_payments3(request,id):
             jp.dec_rent = amt
             jp.remark = remark
             jp.dec_due_amt = remark
-            jp.dec_rent_rec_date = datetime.date.today()
+            #jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
 

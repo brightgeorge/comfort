@@ -293,13 +293,28 @@
                    </thead>
                    <tbody>
                    {% for i in pd %}
-
+{% if i.feb_rent_flag == 100 %}
 				   <tr>
                        <td><a href="{% url 'feb_manke_payments3' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
                     <td>{{i.feb_rent}}</td>
                    </tr>
+                    {% elif i.feb_due_amt == '0' %}
+                   <tr>
+                       <td><a href="{% url 'feb_manke_payments3' id=i.id %}"> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.monthly_rent}}</td>
+                    <td>{{i.feb_rent}}</td>
+                   </tr>
+                    {% else %}
+                   <tr>
+                       <td><a href="{% url 'feb_manke_payments3' id=i.id %}"> <button style="background-color:yellow;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.monthly_rent}}</td>
+                    <td>{{i.feb_rent}}</td>
+                   </tr>
+                   {% endif %}
                 {% endfor %}
 
                  </tbody></table>
