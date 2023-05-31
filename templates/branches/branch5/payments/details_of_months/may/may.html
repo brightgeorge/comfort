@@ -313,6 +313,13 @@
                     <td>{{i.monthly_rent}}</td>
                     <td>{{i.may_rent}}</td>
                    </tr>
+                   {% elif i.may_due_amt == '0' %}
+                   <tr>
+                       <td><a href="{% url 'may_make_payments5' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.monthly_rent}}</td>
+                    <td>{{i.may_rent}}</td>
+                   </tr>
                    {% else %}
 
                    <tr>
