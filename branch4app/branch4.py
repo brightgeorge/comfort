@@ -932,7 +932,7 @@ def may_paid_rent4(request):
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/may_paid_rent.html', context)
 
 
 def june_paid_rent4(request):

@@ -265,14 +265,14 @@ def view_all_new_guest2(request):
             l.append(i.share_type)
 
         ll=[]
-        rsdata=room_pg1.objects.all()
+        rsdata=room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
         g1_data=pg1_new_beds.objects.all().filter(roon_no=1),
         print('room share type of branch22',ll)
         print('room share type of branchl0', ll[0])
-        print('room share type of branchl1', ll[1])
+        print('room share type of branchl7', ll[7])
 
 
         context = {
@@ -2648,7 +2648,7 @@ def detail_guest_general2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -2811,7 +2811,7 @@ def jan_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3003,7 +3003,7 @@ def feb_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3193,7 +3193,7 @@ def march_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3384,7 +3384,7 @@ def april_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3577,7 +3577,7 @@ def may_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3770,7 +3770,7 @@ def june_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -3960,7 +3960,7 @@ def july_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -4151,7 +4151,7 @@ def aug_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -4342,7 +4342,7 @@ def sept_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -4532,7 +4532,7 @@ def oct_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -4724,7 +4724,7 @@ def nov_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
@@ -4915,7 +4915,7 @@ def dec_print2(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
