@@ -863,7 +863,7 @@ def jan_paid_rent4(request):
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/jan_paid_rent.html', context)
 
 
 def feb_paid_rent4(request):
@@ -879,7 +879,7 @@ def feb_paid_rent4(request):
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/feb_paid_rent.html', context)
 
 
 def mar_paid_rent4(request):
@@ -896,7 +896,7 @@ def mar_paid_rent4(request):
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/mar_paid_rent.html', context)
 
 
 def april_paid_rent4(request):
@@ -915,7 +915,7 @@ def april_paid_rent4(request):
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/april_paid_rent.html', context)
 
 
 def may_paid_rent4(request):
@@ -949,7 +949,7 @@ def june_paid_rent4(request):
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/june_paid_rent.html', context)
 
 
 def july_paid_rent4(request):
@@ -966,7 +966,7 @@ def july_paid_rent4(request):
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/july_paid_rent.html', context)
 
 
 def aug_paid_rent4(request):
@@ -983,7 +983,7 @@ def aug_paid_rent4(request):
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/aug_paid_rent.html', context)
 
 
 def sept_paid_rent4(request):
@@ -1000,7 +1000,7 @@ def sept_paid_rent4(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/sept_paid_rent.html', context)
 
 
 def oct_paid_rent4(request):
@@ -1017,7 +1017,7 @@ def oct_paid_rent4(request):
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/oct_paid_rent.html', context)
 
 
 def nov_paid_rent4(request):
@@ -1034,7 +1034,7 @@ def nov_paid_rent4(request):
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/nov_paid_rent.html', context)
 
 
 def dec_paid_rent4(request):
@@ -1051,7 +1051,7 @@ def dec_paid_rent4(request):
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/dec_paid_rent.html', context)
 
 
 

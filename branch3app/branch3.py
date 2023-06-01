@@ -2727,7 +2727,7 @@ def detail_guest_general3(request):
             l.append(i.share_type)
 
         ll = []
-        rsdata = room_pg1.objects.all()
+        rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
