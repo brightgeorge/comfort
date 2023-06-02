@@ -58,24 +58,17 @@
         </a>
       </li>
 
-      <li>
-        <a href="">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Reports</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Creat Task</span>
+        <li>
+        <a href="{% url 'select_branch' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Branches</span>
         </a>
       </li>
 
        <li>
-        <a href="">
+        <a href="{% url 'view_all_users' %}">
           <i class="zmdi zmdi-face"></i> <span>Users</span>
         </a>
       </li>
-
 
       <li>
         <a href="{% url 'logout' %}">
