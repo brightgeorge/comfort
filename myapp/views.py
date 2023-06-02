@@ -51,6 +51,7 @@ def login_request(request):
                     'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
                     'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
                     'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
+                    'total_vaccant_room' : admin_dahsboard_calculations.total_vaccant_room(),
                 }
                 return render(request,'admindashboard/adminindex.html',context)
 
@@ -104,12 +105,6 @@ def login_request(request):
 
 
 def admin_dashboard(request):
-    tusers = login.objects.all()
-    tu = len(tusers)
-
-    tstu = login.objects.all().filter(role='Student')
-    ts = len(tstu)
-
     ul = []
     teul = login.objects.all().filter(user_flage=1)
     ltuel = len(teul)
@@ -120,12 +115,22 @@ def admin_dashboard(request):
     ul.append(ltuel)
     ul.append(ltudl)
 
+    us = request.session['username']
+
     context = {
-        'tus': tu,
-        'tos': ts,
+        'name': us,
         'yy': ul,
         'active_user': ltuel,
         'total_disableusers': ltudl,
+
+        'tg': admin_dahsboard_calculations.total_guest(),
+        'tsv1': admin_dahsboard_calculations.total_vaccant_share1(),
+        'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
+        'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
+        'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
+        'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
+        'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
+        'total_vaccant_room': admin_dahsboard_calculations.total_vaccant_room(),
     }
     return render (request,'admindashboard/adminindex.html',context)
 

@@ -7,6 +7,7 @@ from . import branch1
 #from . import branch2
 #from . import branch3
 from . import reports1
+from . import admin_dahsboard_calculations
 
 d='test'
 
@@ -14,6 +15,13 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login_request/', views.login_request, name='login_request'),
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+
+    path('total_vaccant_share_choose_branches/',admin_dahsboard_calculations.total_vaccant_share_choose_branches,name='total_vaccant_share_choose_branches'),
+    path('details_branch1/',admin_dahsboard_calculations.details_branch1,name='details_branch1'),
+    path('details_branch2/',admin_dahsboard_calculations.details_branch2,name='details_branch2'),
+    path('details_branch3/',admin_dahsboard_calculations.details_branch3,name='details_branch3'),
+    path('details_branch4/',admin_dahsboard_calculations.details_branch4,name='details_branch4'),
+    path('details_branch5/',admin_dahsboard_calculations.details_branch5,name='details_branch5'),
 
     # ****user start here *****
     path('view_all_users/', views.view_all_users, name='view_all_users'),
