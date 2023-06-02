@@ -38,10 +38,23 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="index.html">
+
+       {% if name == 'admin' %}
+      <a href="{% url 'admin_dashboard' %}">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Open Bright</h5>
+
+          <h5 class="logo-text">Open Bright</h5>
      </a>
+         {% else %}
+
+          <a href="#">
+       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
+
+          <h5 class="logo-text">Open Bright</h5>
+     </a>
+
+         {% endif %}
+
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR1</li>

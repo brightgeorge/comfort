@@ -75,6 +75,12 @@
       </li>
 
        <li>
+        <a href="{% url 'select_branch' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Branches</span>
+        </a>
+      </li>
+
+       <li>
         <a href="{% url 'view_all_users' %}">
           <i class="zmdi zmdi-face"></i> <span>Users</span>
         </a>
@@ -170,7 +176,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'total_vaccant_share_choose_branches' %}">
+                <a href="{% url 'branchwise_total_guest' %}">
                 <div class="card-body">
                   <h5 class="text-white mb-0">{{tg}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">

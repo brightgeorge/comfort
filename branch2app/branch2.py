@@ -18,7 +18,11 @@ import pymysql.cursors
 
 def branch1_dashboard2(request):
     if 'username' in request.session:
-        return render(request,'branches/branch2/branch1index.html')
+        us = request.session['username']
+        context = {
+            'name': us,
+        }
+        return render(request,'branches/branch2/branch1index.html',context)
     return render(request,'index.html')
 
 def admit_guest2(request):

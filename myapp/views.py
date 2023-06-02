@@ -124,6 +124,7 @@ def admin_dashboard(request):
         'total_disableusers': ltudl,
 
         'tg': admin_dahsboard_calculations.total_guest(),
+        #'branchwise_total_guest' : admin_dahsboard_calculations.branchwise_total_guest(),
         'tsv1': admin_dahsboard_calculations.total_vaccant_share1(),
         'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
         'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
@@ -248,7 +249,8 @@ def user_update(request,id):
 
 #************USER SECTION END HERE ***************
 
-
+def select_branch(request):
+    return render(request, 'admindashboard/branches/select_branch.html')
 
 #logout
 def logout(request):
