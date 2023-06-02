@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 
 from myapp.models import *
+from . import admin_dahsboard_calculations
 import datetime
 
 # Create your views here.
@@ -22,18 +23,6 @@ def login_request(request):
             role=loginobj.role
 
             if role=='Admin':
-
-                tusers=login.objects.all()
-                tu=len(tusers)
-
-                tstu = login.objects.all().filter(role='Student')
-                ts = len(tstu)
-                ll=0
-
-                yl=[]
-
-                yl.append(ll)
-
                 ul=[]
                 teul=login.objects.all().filter(user_flage=1)
                 ltuel=len(teul)
@@ -50,13 +39,12 @@ def login_request(request):
 
                 context={
                    'user':loginobj,
-                    'tus':tu,
-                    'tos': ts,
-
-                    'y':yl,
+                    'name': us,
                     'yy':ul,
                     'active_user':ltuel,
                     'total_disableusers':ltudl,
+
+                    'tg' : admin_dahsboard_calculations.total_guest(),
                 }
                 return render(request,'admindashboard/adminindex.html',context)
 

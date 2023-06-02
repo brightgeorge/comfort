@@ -86,76 +86,65 @@ function exportTableToExcel(tableID, filename = ''){
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION BR5</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR3</li>
 
-      <li>
-        <a href="{% url 'branch1_dashboard5' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 5</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span>
-        </a>
-      </li>
        <li>
-        <a href="{% url 'paid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span>
+        <a href="{% url 'branch1_dashboard3' %}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard3</span>
         </a>
       </li>
 
       <li>
-        <a href="{% url 'choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 5</span>
+        <a href="{% url 'unpaid_rent_choose_months3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 3</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'paid_rent_choose_months3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 3</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'choose_months3' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 3</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'choose_months_advance5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 5</span>
+        <a href="{% url 'choose_months_advance3' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 3</span>
         </a>
       </li>
 
        <li>
-        <a href="{% url 'view_all_new_guest5' %}">
-          <i class="zmdi zmdi-face"></i> <span>Guests 5</span>
+        <a href="{% url 'view_all_new_guest3' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests 3</span>
         </a>
       </li>
        <li>
-        <a href="{% url 'detail_guest_general5' %}">
-          <i class="zmdi zmdi-brush"></i> <span>Print outs 5</span>
+        <a href="{% url 'detail_guest_general3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 3</span>
         </a>
       </li>
        <li>
-        <a href="{% url 'viewall_vacate_guest5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 5</span>
+        <a href="{% url 'viewall_vacate_guest3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 3</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'view_all_room5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 5</span>
+        <a href="{% url 'view_all_room3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 3</span>
         </a>
       </li>
 
        <li>
-        <a href="{% url 'pg1_view_all_beds5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 5</span>
+        <a href="{% url 'pg1_view_all_beds3' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 3</span>
         </a>
       </li>
 
-        <li>
-        <a href="{% url 'may_print_live5' %}">
-          <i class="zmdi zmdi-spinner"></i> <span>Live Report 5</span>
-        </a>
-      </li>
-
-        <li>
-        <a href="{% url 'viewall_vaccant_room5' %}">
-          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 5</span>
-        </a>
-      </li>
 
 
       <li>
@@ -306,7 +295,7 @@ function exportTableToExcel(tableID, filename = ''){
 	   <div class="card">
 	     <div class="card-header">View all Paid Rent of {{month_name}}
 		  <div class="card-action">
-              <a class="dropdown-item" href="{% url 'full_paid_guest5' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
+              <a class="dropdown-item" href="{% url 'full_paid_guest3' %}"><span style="background-color:red;color:white;">Full Paid Guest 3</span></a>
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
               <i class="icon-options1"></i>
@@ -336,7 +325,7 @@ function exportTableToExcel(tableID, filename = ''){
 				   <tr>
                     <td>{{forloop.counter}}</td>
                        <td>
-                           <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
+                           <a href="{% url 'details_of_paid_guests3' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
 				   <td>{{i.room_name}}</td>
                        <td>{{ i.dec_rent_rec_date }}</td>
