@@ -45,6 +45,12 @@ def login_request(request):
                     'total_disableusers':ltudl,
 
                     'tg' : admin_dahsboard_calculations.total_guest(),
+                    'tsv1' : admin_dahsboard_calculations.total_vaccant_share1(),
+                    'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
+                    'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
+                    'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
+                    'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
+                    'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
                 }
                 return render(request,'admindashboard/adminindex.html',context)
 
