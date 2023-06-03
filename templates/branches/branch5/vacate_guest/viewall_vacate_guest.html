@@ -288,8 +288,8 @@ function exportTableToExcel(tableID, filename = ''){
                     <td>{{i.name}}</td>
                        <td>{{i.monthly_rent}}</td>
                        <td>{{i.remark}}</td>
-                    <td><a href="tel:{{i.self_mob_no}}">Call {{i.self_mob}}</a></td>
-                       <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob_no}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent, Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span style="background-color:green">Send Msg</span> </a></td>
+                    <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
+                       <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent [ YOUR MONTHLY RENT IS RS:{{i.monthly_rent}} AND DUE AMOUNT IS RS:{{i.remark}} ], Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span class="zmdi zmdi-whatsapp"></span> <span style="background-color:green" > Send Msg</span> </a></td>
                    </tr>
                 {% endfor %}
 
