@@ -4505,11 +4505,59 @@ def manage_update_new_guest5(request, id):
             return manage_new_guest5(request)
         else:
             name = request.POST.get('name')
+            may_due_amt = request.POST.get('may_due_amt')
+            june_rent = request.POST.get('june_rent')
+            june_advance = request.POST.get('june_advance')
+            june_due_amt = request.POST.get('june_due_amt')
 
+            ic=branch5app.models.pg1_new_guest.objects.get(guest_code=id)
+            #ic.may_due_amt = may_due_amt
+            #ic.june_rent = june_rent
+            #ic.june_advance = june_advance
+            #ic.june_due_amt = june_due_amt
+
+
+            jan_advance = 0
+            jan_due_amt = 0
+
+
+            feb_advance = 0
+            feb_due_amt = 0
+
+            march_advance = 0
+            march_due_amt = 0
+
+            april_advance = 0
+            april_due_amt = 0
+
+            #may_advance = 0
+            may_due_amt = 0
+
+            june_advance = 0
+            june_due_amt = 0
+
+            july_advance = 0
+            july_due_amt = 0
+
+            auguest_advance = 0
+            auguest_due_amt = 0
+
+            sept_advance = 0
+            sept_due_amt = 0
+
+            october_advance = 0
+            october_due_amt = 0
+
+            nov_advance = 0
+            nov_due_amt = 0
+
+            dec_advance = 0
+            dec_due_amt = 0
+
+            ic.save()
 
 
             ##################################################
-
 
 
 
