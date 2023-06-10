@@ -270,4 +270,9 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 
     path('d5/', branch5.dynamic, name='dynamic'),
 
+    path('manage_bed5/', branch5.manage_bed5, name='manage_bed5'),
+    path('manage_new_guest5/', branch5.manage_new_guest5, name='manage_new_guest5'),
+    path('manage_update_new_guest5/<id>', branch5.manage_update_new_guest5, name='manage_update_new_guest5'),
+    path('manage_update_beds5/<id>', branch5.manage_update_beds5, name='manage_update_beds5'),
+
 ]

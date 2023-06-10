@@ -226,7 +226,7 @@
          <div class="card">
            <div class="card-body">
 		  <a href="{% url 'aug5' %}"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">AUGUEST RENT PAYING FORM 5</div>
+           <div class="card-title">AUG RENT PAYING FORM 5</div>
 
 
                {% if messages %}
@@ -242,21 +242,175 @@
             {% endif %}
 
 
+               <script>
+function add()
+{
+  var numOne, numTwo, sum, sums, pos_dicount;
+  numOne = parseInt(document.getElementById("first").value);
+  numTwo = parseInt(document.getElementById("second").value);
+  pos_dicount = parseInt(document.getElementById("pos_dis").value);
+
+var total_reccieved_amt;
+    total_reccieved_amt = numOne + numTwo;
+  document.getElementById("answer").value = total_reccieved_amt;
+
+  sums = numOne + numTwo;
+
+  if (pos_dicount >0){
+    sum = sums-pos_dicount
+    }
+    else{
+        sum = numOne + numTwo;
+        }
+
+  var last_dis_amt, tanswer, pos_dicounts;
+  last_dis_amt = parseInt(document.getElementById("last_disamt").value);
+    pos_dicounts = parseInt(document.getElementById("pos_dis").value);
+  tanswer = last_dis_amt + pos_dicounts
+    document.getElementById("tanswer").innerHTML = tanswer;
+    document.getElementById("total_discounted_amount_answer").value = tanswer;
+
+  dueamt = parseInt(document.getElementById("dueamt").value);
+  var tdants, tdant;
+    tdamts = dueamt - numOne
+    if (pos_dicount >0){
+    tdamt = tdamts - pos_dicount
+    }
+    else{
+        tdamt = dueamt - numOne
+        }
+
+
+  var positive_remark = Math.abs(tdamt);
+  var total_remark;
+  var str = " extra received";
+  var rup = "RS ";
+
+  if (tdamt >0){
+    total_remark=tdamt
+    }
+    else{
+        total_remark= rup + positive_remark + str;
+        }
+
+ document.getElementById("dremark").value = total_remark;
+
+ var t;
+ if (tdamt >0){
+    t=tdamt
+    }
+    else{
+    t=0
+    }
+
+ document.getElementById("danswer").value = t;
+
+}
+
+function minus()
+{
+  var minus_numOne, minus_numTwo, minus_sum, minus_remark, m_sum, min_sum, minus_discount;
+  minus_numOne = parseInt(document.getElementById("minus_first").value);
+  minus_numTwo = parseInt(document.getElementById("minus_second").value);
+  minus_tremark = parseInt(document.getElementById("minus_remark").value);
+  m_sum = minus_numTwo - minus_numOne ;
+  min_sum = m_sum + minus_tremark;
+  minus_sum = min_sum;
+
+  minus_discount = parseInt(document.getElementById("minus_dis").value);
+  if (minus_discount > 0){
+    minus_sum = minus_sum - minus_discount
+    }
+    else{
+    minus_sum=minus_sum
+    }
+
+ var t;
+ if (minus_sum >0){
+    t=minus_sum
+    }
+    else{
+    t=0
+    }
+  document.getElementById("minus_answer").value = t;
+
+
+  var positive_remark = Math.abs(minus_sum);
+  var total_remark;
+  var str = " extra received";
+  var rup = "RS ";
+  var str_dis = " over discounted"
+
+  if (minus_sum >0){
+    total_remark=minus_sum
+    }
+    else if(minus_discount >minus_sum){
+        total_remark = rup + positive_remark + str_dis;
+        }
+    else{
+        total_remark= rup + positive_remark + str;
+        }
+
+ document.getElementById("minus_dremark").value = total_remark;
+
+ var t;
+ if (tdamt >0){
+    t=tdamt
+    }
+    else{
+    t=0
+    }
+
+ document.getElementById("danswer").value = t;
+
+}
+</script>
+
+
+
            <hr>
+               {% if sd.auguest_rent_flag == 100 %}
             <form action="{% url 'aug_make_payments5' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-			<div class="form-group">
-				<label for="input-11">aug </label>
-				<input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.monthly_rent}}" style="display:inline;" name="janamt" required>
-			</div>
+
 
                 <div class="form-group">
-				<label for="input-12">Enter Remark</label>
-				<input type="text" class="form-control col-lg-2" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
+				<label for="input-11" class="col-lg-4">Enter Received Amount</label>
+				<input id="minus_first" onclick="minus()" type="text" class="form-control col-lg-2" id="input-11" style="display:inline;" name="janamt" required>
+			&nbsp <button onclick="minus()">Add</button>
+
+                </div>
+
+			<div class="form-group">
+				<label for="input-11" class="col-lg-4">Monthly Rent is </label>
+				<input id="minus_second" type="text" class="form-control col-lg-2" id="input-11" value="{{sd.monthly_rent}}" style="display:inline;" required>
+			</div>
+
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Due Amount</label>
+				<input id="minus_remark" type="text" class="form-control col-lg-2" value="{{sd.auguest_due_amt}}" style="display:inline;" required>
+			</div>
+
+                 <div class="form-group">
+				<label for="input-11" class="col-lg-4">Discount Amount</label>
+				<input id="minus_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" name="disamt">
+			</div>
+
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Lotal Due Amount</label>
+				<input  type="text" class="form-control col-lg-2" id="minus_answer" style="display:inline;" name="dueamt" required>
+			</div>
+
+
+                <div class="form-group">
+				<label for="input-12" class="col-lg-4">Enter Remark</label>
+				<input type="text" id="minus_dremark" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
 			</div>
 
                   <div class="form-group">
-				<label for="input-12">Enter Date &nbsp &nbsp &nbsp</label>
+				<label for="input-12" class="col-lg-4">Enter Date &nbsp &nbsp &nbsp</label>
 				<input type="date" class="form-control col-lg-2" id="input-12"  style="display:inline;" name="pdate" required>
 			</div>
 
@@ -264,6 +418,76 @@
             <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
           </div>
           </form>
+               {% else %}
+               <form action="{% url 'aug_make_payments5' sd.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Enter Received Amount</label>
+				<input id="first" onclick="add()" type="text" class="form-control col-lg-2" id="input-11" style="display:inline;"  required>
+			&nbsp <button onclick="add()">Add</button>
+
+                </div>
+
+			<div class="form-group">
+				<label for="input-11" class="col-lg-4">Last Received Amount</label>
+				<input id="second" type="text" class="form-control col-lg-2" id="input-11" value="{{sd.auguest_rent}}" style="display:inline;" required>
+			</div>
+
+
+                   <div class="form-group">
+				<label for="input-11" class="col-lg-4">Current Discount Amount</label>
+				<input id="pos_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" >
+			</div>
+
+
+                   <div class="form-group">
+                        <input type="hidden" id="total_discounted_amount_answer" name="disamt" >
+
+			</div>
+
+                    <div class="form-group">
+                        <input type="hidden" id="last_disamt" value="{{discount_amt}}">
+				<label for="input-11" class="col-lg-8">Last Discounted Amount "{{discount_amt}}" and Total Discounted Amount is <span id="tanswer">tanswer</span> </label>
+
+			</div>
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Total Received Amount</label>
+				<input  type="text" class="form-control col-lg-2" id="answer"  style="display:inline;" name="janamt">
+			</div>
+                   <hr>
+
+
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Last Due Amount</label>
+				<input type="text" id="dueamt" class="form-control col-lg-2" id="input-11" value="{{sd.auguest_due_amt}}" style="display:inline;" required>
+			</div>
+
+
+                <div class="form-group">
+				<label for="input-11" class="col-lg-4">Total Due Amount</label>
+				<input type="text" id="danswer" class="form-control col-lg-2" style="display:inline;" name="dueamt" required>
+			</div>
+
+
+                <div class="form-group">
+				<label for="input-12" class="col-lg-4">Enter Remark</label>
+				<input type="text" id="dremark" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
+			</div>
+
+                  <div class="form-group">
+				<label for="input-12" class="col-lg-4">Enter Date &nbsp &nbsp &nbsp</label>
+				<input type="date" class="form-control col-lg-2" id="input-12"  style="display:inline;" name="pdate" required>
+			</div>
+
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
+          </div>
+          </form>
+               {% endif %}
          </div>
          </div>
       </div>
@@ -276,7 +500,8 @@
 
 
 
-                 <div class="row mt-3">
+
+          <div class="row mt-3">
 
         <div class="col-lg-12">
           <div class="card">
@@ -638,7 +863,7 @@
                     <td >{{i.dec_rent_rec_date}}</td>
                     <td>{{i.monthly_rent}}</td>
                     <td>{{i.dec_rent}}</td>
-                    <td>{{i.dec_due_amt}}</td>
+                    <td></td>
                     <td></td>
                   </tr>
                 {% elif i.dec_rent_flag == 100 %}
@@ -671,6 +896,7 @@
           </div>
         </div>
       </div><!--End Row-->
+
 
 
 
