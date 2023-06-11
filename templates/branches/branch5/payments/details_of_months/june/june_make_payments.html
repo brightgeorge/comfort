@@ -376,7 +376,7 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Enter Received Amount</label>
-				<input id="minus_first" onclick="minus()" type="text" class="form-control col-lg-2" id="input-11" style="display:inline;" name="janamt" required>
+				<input id="minus_first" onclick="minus()" type="number" class="form-control col-lg-2" id="input-11" style="display:inline;" name="janamt" required>
 			&nbsp <button onclick="minus()">Add</button>
 
                 </div>
@@ -389,18 +389,18 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Due Amount</label>
-				<input id="minus_remark" type="text" class="form-control col-lg-2" value="{{sd.june_due_amt}}" style="display:inline;" required>
+				<input id="minus_remark" type="number" class="form-control col-lg-2" value="{{sd.june_due_amt}}" style="display:inline;" required>
 			</div>
 
                  <div class="form-group">
 				<label for="input-11" class="col-lg-4">Discount Amount</label>
-				<input id="minus_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" name="disamt">
+				<input id="minus_dis" type="number" class="form-control col-lg-2" style="display:inline;" value="0" name="disamt">
 			</div>
 
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Lotal Due Amount</label>
-				<input  type="text" class="form-control col-lg-2" id="minus_answer" style="display:inline;" name="dueamt" required>
+				<input  type="number" class="form-control col-lg-2" id="minus_answer" style="display:inline;" name="dueamt" required>
 			</div>
 
 
@@ -425,20 +425,20 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Enter Received Amount</label>
-				<input id="first" onclick="add()" type="text" class="form-control col-lg-2" id="input-11" style="display:inline;"  required>
+				<input id="first" onclick="add()" type="number" class="form-control col-lg-2" id="input-11" style="display:inline;"  required>
 			&nbsp <button onclick="add()">Add</button>
 
                 </div>
 
 			<div class="form-group">
 				<label for="input-11" class="col-lg-4">Last Received Amount</label>
-				<input id="second" type="text" class="form-control col-lg-2" id="input-11" value="{{sd.june_rent}}" style="display:inline;" required>
+				<input id="second" type="number" class="form-control col-lg-2" id="input-11" value="{{sd.june_rent}}" style="display:inline;" required>
 			</div>
 
 
                    <div class="form-group">
 				<label for="input-11" class="col-lg-4">Current Discount Amount</label>
-				<input id="pos_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" >
+				<input id="pos_dis" type="number" class="form-control col-lg-2" style="display:inline;" value="0" >
 			</div>
 
 
@@ -455,7 +455,7 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Total Received Amount</label>
-				<input  type="text" class="form-control col-lg-2" id="answer"  style="display:inline;" name="janamt">
+				<input  type="number" class="form-control col-lg-2" id="answer"  style="display:inline;" name="janamt">
 			</div>
                    <hr>
 
@@ -463,13 +463,13 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Last Due Amount</label>
-				<input type="text" id="dueamt" class="form-control col-lg-2" id="input-11" value="{{sd.june_due_amt}}" style="display:inline;" required>
+				<input type="number" id="dueamt" class="form-control col-lg-2" id="input-11" value="{{sd.june_due_amt}}" style="display:inline;" required>
 			</div>
 
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Total Due Amount</label>
-				<input type="text" id="danswer" class="form-control col-lg-2" style="display:inline;" name="dueamt" required>
+				<input type="number" id="danswer" class="form-control col-lg-2" style="display:inline;" name="dueamt" required>
 			</div>
 
 
