@@ -65,3 +65,15 @@ def total_due_june():
 
     total_collection_amt = tm+ta+td-tc-tdis
     return total_collection_amt
+
+def total_collection_monthly_june():
+    total_mthly_rent = []
+
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    for i in total_guest_br5:
+        total_mthly_rent.append(int(i.monthly_rent))
+
+    tm=sum(total_mthly_rent)
+
+    total_collection_amt = tm
+    return total_collection_amt
