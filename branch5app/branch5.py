@@ -4490,6 +4490,93 @@ def manage_update_new_guest5(request, id):
         chk_mob = 10
         if chk_mob == 11:
             l = []
+            data = pg1_new_guest.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 5 Room Creation Form',
+                'br': pg1_new_guest.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
+
+            }
+            messages.info(request, 'BRANCH5 guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return manage_new_guest5(request)
+        else:
+            name = request.POST.get('name')
+            may_due_amt = request.POST.get('may_due_amt')
+            june_rent = request.POST.get('june_rent')
+            june_advance = request.POST.get('june_advance')
+            june_due_amt = request.POST.get('june_due_amt')
+
+            ic=branch5app.models.pg1_new_guest.objects.get(id=id)
+            #ic.may_due_amt = may_due_amt
+            #ic.june_rent = june_rent
+            #ic.june_advance = june_advance
+            #ic.june_due_amt = june_due_amt
+
+
+            ic.jan_advance = 0
+            ic.jan_due_amt = 0
+
+
+            ic.feb_advance = 0
+            ic.feb_due_amt = 0
+
+            ic.march_advance = 0
+            ic.march_due_amt = 0
+
+            ic.april_advance = 0
+            ic.april_due_amt = 0
+
+            #may_advance = 0
+            ic.may_due_amt = 0
+
+            ic.june_advance = 0
+            ic.june_due_amt = 0
+
+            ic.july_advance = 0
+            ic.july_due_amt = 0
+
+            ic.auguest_advance = 0
+            ic.auguest_due_amt = 0
+
+            ic.sept_advance = 0
+            ic.sept_due_amt = 0
+
+            ic.october_advance = 0
+            ic.october_due_amt = 0
+
+            ic.nov_advance = 0
+            ic.nov_due_amt = 0
+
+            ic.dec_advance = 0
+            ic.dec_due_amt = 0
+
+            ic.save()
+
+
+            ##################################################
+
+
+
+            messages.info(request, 'BRANCH5 guest updated sucessfully')
+            return manage_new_guest5(request)
+
+    context = {
+        'sd': pg1_new_guest.objects.get(id=id)
+    }
+    return render(request, 'branches/branch5/test/manage_update_new_guest.html', context)
+
+
+def manage_update_new_guest5_test(request, id):
+    if request.method == 'POST':
+        selfmob = request.POST.get('selfmobno')
+        # chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
             data = pg1_new_beds.objects.all()
             for i in data:
                 l.append(i.share_type)
@@ -4517,42 +4604,42 @@ def manage_update_new_guest5(request, id):
             #ic.june_due_amt = june_due_amt
 
 
-            jan_advance = 0
-            jan_due_amt = 0
+            ic.jan_advance = 0
+            ic.jan_due_amt = 0
 
 
-            feb_advance = 0
-            feb_due_amt = 0
+            ic.feb_advance = 0
+            ic.feb_due_amt = 0
 
-            march_advance = 0
-            march_due_amt = 0
+            ic.march_advance = 0
+            ic.march_due_amt = 0
 
-            april_advance = 0
-            april_due_amt = 0
+            ic.april_advance = 0
+            ic.april_due_amt = 0
 
             #may_advance = 0
-            may_due_amt = 0
+            ic.may_due_amt = 0
 
-            june_advance = 0
-            june_due_amt = 0
+            ic.june_advance = 0
+            ic.june_due_amt = 0
 
-            july_advance = 0
-            july_due_amt = 0
+            ic.july_advance = 0
+            ic.july_due_amt = 0
 
-            auguest_advance = 0
-            auguest_due_amt = 0
+            ic.auguest_advance = 0
+            ic.auguest_due_amt = 0
 
-            sept_advance = 0
-            sept_due_amt = 0
+            ic.sept_advance = 0
+            ic.sept_due_amt = 0
 
-            october_advance = 0
-            october_due_amt = 0
+            ic.october_advance = 0
+            ic.october_due_amt = 0
 
-            nov_advance = 0
-            nov_due_amt = 0
+            ic.nov_advance = 0
+            ic.nov_due_amt = 0
 
-            dec_advance = 0
-            dec_due_amt = 0
+            ic.dec_advance = 0
+            ic.dec_due_amt = 0
 
             ic.save()
 
@@ -4568,6 +4655,8 @@ def manage_update_new_guest5(request, id):
         'sd': pg1_new_guest.objects.get(id=id)
     }
     return render(request, 'branches/branch5/test/manage_update_new_guest.html', context)
+
+
 
 
 def manage_update_beds5(request, id):

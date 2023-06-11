@@ -25,7 +25,7 @@
   <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
-
+  
   <style>
 .mybutton {
   border: none;
@@ -46,7 +46,7 @@
 
 
 </style>
-
+  
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -149,7 +149,7 @@
 
    </div>
    <!--End sidebar-wrapper-->
-
+  
 
 <!--Start topbar header-->
 <header class="topbar-nav">
@@ -167,7 +167,7 @@
       </form>
     </li>
   </ul>
-
+     
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
@@ -217,7 +217,7 @@
 </header>
 <!--End topbar header-->
 <div class="clearfix"></div>
-
+	
   <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -241,17 +241,17 @@
        {% endfor %}
             {% endif %}
 
-
+		   
            <hr>
-            <form action="{% url 'manage_update_new_guest5' sd.id %}" method="post" enctype="multipart/form-data">
+            <form action="{% url 'update_br1_admit_guest5' sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 
 				</select>
-
+				
 				<label for="input-12">Name</label>
 				<input type="text" class="form-control col-lg-8" id="input-12" value="{{sd.name}}" style="display:inline;" name="name" required>
-
+				
 			</div>
 
                 <div class="form-group">
@@ -513,12 +513,12 @@
 
     </div>
     <!-- End container-fluid-->
-
+    
    </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-
+	
 	<!--Start footer-->
 	<footer class="footer">
       <div class="container">
@@ -528,28 +528,28 @@
       </div>
     </footer>
 	<!--End footer-->
-
+	
 	<!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
-
+	
 		<p class="mb-0">Settings</p>
       <hr>
-
+      
       <ul>
         <li style="background-color:red;border:1px solid white;"><a href="uom_creation.html">Create New UOM</a></li>
         <li style="background-color:red;border:1px solid white;"><a href="create_category.html">Create New Category</a></li>
         <li style="background-color:red;border:1px solid white;">Create New Kitchen</li>
-
-
+        
+        
       </ul>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
-
+      
       <ul class="switcher">
         <li id="theme1"></li>
         <li id="theme2"></li>
@@ -561,7 +561,7 @@
 
       <p class="mb-0">Gradient Background</p>
       <hr>
-
+      
       <ul class="switcher">
         <li id="theme7"></li>
         <li id="theme8"></li>
@@ -573,11 +573,11 @@
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
-
+      
      </div>
    </div>
   <!--end color switcher-->
-
+   
   </div><!--End wrapper-->
 
 
@@ -585,16 +585,16 @@
   <script src="{% static 'admindashboard/assets/js/jquery.min.js' %}"></script>
   <script src="{% static 'admindashboard/assets/js/popper.min.js' %}"></script>
   <script src="{% static 'admindashboard/assets/js/bootstrap.min.js' %}"></script>
-
+	
  <!-- simplebar js -->
   <script src="{% static 'admindashboard/assets/plugins/simplebar/js/simplebar.js' %}"></script>
   <!-- sidebar-menu js -->
   <script src="{% static 'admindashboard/assets/js/sidebar-menu.js' %}"></script>
-
+  
   <!-- Custom scripts -->
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
+  
 
-
-
+	
 </body>
 </html>
