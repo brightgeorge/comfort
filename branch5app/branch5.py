@@ -32,6 +32,9 @@ def branch1_dashboard5(request):
             'total_received_june' : admin_dashboard_calculations_br5.total_received_june(),
             'total_due_june' : admin_dashboard_calculations_br5.total_due_june(),
             'total_collection_monthly_june' : admin_dashboard_calculations_br5.total_collection_monthly_june(),
+            'total_collection_advance_june' : admin_dashboard_calculations_br5.total_collection_advance_june(),
+            'total_collection_due_june' : admin_dashboard_calculations_br5.total_collection_due_june(),
+            'total_collection_discount_june' : admin_dashboard_calculations_br5.total_collection_discount_june(),
         }
         return render(request, 'branches/branch5/branch1index.html',context)
     return render(request, 'index.html')
