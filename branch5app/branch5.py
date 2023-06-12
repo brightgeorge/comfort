@@ -4542,7 +4542,7 @@ def manage_update_new_guest5(request, id):
             june_due_amt = request.POST.get('june_due_amt')
 
             ic = branch5app.models.pg1_new_guest.objects.get(id=id)
-            # ic.may_due_amt = may_due_amt
+            ic.may_due_amt = may_due_amt
             # ic.june_rent = june_rent
             ic.june_advance = june_advances
             ic.june_due_amt = june_due_amt
