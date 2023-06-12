@@ -125,3 +125,11 @@ def total_collection_discount_june():
 
     total_collection_amt = tdis
     return total_collection_amt
+
+def bar_chart():
+    l=[]
+    l.append(total_collection_june())
+    l.append(total_received_june())
+    l.append(total_due_june())
+    l.append(total_collection_discount_june())
+    return l
