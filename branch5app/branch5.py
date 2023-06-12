@@ -1144,9 +1144,9 @@ def jan_manke_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.jan_rent))
+            total_discout_amt.append(int(i.jan_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1231,9 +1231,9 @@ def feb_manke_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.feb_rent))
+            total_discout_amt.append(int(i.feb_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1318,9 +1318,9 @@ def march_manke_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.march_rent))
+            total_discout_amt.append(int(i.march_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1407,9 +1407,9 @@ def april_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.april_rent))
+            total_discout_amt.append(int(i.april_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1496,9 +1496,9 @@ def may_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.may_rent))
+            total_discout_amt.append(int(i.may_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1537,6 +1537,7 @@ def june_make_payments5(request,id):
             jp.remark = remark
             jp.june_due_amt = due_amt
             jp.july_due_amt = due_amt
+            jp.june_dis_amt = dis_amt
             #jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
@@ -1552,11 +1553,12 @@ def june_make_payments5(request,id):
 
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.june_rent = dis_amt
+            jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
             jp.july_due_amt = due_amt
-            #jp.june_rent_rec_date = datetime.date.today()
+            jp.june_dis_amt = dis_amt
+            # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
@@ -1585,9 +1587,9 @@ def june_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2,guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.june_rent))
+            total_discout_amt.append(int(i.june_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1675,9 +1677,9 @@ def july_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.july_rent))
+            total_discout_amt.append(int(i.july_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1762,9 +1764,9 @@ def aug_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.auguest_rent))
+            total_discout_amt.append(int(i.auguest_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -1850,9 +1852,9 @@ def sept_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.sept_rent))
+            total_discout_amt.append(int(i.sept_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=1),
@@ -1941,9 +1943,9 @@ def oct_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.october_rent))
+            total_discout_amt.append(int(i.october_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -2028,9 +2030,9 @@ def nov_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.nov_rent))
+            total_discout_amt.append(int(i.nov_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
@@ -2114,9 +2116,9 @@ def dec_make_payments5(request,id):
 
         import branch5app
         total_discout_amt = []
-        pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
-            total_discout_amt.append(int(i.dec_rent))
+            total_discout_amt.append(int(i.dec_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),

@@ -21,7 +21,7 @@ def total_collection_june():
     total_discout_amt = []
     pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
     for i in pg1_new_beds:
-        total_discout_amt.append(int(i.june_rent))
+        total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
 
@@ -72,7 +72,7 @@ def total_due_june():
     total_discout_amt = []
     pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
     for i in pg1_new_beds:
-        total_discout_amt.append(int(i.june_rent))
+        total_discout_amt.append(int(i.june_dis_amt))
 
     tdis = sum(total_discout_amt)
 
@@ -119,7 +119,7 @@ def total_collection_discount_june():
     total_discout_amt = []
     pg1_new_beds = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
     for i in pg1_new_beds:
-        total_discout_amt.append(int(i.june_rent))
+        total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
 
