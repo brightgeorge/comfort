@@ -305,14 +305,23 @@
                    </tr>
                    </thead>
                    <tbody>
-                   {% for i in pd %}
-
+                    {% for i in pd %}
+                    {% if i.july_rent_flag == 100 %}
 				   <tr>
-                       <td><a href="{% url 'jan_make_payments_advance5' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                      <td><a href="{% url 'jan_make_payments_advance5' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.jan_rent}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.jan_advance}}</td>
                    </tr>
+                   {% else %}
+                   <tr>
+                       <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Already Paid</button> </a></td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.jan_advance}}</td>
+                   </tr>
+
+                   {% endif %}
                 {% endfor %}
 
                  </tbody></table>

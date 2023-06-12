@@ -4538,14 +4538,14 @@ def manage_update_new_guest5(request, id):
             name = request.POST.get('name')
             may_due_amt = request.POST.get('may_due_amt')
             june_rent = request.POST.get('june_rent')
-            june_advances = request.POST.get('june_advance')
+            june_advances = request.POST.get('june_advanc')
             june_due_amt = request.POST.get('june_due_amt')
 
-            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=id)
+            ic = branch5app.models.pg1_new_guest.objects.get(id=id)
             # ic.may_due_amt = may_due_amt
             # ic.june_rent = june_rent
             ic.june_advance = june_advances
-            # ic.june_due_amt = june_due_amt
+            ic.june_due_amt = june_due_amt
 
             # ic.jan_advance = 0
             # ic.jan_due_amt = 0
