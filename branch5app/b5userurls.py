@@ -266,6 +266,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('nov_close_decision_page5/', branch5.nov_close_decision_page5, name='nov_close_decision_page5'),
 
     path('may_print_live5/', reports5.may_print_live5, name='may_print_live5'),
+    path('june_print_live5/', reports5.june_print_live5, name='june_print_live5'),
     path('viewall_vaccant_room5/', reports5.viewall_vaccant_room5, name='viewall_vaccant_room5'),
 
     path('d5/', branch5.dynamic, name='dynamic'),
