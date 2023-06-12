@@ -33,11 +33,24 @@ def total_received_june():
     total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
     for i in total_guest_br5:
         total_collection.append(int(i.june_rent))
+    print(total_collection)
 
     tc=sum(total_collection)
 
     total_collection_amt = tc
     return total_collection_amt
+
+def total_received_june_list():
+    total_collection=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    for i in total_guest_br5:
+        total_collection.append(int(i.june_rent))
+    print(total_collection)
+
+    tc=sum(total_collection)
+
+    total_collection_amt = tc
+    return total_collection
 
 def total_due_june():
     total_mthly_rent = []

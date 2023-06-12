@@ -30,6 +30,7 @@ def branch1_dashboard5(request):
             'name': us,
             'total_collection_june' : admin_dashboard_calculations_br5.total_collection_june(),
             'total_received_june' : admin_dashboard_calculations_br5.total_received_june(),
+            'total_received_june_list' : admin_dashboard_calculations_br5.total_received_june_list(),
             'total_due_june' : admin_dashboard_calculations_br5.total_due_june(),
             'total_collection_monthly_june' : admin_dashboard_calculations_br5.total_collection_monthly_june(),
             'total_collection_advance_june' : admin_dashboard_calculations_br5.total_collection_advance_june(),
@@ -4511,13 +4512,13 @@ def manage_update_new_guest5(request, id):
             name = request.POST.get('name')
             may_due_amt = request.POST.get('may_due_amt')
             june_rent = request.POST.get('june_rent')
-            june_advance = request.POST.get('june_advance')
+            june_advances = request.POST.get('june_advance')
             june_due_amt = request.POST.get('june_due_amt')
 
             ic = branch5app.models.pg1_new_guest.objects.get(guest_code=id)
             # ic.may_due_amt = may_due_amt
             # ic.june_rent = june_rent
-            ic.june_advance = june_advance
+            ic.june_advance = june_advances
             # ic.june_due_amt = june_due_amt
 
             # ic.jan_advance = 0
@@ -4535,7 +4536,7 @@ def manage_update_new_guest5(request, id):
             # may_advance = 0
             # ic.may_due_amt = 0
 
-            ic.june_advance = 0
+            #ic.june_advance = 0
             # ic.june_due_amt = 0
 
             # ic.july_advance = 0
