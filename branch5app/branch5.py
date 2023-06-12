@@ -4514,49 +4514,47 @@ def manage_update_new_guest5(request, id):
             june_advance = request.POST.get('june_advance')
             june_due_amt = request.POST.get('june_due_amt')
 
-            ic=branch5app.models.pg1_new_guest.objects.get(id=id)
-            #ic.may_due_amt = may_due_amt
-            #ic.june_rent = june_rent
-            #ic.june_advance = june_advance
-            #ic.june_due_amt = june_due_amt
+            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=id)
+            # ic.may_due_amt = may_due_amt
+            # ic.june_rent = june_rent
+            ic.june_advance = june_advance
+            # ic.june_due_amt = june_due_amt
 
+            # ic.jan_advance = 0
+            # ic.jan_due_amt = 0
 
-            ic.jan_advance = 0
-            ic.jan_due_amt = 0
+            # ic.feb_advance = 0
+            # ic.feb_due_amt = 0
 
+            # ic.march_advance = 0
+            # ic.march_due_amt = 0
 
-            ic.feb_advance = 0
-            ic.feb_due_amt = 0
+            # ic.april_advance = 0
+            # ic.april_due_amt = 0
 
-            ic.march_advance = 0
-            ic.march_due_amt = 0
-
-            ic.april_advance = 0
-            ic.april_due_amt = 0
-
-            #may_advance = 0
-            ic.may_due_amt = 0
+            # may_advance = 0
+            # ic.may_due_amt = 0
 
             ic.june_advance = 0
-            ic.june_due_amt = 0
+            # ic.june_due_amt = 0
 
-            ic.july_advance = 0
-            ic.july_due_amt = 0
+            # ic.july_advance = 0
+            # ic.july_due_amt = 0
 
-            ic.auguest_advance = 0
-            ic.auguest_due_amt = 0
+            # ic.auguest_advance = 0
+            # ic.auguest_due_amt = 0
 
-            ic.sept_advance = 0
-            ic.sept_due_amt = 0
+            # ic.sept_advance = 0
+            # ic.sept_due_amt = 0
 
-            ic.october_advance = 0
-            ic.october_due_amt = 0
+            # ic.october_advance = 0
+            # ic.october_due_amt = 0
 
-            ic.nov_advance = 0
-            ic.nov_due_amt = 0
+            # ic.nov_advance = 0
+            # ic.nov_due_amt = 0
 
-            ic.dec_advance = 0
-            ic.dec_due_amt = 0
+            # ic.dec_advance = 0
+            # ic.dec_due_amt = 0
 
             ic.save()
 
@@ -4604,46 +4602,46 @@ def manage_update_new_guest5_test(request, id):
             ic=branch5app.models.pg1_new_guest.objects.get(guest_code=id)
             #ic.may_due_amt = may_due_amt
             #ic.june_rent = june_rent
-            #ic.june_advance = june_advance
+            ic.june_advance = june_advance
             #ic.june_due_amt = june_due_amt
 
 
-            ic.jan_advance = 0
-            ic.jan_due_amt = 0
+            #ic.jan_advance = 0
+            #ic.jan_due_amt = 0
 
 
-            ic.feb_advance = 0
-            ic.feb_due_amt = 0
+            #ic.feb_advance = 0
+            #ic.feb_due_amt = 0
 
-            ic.march_advance = 0
-            ic.march_due_amt = 0
+            #ic.march_advance = 0
+            #ic.march_due_amt = 0
 
-            ic.april_advance = 0
-            ic.april_due_amt = 0
+            #ic.april_advance = 0
+            #ic.april_due_amt = 0
 
             #may_advance = 0
-            ic.may_due_amt = 0
+            #ic.may_due_amt = 0
 
             ic.june_advance = 0
-            ic.june_due_amt = 0
+            #ic.june_due_amt = 0
 
-            ic.july_advance = 0
-            ic.july_due_amt = 0
+            #ic.july_advance = 0
+            #ic.july_due_amt = 0
 
-            ic.auguest_advance = 0
-            ic.auguest_due_amt = 0
+            #ic.auguest_advance = 0
+            #ic.auguest_due_amt = 0
 
-            ic.sept_advance = 0
-            ic.sept_due_amt = 0
+            #ic.sept_advance = 0
+            #ic.sept_due_amt = 0
 
-            ic.october_advance = 0
-            ic.october_due_amt = 0
+            #ic.october_advance = 0
+            #ic.october_due_amt = 0
 
-            ic.nov_advance = 0
-            ic.nov_due_amt = 0
+            #ic.nov_advance = 0
+            #ic.nov_due_amt = 0
 
-            ic.dec_advance = 0
-            ic.dec_due_amt = 0
+            #ic.dec_advance = 0
+            #ic.dec_due_amt = 0
 
             ic.save()
 
@@ -4690,8 +4688,9 @@ def manage_update_beds5(request, id):
 
             ##################################################
 
-
-
+            ic = pg1_new_beds.objects.get(id=id)
+            ic.june_rent = 0
+            ic.save()
 
             messages.info(request, 'BRANCH5 guest updated sucessfully')
             return manage_new_guest5(request)
