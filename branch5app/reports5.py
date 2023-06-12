@@ -82,22 +82,10 @@ def may_print_live5(request):
 
 def june_print_live5(request):
     if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
-        for i in data:
-            l.append(i.share_type)
-
         ll = []
-        # rsdata = room_pg1.objects.all().order_by('roon_no')1,
-        # a
         rsdata = room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
-
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print('room share type of branch22', ll)
-        print('room share type of branchl0', ll[0])
-        print('room share type of branchl1', ll[1])
 
         context = {
             'brname': 'BRANCH 3 Room Creation Form',
@@ -106,40 +94,40 @@ def june_print_live5(request):
             'table_height': '50px',
 
             'rs113': ll[0],
-            '113_data': pg1_new_guest.objects.all().filter(roon_no=113,flag=2),
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
             'rs114': ll[1],
-            '114_data': pg1_new_guest.objects.all().filter(roon_no=114,flag=2),
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
             'rs115': ll[2],
-            '115_data': pg1_new_guest.objects.all().filter(roon_no=115,flag=2),
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
             'rs116': ll[3],
-            '116_data': pg1_new_guest.objects.all().filter(roon_no=116,flag=2),
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
             'rs117': ll[4],
-            '117_data': pg1_new_guest.objects.all().filter(roon_no=117,flag=2),
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
 
             # 'g1_data':g1_data,
             'rs213': ll[5],
-            '213_data': pg1_new_guest.objects.all().filter(roon_no=213,flag=2),
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
             'rs214': ll[6],
-            '214_data': pg1_new_guest.objects.all().filter(roon_no=214,flag=2),
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
             'rs215': ll[7],
-            '215_data': pg1_new_guest.objects.all().filter(roon_no=215,flag=2),
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
             'rs216': ll[8],
-            '216_data': pg1_new_guest.objects.all().filter(roon_no=216,flag=2),
+            '216_data': pg1_new_beds.objects.all().filter(roon_no=216),
             'rs217': ll[9],
-            '217_data': pg1_new_guest.objects.all().filter(roon_no=217,flag=2),
+            '217_data': pg1_new_beds.objects.all().filter(roon_no=217),
 
             'rs313': ll[10],
-            '313_data': pg1_new_guest.objects.all().filter(roon_no=313,flag=2),
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
             'rs314': ll[11],
-            '314_data': pg1_new_guest.objects.all().filter(roon_no=314,flag=2),
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
             'rs315': ll[12],
-            '315_data': pg1_new_guest.objects.all().filter(roon_no=315,flag=2),
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
             'rs316': ll[13],
-            '316_data': pg1_new_guest.objects.all().filter(roon_no=316,flag=2),
+            '316_data': pg1_new_beds.objects.all().filter(roon_no=316),
             'rs317': ll[14],
-            '317_data': pg1_new_guest.objects.all().filter(roon_no=317,flag=2),
+            '317_data': pg1_new_beds.objects.all().filter(roon_no=317),
             'rs318': ll[15],
-            '318_data': pg1_new_guest.objects.all().filter(roon_no=318,flag=2),
+            '318_data': pg1_new_beds.objects.all().filter(roon_no=318),
 
         }
         return render(request, 'branches/branch5/live_print_report/june_print_live.html', context)
