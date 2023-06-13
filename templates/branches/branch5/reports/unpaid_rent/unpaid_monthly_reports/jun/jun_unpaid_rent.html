@@ -233,8 +233,8 @@ th.break {
       <div class="col-lg-12" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="#"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">Due Amount Management Branch5</div>
+		  <a href="{% url 'unpaid_rent_choose_months5' %}"> <button class="mybutton button1"> <= Back</button></a>
+           <div class="card-title">Unpaid Guest Details of JUNE Branch5</div>
 
 
                {% if messages %}
@@ -250,25 +250,13 @@ th.break {
             {% endif %}
 
 
-
-               <p id="demo"></p>
-
-<script>
-var w = window.innerWidth;
-var h = window.innerHeight;
-
-var x = document.getElementById("demo");
-x.innerHTML =  w ;
-</script>
-
-
            <hr>
             <form action="#" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 
 
 
-{% for i in due_amt %}
+{% for i in up %}
                  <div class="form-group">
 
                      <label for="input-4" class="col0-lg-1" style="border-bottom: 2pt solid #FF0000;"> (Sl.No:{{forloop.counter}}) &nbsp;
@@ -281,7 +269,16 @@ x.innerHTML =  w ;
                      <label for="input-15" class="col-lg-2">Advance : {{i.june_advance}}</label>
                      <label for="input-15" class="col-lg-2">Discount : {{i.june_dis_amt}}</label>
                      <label for="input-15" class="col-lg-2">Due Amt : {{i.june_due_amt}}</label>
-                     <label for="input-15" class="col-lg-5">Remark : {{i.remark}}</label>
+                     <label for="input-15" class="col-lg-5">Remark : {{i.remark}}</label></br>
+
+                      <label for="input-15" class="col-lg-3">Call {{i.self_mob}}</label>
+                     <label for="input-15" class="col-lg-2">
+
+                         <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent [ YOUR MONTHLY RENT IS RS:{{i.monthly_rent}} AND DUE AMOUNT IS RS:{{i.remark}} ], Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG ">
+                             <span class="zmdi zmdi-whatsapp"></span> <span style="background-color:green" > Send Message</span>
+
+
+                     </label>
 
 			</div>
 <hr style="height: 2px;

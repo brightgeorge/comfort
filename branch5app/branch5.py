@@ -733,7 +733,16 @@ def may_unpaid_rent5(request):
         return render(request, 'branches/branch5/reports/unpaid_rent/unpaid_rent.html', context)
 
 
+#def
 def june_unpaid_rent5(request):
+    if 'username' in request.session:
+        context = {
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=100, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'month_name': 'JUNE'
+        }
+        return render(request, 'branches/branch5/reports/unpaid_rent/unpaid_monthly_reports/jun/jun_unpaid_rent.html', context)
+def table_june_unpaid_rent5(request):
     if 'username' in request.session:
         context = {
             'up': pg1_new_guest.objects.all().filter(june_rent_flag=100, flag=2).order_by('roon_no'),
