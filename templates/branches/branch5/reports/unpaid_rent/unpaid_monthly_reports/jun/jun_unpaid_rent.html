@@ -234,6 +234,7 @@ th.break {
          <div class="card">
            <div class="card-body">
 		  <a href="{% url 'unpaid_rent_choose_months5' %}"> <button class="mybutton button1"> <= Back</button></a>
+               <a href="{% url 'table_june_unpaid_rent5' %}"> <button class="mybutton button1"> View Table</button></a>
            <div class="card-title">Unpaid Guest Details of JUNE Branch5</div>
 
 
@@ -259,10 +260,10 @@ th.break {
 {% for i in up %}
                  <div class="form-group">
 
-                     <label for="input-4" class="col0-lg-1" style="border-bottom: 2pt solid #FF0000;"> (Sl.No:{{forloop.counter}}) &nbsp;
+                   <a href="{% url 'details_of_unpaid_guests5' id=i.id %}">  <label for="input-4" class="col0-lg-1" style="border-bottom: 2pt solid #FF0000;"> (Sl.No:{{forloop.counter}}) &nbsp;
                          Room No : {{i.room_name}}
                      Name  : {{i.name|upper}}
-                     </label></br>
+                   </label></a></br>
 
                      <label for="input-15" class="col-lg-3">Monthly Rent : {{i.monthly_rent}}</label>
                      <label for="input-15" class="col-lg-2">Paid Rent : {{i.june_rent}}</label>
