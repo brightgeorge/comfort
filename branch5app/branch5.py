@@ -4491,6 +4491,16 @@ def dec_make_payments_vacate5(request, id):
 #DUE AMT MANAGEMENT START HERE
 ###########################
 
+def view_all_due_amt5(request):
+    context={
+        'due_amt' : pg1_new_beds.objects.all().filter(flag=2)
+    }
+    return render(request, 'branches/branch5/due_amt_mgt/view_all_due_amt.html',context)
+
+def due_amt_mgt_choose_months5(request):
+    return render(request, 'branches/branch5/due_amt_mgt/due_amt_mgt_choose_months.html')
+
+
 def june_due_amt_mgt5(request):
     return render(request,'branches/branch5/due_amt_mgt/june_due_amt_mgt.html')
 

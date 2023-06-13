@@ -276,4 +276,16 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('manage_update_new_guest5/<id>', branch5.manage_update_new_guest5, name='manage_update_new_guest5'),
     path('manage_update_beds5/<id>', branch5.manage_update_beds5, name='manage_update_beds5'),
 
+########################################
+# DUE AMT MANAGEMENT START HERE
+###########################
+
+    path('view_all_due_amt5/', branch5.view_all_due_amt5, name='view_all_due_amt5'),
+    path('due_amt_mgt_choose_months5/', branch5.due_amt_mgt_choose_months5, name='due_amt_mgt_choose_months5'),
+    path('june_due_amt_mgt5/', branch5.june_due_amt_mgt5, name='june_due_amt_mgt5'),
+
+########################################
+# DUE AMT MANAGEMENT END HERE
+###########################
+
 ]

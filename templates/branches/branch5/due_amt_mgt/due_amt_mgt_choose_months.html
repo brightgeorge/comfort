@@ -28,26 +28,6 @@
   <!-- Custom Style-->
   <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
 
-    <style>
-        #mycolor:hover{
-            color:white;
-        }
-
-
-.mymar{
-    margin-top:100px;
-}
-
-@media only screen and (max-width: 600px) {
-  .mymar {
-  margin-top:0px;
-
-  }
-}
-
-
-    </style>
-
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -58,23 +38,10 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-
-       {% if name == 'admin' %}
-      <a href="{% url 'admin_dashboard' %}">
+      <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-
-          <h5 class="logo-text">Open Bright</h5>
+       <h5 class="logo-text">Open Bright</h5>
      </a>
-         {% else %}
-
-          <a href="#">
-       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-
-          <h5 class="logo-text">Open Bright</h5>
-     </a>
-
-         {% endif %}
-
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR5</li>
@@ -85,21 +52,16 @@
         </a>
       </li>
 
-
-       <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 5</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span></a>
-    <a class="dropdown-item btn-info" href="{% url 'june_print_live5' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 5</span></a>
-  </div>
-</div>
-       </li>
-
+      <li>
+        <a href="{% url 'unpaid_rent_choose_months5' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'paid_rent_choose_months5' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span>
+        </a>
+      </li>
 
       <li>
         <a href="{% url 'choose_months5' %}">
@@ -113,12 +75,6 @@
         </a>
       </li>
 
-        <li>
-        <a href="{% url 'due_amt_mgt_choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Due Amount Mgt 5</span>
-        </a>
-      </li>
-
        <li>
         <a href="{% url 'view_all_new_guest5' %}">
           <i class="zmdi zmdi-face"></i> <span>Guests 5</span>
@@ -126,12 +82,12 @@
       </li>
        <li>
         <a href="{% url 'detail_guest_general5' %}">
-          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet 5</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 5</span>
         </a>
       </li>
        <li>
         <a href="{% url 'viewall_vacate_guest5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 5</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 5</span>
         </a>
       </li>
 
@@ -144,6 +100,12 @@
        <li>
         <a href="{% url 'pg1_view_all_beds5' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 5</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'may_print_live5' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 5</span>
         </a>
       </li>
 
@@ -220,9 +182,9 @@
 
 
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> <a href="{% url 'manage_new_guest5' %}">n guest Account </a> </li>
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-          <li class="dropdown-item"><i class="icon-power mr-2"></i><a href="{% url 'manage_bed5' %}">beds Logout </a></li>
+          <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
 
 
       </ul>
@@ -238,42 +200,82 @@
     <div class="container-fluid">
 
   <!--Start Dashboard Content-->
-{{total_received_june_list}}
-	<div class="card mt-3">
 
+	<div class="card mt-3">
     <div class="card-content">
         <div class="row row-group m-0">
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
 
-                <div class="card-body">
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'jan_paid_rent5' %}">
+                <div class="card-body" style="background-color:red;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Users <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                  <p class="mb-0 text-white small-font">JANUARY <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
+                <a href="{% url 'feb_paid_rent5' %}">
+                <div class="card-body" style="background-color:purple;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Students <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                  <p class="mb-0 text-white small-font">FEB <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_collection_june}} - {{total_received_june}} = {{total_due_june}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="{% url 'mar_paid_rent5' %}">
+                <div class="card-body" style="background-color:green;">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Collection {{total_collection_monthly_june}}
-                      {{total_collection_advance_june}} {{total_collection_due_june}}
-                      {{total_collection_discount_june}}
+                  <p class="mb-0 text-white small-font">MARCH <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+        </div>
+    </div>
+ </div>
+
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'april_paid_rent5' %}">
+                <div class="card-body" style="background-color:yellow;">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">APRIL <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'may_paid_rent5' %}">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">MAY <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'view_all_due_amt5' %}">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">JUNE <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
 
@@ -281,184 +283,86 @@
     </div>
  </div>
 
-	<div class="row">
-     <div class="col-12 col-lg-8 col-xl-8">
-	    <div class="card">
-		 <div class="card-header">Total Collection Details
-		   <div class="card-action">
-			 <div class="dropdown">
-			 <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-			  <i class="icon-options"></i>
-			 </a>
-				<div class="dropdown-menu dropdown-menu-right">
-                    <p>Total Order 00</p>
-                <p>Total Profit 00</p>
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
-			   </div>
-			  </div>
-		   </div>
-		 </div>
-		 <div class="card-body">
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'july_paid_rent5' %}">
+                <div class="card-body" style="background-color:#880808">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">JULY<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'aug_paid_rent5' %}">
+                <div class="card-body" style="background-color:#9acd32">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">AUGUEST <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'sept_paid_rent5' %}">
+                <div class="card-body" style="background-color:#00008b">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">SEPTEMBER <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
 
+        </div>
+    </div>
+ </div>
 
-			<div class="chart-container-1" >
-			  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myChart">jj</canvas>
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
-<script>
-var xValues = ["Total Amount ", "Received Amount", "Due Amount",'Discounted Amount',""];
-var yValues = {{y}};
-//var yValues =[10,10,8,5,0]
-var barColors = ["red", "green","blue","yellow",""];
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'oct_paid_rent5' %}">
+                <div class="card-body" style="background-color:#2A52BE">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">OCTOBER <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'nov_paid_rent5' %}">
+                <div class="card-body" style="background-color:#ffd700">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">NOVEMBER<span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'dec_paid_rent5' %}">
+                <div class="card-body" style="background-color:#0D98BA">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">DECEMBER <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 1,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    responsive: true,
-    /*aspectRatio : 100000,*/
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
+        </div>
+    </div>
+ </div>
 
-			</div>
-         </div>
-
-
-<span class="mymar"></span>
-
-		 <div class="row m-0 row-group text-center border-top border-light-3">
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.0}}</h5>
-			   <small class="mb-0">Total Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.1}}</h5>
-			   <small class="mb-0">Received Amount<span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.2}}</h5>
-			   <small class="mb-0">Due Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-
-             <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.3}}</h5>
-			   <small class="mb-0">Discounted Amount <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-
-		 </div>
-
-
-		</div>
-	 </div>
-
-     <div class="col-12 col-lg-4 col-xl-4">
-        <div class="card">
-           <div class="card-header">User Details
-             <div class="card-action">
-             <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options"></i>
-             </a>
-              <div class="dropdown-menu1 dropdown-menu-right">
-
-               </div>
-              </div>
-             </div>
-           </div>
-           <div class="card-body">
-		     <div class="chart-container-2">
-               <!--<canvas id="chart2"></canvas>-->
-
-                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myCharts" style="margin-top:-35px;"></canvas>
-
-<script>
-var xValues = ["Branch1", "Branch2", "Branch3",""];
-//var yValues = {{yy}};
-var yValues = [8,6];
-var barColors = ["red","blue"];
-
-new Chart("myCharts", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 100,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
-
-
-
-			  </div>
-           </div>
-            <br/><br/><br/><br/><br/><br/><br/>
-           <div class="table-responsive">
-             <table class="table align-items-center">
-               <tbody>
-               <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-white mr-2"></i> Active Users</td>
-                   <td>{{active_user}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-light-1 mr-2"></i>Deactive Users</td>
-                   <td>{{total_disableusers}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
-
-               </tbody>
-             </table>
-           </div>
-         </div>
-     </div>
-	</div><!--End Row-->
+	<!--End Row-->
 
 	<div class="row">
 	 <div class="col-12 col-lg-12">
