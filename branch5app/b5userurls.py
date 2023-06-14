@@ -268,6 +268,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 
     path('detailed_report_choose_months5/',reports5.detailed_report_choose_months5,name='detailed_report_choose_months5'),
     path('may_print_live5/', reports5.may_print_live5, name='may_print_live5'),
+    path('june_dtails_live5/',reports5.june_dtails_live5,name='june_dtails_live5'),
     path('june_print_live5/', reports5.june_print_live5, name='june_print_live5'),
     path('viewall_vaccant_room5/', reports5.viewall_vaccant_room5, name='viewall_vaccant_room5'),
 

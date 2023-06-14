@@ -268,7 +268,10 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
+                     <th ><a href="{% url 'detailed_report_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
+                       <th ><a href="{% url 'june_dtails_live5' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Detailed Report </button></a></th>
+
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print3 this page</button></th>
                  </tr>
            <div class="table-responsive">
@@ -301,9 +304,9 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -320,7 +323,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -330,14 +333,14 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{rs115}}">115</th>
                       {% for i in 115_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -347,14 +350,14 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{rs116}}">116</th>
                       {% for i in 116_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -364,14 +367,14 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{rs117}}">117</th>
                       {% for i in 117_data %}
 
-                      <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
+                     <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -392,7 +395,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -409,7 +412,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -426,7 +429,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -443,7 +446,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -460,7 +463,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -474,14 +477,14 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="row" rowspan="{{rs313}}">313</th>
                       {% for i in 313_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.june_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -498,7 +501,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -515,7 +518,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -532,7 +535,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -549,7 +552,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
@@ -566,7 +569,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th scope="row" style="height:{{table_height}};">{{i.june_advance}}</th>
                       <th scope="row" style="height:{{table_height}};">{{i.june_dis_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.june_rent}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.june_due_amt}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
                   </tr>
