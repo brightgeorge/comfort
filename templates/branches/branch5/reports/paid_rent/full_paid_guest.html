@@ -325,6 +325,8 @@ function exportTableToExcel(tableID, filename = ''){
                      <th>Roon No</th>
                      <th>Guest Name</th>
                      <th>Contact No</th>
+                       <th>Paid Amount</th>
+                       <th>Due Amount</th>
                         <th>Details</th>
                    </tr>
                    </thead>
@@ -336,6 +338,8 @@ function exportTableToExcel(tableID, filename = ''){
 				   <td>{{i.room_name}}</td>
                     <td>{{i.name|upper}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
+                       <td>{{i.june_rent}}</td>
+                       <td>{{i.june_due_amt}}</td>
                        <td>
                            <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
