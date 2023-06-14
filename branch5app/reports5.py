@@ -14,6 +14,11 @@ database_host = 'localhost'
 import pymysql as py
 import pymysql.cursors
 
+def detailed_report_choose_months5(request):
+    if 'username' in request.session:
+        return render(request, 'branches/branch5/live_print_report/detailed_report_choose_months.html')
+    return render(request, 'index.html')
+
 
 def may_print_live5(request):
     if 'username' in request.session:
@@ -88,9 +93,6 @@ def june_print_live5(request):
             ll.append(i.share_type)
 
         context = {
-            'brname': 'BRANCH 3 Room Creation Form',
-            # 'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
-            'rn1': l[0],
             'table_height': '50px',
 
             'rs113': ll[0],

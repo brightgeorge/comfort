@@ -9,7 +9,6 @@ import datetime
 from . import admin_dashboard_calculations_br5
 import branch5app
 
-
 database_name = 'cpg'
 database_password = '#123.com#'
 #database_password = ''
@@ -4502,7 +4501,7 @@ def dec_make_payments_vacate5(request, id):
 
 def view_all_due_amt5(request):
     context={
-        'due_amt' : pg1_new_beds.objects.all().filter(flag=2)
+        'due_amt' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
     }
     return render(request, 'branches/branch5/due_amt_mgt/view_all_due_amt.html',context)
 
@@ -4510,8 +4509,140 @@ def due_amt_mgt_choose_months5(request):
     return render(request, 'branches/branch5/due_amt_mgt/due_amt_mgt_choose_months.html')
 
 
-def june_due_amt_mgt5(request):
-    return render(request,'branches/branch5/due_amt_mgt/june_due_amt_mgt.html')
+def view_may_account_details5(request):
+    context = {
+        'due_amt': pg1_new_beds.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request, 'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
+def may_account_mgt5(request, id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch5app
+            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch5app
+            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.may_rent = paid_amt
+            ic.may_advance = advance
+            ic.may_dis_amt = discount
+            ic.may_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.may_rent = paid_amt
+            ic.may_advance = advance
+            ic.may_dis_amt = discount
+            ic.may_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_june_account_details5(request)
+
+        context = {
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request, 'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/may/may_account_mgt.html',context)
+
+
+def view_june_account_details5(request):
+    context = {
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/june/view_june_account_details.html',context)
+def june_account_mgt5(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch5app
+            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch5app
+            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.june_rent = paid_amt
+            ic.june_advance = advance
+            ic.june_dis_amt = discount
+            ic.june_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.june_rent = paid_amt
+            ic.june_advance = advance
+            ic.june_dis_amt = discount
+            ic.june_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_june_account_details5(request)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/june/june_account_mgt.html',context)
+
+
+def view_july_account_details5(request):
+    context = {
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/july/view_july_account_details.html',context)
+def july_account_mgt5(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch5app
+            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch5app
+            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.july_rent = paid_amt
+            ic.july_advance = advance
+            ic.july_dis_amt = discount
+            ic.july_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.july_rent = paid_amt
+            ic.july_advance = advance
+            ic.july_dis_amt = discount
+            ic.july_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_june_account_details5(request)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch5/due_amt_mgt/monthly_detailes_due_amt/july/july_account_mgt.html',context)
+
 
 
 

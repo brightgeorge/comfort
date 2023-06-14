@@ -266,6 +266,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('nov_close5/', branch5.nov_close5, name='nov_close5'),
     path('nov_close_decision_page5/', branch5.nov_close_decision_page5, name='nov_close_decision_page5'),
 
+    path('detailed_report_choose_months5/',reports5.detailed_report_choose_months5,name='detailed_report_choose_months5'),
     path('may_print_live5/', reports5.may_print_live5, name='may_print_live5'),
     path('june_print_live5/', reports5.june_print_live5, name='june_print_live5'),
     path('viewall_vaccant_room5/', reports5.viewall_vaccant_room5, name='viewall_vaccant_room5'),
@@ -283,7 +284,14 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 
     path('view_all_due_amt5/', branch5.view_all_due_amt5, name='view_all_due_amt5'),
     path('due_amt_mgt_choose_months5/', branch5.due_amt_mgt_choose_months5, name='due_amt_mgt_choose_months5'),
-    path('june_due_amt_mgt5/', branch5.june_due_amt_mgt5, name='june_due_amt_mgt5'),
+
+    path('view_may_account_details5/',branch5.view_may_account_details5,name='view_may_account_details5'),
+    path('may_account_mgt5/<id>', branch5.may_account_mgt5, name='may_account_mgt5'),
+
+    path('view_june_account_details5/', branch5.view_june_account_details5, name='view_june_account_details5'),
+    path('june_account_mgt5/<id>',branch5.june_account_mgt5,name='june_account_mgt5'),
+    path('view_july_account_details5/', branch5.view_july_account_details5, name='view_july_account_details5'),
+    path('july_account_mgt5/<id>',branch5.july_account_mgt5,name='july_account_mgt5'),
 
 ########################################
 # DUE AMT MANAGEMENT END HERE
