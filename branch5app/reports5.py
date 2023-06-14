@@ -143,7 +143,7 @@ def viewall_vaccant_room5(request):
 
 def full_paid_guest5(request):
     context = {
-        'fpr': pg1_new_guest.objects.all().filter(flag=2,remark='0').order_by('roon_no')
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,june_due_amt='0',june_rent_flag=200).order_by('roon_no')
     }
     return render(request, 'branches/branch5/reports/paid_rent/full_paid_guest.html', context)
 
