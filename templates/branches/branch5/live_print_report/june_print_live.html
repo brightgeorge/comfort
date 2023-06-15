@@ -268,17 +268,18 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                     <th ><a href="{% url 'detailed_report_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
-                       <th ><a href="{% url 'june_dtails_live5' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Detailed Report </button></a></th>
+                     <th ><a href="{% url 'detailed_report_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
+                       <th ><a href="{% url 'june_dtails_live5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
-                 <th><button onclick="window.print()">Print3 this page</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
                  </tr>
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr>
                     <th scope="col" >Room</th>
+
                     <th scope="col" style="width:140px">Rent Paid Date</th>
                     <th scope="col" style="width:250px">Name</th>
                     <th scope="col" style="width:170px">Number</th>
