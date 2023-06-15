@@ -765,7 +765,7 @@ def july_unpaid_rent5(request):
             'name': request.session['username'],
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch5/reports/unpaid_rent/unpaid_monthly_reports/julunpaid_rent.html', context)
+        return render(request, 'branches/branch5/reports/unpaid_rent/unpaid_monthly_reports/jul/july_unpaid_rent.html', context)
 def table_july_unpaid_rent5(request):
     if 'username' in request.session:
         context = {
