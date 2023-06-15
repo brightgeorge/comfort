@@ -27,6 +27,8 @@ def branch1_dashboard5(request):
 
         context = {
             'name': us,
+            'total_count_active_guests' : admin_dashboard_calculations_br5.total_count_active_guests(),
+            'total_count_vaccant_rooms' : admin_dashboard_calculations_br5.total_count_vaccant_rooms(),
             'total_collection_june' : admin_dashboard_calculations_br5.total_collection_june(),
             'total_received_june' : admin_dashboard_calculations_br5.total_received_june(),
             'total_received_june_list' : admin_dashboard_calculations_br5.total_received_june_list(),

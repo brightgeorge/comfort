@@ -4,6 +4,22 @@ from django.shortcuts import render
 from django.contrib import messages
 import branch5app
 
+def total_count_active_guests():
+    tvr = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
+    l=[]
+    for i in tvr:
+        l.append(i.roon_no)
+    print('total_count_active_guests',l)
+    return len(l)
+
+def total_count_vaccant_rooms():
+    tvr = branch5app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+    l=[]
+    for i in tvr:
+        l.append(i.roon_no)
+    print('total_count_vaccant_rooms',l)
+    return len(l)
+
 def total_collection_june():
     total_mthly_rent = []
     total_advance_amt = []

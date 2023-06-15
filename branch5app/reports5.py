@@ -143,6 +143,7 @@ def june_dtails_live5(request):
         return render(request, 'branches/branch5/live_print_report/live_monthly_details/june/june_dtails_live.html', context)
     return render(request, 'index.html')
 
+
 def viewall_vaccant_room5(request):
     context = {
         'vr': pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
