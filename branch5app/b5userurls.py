@@ -140,9 +140,13 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('unpaid_rent_choose_months5/',branch5.unpaid_rent_choose_months5,name='unpaid_rent_choose_months5'),
 
     path('jan_unpaid_rent5/', branch5.jan_unpaid_rent5, name='jan_unpaid_rent5'),
+    path('table_jan_unpaid_rent5/', branch5.table_jan_unpaid_rent5, name='table_jan_unpaid_rent5'),
     path('feb_unpaid_rent5/', branch5.feb_unpaid_rent5, name='feb_unpaid_rent5'),
+    path('table_feb_unpaid_rent5/', branch5.table_feb_unpaid_rent5, name='table_feb_unpaid_rent5'),
     path('mar_unpaid_rent5/', branch5.mar_unpaid_rent5, name='mar_unpaid_rent5'),
+    path('table_mar_unpaid_rent5/', branch5.table_mar_unpaid_rent5, name='table_mar_unpaid_rent5'),
     path('april_unpaid_rent5/', branch5.april_unpaid_rent5, name='april_unpaid_rent5'),
+    path('table_april_unpaid_rent5/', branch5.table_april_unpaid_rent5, name='table_april_unpaid_rent5'),
 
     path('may_unpaid_rent5/', branch5.may_unpaid_rent5, name='may_unpaid_rent5'),
     path('table_may_unpaid_rent5/', branch5.table_may_unpaid_rent5, name='table_may_unpaid_rent5'),
@@ -151,11 +155,15 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('july_unpaid_rent5/', branch5.july_unpaid_rent5, name='july_unpaid_rent5'),
     path('table_july_unpaid_rent5',branch5.table_july_unpaid_rent5,name='table_july_unpaid_rent5'),
     path('aug_unpaid_rent5/', branch5.aug_unpaid_rent5, name='aug_unpaid_rent5'),
+    path('table_aug_unpaid_rent5/',branch5.table_aug_unpaid_rent5,name='table_aug_unpaid_rent5'),
 
     path('sept_unpaid_rent5/', branch5.sept_unpaid_rent5, name='sept_unpaid_rent5'),
+    path('table_sept_unpaid_rent5/', branch5.table_sept_unpaid_rent5, name='table_sept_unpaid_rent5'),
     path('oct_unpaid_rent5/', branch5.oct_unpaid_rent5, name='oct_unpaid_rent5'),
+    path('table_oct_unpaid_rent5/', branch5.table_oct_unpaid_rent5, name='table_oct_unpaid_rent5'),
     path('nov_unpaid_rent5/', branch5.nov_unpaid_rent5, name='nov_unpaid_rent5'),
     path('dec_unpaid_rent5/', branch5.dec_unpaid_rent5, name='dec_unpaid_rent5'),
+    path('table_dec_unpaid_rent5/', branch5.table_dec_unpaid_rent5, name='table_dec_unpaid_rent5'),
 
     path('details_of_unpaid_guests5/<id>',branch5.details_of_unpaid_guests5,name='details_of_unpaid_guests5'),
 
@@ -170,8 +178,14 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('april_paid_rent5/', branch5.april_paid_rent5, name='april_paid_rent5'),
 
     path('may_paid_rent5/', branch5.may_paid_rent5, name='may_paid_rent5'),
+    path('table_may_paid_rent5/', branch5.table_may_paid_rent5, name='table_may_paid_rent5'),
+    path('may_full_paid_guest5/', reports5.may_full_paid_guest5, name='may_full_paid_guest5'),
     path('june_paid_rent5/', branch5.june_paid_rent5, name='june_paid_rent5'),
+    path('table_june_paid_rent5/', branch5.table_june_paid_rent5, name='table_june_paid_rent5'),
+    path('june_full_paid_guest5/', reports5.june_full_paid_guest5, name='june_full_paid_guest5'),
     path('july_paid_rent5/', branch5.july_paid_rent5, name='july_paid_rent5'),
+    path('table_july_paid_rent5/', branch5.table_july_paid_rent5, name='table_july_paid_rent5'),
+    path('july_full_paid_guest5/', reports5.july_full_paid_guest5, name='july_full_paid_guest5'),
     path('aug_paid_rent5/', branch5.aug_paid_rent5, name='aug_paid_rent5'),
 
     path('sept_paid_rent5/', branch5.sept_paid_rent5, name='sept_paid_rent5'),

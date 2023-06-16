@@ -261,9 +261,9 @@ function exportTableToExcel(tableID, filename = ''){
               <h5 class="card-title">Unpaid Rent of {{month_name}}</h5>
                  <tr>
                      <th ><a href="{% url 'unpaid_rent_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
-                       <th ><a href="{% url 'may_unpaid_rent5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
+                       <th ><a href="{% url 'sept_unpaid_rent5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of MAY')">download</button></th>
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of SEPTEMBER')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
                  </tr>
 			  <div class="table-responsive">
@@ -291,10 +291,10 @@ function exportTableToExcel(tableID, filename = ''){
 				   <td>{{i.room_name}}</td>
                     <td>{{i.name}}</td>
                        <td>{{i.monthly_rent}}</td>
-                        <td>{{i.may_rent}}</td>
-                        <td>{{i.may_advance}}</td>
-                        <td>{{i.may_dis_amt}}</td>
-                        <td>{{i.may_due_amt}}</td>
+                        <td>{{i.sept_rent}}</td>
+                        <td>{{i.sept_advance}}</td>
+                        <td>{{i.sept_dis_amt}}</td>
+                        <td>{{i.sept_due_amt}}</td>
                        <td>{{i.remark}}</td>
 
                        </a></td>

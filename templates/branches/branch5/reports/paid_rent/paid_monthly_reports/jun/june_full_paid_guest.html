@@ -73,10 +73,10 @@ function exportTableToExcel(tableID, filename = ''){
 </head>
 
 <body class="bg-theme bg-theme1">
- 
+
 <!-- Start wrapper-->
  <div id="wrapper">
- 
+
   <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
@@ -185,7 +185,7 @@ function exportTableToExcel(tableID, filename = ''){
       </form>
     </li>
   </ul>
-     
+
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
@@ -236,7 +236,7 @@ function exportTableToExcel(tableID, filename = ''){
 <!--End topbar header-->
 
 <div class="clearfix"></div>
-	
+
   <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -283,7 +283,7 @@ function exportTableToExcel(tableID, filename = ''){
             </div>-->
         </div>
     </div>
- </div>  
+ </div>
 
 
 
@@ -306,7 +306,7 @@ function exportTableToExcel(tableID, filename = ''){
 	   <div class="card">
 	     <div class="card-header">View all Paid Rent of {{month_name}}
 		  <div class="card-action">
-              <a class="dropdown-item" href="{% url 'full_paid_guest5' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
+              <a class="dropdown-item" href="{% url 'june_full_paid_guest5' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
               <i class="icon-options1"></i>
@@ -339,9 +339,9 @@ function exportTableToExcel(tableID, filename = ''){
                            <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
 				   <td>{{i.room_name}}</td>
-                       <td>{{ i.july_rent_rec_date }}</td>
+                       <td>{{ i.june_rent_rec_date }}</td>
                     <td>{{i.name|upper}}</td>
-                       <td>{{i.july_rent}}</td>
+                       <td>{{i.june_rent}}</td>
                        <td>{{i.remark}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
                    </tr>
@@ -354,19 +354,19 @@ function exportTableToExcel(tableID, filename = ''){
 	</div><!--End Row-->
 
       <!--End Dashboard Content-->
-	  
+
 	<!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
-		
+
     </div>
     <!-- End container-fluid-->
-    
+
     </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-	
+
 	<!--Start footer-->
 	<footer class="footer">
       <div class="container">
@@ -376,7 +376,7 @@ function exportTableToExcel(tableID, filename = ''){
       </div>
     </footer>
 	<!--End footer-->
-	
+
   <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
@@ -386,7 +386,7 @@ function exportTableToExcel(tableID, filename = ''){
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
-      
+
       <ul class="switcher">
         <li id="theme1"></li>
         <li id="theme2"></li>
@@ -398,7 +398,7 @@ function exportTableToExcel(tableID, filename = ''){
 
       <p class="mb-0">Gradient Background</p>
       <hr>
-      
+
       <ul class="switcher">
         <li id="theme7"></li>
         <li id="theme8"></li>
@@ -410,18 +410,18 @@ function exportTableToExcel(tableID, filename = ''){
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
-      
+
      </div>
    </div>
   <!--end color switcher-->
-   
+
   </div><!--End wrapper-->
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'admindashboard//assets/js/jquery.min.js' %}"></script>
   <script src="{% static 'admindashboard//assets/js/popper.min.js' %}"></script>
   <script src="{% static 'admindashboard//assets/js/bootstrap.min.js' %}"></script>
-	
+
  <!-- simplebar js -->
   <script src="{% static 'admindashboard//assets/plugins/simplebar/js/simplebar.js' %}"></script>
   <!-- sidebar-menu js -->
@@ -431,12 +431,12 @@ function exportTableToExcel(tableID, filename = ''){
   <!-- Custom scripts -->
   <script src="{% static 'admindashboard//assets/js/app-script.js' %}"></script>
   <!-- Chart js -->
-  
+
   <script src="{% static 'admindashboard//assets/plugins/Chart.js/Chart.min.js' %}"></script>
- 
+
   <!-- Index js -->
   <script src="{% static 'admindashboard//assets/js/index.js' %}"></script>
 
-  
+
 </body>
 </html>

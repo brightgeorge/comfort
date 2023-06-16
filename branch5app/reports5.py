@@ -156,3 +156,29 @@ def full_paid_guest5(request):
     }
     return render(request, 'branches/branch5/reports/paid_rent/full_paid_guest.html', context)
 
+def may_full_paid_guest5(request):
+    context = {
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,may_due_amt='0',may_rent_flag=200).order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/may/may_full_paid_guest.html', context)
+
+def june_full_paid_guest5(request):
+    context = {
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,june_due_amt='0',june_rent_flag=200).order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jun/june_full_paid_guest.html', context)
+
+def july_full_paid_guest5(request):
+    context = {
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,july_due_amt='0',july_rent_flag=200).order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jul/july_full_paid_guest.html', context)
+
+def aug_full_paid_guest5(request):
+    context = {
+        'fpr': pg1_new_guest.objects.all().filter(flag=2,auguest_due_amt='0',auguest_rent_flag=200).order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/aug/aug_full_paid_guest.html', context)
+
+
+
