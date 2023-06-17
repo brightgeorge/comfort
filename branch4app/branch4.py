@@ -5453,7 +5453,7 @@ def due_amt_mgt_choose_months4(request):
 def view_may_account_details4(request):
     import branch4app
     context = {
-        'due_amt': branch4app.models.pg1_new_beds.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
+        'due_amt': branch4app.models.pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
     }
     return render(request, 'branches/branch4/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
 def may_account_mgt4(request, id):
@@ -5488,7 +5488,7 @@ def may_account_mgt4(request, id):
             ic.may_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details4(request)
+            return view_may_account_details4(request)
 
         import branch4app
         context = {
