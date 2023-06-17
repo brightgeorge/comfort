@@ -5,6 +5,7 @@ from django.contrib import messages
 # from myapp.models import *
 from branch4app.models import *
 import datetime
+from . import admin_dashboard_calculations_br4
 
 database_name = 'cpg'
 database_password = '#123.com#'
@@ -23,6 +24,18 @@ def branch1_dashboard4(request):
 
         context = {
             'name': us,
+            'total_count_active_guests': admin_dashboard_calculations_br4.total_count_active_guests(),
+            'total_count_vaccant_rooms': admin_dashboard_calculations_br4.total_count_vaccant_rooms(),
+            'total_collection_june': admin_dashboard_calculations_br4.total_collection_june(),
+            'total_received_june': admin_dashboard_calculations_br4.total_received_june(),
+            'total_received_june_list': admin_dashboard_calculations_br4.total_received_june_list(),
+            'total_due_june': admin_dashboard_calculations_br4.total_due_june(),
+            'total_collection_monthly_june': admin_dashboard_calculations_br4.total_collection_monthly_june(),
+            'total_collection_advance_june': admin_dashboard_calculations_br4.total_collection_advance_june(),
+            'total_collection_due_june': admin_dashboard_calculations_br4.total_collection_due_june(),
+            'total_collection_discount_june': admin_dashboard_calculations_br4.total_collection_discount_june(),
+            'y': admin_dashboard_calculations_br4.bar_chart(),
+
         }
         return render(request, 'branches/branch4/branch1index.html',context)
     return render(request, 'index.html')
@@ -80,6 +93,20 @@ def br1_admit_guest4(request, id):
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
                 ic.guest_code = int(a) + 1
+
+                ic.jan_due_amt = 0
+                ic.feb_due_amt = 0
+                ic.march_due_amt = 0
+                ic.april_due_amt = 0
+                ic.may_due_amt = 0
+                ic.june_due_amt = 0
+                ic.july_due_amt = 0
+                ic.auguest_due_amt = 0
+                ic.sept_due_amt = 0
+                ic.october_due_amt = 0
+                ic.nov_due_amt = 0
+                ic.dec_due_amt = 0
+
                 ic.flag = 2
                 ic.save()
                 ##################################################
@@ -180,63 +207,75 @@ def br1_admit_guest4(request, id):
                 print(il)
 
                 ic.jan_rent = 0
-                ic.jan_advance = ''
-                ic.jan_due_amt = ''
+                ic.jan_advance = 0
+                ic.jan_due_amt = 0
+                ic.jan_dis_amt = 0
                 ic.jan_rent_flag = il[0]
 
                 ic.feb_rent = 0
-                ic.feb_advance = ''
-                ic.feb_due_amt = ''
+                ic.feb_advance = 0
+                ic.feb_due_amt = 0
+                ic.feb_dis_amt = 0
                 ic.feb_rent_flag = il[1]
 
                 ic.march_rent = 0
-                ic.march_advance = ''
-                ic.march_due_amt = ''
+                ic.march_advance = 0
+                ic.march_due_amt = 0
+                ic.march_dis_amt = 0
                 ic.march_rent_flag = il[2]
 
                 ic.april_rent = 0
-                ic.april_advance = ''
-                ic.april_due_amt = ''
+                ic.april_advance = 0
+                ic.april_due_amt = 0
+                ic.april_dis_amt = 0
                 ic.april_rent_flag = il[3]
 
                 ic.may_rent = 0
-                ic.may_advance = ''
-                ic.may_due_amt = ''
+                ic.may_advance = 0
+                ic.may_due_amt = 0
+                ic.may_dis_amt = 0
                 ic.may_rent_flag = il[4]
 
                 ic.june_rent = 0
-                ic.june_advance = ''
-                ic.june_due_amt = ''
+                ic.june_advance = 0
+                ic.june_due_amt = 0
+                ic.june_dis_amt = 0
                 ic.june_rent_flag = il[5]
 
                 ic.july_rent = 0
-                ic.july_advance = ''
-                ic.july_due_amt = ''
+                ic.july_advance = 0
+                ic.july_due_amt = 0
+                ic.july_dis_amt = 0
                 ic.july_rent_flag = il[6]
 
                 ic.auguest_rent = 0
-                ic.auguest_advance = ''
-                ic.auguest_due_amt = ''
+                ic.auguest_advance = 0
+                ic.auguest_due_amt = 0
+                ic.auguest_dis_amt = 0
                 ic.auguest_rent_flag = il[7]
 
                 ic.sept_rent = 0
-                ic.sept_advance = ''
-                ic.sept_due_amt = ''
+                ic.sept_advance = 0
+                ic.sept_due_amt = 0
+                ic.sept_dis_amt = 0
                 ic.sept_rent_flag = il[8]
 
                 ic.october_rent = 0
-                ic.october_advance = ''
-                ic.october_due_amt = ''
+                ic.october_advance = 0
+                ic.october_due_amt = 0
+                ic.october_dis_amt = 0
                 ic.october_rent_flag = il[9]
 
                 ic.nov_rent = 0
-                ic.nov_advance = ''
-                ic.nov_due_amt = ''
+                ic.nov_advance = 0
+                ic.nov_due_amt = 0
+                ic.nov_dis_amt = 0
                 ic.nov_rent_flag = il[10]
 
                 ic.dec_rent = 0
-                ic.dec_advance = ''
-                ic.dec_due_amt = ''
+                ic.dec_advance = 0
+                ic.dec_due_amt = 0
+                ic.dec_dis_amt = 0
                 ic.dec_rent_flag = il[11]
 
                 ic.flag = 2
@@ -541,72 +580,84 @@ def vacate_br1_guest4(request, id):
             ic.jan_rent = 0
             ic.jan_advance = ''
             ic.jan_due_amt = ''
+            ic.jan_dis_amt = ''
             ic.jan_rent_rec_date = ''
             ic.jan_rent_flag = 0
 
             ic.feb_rent = 0
             ic.feb_advance = ''
             ic.feb_due_amt = ''
+            ic.feb_dis_amt = ''
             ic.feb_rent_rec_date = ''
             ic.feb_rent_flag = 0
 
             ic.march_rent = 0
             ic.march_advance = ''
             ic.march_due_amt = ''
+            ic.march_dis_amt = ''
             ic.march_rent_rec_date = ''
             ic.march_rent_flag = 0
 
             ic.april_rent = 0
             ic.april_advance = ''
             ic.april_due_amt = ''
+            ic.april_dis_amt = ''
             ic.april_rent_rec_date = ''
             ic.april_rent_flag = 0
 
             ic.may_rent = 0
             ic.may_advance = ''
             ic.may_due_amt = ''
+            ic.may_dis_amt = ''
             ic.may_rent_rec_date = ''
             ic.may_rent_flag = 0
 
             ic.june_rent = 0
             ic.june_advance = ''
             ic.june_due_amt = ''
+            ic.june_dis_amt = ''
             ic.june_rent_rec_date = ''
             ic.june_rent_flag = 0
 
             ic.july_rent = 0
             ic.july_advance = ''
             ic.july_due_amt = ''
+            ic.july_dis_amt = ''
             ic.july_rent_rec_date = ''
             ic.july_rent_flag = 0
 
             ic.auguest_rent = 0
             ic.auguest_advance = ''
             ic.auguest_due_amt = ''
+            ic.auguest_dis_amt = ''
             ic.auguest_rent_rec_date = ''
             ic.auguest_rent_flag = 0
 
             ic.sept_rent = 0
             ic.sept_advance = ''
             ic.sept_due_amt = ''
+            ic.sept_dis_amt = ''
             ic.sept_rent_rec_date = ''
             ic.sept_rent_flag = 0
 
             ic.october_rent = 0
             ic.october_advance = ''
             ic.october_due_amt = ''
+            ic.october_dis_amt = ''
             ic.october_rent_rec_date = ''
             ic.october_rent_flag = 0
 
             ic.nov_rent = 0
             ic.nov_advance = ''
             ic.nov_due_amt = ''
+            ic.nov_dis_amt = ''
             ic.nov_rent_rec_date = ''
             ic.nov_rent_flag = 0
 
             ic.dec_rent = 0
             ic.dec_advance = ''
             ic.dec_due_amt = ''
+            ic.dec_dis_amt = ''
             ic.dec_rent_rec_date = ''
             ic.dec_rent_flag = 0
 
@@ -2078,7 +2129,7 @@ def jan_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_advance = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
+            jp.jan_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2091,7 +2142,7 @@ def jan_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_advance = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
+            jp.jan_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2139,7 +2190,7 @@ def feb_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_advance = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
+            jp.feb_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2152,7 +2203,7 @@ def feb_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.feb_advance = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
+            jp.feb_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2200,7 +2251,7 @@ def march_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_advance = amt
             jp.remark = remark
-            jp.march_due_amt = remark
+            jp.march_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2213,7 +2264,7 @@ def march_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.march_advance = amt
             jp.remark = remark
-            jp.march_due_amt = remark
+            jp.march_due_amt = amt
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2263,7 +2314,7 @@ def april_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_advance = amt
             jp.remark = remark
-            jp.april_due_amt = remark
+            jp.april_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2278,7 +2329,7 @@ def april_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.april_advance = amt
             jp.remark = remark
-            jp.april_due_amt = remark
+            jp.april_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2330,7 +2381,7 @@ def may_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_advance = amt
             jp.remark = remark
-            jp.may_due_amt = remark
+            jp.may_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2345,7 +2396,7 @@ def may_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.may_advance = amt
             jp.remark = remark
-            jp.may_due_amt = remark
+            jp.may_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2396,7 +2447,7 @@ def june_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_advance = amt
             jp.remark = remark
-            jp.june_due_amt = remark
+            jp.june_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2411,7 +2462,7 @@ def june_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_advance = amt
             jp.remark = remark
-            jp.june_due_amt = remark
+            jp.june_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2463,7 +2514,7 @@ def july_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_advance = amt
             jp.remark = remark
-            jp.july_due_amt = remark
+            jp.july_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2478,7 +2529,7 @@ def july_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.july_advance = amt
             jp.remark = remark
-            jp.july_due_amt = remark
+            jp.july_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2530,7 +2581,7 @@ def auguest_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_advance = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
+            jp.auguest_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2545,7 +2596,7 @@ def auguest_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.auguest_advance = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
+            jp.auguest_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2596,7 +2647,7 @@ def sept_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_advance = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
+            jp.sept_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2611,7 +2662,7 @@ def sept_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.sept_advance = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
+            jp.sept_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2663,7 +2714,7 @@ def october_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_advance = amt
             jp.remark = remark
-            jp.october_due_amt = remark
+            jp.october_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2678,7 +2729,7 @@ def october_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.october_advance = amt
             jp.remark = remark
-            jp.october_due_amt = remark
+            jp.october_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2729,7 +2780,7 @@ def nov_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_advance = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
+            jp.nov_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2744,7 +2795,7 @@ def nov_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.nov_advance = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
+            jp.nov_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2795,7 +2846,7 @@ def dec_make_payments_advance4(request, id):
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_advance = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
+            jp.dec_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2810,7 +2861,7 @@ def dec_make_payments_advance4(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.dec_advance = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
+            jp.dec_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
