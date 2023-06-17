@@ -137,19 +137,33 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('unpaid_rent_choose_months4/',branch4.unpaid_rent_choose_months4,name='unpaid_rent_choose_months4'),
 
     path('jan_unpaid_rent4/', branch4.jan_unpaid_rent4, name='jan_unpaid_rent4'),
+    path('table_jan_unpaid_rent4/', branch4.table_jan_unpaid_rent4, name='table_jan_unpaid_rent4'),
     path('feb_unpaid_rent4/', branch4.feb_unpaid_rent4, name='feb_unpaid_rent4'),
+    path('table_feb_unpaid_rent4/', branch4.table_feb_unpaid_rent4, name='table_feb_unpaid_rent4'),
     path('mar_unpaid_rent4/', branch4.mar_unpaid_rent4, name='mar_unpaid_rent4'),
+    path('table_mar_unpaid_rent4/', branch4.table_mar_unpaid_rent4, name='table_mar_unpaid_rent4'),
     path('april_unpaid_rent4/', branch4.april_unpaid_rent4, name='april_unpaid_rent4'),
+    path('table_april_unpaid_rent4/', branch4.table_april_unpaid_rent4, name='table_april_unpaid_rent4'),
 
     path('may_unpaid_rent4/', branch4.may_unpaid_rent4, name='may_unpaid_rent4'),
+    path('table_may_unpaid_rent4/', branch4.table_may_unpaid_rent4, name='table_may_unpaid_rent4'),
     path('june_unpaid_rent4/', branch4.june_unpaid_rent4, name='june_unpaid_rent4'),
+    path('table_june_unpaid_rent4/', branch4.table_june_unpaid_rent4, name='table_june_unpaid_rent4'),
     path('july_unpaid_rent4/', branch4.july_unpaid_rent4, name='july_unpaid_rent4'),
+    path('table_july_unpaid_rent4',branch4.table_july_unpaid_rent4,name='table_july_unpaid_rent4'),
     path('aug_unpaid_rent4/', branch4.aug_unpaid_rent4, name='aug_unpaid_rent4'),
+    path('table_aug_unpaid_rent4/',branch4.table_aug_unpaid_rent4,name='table_aug_unpaid_rent4'),
 
     path('sept_unpaid_rent4/', branch4.sept_unpaid_rent4, name='sept_unpaid_rent4'),
+    path('table_sept_unpaid_rent4/', branch4.table_sept_unpaid_rent4, name='table_sept_unpaid_rent4'),
     path('oct_unpaid_rent4/', branch4.oct_unpaid_rent4, name='oct_unpaid_rent4'),
+    path('table_oct_unpaid_rent4/', branch4.table_oct_unpaid_rent4, name='table_oct_unpaid_rent4'),
     path('nov_unpaid_rent4/', branch4.nov_unpaid_rent4, name='nov_unpaid_rent4'),
+    path('table_nov_unpaid_rent4/', branch4.table_nov_unpaid_rent4, name='table_nov_unpaid_rent4'),
     path('dec_unpaid_rent4/', branch4.dec_unpaid_rent4, name='dec_unpaid_rent4'),
+    path('table_dec_unpaid_rent4/', branch4.table_dec_unpaid_rent4, name='table_dec_unpaid_rent4'),
+
+
 
     path('details_of_unpaid_guests4/<id>',branch4.details_of_unpaid_guests4,name='details_of_unpaid_guests4'),
 
@@ -157,18 +171,33 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
 
 #paid rent start here
     path('paid_rent_choose_months4/',branch4.paid_rent_choose_months4,name='paid_rent_choose_months4'),
+    path('partially_paid_guest_choose_months4/', reports4.partially_paid_guest_choose_months4,name='partially_paid_guest_choose_months4'),
 
     path('jan_paid_rent4/', branch4.jan_paid_rent4, name='jan_paid_rent4'),
     path('feb_paid_rent4/', branch4.feb_paid_rent4, name='feb_paid_rent4'),
     path('mar_paid_rent4/', branch4.mar_paid_rent4, name='mar_paid_rent4'),
+
     path('april_paid_rent4/', branch4.april_paid_rent4, name='april_paid_rent4'),
-
     path('may_paid_rent4/', branch4.may_paid_rent4, name='may_paid_rent4'),
+    path('table_may_paid_rent4/', branch4.table_may_paid_rent4, name='table_may_paid_rent4'),
+    path('may_full_paid_guest4/', reports4.may_full_paid_guest4, name='may_full_paid_guest4'),
+    path('may_partially_paid_guest4/', reports4.may_partially_paid_guest4, name='may_partially_paid_guest4'),
+    path('table_may_partially_paid_guest4/', reports4.table_may_partially_paid_guest4,name='table_may_partially_paid_guest4'),
     path('june_paid_rent4/', branch4.june_paid_rent4, name='june_paid_rent4'),
-    path('july_paid_rent4/', branch4.july_paid_rent4, name='july_paid_rent4'),
-    path('aug_paid_rent4/', branch4.aug_paid_rent4, name='aug_paid_rent4'),
+    path('table_june_paid_rent4/', branch4.table_june_paid_rent4, name='table_june_paid_rent4'),
+    path('june_full_paid_guest4/', reports4.june_full_paid_guest4, name='june_full_paid_guest4'),
+    path('june_partially_paid_guest4/', reports4.june_partially_paid_guest4, name='june_partially_paid_guest4'),
+    path('table_june_partially_paid_guest4/', reports4.table_june_partially_paid_guest4,name='table_june_partially_paid_guest4'),
 
+    path('july_paid_rent4/', branch4.july_paid_rent4, name='july_paid_rent4'),
+    path('table_july_paid_rent4/', branch4.table_july_paid_rent4, name='table_july_paid_rent4'),
+    path('july_full_paid_guest4/', reports4.july_full_paid_guest4, name='july_full_paid_guest4'),
+    path('july_partially_paid_guest4/', reports4.july_partially_paid_guest4, name='july_partially_paid_guest4'),
+    path('table_july_partially_paid_guest4/', reports4.table_july_partially_paid_guest4,name='table_july_partially_paid_guest4'),
+
+    path('aug_paid_rent4/', branch4.aug_paid_rent4, name='aug_paid_rent4'),
     path('sept_paid_rent4/', branch4.sept_paid_rent4, name='sept_paid_rent4'),
+
     path('oct_paid_rent4/', branch4.oct_paid_rent4, name='oct_paid_rent4'),
     path('nov_paid_rent4/', branch4.nov_paid_rent4, name='nov_paid_rent4'),
     path('dec_paid_rent4/', branch4.dec_paid_rent4, name='dec_paid_rent4'),
@@ -266,7 +295,33 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('test/',branch4.pysql,name='pysql'),
     path('d4/', branch4.dynamic, name='dynamic'),
 
+    path('detailed_report_choose_months4/', reports4.detailed_report_choose_months4, name='detailed_report_choose_months4'),
     path('may_print_live4/',reports4.may_print_live4,name='may_print_live4'),
+    path('may_details_live4/', reports4.may_details_live4, name='may_details_live4'),
+    path('june_print_live4/', reports4.june_print_live4, name='june_print_live4'),
+    path('june_details_live4/', reports4.june_details_live4, name='june_details_live4'),
+
     path('viewall_vaccant_room4/',reports4.viewall_vaccant_room4,name='viewall_vaccant_room4'),
+
+########################################
+# DUE AMT MANAGEMENT START HERE
+###########################
+
+    path('view_all_due_amt4/', branch4.view_all_due_amt4, name='view_all_due_amt4'),
+    path('due_amt_mgt_choose_months4/', branch4.due_amt_mgt_choose_months4, name='due_amt_mgt_choose_months4'),
+
+    path('view_may_account_details4/',branch4.view_may_account_details4,name='view_may_account_details4'),
+    path('may_account_mgt4/<id>', branch4.may_account_mgt4, name='may_account_mgt4'),
+
+    path('view_june_account_details4/', branch4.view_june_account_details4, name='view_june_account_details4'),
+    path('june_account_mgt4/<id>',branch4.june_account_mgt4,name='june_account_mgt4'),
+    path('view_july_account_details4/', branch4.view_july_account_details4, name='view_july_account_details4'),
+    path('july_account_mgt4/<id>',branch4.july_account_mgt4,name='july_account_mgt4'),
+
+########################################
+# DUE AMT MANAGEMENT END HERE
+###########################
+
+
 
 ]
