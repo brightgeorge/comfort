@@ -5464,14 +5464,14 @@ def may_account_mgt4(request, id):
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
 
-            import branch5app
-            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch4app
+            rno = branch4app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch5app
-            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch4app
+            ic = branch4app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.may_rent = paid_amt
             ic.may_advance = advance
             ic.may_dis_amt = discount
@@ -5486,7 +5486,7 @@ def may_account_mgt4(request, id):
             ic.may_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details5(request)
+            return view_june_account_details4(request)
 
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
@@ -5509,14 +5509,14 @@ def june_account_mgt4(request,id):
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
 
-            import branch5app
-            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch4app
+            rno = branch4app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch5app
-            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch4app
+            ic = branch4app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.june_rent = paid_amt
             ic.june_advance = advance
             ic.june_dis_amt = discount
@@ -5524,15 +5524,15 @@ def june_account_mgt4(request,id):
             ic.remark = remark
             ic.save()
 
-            import branch5app
-            ic = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch4app
+            ic = branch4app.models.pg1_new_beds.objects.get(guest_code=l[0])
             ic.june_rent = paid_amt
             ic.june_advance = advance
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details5(request)
+            return view_june_account_details4(request)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
@@ -5555,14 +5555,14 @@ def july_account_mgt4(request,id):
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
 
-            import branch5app
-            rno = branch5app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch4app
+            rno = branch4app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch5app
-            ic = branch5app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch4app
+            ic = branch4app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.july_rent = paid_amt
             ic.july_advance = advance
             ic.july_dis_amt = discount
@@ -5577,7 +5577,7 @@ def july_account_mgt4(request,id):
             ic.july_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details5(request)
+            return view_june_account_details4(request)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),
