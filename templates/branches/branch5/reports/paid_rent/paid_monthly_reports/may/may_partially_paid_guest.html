@@ -233,9 +233,9 @@ th.break {
       <div class="col-lg-12" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'paid_rent_choose_months5' %}"> <button class="mybutton button1"> <= Back</button></a>
-               <a href="{% url 'table_may_paid_rent5' %}"> <button class="mybutton button1"> View Table</button></a>
-           <div class="card-title">Paid Guest Details of MAY Branch5</div>
+		  <a href="{% url 'partially_paid_guest_choose_months5' %}"> <button class="mybutton button1"> <= Back</button></a>
+               <a href="{% url 'table_may_partially_paid_guest5' %}"> <button class="mybutton button1"> View Table</button></a>
+           <div class="card-title">Partially Paid Guest Details of MAY Branch5</div>
 
 
                {% if messages %}
@@ -257,7 +257,7 @@ th.break {
 
 
 
-{% for i in up %}
+{% for i in ppr %}
                  <div class="form-group">
 
                    <a href="{% url 'details_of_paid_guests5' id=i.id %}">  <label for="input-4" class="col0-lg-1" style="border-bottom: 2pt solid #FF0000;"> (Sl.No:{{forloop.counter}}) &nbsp;
@@ -266,10 +266,10 @@ th.break {
                    </label></a></br>
 
                      <label for="input-15" class="col-lg-3">Monthly Rent : {{i.monthly_rent}}</label>
-                     <label for="input-15" class="col-lg-2">Paid Rent : {{i.may_rent}}</label>
-                     <label for="input-15" class="col-lg-2">Advance : {{i.may_advance}}</label>
-                     <label for="input-15" class="col-lg-2">Discount : {{i.may_dis_amt}}</label>
-                     <label for="input-15" class="col-lg-2">Due Amt : {{i.may_due_amt}}</label>
+                     <label for="input-15" class="col-lg-2">Paid Rent : {{i.june_rent}}</label>
+                     <label for="input-15" class="col-lg-2">Advance : {{i.june_advance}}</label>
+                     <label for="input-15" class="col-lg-2">Discount : {{i.june_dis_amt}}</label>
+                     <label for="input-15" class="col-lg-2">Due Amt : {{i.june_due_amt}}</label>
                      <label for="input-15" class="col-lg-5">Remark : {{i.remark}}</label><br>
 
                      <a href="tel:{{i.self_mob}}"> <label for="input-15" class="col-lg-3">Call {{i.self_mob}}</label></a>

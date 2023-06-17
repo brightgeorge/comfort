@@ -150,6 +150,8 @@ def viewall_vaccant_room5(request):
     }
     return render(request, 'branches/branch5/reports/vaccant_room/viewall_vaccant_room.html', context)
 
+#########FULL PAID GUEST START HERE ############
+
 def full_paid_guest5(request):
     context = {
         'fpr': pg1_new_guest.objects.all().filter(flag=2,june_due_amt='0',june_rent_flag=200).order_by('roon_no')
@@ -179,6 +181,49 @@ def aug_full_paid_guest5(request):
         'fpr': pg1_new_guest.objects.all().filter(flag=2,auguest_due_amt='0',auguest_rent_flag=200).order_by('roon_no')
     }
     return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/aug/aug_full_paid_guest.html', context)
+#
+
+#########FULL PAID GUEST END HERE ############
+
+#########PARTIALLY PAID GUEST START HERE ############
+
+def partially_paid_guest_choose_months5(request):
+    if 'username' in request.session:
+        return render(request, 'branches/branch5/reports/paid_rent/partially_paid_guest_choose_months.html')
+
+def may_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,may_rent_flag=200).exclude(may_due_amt='0').order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/may/may_partially_paid_guest.html', context)
+def table_may_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,may_rent_flag=200).exclude(may_due_amt='0').order_by('roon_no'),
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/may/table_may_partially_paid_guest.html', context)
+
+def june_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag=200).exclude(june_due_amt='0').order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jun/june_partially_paid_guest.html', context)
+def table_june_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag=200).exclude(june_due_amt='0').order_by('roon_no'),
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jun/table_june_partially_paid_guest.html', context)
+
+def july_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag=200).exclude(july_due_amt='0').order_by('roon_no')
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jul/july_partially_paid_guest.html', context)
+def table_july_partially_paid_guest5(request):
+    context = {
+        'ppr': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag=200).exclude(july_due_amt='0').order_by('roon_no'),
+    }
+    return render(request, 'branches/branch5/reports/paid_rent/paid_monthly_reports/jul/table_july_partially_paid_guest.html', context)
 
 
 
+#########PARTIALLY PAID GUEST START HERE ############

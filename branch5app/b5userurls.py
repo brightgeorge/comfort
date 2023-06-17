@@ -171,24 +171,33 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 
 #paid rent start here
     path('paid_rent_choose_months5/',branch5.paid_rent_choose_months5,name='paid_rent_choose_months5'),
+    path('partially_paid_guest_choose_months5/',reports5.partially_paid_guest_choose_months5,name='partially_paid_guest_choose_months5'),
 
     path('jan_paid_rent5/', branch5.jan_paid_rent5, name='jan_paid_rent5'),
     path('feb_paid_rent5/', branch5.feb_paid_rent5, name='feb_paid_rent5'),
     path('mar_paid_rent5/', branch5.mar_paid_rent5, name='mar_paid_rent5'),
-    path('april_paid_rent5/', branch5.april_paid_rent5, name='april_paid_rent5'),
 
+    path('april_paid_rent5/', branch5.april_paid_rent5, name='april_paid_rent5'),
     path('may_paid_rent5/', branch5.may_paid_rent5, name='may_paid_rent5'),
     path('table_may_paid_rent5/', branch5.table_may_paid_rent5, name='table_may_paid_rent5'),
     path('may_full_paid_guest5/', reports5.may_full_paid_guest5, name='may_full_paid_guest5'),
+    path('may_partially_paid_guest5/', reports5.may_partially_paid_guest5, name='may_partially_paid_guest5'),
+    path('table_may_partially_paid_guest5/', reports5.table_may_partially_paid_guest5, name='table_may_partially_paid_guest5'),
     path('june_paid_rent5/', branch5.june_paid_rent5, name='june_paid_rent5'),
     path('table_june_paid_rent5/', branch5.table_june_paid_rent5, name='table_june_paid_rent5'),
     path('june_full_paid_guest5/', reports5.june_full_paid_guest5, name='june_full_paid_guest5'),
+    path('june_partially_paid_guest5/', reports5.june_partially_paid_guest5, name='june_partially_paid_guest5'),
+    path('table_june_partially_paid_guest5/', reports5.table_june_partially_paid_guest5, name='table_june_partially_paid_guest5'),
+
     path('july_paid_rent5/', branch5.july_paid_rent5, name='july_paid_rent5'),
     path('table_july_paid_rent5/', branch5.table_july_paid_rent5, name='table_july_paid_rent5'),
     path('july_full_paid_guest5/', reports5.july_full_paid_guest5, name='july_full_paid_guest5'),
-    path('aug_paid_rent5/', branch5.aug_paid_rent5, name='aug_paid_rent5'),
+    path('july_partially_paid_guest5/', reports5.july_partially_paid_guest5, name='july_partially_paid_guest5'),
+    path('table_july_partially_paid_guest5/', reports5.table_july_partially_paid_guest5, name='table_july_partially_paid_guest5'),
 
+    path('aug_paid_rent5/', branch5.aug_paid_rent5, name='aug_paid_rent5'),
     path('sept_paid_rent5/', branch5.sept_paid_rent5, name='sept_paid_rent5'),
+
     path('oct_paid_rent5/', branch5.oct_paid_rent5, name='oct_paid_rent5'),
     path('nov_paid_rent5/', branch5.nov_paid_rent5, name='nov_paid_rent5'),
     path('dec_paid_rent5/', branch5.dec_paid_rent5, name='dec_paid_rent5'),

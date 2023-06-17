@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -9,55 +11,77 @@
   <meta name="author" content=""/>
   <title>Open Bright</title>
   <!-- loader-->
-  <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
-  <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
+  <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
   <!--favicon-->
-  <link rel="icon" href="{% static 'admindashboard/assets/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="../assets/images/favicon.ico' %}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <link href="{% static 'admindashboard//assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
   <!-- simplebar CSS-->
-  <link href="{% static 'admindashboard/assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
-  <link href="{% static 'admindashboard/assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="{% static 'admindashboard/assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard//assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="{% static 'admindashboard/assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard//assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
-  <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
-  <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard//assets/css/app-style.css' %}" rel="stylesheet"/>
 
-  <style>
-.mybutton {
-  border: none;
-  color: white;
-  /*padding: 16px 32px;*/
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  /*margin: 4px 2px;*/
-  transition-duration: 0.4s;
-  cursor: pointer;
-  background-color:red;
-  color:white;
-  align:right;
-}
-@media only screen and (max-width: 600px) {
-td.break {
-  display:block;
-}
-th.break {
-  display:block;
-}
 
-}
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+  <!-- Button trigger modal -->
+
+
+
+<script>
+function exportTableToExcel(tableID, filename = ''){
+    var downloadLink;
+    var dataType = 'application/vnd.ms-excel';
+    var tableSelect = document.getElementById(tableID);
+    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+    // Specify file name
+    filename = filename?filename+'.xls':'excel_data.xls';
+
+    // Create download link element
+    downloadLink = document.createElement("a");
+
+    document.body.appendChild(downloadLink);
+
+    if(navigator.msSaveOrOpenBlob){
+        var blob = new Blob(['\ufeff', tableHTML], {
+            type: dataType
+        });
+        navigator.msSaveOrOpenBlob( blob, filename);
+    }else{
+        // Create a link to the file
+        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+        // Setting the file name
+        downloadLink.download = filename;
+
+        //triggering the function
+        downloadLink.click();
+    }
+}</script>
 
 
 
 </head>
 
 <body class="bg-theme bg-theme1">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -66,10 +90,10 @@ th.break {
 <!-- Start wrapper-->
  <div id="wrapper">
 
- <!--Start sidebar-wrapper-->
+  <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-      <a href="index.html">
+      <a href="#">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Open Bright</h5>
      </a>
@@ -77,7 +101,7 @@ th.break {
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR5</li>
 
-       <li>
+<li>
         <a href="{% url 'branch1_dashboard5' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 5</span>
         </a>
@@ -158,7 +182,6 @@ th.break {
    </div>
    <!--End sidebar-wrapper-->
 
-
 <!--Start topbar header-->
 <header class="topbar-nav">
  <nav class="navbar navbar-expand fixed-top">
@@ -224,87 +247,82 @@ th.break {
 </nav>
 </header>
 <!--End topbar header-->
+
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
     <div class="container-fluid">
 
-    <div class="row mt-3">
-      <div class="col-lg-12" style="margin-left:auto;margin-right:auto;">
-         <div class="card">
-           <div class="card-body">
-		  <a href="{% url 'paid_rent_choose_months5' %}"> <button class="mybutton button1"> <= Back</button></a>
-               <a href="{% url 'table_may_paid_rent5' %}"> <button class="mybutton button1"> View Table</button></a>
-           <div class="card-title">Paid Guest Details of MAY Branch5</div>
+      <div class="row mt-3">
 
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Partially Paid Guest Details of JUNE Branch5</h5>
+                 <tr>
+                     <th ><a href="{% url 'partially_paid_guest_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
+                       <th ><a href="{% url 'june_partially_paid_guest5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
-               {% if messages %}
-                {% for message in messages %}
-        <div class="alert alert-success" style="width:95%;">
-         <a href="#" class="close" data-dismiss="alert">
-            &times;
-         </a>
-         <strong>!</strong> {{message}}
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                 </tr>
+			  <div class="table-responsive">
+              <table class="table table-bordered" id="tbldata" border="1">
+                <thead>
+                  <tr>
+                    <th scope="col">Sl No</th>
+                    <th scope="col">Room No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Rent Amount</th>
+                      <th scope="col">Paid Amount</th>
+                    <th scope="col">Advance</th>
+                    <th scope="col">Discount</th>
+                      <th scope="col">Due Amount</th>
+                      <th scope="col">Remark</th>
 
-      </div>
-       {% endfor %}
-            {% endif %}
+                  </tr>
+                </thead>
+                <tbody>
 
+                {% for i in ppr %}
 
-           <hr>
-            <form action="#" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
+				   <tr>
+                    <td>{{forloop.counter}}</td>
+				   <td>{{i.room_name}}</td>
+                    <td>{{i.name}}</td>
+                       <td>{{i.monthly_rent}}</td>
+                        <td>{{i.june_rent}}</td>
+                        <td>{{i.june_advance}}</td>
+                        <td>{{i.june_dis_amt}}</td>
+                        <td>{{i.june_due_amt}}</td>
+                       <td>{{i.remark}}</td>
 
+                       </a></td>
+                   </tr>
 
-
-{% for i in up %}
-                 <div class="form-group">
-
-                   <a href="{% url 'details_of_paid_guests5' id=i.id %}">  <label for="input-4" class="col0-lg-1" style="border-bottom: 2pt solid #FF0000;"> (Sl.No:{{forloop.counter}}) &nbsp;
-                         Room No : {{i.room_name}}
-                     Name  : {{i.name|upper}}
-                   </label></a></br>
-
-                     <label for="input-15" class="col-lg-3">Monthly Rent : {{i.monthly_rent}}</label>
-                     <label for="input-15" class="col-lg-2">Paid Rent : {{i.may_rent}}</label>
-                     <label for="input-15" class="col-lg-2">Advance : {{i.may_advance}}</label>
-                     <label for="input-15" class="col-lg-2">Discount : {{i.may_dis_amt}}</label>
-                     <label for="input-15" class="col-lg-2">Due Amt : {{i.may_due_amt}}</label>
-                     <label for="input-15" class="col-lg-5">Remark : {{i.remark}}</label><br>
-
-                     <a href="tel:{{i.self_mob}}"> <label for="input-15" class="col-lg-3">Call {{i.self_mob}}</label></a>
-                     <label for="input-15" class="col-lg-2">
-
-                         <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent [ YOUR MONTHLY RENT IS RS:{{i.monthly_rent}} AND DUE AMOUNT IS RS:{{i.remark}} ], Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG ">
-                             <span class="zmdi zmdi-whatsapp"></span> <span style="background-color:green" > Send Message</span>
-
-
-                     </label>
-
-			</div>
-<hr style="height: 2px;
-            background-color: white;
-            border: none;">
                 {% endfor %}
 
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row-->
 
-          </form>
-         </div>
-         </div>
-      </div>
 
 
 
-    </div><!--End Row-->
 
-	<!--start overlay-->
+
+	  <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
 
-   </div><!--End content-wrapper-->
+    </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
@@ -313,7 +331,7 @@ th.break {
 	<footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © 2018 Open Bright Admin
+          Copyright © 2018 Dashtreme Admin
         </div>
       </div>
     </footer>
@@ -326,16 +344,34 @@ th.break {
     </div>
     <div class="right-sidebar-content">
 
-		<p class="mb-0">Settings</p>
+        <p class="mb-0">Settings</p>
       <hr>
 
       <ul>
-        <li style="background-color:red;border:1px solid white;"><a href="uom_creation.html">Create New UOM</a></li>
-        <li style="background-color:red;border:1px solid white;"><a href="create_category.html">Create New Category</a></li>
-        <li style="background-color:red;border:1px solid white;">Create New Kitchen</li>
+
+        <li><a href="{% url 'jan_unpaid_rent5' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Unpaid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March Unpaid 5</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Unpaid 5</button> </a></li>
+
+          <li style="margin-top:5px;"><a href="{% url 'may_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Unpaid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest Unpaid 5</button> </a></li>
+
+           <li style="margin-top:5px;"><a href="{% url 'sept_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Unpaid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Unpaid 5</button> </a></li>
+
+
+
+          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
 
 
       </ul>
+
+
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
@@ -383,8 +419,6 @@ th.break {
 
   <!-- Custom scripts -->
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
-
-
 
 </body>
 </html>
