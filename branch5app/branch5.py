@@ -1726,6 +1726,7 @@ def may_make_payments5(request,id):
             jp.remark = remark
             jp.may_due_amt = due_amt
             jp.june_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
             #jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
@@ -1741,10 +1742,11 @@ def may_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.may_rent = dis_amt
+            jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = due_amt
             jp.june_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
             #jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
@@ -1904,6 +1906,7 @@ def july_make_payments5(request,id):
             jp.remark = remark
             jp.july_due_amt = due_amt
             jp.auguest_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
             #jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
@@ -1924,6 +1927,7 @@ def july_make_payments5(request,id):
             jp.remark = remark
             jp.july_due_amt = due_amt
             jp.auguest_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
             #jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
