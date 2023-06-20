@@ -77,72 +77,79 @@ th.break {
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR6</li>
 
-       <li>
+      <li>
         <a href="{% url 'branch1_dashboard6' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 6</span>
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months6' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 6</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months6' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 6</span>
-        </a>
-      </li>
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 6</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months6' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 6</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months6' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 6</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months6' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 6</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months6' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 6</span></a>
+  </div>
+</div>
+       </li>
+
 
       <li>
-        <a href="{% url 'choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 5</span>
+        <a href="{% url 'choose_months6' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 6</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'choose_months_advance5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 5</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="{% url 'view_all_new_guest5' %}">
-          <i class="zmdi zmdi-face"></i> <span>Guests 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'detail_guest_general5' %}">
-          <i class="zmdi zmdi-brush"></i> <span>Print outs 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'viewall_vacate_guest5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 5</span>
+        <a href="{% url 'choose_months_advance6' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 6</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'view_all_room5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 5</span>
+        <a href="{% url 'due_amt_mgt_choose_months6' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 6</span>
         </a>
       </li>
 
        <li>
-        <a href="{% url 'pg1_view_all_beds5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 5</span>
+        <a href="{% url 'view_all_new_guest6' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests 6</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general6' %}">
+          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet 6</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest6' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 6</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'may_print_live5' %}">
-          <i class="zmdi zmdi-spinner"></i> <span>Live Report 5</span>
+        <a href="{% url 'view_all_room6' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 6</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'pg1_view_all_beds6' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 6</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'viewall_vaccant_room5' %}">
-          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 5</span>
+        <a href="{% url 'viewall_vaccant_room6' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 6</span>
         </a>
       </li>
 
