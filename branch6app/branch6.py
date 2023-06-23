@@ -4615,7 +4615,7 @@ def may_account_mgt6(request, id):
             ic.may_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details6(request)
+            return view_may_account_details6(request)
 
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
@@ -4706,7 +4706,7 @@ def july_account_mgt6(request,id):
             ic.july_due_amt = due_amt
             ic.remark = remark
             ic.save()
-            return view_june_account_details6(request)
+            return view_july_account_details6(request)
 
         context = {
             'sd' : pg1_new_guest.objects.get(id=id),

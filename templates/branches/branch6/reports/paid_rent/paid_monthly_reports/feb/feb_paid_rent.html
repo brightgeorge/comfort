@@ -313,7 +313,7 @@ function exportTableToExcel(tableID, filename = ''){
 	   <div class="card">
 	     <div class="card-header">View all Paid Rent of {{month_name}}
 		  <div class="card-action">
-              <a class="dropdown-item" href="{% url 'full_paid_guest5' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
+              <a class="dropdown-item" href="{% url 'full_paid_guest6' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
               <i class="icon-options1"></i>
@@ -343,7 +343,7 @@ function exportTableToExcel(tableID, filename = ''){
 				   <tr>
                     <td>{{forloop.counter}}</td>
                        <td>
-                           <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
+                           <a href="{% url 'details_of_paid_guests6' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
 				   <td>{{i.room_name}}</td>
                        <td>{{ i.feb_rent_rec_date }}</td>
