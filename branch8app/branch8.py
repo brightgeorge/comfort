@@ -458,7 +458,7 @@ def view_all_new_guest8(request):
             'rs505': ll[55],
             '505_data': pg1_new_beds.objects.all().filter(roon_no=505),
             'rs506': ll[56],
-            '506_data': pg1_new_beds.objects.all().filter(roon_no=505),
+            '506_data': pg1_new_beds.objects.all().filter(roon_no=506),
 
             ###########################
             'myl': ll,
