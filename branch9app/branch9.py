@@ -347,8 +347,9 @@ def view_all_new_guest9(request):
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
             'rs107': ll[7],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs109': ll[8],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+
+            'rs108': ll[8],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
             'rs109': ll[9],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
             'rs110': ll[10],
