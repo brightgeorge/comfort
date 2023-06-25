@@ -255,7 +255,7 @@
                 {% for i in user_details %}
                 {% if i.jan_rent_flag == 200 %}
                   <tr style="backgroun-color:green">
-                    <th scope="row" style="color:red;">Jan</th>
+                    <th scope="row" style="color:red;"><a href="{% url 'jan_manke_payments_vacate5' id=i.id %}">Jan</a></th>
                     <td>{{i.jan_rent_rec_date}}</td>
                       <td>{{i.jan_advance}}</td>
                       <td>{{i.monthly_rent}}</td>
@@ -289,7 +289,7 @@
 
                 {% if i.feb_rent_flag == 200 %}
                   <tr style="backgroun-color:green">
-                    <th scope="row" style="color:red;">Jan</th>
+                    <th scope="row" style="color:red;"><a href="{% url 'feb_manke_payments_vacate5' id=i.id %}">Feb</a></th>
                     <td>{{i.feb_rent_rec_date}}</td>
                       <td>{{i.feb_advance}}</td>
                       <td>{{i.monthly_rent}}</td>
@@ -324,7 +324,7 @@
 
                   {% if i.march_rent_flag == 200 %}
                   <tr style="backgroun-color:green">
-                    <th scope="row" style="color:red;">March</th>
+                    <th scope="row" style="color:red;"><a href="{% url 'march_manke_payments_vacate5' id=i.id %}">March</a></th>
                     <td>{{i.march_rent_rec_date}}</td>
                       <td>{{i.march_advance}}</td>
                       <td>{{i.monthly_rent}}</td>
@@ -358,7 +358,7 @@
 
                 {% if i.april_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row" style="background-color:green;">April</th>
+                    <th scope="row" style="background-color:green;"><a href="{% url 'april_make_payments_vacate5' id=i.id %}">April</a></th>
                     <td >{{i.april_rent_rec_date}}</td>
                     <td style="padding-right:1px;">{{i.april_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -391,7 +391,7 @@
 
                 {% if i.may_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row" style="background-color:green;">May</th>
+                    <th scope="row" style="background-color:green;"><a href="{% url 'may_make_payments_vacate5' id=i.id %}">May</a></th>
                     <td >{{i.may_rent_rec_date}}</td>
                     <td>{{i.may_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -424,7 +424,7 @@
 
                 {% if i.june_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">June</th>
+                    <th scope="row"><a href="{% url 'june_make_payments_vacate5' id=i.id %}">June</a></th>
                     <td >{{i.june_rent_rec_date}}</td>
                     <td>{{i.june_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -457,7 +457,7 @@
 
                 {% if i.july_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">July</th>
+                    <th scope="row"><a href="{% url 'july_make_payments_vacate5' id=i.id %}">July</a></th>
                     <td >{{i.july_rent_rec_date}}</td>
                     <td>{{i.july_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -490,7 +490,7 @@
 
                 {% if i.auguest_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">Auguest</th>
+                    <th scope="row"><a href="{% url 'aug_make_payments_vacate5' id=i.id %}">Auguest</a></th>
                     <td >{{i.auguest_rent_rec_date}}</td>
                     <td>{{i.auguest_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -523,7 +523,7 @@
 
                 {% if i.sept_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">Sept</th>
+                    <th scope="row"><a href="{% url 'sept_make_payments_vacate5' id=i.id %}">Sept</a></th>
                     <td >{{i.sept_rent_rec_date}}</td>
                     <td>{{i.sept_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -557,7 +557,7 @@
 
                  {% if i.october_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">October</th>
+                    <th scope="row"><a href="{% url 'oct_make_payments_vacate5' id=i.id %}">October</a></th>
                     <td >{{i.october_rent_rec_date}}</td>
                     <td>{{i.october_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -590,7 +590,7 @@
 
                 {% if i.nov_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">Nov</th>
+                    <th scope="row"><a href="{% url 'nov_make_payments_vacate5' id=i.id %}">Nov</a></th>
                     <td >{{i.nov_rent_rec_date}}</td>
                     <td>{{i.nov_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
@@ -624,7 +624,7 @@
 
                 {% if i.dec_rent_flag == 200 %}
                 <tr style="background-color:green;">
-                    <th scope="row">Dec</th>
+                    <th scope="row"><a href="{% url 'dec_make_payments_vacate5' id=i.id %}">Dec</a></th>
                     <td >{{i.dec_rent_rec_date}}</td>
                     <td>{{i.dec_advance}}</td>
                     <td>{{i.monthly_rent}}</td>
