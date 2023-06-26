@@ -4959,16 +4959,21 @@ def manage_update_new_guest5(request, id):
             return manage_new_guest5(request)
         else:
             name = request.POST.get('name')
+            may_rent = request.POST.get('may_rent')
+            may_advance = request.POST.get('may_advance')
             may_due_amt = request.POST.get('may_due_amt')
-            june_rent = request.POST.get('june_rent')
-            june_advances = request.POST.get('june_advanc')
-            june_due_amt = request.POST.get('june_due_amt')
+            may_dis_amt = request.POST.get('may_dis_amt')
+            may_rent_rec_date = request.POST.get('may_rent_rec_date')
+            may_rent_flag = request.POST.get('may_rent_flag')
 
             ic = branch5app.models.pg1_new_guest.objects.get(id=id)
+
+            ic.may_rent = may_rent
+            ic.may_advance = may_advance
             ic.may_due_amt = may_due_amt
-            # ic.june_rent = june_rent
-            ic.june_advance = june_advances
-            ic.june_due_amt = june_due_amt
+            ic.may_dis_amt = may_dis_amt
+            ic.may_rent_rec_date = may_rent_rec_date
+            ic.may_rent_flag = may_rent_flag
 
             # ic.jan_advance = 0
             # ic.jan_due_amt = 0
@@ -5052,7 +5057,7 @@ def manage_update_new_guest5_test(request, id):
             ic=branch5app.models.pg1_new_guest.objects.get(guest_code=id)
             #ic.may_due_amt = may_due_amt
             #ic.june_rent = june_rent
-            ic.june_advance = june_advance
+            #ic.june_advance = june_advance
             #ic.june_due_amt = june_due_amt
 
 
@@ -5133,13 +5138,24 @@ def manage_update_beds5(request, id):
             return manage_new_guest5(request)
         else:
             name = request.POST.get('name')
+            may_rent = request.POST.get('may_rent')
+            may_advance = request.POST.get('may_advance')
+            may_due_amt = request.POST.get('may_due_amt')
+            may_dis_amt = request.POST.get('may_dis_amt')
+            may_rent_rec_date = request.POST.get('may_rent_rec_date')
+            may_rent_flag = request.POST.get('may_rent_flag')
 
 
 
             ##################################################
 
             ic = pg1_new_beds.objects.get(id=id)
-            ic.june_rent = 0
+            ic.may_rent = may_rent
+            ic.may_advance = may_advance
+            ic.may_due_amt = may_due_amt
+            ic.may_dis_amt = may_dis_amt
+            ic.may_rent_rec_date = may_rent_rec_date
+            ic.may_rent_flag = may_rent_flag
             ic.save()
 
             messages.info(request, 'BRANCH5 guest updated sucessfully')
