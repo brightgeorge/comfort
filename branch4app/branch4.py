@@ -6,7 +6,7 @@ from django.contrib import messages
 from branch4app.models import *
 import datetime
 from . import admin_dashboard_calculations_br4
-
+import branch4app
 database_name = 'cpg'
 database_password = '#123.com#'
 database_user = 'root'
@@ -5736,6 +5736,257 @@ def july_account_mgt4(request,id):
 ########################################
 #DUE AMT MANAGEMENT END HERE
 ###########################
+
+
+
+
+def manage_bed4(request):
+    if 'username' in request.session:
+        context = {
+            'bed' : pg1_new_beds.objects.all(),
+        }
+        return render(request, 'branches/branch4/test/manage_bed.html',context)
+
+def manage_new_guest4(request):
+    if 'username' in request.session:
+        context = {
+            'bed' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no'),
+        }
+        return render(request, 'branches/branch4/test/manage_new_guest.html',context)
+
+
+def manage_update_new_guest4(request, id):
+    if request.method == 'POST':
+        selfmob = request.POST.get('selfmobno')
+        # chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
+            data = pg1_new_guest.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 4 Room Creation Form',
+                'br': pg1_new_guest.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
+
+            }
+            messages.info(request, 'BRANCH4 guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return manage_new_guest4(request)
+        else:
+            name = request.POST.get('name')
+            may_rent = request.POST.get('may_rent')
+            may_advance = request.POST.get('may_advance')
+            may_due_amt = request.POST.get('may_due_amt')
+            may_dis_amt = request.POST.get('may_dis_amt')
+            may_rent_rec_date = request.POST.get('may_rent_rec_date')
+            may_rent_flag = request.POST.get('may_rent_flag')
+
+            ic = branch4app.models.pg1_new_guest.objects.get(id=id)
+
+            ic.may_rent = may_rent
+            ic.may_advance = may_advance
+            ic.may_due_amt = may_due_amt
+            ic.may_dis_amt = may_dis_amt
+            ic.may_rent_rec_date = may_rent_rec_date
+            ic.may_rent_flag = may_rent_flag
+
+            # ic.jan_advance = 0
+            # ic.jan_due_amt = 0
+
+            # ic.feb_advance = 0
+            # ic.feb_due_amt = 0
+
+            # ic.march_advance = 0
+            # ic.march_due_amt = 0
+
+            # ic.april_advance = 0
+            # ic.april_due_amt = 0
+
+            # may_advance = 0
+            # ic.may_due_amt = 0
+
+            #ic.june_advance = 0
+            # ic.june_due_amt = 0
+
+            # ic.july_advance = 0
+            # ic.july_due_amt = 0
+
+            # ic.auguest_advance = 0
+            # ic.auguest_due_amt = 0
+
+            # ic.sept_advance = 0
+            # ic.sept_due_amt = 0
+
+            # ic.october_advance = 0
+            # ic.october_due_amt = 0
+
+            # ic.nov_advance = 0
+            # ic.nov_due_amt = 0
+
+            # ic.dec_advance = 0
+            # ic.dec_due_amt = 0
+
+            ic.save()
+
+
+            ##################################################
+
+
+
+            messages.info(request, 'BRANCH4 guest updated sucessfully')
+            return manage_new_guest4(request)
+
+    context = {
+        'sd': pg1_new_guest.objects.get(id=id)
+    }
+    return render(request, 'branches/branch4/test/manage_update_new_guest.html', context)
+
+
+def manage_update_new_guest4_test(request, id):
+    if request.method == 'POST':
+        selfmob = request.POST.get('selfmobno')
+        # chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
+            data = pg1_new_beds.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 4 Room Creation Form',
+                'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
+
+            }
+            messages.info(request, 'BRANCH4 guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return manage_new_guest4(request)
+        else:
+            name = request.POST.get('name')
+            may_due_amt = request.POST.get('may_due_amt')
+            june_rent = request.POST.get('june_rent')
+            june_advance = request.POST.get('june_advance')
+            june_due_amt = request.POST.get('june_due_amt')
+
+            ic=branch4app.models.pg1_new_guest.objects.get(guest_code=id)
+            #ic.may_due_amt = may_due_amt
+            #ic.june_rent = june_rent
+            #ic.june_advance = june_advance
+            #ic.june_due_amt = june_due_amt
+
+
+            #ic.jan_advance = 0
+            #ic.jan_due_amt = 0
+
+
+            #ic.feb_advance = 0
+            #ic.feb_due_amt = 0
+
+            #ic.march_advance = 0
+            #ic.march_due_amt = 0
+
+            #ic.april_advance = 0
+            #ic.april_due_amt = 0
+
+            #may_advance = 0
+            #ic.may_due_amt = 0
+
+            ic.june_advance = 0
+            #ic.june_due_amt = 0
+
+            #ic.july_advance = 0
+            #ic.july_due_amt = 0
+
+            #ic.auguest_advance = 0
+            #ic.auguest_due_amt = 0
+
+            #ic.sept_advance = 0
+            #ic.sept_due_amt = 0
+
+            #ic.october_advance = 0
+            #ic.october_due_amt = 0
+
+            #ic.nov_advance = 0
+            #ic.nov_due_amt = 0
+
+            #ic.dec_advance = 0
+            #ic.dec_due_amt = 0
+
+            ic.save()
+
+
+            ##################################################
+
+
+
+            messages.info(request, 'BRANCH4 guest updated sucessfully')
+            return manage_new_guest4(request)
+
+    context = {
+        'sd': pg1_new_guest.objects.get(id=id)
+    }
+    return render(request, 'branches/branch4/test/manage_update_new_guest.html', context)
+
+
+
+
+def manage_update_beds4(request, id):
+    if request.method == 'POST':
+        selfmob = request.POST.get('selfmobno')
+        # chk_mob = pg1_new_guest.objects.all().filter(self_mob=selfmob).exists()
+        chk_mob = 10
+        if chk_mob == 11:
+            l = []
+            data = pg1_new_beds.objects.all()
+            for i in data:
+                l.append(i.share_type)
+            print('l', l)
+            context = {
+                'brname': 'BRANCH 4 Room Creation Form',
+                'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
+                'rn1': l[0]
+
+            }
+            messages.info(request, 'BRANCH4 guest already exists')
+            # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
+            return manage_new_guest4(request)
+        else:
+            name = request.POST.get('name')
+            may_rent = request.POST.get('may_rent')
+            may_advance = request.POST.get('may_advance')
+            may_due_amt = request.POST.get('may_due_amt')
+            may_dis_amt = request.POST.get('may_dis_amt')
+            may_rent_rec_date = request.POST.get('may_rent_rec_date')
+            may_rent_flag = request.POST.get('may_rent_flag')
+
+
+
+            ##################################################
+
+            ic = pg1_new_beds.objects.get(id=id)
+            ic.may_rent = may_rent
+            ic.may_advance = may_advance
+            ic.may_due_amt = may_due_amt
+            ic.may_dis_amt = may_dis_amt
+            ic.may_rent_rec_date = may_rent_rec_date
+            ic.may_rent_flag = may_rent_flag
+            ic.save()
+
+            messages.info(request, 'BRANCH4 guest updated sucessfully')
+            return manage_bed4(request)
+
+    context = {
+        'sd': pg1_new_beds.objects.get(id=id)
+    }
+    return render(request, 'branches/branch4/test/manage_update_beds.html', context)
+
+
+
+
 
 
 

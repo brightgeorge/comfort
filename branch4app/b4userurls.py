@@ -323,6 +323,12 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
 # DUE AMT MANAGEMENT END HERE
 ###########################
 
+    path('manage_bed4/', branch4.manage_bed4, name='manage_bed4'),
+    path('manage_new_guest4/', branch4.manage_new_guest4, name='manage_new_guest4'),
+    path('manage_update_new_guest4/<id>', branch4.manage_update_new_guest4, name='manage_update_new_guest4'),
+    path('manage_update_beds4/<id>', branch4.manage_update_beds4, name='manage_update_beds4'),
+
+
 
 
 ]

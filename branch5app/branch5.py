@@ -5159,7 +5159,7 @@ def manage_update_beds5(request, id):
             ic.save()
 
             messages.info(request, 'BRANCH5 guest updated sucessfully')
-            return manage_new_guest5(request)
+            return manage_bed5(request)
 
     context = {
         'sd': pg1_new_beds.objects.get(id=id)
