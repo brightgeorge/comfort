@@ -6,6 +6,7 @@ from django.contrib import messages
 from branch3app.models import *
 import datetime
 from . import admin_dashboard_calculations_br3
+import branch3app
 
 database_name = 'cpg'
 database_password = '#123.com#'
@@ -192,13 +193,14 @@ def br1_admit_guest3(request, id):
                 print(il)
 
                 ic.jan_rent = 0
-                ic.jan_advance = ''
-                ic.jan_due_amt = ''
+                ic.jan_advance = 0
+                ic.jan_due_amt = 0
                 ic.jan_rent_flag = il[0]
 
+
                 ic.feb_rent = 0
-                ic.feb_advance = ''
-                ic.feb_due_amt = ''
+                ic.feb_advance = 0
+                ic.feb_due_amt = 0
                 ic.feb_rent_flag = il[1]
 
                 ic.march_rent = 0
@@ -5499,6 +5501,165 @@ def dec_make_payments_vacate3(request, id):
 ##################################
 # VACATE GUEST DETAILS END HERE
 ################################
+
+
+########################################
+#DUE AMT MANAGEMENT START HERE
+###########################
+
+def view_all_due_amt3(request):
+    context={
+        'due_amt' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
+    }
+    return render(request, 'branches/branch3/due_amt_mgt/view_all_due_amt.html',context)
+
+def due_amt_mgt_choose_months3(request):
+    return render(request, 'branches/branch3/due_amt_mgt/due_amt_mgt_choose_months.html')
+
+
+def view_may_account_details3(request):
+    context = {
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request, 'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
+def may_account_mgt3(request, id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.may_rent = paid_amt
+            ic.may_advance = advance
+            ic.may_dis_amt = discount
+            ic.may_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.may_rent = paid_amt
+            ic.may_advance = advance
+            ic.may_dis_amt = discount
+            ic.may_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_may_account_details3(request)
+
+        context = {
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request, 'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/may/may_account_mgt.html',context)
+
+
+def view_june_account_details3(request):
+    context = {
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/june/view_june_account_details.html',context)
+def june_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.june_rent = paid_amt
+            ic.june_advance = advance
+            ic.june_dis_amt = discount
+            ic.june_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            import branch3app
+            ic = branch3app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            ic.june_rent = paid_amt
+            ic.june_advance = advance
+            ic.june_dis_amt = discount
+            ic.june_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_june_account_details3(request)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/june/june_account_mgt.html',context)
+
+
+def view_july_account_details3(request):
+    context = {
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/july/view_july_account_details.html',context)
+def july_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.july_rent = paid_amt
+            ic.july_advance = advance
+            ic.july_dis_amt = discount
+            ic.july_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.july_rent = paid_amt
+            ic.july_advance = advance
+            ic.july_dis_amt = discount
+            ic.july_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_july_account_details3(request)
+
+        context = {
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/july/july_account_mgt.html',context)
+
+
+
+
+########################################
+#DUE AMT MANAGEMENT END HERE
+###########################
+
+
 
 def pysql(request):
     chk = branch_closing.objects.all().filter(jan='', branch_name='branch1').exists()

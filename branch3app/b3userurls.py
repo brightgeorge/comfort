@@ -270,5 +270,25 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
     path('viewall_vaccant_room3/', reports3.viewall_vaccant_room3, name='viewall_vaccant_room3'),
 
 
+########################################
+# DUE AMT MANAGEMENT START HERE
+###########################
+
+    path('view_all_due_amt3/', branch3.view_all_due_amt3, name='view_all_due_amt3'),
+    path('due_amt_mgt_choose_months3/', branch3.due_amt_mgt_choose_months3, name='due_amt_mgt_choose_months3'),
+
+    path('view_may_account_details3/',branch3.view_may_account_details3,name='view_may_account_details3'),
+    path('may_account_mgt3/<id>', branch3.may_account_mgt3, name='may_account_mgt3'),
+
+    path('view_june_account_details3/', branch3.view_june_account_details3, name='view_june_account_details3'),
+    path('june_account_mgt3/<id>',branch3.june_account_mgt3,name='june_account_mgt3'),
+    path('view_july_account_details3/', branch3.view_july_account_details3, name='view_july_account_details3'),
+    path('july_account_mgt3/<id>',branch3.july_account_mgt3,name='july_account_mgt3'),
+
+########################################
+# DUE AMT MANAGEMENT END HERE
+###########################
+
+
 
 ]
