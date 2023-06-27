@@ -219,31 +219,38 @@
 	<div class="card mt-3">
     <div class="card-content">
         <div class="row row-group m-0">
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
+
+           <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                  <h5 class="text-white mb-0">{{total_count_active_guests}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Users <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Guests <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'viewall_vaccant_room5' %}">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                  <h5 class="text-white mb-0">{{total_count_vaccant_rooms}} <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Students <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                  <p class="mb-0 text-white small-font">Total Vaccant Rooms <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">{{total_collection_june}} - {{total_received_june}} = {{total_due_june}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Task <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{total_collection_monthly_june}}+{{total_collection_advance_june}}+{{total_collection_due_june}}-{{total_collection_discount_june}}
+
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
 
