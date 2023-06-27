@@ -138,18 +138,33 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 
 #unpaid rent start here
     path('unpaid_rent_choose_months3/',branch3.unpaid_rent_choose_months3,name='unpaid_rent_choose_months3'),
+    path('partially_paid_guest_choose_months3/',reports3.partially_paid_guest_choose_months3,name='partially_paid_guest_choose_months3'),
 
     path('jan_unpaid_rent3/', branch3.jan_unpaid_rent3, name='jan_unpaid_rent3'),
     path('feb_unpaid_rent3/', branch3.feb_unpaid_rent3, name='feb_unpaid_rent3'),
     path('mar_unpaid_rent3/', branch3.mar_unpaid_rent3, name='mar_unpaid_rent3'),
-    path('april_unpaid_rent3/', branch3.april_unpaid_rent3, name='april_unpaid_rent3'),
 
-    path('may_unpaid_rent3/', branch3.may_unpaid_rent3, name='may_unpaid_rent3'),
-    path('june_unpaid_rent3/', branch3.june_unpaid_rent3, name='june_unpaid_rent3'),
-    path('july_unpaid_rent3/', branch3.july_unpaid_rent3, name='july_unpaid_rent3'),
-    path('aug_unpaid_rent3/', branch3.aug_unpaid_rent3, name='aug_unpaid_rent3'),
+    path('april_paid_rent3/', branch3.april_paid_rent3, name='april_paid_rent3'),
+    path('may_paid_rent3/', branch3.may_paid_rent3, name='may_paid_rent3'),
+    path('table_may_paid_rent3/', branch3.table_may_paid_rent3, name='table_may_paid_rent3'),
+    path('may_full_paid_guest3/', reports3.may_full_paid_guest3, name='may_full_paid_guest3'),
+    path('may_partially_paid_guest3/', reports3.may_partially_paid_guest3, name='may_partially_paid_guest3'),
+    path('table_may_partially_paid_guest3/', reports3.table_may_partially_paid_guest3,name='table_may_partially_paid_guest3'),
+    path('june_paid_rent3/', branch3.june_paid_rent3, name='june_paid_rent3'),
+    path('table_june_paid_rent3/', branch3.table_june_paid_rent3, name='table_june_paid_rent3'),
+    path('june_full_paid_guest3/', reports3.june_full_paid_guest3, name='june_full_paid_guest3'),
+    path('june_partially_paid_guest3/', reports3.june_partially_paid_guest3, name='june_partially_paid_guest3'),
+    path('table_june_partially_paid_guest3/', reports3.table_june_partially_paid_guest3,name='table_june_partially_paid_guest3'),
 
-    path('sept_unpaid_rent3/', branch3.sept_unpaid_rent3, name='sept_unpaid_rent3'),
+    path('july_paid_rent3/', branch3.july_paid_rent3, name='july_paid_rent3'),
+    path('table_july_paid_rent3/', branch3.table_july_paid_rent3, name='table_july_paid_rent3'),
+    path('july_full_paid_guest3/', reports3.july_full_paid_guest3, name='july_full_paid_guest3'),
+    path('july_partially_paid_guest3/', reports3.july_partially_paid_guest3, name='july_partially_paid_guest3'),
+    path('table_july_partially_paid_guest3/', reports3.table_july_partially_paid_guest3,name='table_july_partially_paid_guest3'),
+
+    path('aug_paid_rent3/', branch3.aug_paid_rent3, name='aug_paid_rent3'),
+    path('sept_paid_rent3/', branch3.sept_paid_rent3, name='sept_paid_rent3'),
+
     path('oct_unpaid_rent3/', branch3.oct_unpaid_rent3, name='oct_unpaid_rent3'),
     path('nov_unpaid_rent3/', branch3.nov_unpaid_rent3, name='nov_unpaid_rent3'),
     path('dec_unpaid_rent3/', branch3.dec_unpaid_rent3, name='dec_unpaid_rent3'),
@@ -266,11 +281,14 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
     path('nov_close3/', branch3.nov_close3, name='nov_close3'),
     path('nov_close_decision_page3/', branch3.nov_close_decision_page3, name='nov_close_decision_page3'),
 
+    path('detailed_report_choose_months3/', reports3.detailed_report_choose_months3,name='detailed_report_choose_months3'),
+    path('may_details_live3/',reports3.may_details_live3,name='may_details_live3'),
     path('may_print_live3/', reports3.may_print_live3, name='may_print_live3'),
+    path('june_dtails_live3/', reports3.june_dtails_live3, name='june_dtails_live3'),
+    path('june_print_live3/', reports3.june_print_live3, name='june_print_live3'),
     path('viewall_vaccant_room3/', reports3.viewall_vaccant_room3, name='viewall_vaccant_room3'),
 
-
-########################################
+    ########################################
 # DUE AMT MANAGEMENT START HERE
 ###########################
 

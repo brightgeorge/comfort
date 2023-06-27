@@ -871,7 +871,9 @@ def details_of_unpaid_guests3(request, id):
 
 # *********unpaid rent end here ************
 
+
 # ************paid rent start here********
+
 
 def paid_rent_choose_months3(request):
     if 'username' in request.session:
@@ -892,7 +894,22 @@ def jan_paid_rent3(request):
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jan_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jan/jan_paid_rent.html', context)
+def table_jan_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.jan_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JAN'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jan/table_jan_paid_rent.html', context)
 
 
 def feb_paid_rent3(request):
@@ -908,7 +925,21 @@ def feb_paid_rent3(request):
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/feb_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/feb/feb_paid_rent.html', context)
+def table_feb_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.feb_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'name': request.session['username'], 'amt': s,
+            'month_name': 'FEB'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/feb/table_feb_paid_rent.html', context)
 
 
 def mar_paid_rent3(request):
@@ -925,7 +956,22 @@ def mar_paid_rent3(request):
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/mar_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/mar/mar_paid_rent.html', context)
+def table_mar_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.march_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'MARCH'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/mar/table_mar_paid_rent.html', context)
 
 
 def april_paid_rent3(request):
@@ -944,7 +990,24 @@ def april_paid_rent3(request):
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/april_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/apr/april_paid_rent.html', context)
+def table_april_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.april_rent))
+
+        print(l)
+        s = ''.join(l)
+        print(s)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'pamt': s,
+            'month_name': 'APRIL'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/apr/table_april_paid_rent.html', context)
 
 
 def may_paid_rent3(request):
@@ -961,8 +1024,22 @@ def may_paid_rent3(request):
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/may_paid_rent.html', context)
-
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/may/may_paid_rent.html', context)
+def table_may_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.may_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'MAY'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/may/table_may_paid_rent.html', context)
 
 def june_paid_rent3(request):
     if 'username' in request.session:
@@ -978,7 +1055,22 @@ def june_paid_rent3(request):
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/june_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jun/june_paid_rent.html', context)
+def table_june_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.june_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JUNE'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jun/table_june_paid_rent.html', context)
 
 
 def july_paid_rent3(request):
@@ -995,7 +1087,22 @@ def july_paid_rent3(request):
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/july_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jul/july_paid_rent.html', context)
+def table_july_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.july_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JULY'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/jul/table_july_paid_rent.html', context)
 
 
 def aug_paid_rent3(request):
@@ -1012,7 +1119,22 @@ def aug_paid_rent3(request):
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/aug_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/aug/aug_paid_rent.html', context)
+def table_aug_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.auguest_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'AUGUST'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/aug/table_aug_paid_rent.html', context)
 
 
 def sept_paid_rent3(request):
@@ -1029,7 +1151,22 @@ def sept_paid_rent3(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sept_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sept/sept_paid_rent.html', context)
+def table_sept_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.sept_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'SEPT'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sept/table_sept_paid_rent.html', context)
 
 
 def oct_paid_rent3(request):
@@ -1046,7 +1183,22 @@ def oct_paid_rent3(request):
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/oct_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/oct/oct_paid_rent.html', context)
+def table_oct_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.october_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'OCTOBER'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/oct/table_oct_paid_rent.html', context)
 
 
 def nov_paid_rent3(request):
@@ -1063,7 +1215,22 @@ def nov_paid_rent3(request):
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/nov_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/nov/nov_paid_rent.html', context)
+def table_nov_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.nov_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'NOVEMBER'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/nov/table_nov_paid_rent.html', context)
 
 
 def dec_paid_rent3(request):
@@ -1080,10 +1247,28 @@ def dec_paid_rent3(request):
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/dec_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/dec/dec_paid_rent.html', context)
+def table_dec_paid_rent3(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.dec_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'DECEMBER'
+        }
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/dec/table_dec_paid_rent.html', context)
+
 
 
 # *********paid rent end here ************
+
+
 
 # details_of_paid_guests start here
 
