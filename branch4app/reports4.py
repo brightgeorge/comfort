@@ -409,4 +409,3 @@ def table_july_partially_paid_guest4(request):
 
 #########PARTIALLY PAID GUEST START HERE ############
 
-#abc test
