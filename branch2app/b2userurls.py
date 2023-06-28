@@ -305,7 +305,33 @@ urlpatterns = [
     path('nov_close2/', branch2.nov_close2, name='nov_close2'),
     path('nov_close_decision_page2/', branch2.nov_close_decision_page2, name='nov_close_decision_page2'),
 
+    path('detailed_report_choose_months2/', reports2.detailed_report_choose_months2,name='detailed_report_choose_months2'),
     path('may_print_live2/', reports2.may_print_live2, name='may_print_live2'),
+    path('june_dtails_live2/', reports2.june_dtails_live2, name='june_dtails_live2'),
+    path('june_print_live2/', reports2.june_print_live2, name='june_print_live2'),
     path('viewall_vaccant_room2/', reports2.viewall_vaccant_room2, name='viewall_vaccant_room2'),
+
+
+
+########################################
+# DUE AMT MANAGEMENT START HERE
+###########################
+
+    path('view_all_due_amt2/', branch2.view_all_due_amt2, name='view_all_due_amt2'),
+    path('due_amt_mgt_choose_months2/', branch2.due_amt_mgt_choose_months2, name='due_amt_mgt_choose_months2'),
+
+    path('view_may_account_details2/',branch2.view_may_account_details2,name='view_may_account_details2'),
+    path('may_account_mgt2/<id>', branch2.may_account_mgt2, name='may_account_mgt2'),
+
+    path('view_june_account_details2/', branch2.view_june_account_details2, name='view_june_account_details2'),
+    path('june_account_mgt2/<id>',branch2.june_account_mgt2,name='june_account_mgt2'),
+    path('view_july_account_details2/', branch2.view_july_account_details2, name='view_july_account_details2'),
+    path('july_account_mgt2/<id>',branch2.july_account_mgt2,name='july_account_mgt2'),
+
+########################################
+# DUE AMT MANAGEMENT END HERE
+###########################
+
+
 
 ]
