@@ -273,7 +273,10 @@ urlpatterns = [
 #VACATE GUEST DETAILS END HERE
 ################################
 
+    path('detailed_report_choose_months/',reports1.detailed_report_choose_months,name='detailed_report_choose_months'),
     path('may_print_live/', reports1.may_print_live, name='may_print_live'),
+    path('june_dtails_live/',reports1.june_dtails_live,name='june_dtails_live'),
+    path('june_print_live/', reports1.june_print_live, name='june_print_live'),
     path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
 
 ########################################
