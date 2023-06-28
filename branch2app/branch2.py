@@ -887,27 +887,47 @@ def details_of_unpaid_guests2(request,id):
 
 #*********unpaid rent end here ************
 
-#************paid rent start here********
+
+# ************paid rent start here********
+
 
 def paid_rent_choose_months2(request):
     if 'username' in request.session:
         return render(request, 'branches/branch2/reports/paid_rent/paid_rent_choose_months.html')
 
+
 def jan_paid_rent2(request):
     if 'username' in request.session:
-        l=[]
-        unp=pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        l = []
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
         for i in unp:
             l.append(str(i.jan_rent))
             break
-        s=''.join(l)
+        s = ''.join(l)
         context = {
             'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jan_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jan/jan_paid_rent.html', context)
+def table_jan_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.jan_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JAN'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jan/table_jan_paid_rent.html', context)
+
+
 def feb_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -918,10 +938,26 @@ def feb_paid_rent2(request):
         s = ''.join(l)
         context = {
             'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
-            'name': request.session['username'],'amt': s,
+            'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/feb_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/feb/feb_paid_rent.html', context)
+def table_feb_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.feb_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'name': request.session['username'], 'amt': s,
+            'month_name': 'FEB'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/feb/table_feb_paid_rent.html', context)
+
+
 def mar_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -936,7 +972,24 @@ def mar_paid_rent2(request):
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/mar_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/mar/mar_paid_rent.html', context)
+def table_mar_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.march_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'MARCH'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/mar/table_mar_paid_rent.html', context)
+
+
 def april_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -953,7 +1006,25 @@ def april_paid_rent2(request):
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/april_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/apr/april_paid_rent.html', context)
+def table_april_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.april_rent))
+
+        print(l)
+        s = ''.join(l)
+        print(s)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'pamt': s,
+            'month_name': 'APRIL'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/apr/table_april_paid_rent.html', context)
+
 
 def may_paid_rent2(request):
     if 'username' in request.session:
@@ -969,7 +1040,23 @@ def may_paid_rent2(request):
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/may_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/may/may_paid_rent.html', context)
+def table_may_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.may_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'MAY'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/may/table_may_paid_rent.html', context)
+
 def june_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -982,9 +1069,26 @@ def june_paid_rent2(request):
             'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
             'name': request.session['username'],
             'amt': s,
-            'month_name': 'JUNE',
+            'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/june_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jun/june_paid_rent.html', context)
+def table_june_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.june_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JUNE'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jun/table_june_paid_rent.html', context)
+
+
 def july_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -999,7 +1103,24 @@ def july_paid_rent2(request):
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/july_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jul/july_paid_rent.html', context)
+def table_july_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.july_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JULY'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/jul/table_july_paid_rent.html', context)
+
+
 def aug_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -1014,7 +1135,23 @@ def aug_paid_rent2(request):
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/aug_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/aug/aug_paid_rent.html', context)
+def table_aug_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.auguest_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'AUGUST'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/aug/table_aug_paid_rent.html', context)
+
 
 def sept_paid_rent2(request):
     if 'username' in request.session:
@@ -1030,7 +1167,24 @@ def sept_paid_rent2(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/sept_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/sept/sept_paid_rent.html', context)
+def table_sept_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.sept_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'SEPT'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/sept/table_sept_paid_rent.html', context)
+
+
 def oct_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -1045,7 +1199,24 @@ def oct_paid_rent2(request):
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/oct_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/oct/oct_paid_rent.html', context)
+def table_oct_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.october_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'OCTOBER'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/oct/table_oct_paid_rent.html', context)
+
+
 def nov_paid_rent2(request):
     if 'username' in request.session:
         l = []
@@ -1060,7 +1231,23 @@ def nov_paid_rent2(request):
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/nov_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/nov/nov_paid_rent.html', context)
+def table_nov_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.nov_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'NOVEMBER'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/nov/table_nov_paid_rent.html', context)
+
 
 def dec_paid_rent2(request):
     if 'username' in request.session:
@@ -1076,10 +1263,28 @@ def dec_paid_rent2(request):
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/dec_paid_rent.html', context)
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/dec/dec_paid_rent.html', context)
+def table_dec_paid_rent2(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.dec_rent))
+            break
+        s = ''.join(l)
+        context = {
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'DECEMBER'
+        }
+        return render(request, 'branches/branch2/reports/paid_rent/paid_monthly_reports/dec/table_dec_paid_rent.html', context)
 
 
-#*********paid rent end here ************
+
+# *********paid rent end here ************
+
+
 
 #details_of_paid_guests start here
 
@@ -1393,15 +1598,19 @@ def may2(request):
 def may_make_payments2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
             date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.june_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
+            # jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
@@ -1411,36 +1620,54 @@ def may_make_payments2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
-            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            # jp = pg1_new_beds.objects.get(guest_code=l[0])
+            import branch2app
+            jp = branch2app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.may_rent = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.june_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
+            # jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/payments/details_of_months/may/may.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/may/may.html', context)
         rn = request.POST.get('rno')
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.may_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
         return render(request, 'branches/branch2/payments/details_of_months/may/may_make_payments.html', context)
 
@@ -1460,19 +1687,22 @@ def june2(request):
 def june_make_payments2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
             date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            #jp.june_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = due_amt
+            jp.july_due_amt = due_amt
+            jp.june_dis_amt = dis_amt
+            # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -1481,34 +1711,53 @@ def june_make_payments2(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            jp = pg1_new_beds.objects.get(guest_code=l[0])
+            import branch2app
+            jp = branch2app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_rent = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            #jp.june_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = due_amt
+            jp.july_due_amt = due_amt
+            jp.june_dis_amt = dis_amt
+            # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
+
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+
             }
-            return render(request, 'branches/branch2/payments/details_of_months/june/june.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/june/june.html', context)
         rn = request.POST.get('rno')
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.june_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
         return render(request, 'branches/branch2/payments/details_of_months/june/june_make_payments.html', context)
 
@@ -1528,19 +1777,22 @@ def july2(request):
 def july_make_payments2(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
             date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
             jp.remark = remark
-            jp.july_due_amt = remark
-            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.auguest_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
+            # jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -1549,35 +1801,53 @@ def july_make_payments2(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            jp = pg1_new_beds.objects.get(guest_code=l[0])
-            jp.july_rent = amt
+            # jp = pg1_new_beds.objects.get(guest_code=l[0])
+            import branch2app
+            jp = branch2app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            jp.july_rent = dis_amt
             jp.remark = remark
-            jp.july_due_amt = remark
-            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.auguest_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
+            # jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
 
-
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
+
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/payments/details_of_months/july/july.html',context)
+            return render(request, 'branches/branch2/payments/details_of_months/july/july.html', context)
         rn = request.POST.get('rno')
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.july_dis_amt))
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
         return render(request,'branches/branch2/payments/details_of_months/july/july_make_payments.html', context)
 
