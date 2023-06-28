@@ -276,6 +276,27 @@ urlpatterns = [
     path('may_print_live/', reports1.may_print_live, name='may_print_live'),
     path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
 
+########################################
+# DUE AMT MANAGEMENT START HERE
+###########################
+
+    path('view_all_due_amt/', branch1.view_all_due_amt, name='view_all_due_amt'),
+    path('due_amt_mgt_choose_months/', branch1.due_amt_mgt_choose_months, name='due_amt_mgt_choose_months'),
+
+    path('view_may_account_details/',branch1.view_may_account_details,name='view_may_account_details'),
+    path('may_account_mgt/<id>', branch1.may_account_mgt, name='may_account_mgt'),
+
+    path('view_june_account_details/', branch1.view_june_account_details, name='view_june_account_details'),
+    path('june_account_mgt/<id>',branch1.june_account_mgt,name='june_account_mgt'),
+    path('view_july_account_details/', branch1.view_july_account_details, name='view_july_account_details'),
+    path('july_account_mgt/<id>',branch1.july_account_mgt,name='july_account_mgt'),
+
+########################################
+# DUE AMT MANAGEMENT END HERE
+###########################
+
+
+
     #branch one end here
 
     path('pysql/',branch1.pysql,name='pysql'+d),
