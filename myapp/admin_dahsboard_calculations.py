@@ -269,4 +269,3 @@ def details_branch5(request):
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
-
