@@ -339,7 +339,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <td>{{i.name|upper}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
                        <td>
-                           <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
+                           <a href="{% url 'details_of_paid_guests3' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
                    </tr>
                 {% endfor %}
