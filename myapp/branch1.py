@@ -6232,7 +6232,7 @@ def due_amt_mgt_choose_months(request):
 
 def view_may_account_details(request):
     context = {
-        'due_amt': pg1_new_beds.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
     }
     return render(request, 'branches/branch1/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
 def may_account_mgt(request, id):
