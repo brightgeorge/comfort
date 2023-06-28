@@ -194,7 +194,6 @@ def june_print_live2(request):
         context = {
             'brname': 'BRANCH 2 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
-            'rn1': l[0],
             'table_height': '40px',
 
             'rs101': ll[0],
