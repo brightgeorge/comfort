@@ -91,25 +91,46 @@ urlpatterns = [
 #unpaid rent end here
 
 #paid rent start here
+
+#paid rent start here
     path('paid_rent_choose_months/',branch1.paid_rent_choose_months,name='paid_rent_choose_months'),
+    path('partially_paid_guest_choose_months/',reports1.partially_paid_guest_choose_months,name='partially_paid_guest_choose_months'),
 
     path('jan_paid_rent/', branch1.jan_paid_rent, name='jan_paid_rent'),
     path('feb_paid_rent/', branch1.feb_paid_rent, name='feb_paid_rent'),
     path('mar_paid_rent/', branch1.mar_paid_rent, name='mar_paid_rent'),
+
     path('april_paid_rent/', branch1.april_paid_rent, name='april_paid_rent'),
-
     path('may_paid_rent/', branch1.may_paid_rent, name='may_paid_rent'),
+    path('table_may_paid_rent/', branch1.table_may_paid_rent, name='table_may_paid_rent'),
+    path('may_full_paid_guest/', reports1.may_full_paid_guest, name='may_full_paid_guest'),
+    path('may_partially_paid_guest/', reports1.may_partially_paid_guest, name='may_partially_paid_guest'),
+    path('table_may_partially_paid_guest/', reports1.table_may_partially_paid_guest, name='table_may_partially_paid_guest'),
     path('june_paid_rent/', branch1.june_paid_rent, name='june_paid_rent'),
-    path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
-    path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
+    path('table_june_paid_rent/', branch1.table_june_paid_rent, name='table_june_paid_rent'),
+    path('june_full_paid_guest/', reports1.june_full_paid_guest, name='june_full_paid_guest'),
+    path('june_partially_paid_guest/', reports1.june_partially_paid_guest, name='june_partially_paid_guest'),
+    path('table_june_partially_paid_guest/', reports1.table_june_partially_paid_guest, name='table_june_partially_paid_guest'),
 
+    path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
+    path('table_july_paid_rent/', branch1.table_july_paid_rent, name='table_july_paid_rent'),
+    path('july_full_paid_guest/', reports1.july_full_paid_guest, name='july_full_paid_guest'),
+    path('july_partially_paid_guest/', reports1.july_partially_paid_guest, name='july_partially_paid_guest'),
+    path('table_july_partially_paid_guest/', reports1.table_july_partially_paid_guest, name='table_july_partially_paid_guest'),
+
+    path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
     path('sept_paid_rent/', branch1.sept_paid_rent, name='sept_paid_rent'),
+
     path('oct_paid_rent/', branch1.oct_paid_rent, name='oct_paid_rent'),
     path('nov_paid_rent/', branch1.nov_paid_rent, name='nov_paid_rent'),
     path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
 
     path('details_of_paid_guests/<id>',branch1.details_of_paid_guests,name='details_of_paid_guests'),
-    path('full_paid_guest/', reports1.full_paid_guest, name='full_paid_guest'),
+    path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
+
+#paid rent end here
+
+
 
 #paid rent end here
 
