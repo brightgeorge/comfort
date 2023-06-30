@@ -301,6 +301,8 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('may_details_live4/', reports4.may_details_live4, name='may_details_live4'),
     path('june_print_live4/', reports4.june_print_live4, name='june_print_live4'),
     path('june_details_live4/', reports4.june_details_live4, name='june_details_live4'),
+    path('july_print_live4/', reports4.july_print_live4, name='july_print_live4'),
+    path('july_details_live4/', reports4.july_details_live4, name='july_details_live4'),
 
     path('viewall_vaccant_room4/',reports4.viewall_vaccant_room4,name='viewall_vaccant_room4'),
 

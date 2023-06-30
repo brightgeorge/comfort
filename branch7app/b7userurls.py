@@ -266,9 +266,13 @@ path('dec_make_payments_advance7/<id>', branch7.dec_make_payments_advance7, name
     path('nov_close_decision_page7/', branch7.nov_close_decision_page7, name='nov_close_decision_page7'),
 
     path('detailed_report_choose_months7/',reports7.detailed_report_choose_months7,name='detailed_report_choose_months7'),
+    path('may_details_live7/', reports7.may_details_live7, name='may_details_live7'),
     path('may_print_live7/', reports7.may_print_live7, name='may_print_live7'),
-    path('june_dtails_live7/',reports7.june_dtails_live7,name='june_dtails_live7'),
+    path('june_details_live7/',reports7.june_details_live7,name='june_details_live7'),
     path('june_print_live7/', reports7.june_print_live7, name='june_print_live7'),
+    path('july_details_live7/', reports7.july_details_live7, name='july_details_live7'),
+    path('july_print_live7/', reports7.july_print_live7, name='july_print_live7'),
+
     path('viewall_vaccant_room7/', reports7.viewall_vaccant_room7, name='viewall_vaccant_room7'),
 
     #path('d7/', branch7.dynamic, name='dynamic'),

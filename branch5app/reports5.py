@@ -19,6 +19,13 @@ def detailed_report_choose_months5(request):
         return render(request, 'branches/branch5/live_print_report/detailed_report_choose_months.html')
     return render(request, 'index.html')
 
+def may_details_live5(request):
+    if 'username' in request.session:
+        context = {
+            'details' : pg1_new_beds.objects.all(),
+        }
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/may/may_details_live.html', context)
+    return render(request, 'index.html')
 
 def may_print_live5(request):
     if 'username' in request.session:
@@ -82,7 +89,15 @@ def may_print_live5(request):
             '318_data': pg1_new_beds.objects.all().filter(roon_no=318),
 
         }
-        return render(request, 'branches/branch5/live_print_report/may_print_live.html', context)
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/may/may_print_live.html', context)
+    return render(request, 'index.html')
+
+def june_details_live5(request):
+    if 'username' in request.session:
+        context = {
+            'details' : pg1_new_beds.objects.all(),
+        }
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/june/june_dtails_live.html', context)
     return render(request, 'index.html')
 
 def june_print_live5(request):
@@ -132,15 +147,65 @@ def june_print_live5(request):
             '318_data': pg1_new_beds.objects.all().filter(roon_no=318),
 
         }
-        return render(request, 'branches/branch5/live_print_report/june_print_live.html', context)
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/june/june_print_live.html', context)
     return render(request, 'index.html')
 
-def june_dtails_live5(request):
+def july_details_live5(request):
     if 'username' in request.session:
         context = {
             'details' : pg1_new_beds.objects.all(),
         }
-        return render(request, 'branches/branch5/live_print_report/live_monthly_details/june/june_dtails_live.html', context)
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/july/july_details_live.html', context)
+    return render(request, 'index.html')
+
+def july_print_live5(request):
+    if 'username' in request.session:
+        ll = []
+        rsdata = room_pg1.objects.all().order_by('roon_no')
+        for i in rsdata:
+            ll.append(i.share_type)
+
+        context = {
+            'table_height': '50px',
+
+            'rs113': ll[0],
+            '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
+            'rs114': ll[1],
+            '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
+            'rs115': ll[2],
+            '115_data': pg1_new_beds.objects.all().filter(roon_no=115),
+            'rs116': ll[3],
+            '116_data': pg1_new_beds.objects.all().filter(roon_no=116),
+            'rs117': ll[4],
+            '117_data': pg1_new_beds.objects.all().filter(roon_no=117),
+
+            # 'g1_data':g1_data,
+            'rs213': ll[5],
+            '213_data': pg1_new_beds.objects.all().filter(roon_no=213),
+            'rs214': ll[6],
+            '214_data': pg1_new_beds.objects.all().filter(roon_no=214),
+            'rs215': ll[7],
+            '215_data': pg1_new_beds.objects.all().filter(roon_no=215),
+            'rs216': ll[8],
+            '216_data': pg1_new_beds.objects.all().filter(roon_no=216),
+            'rs217': ll[9],
+            '217_data': pg1_new_beds.objects.all().filter(roon_no=217),
+
+            'rs313': ll[10],
+            '313_data': pg1_new_beds.objects.all().filter(roon_no=313),
+            'rs314': ll[11],
+            '314_data': pg1_new_beds.objects.all().filter(roon_no=314),
+            'rs315': ll[12],
+            '315_data': pg1_new_beds.objects.all().filter(roon_no=315),
+            'rs316': ll[13],
+            '316_data': pg1_new_beds.objects.all().filter(roon_no=316),
+            'rs317': ll[14],
+            '317_data': pg1_new_beds.objects.all().filter(roon_no=317),
+            'rs318': ll[15],
+            '318_data': pg1_new_beds.objects.all().filter(roon_no=318),
+
+        }
+        return render(request, 'branches/branch5/live_print_report/live_monthly_details/july/july_print_live.html', context)
     return render(request, 'index.html')
 
 

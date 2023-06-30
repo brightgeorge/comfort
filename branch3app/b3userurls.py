@@ -284,8 +284,12 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
     path('detailed_report_choose_months3/', reports3.detailed_report_choose_months3,name='detailed_report_choose_months3'),
     path('may_details_live3/',reports3.may_details_live3,name='may_details_live3'),
     path('may_print_live3/', reports3.may_print_live3, name='may_print_live3'),
-    path('june_dtails_live3/', reports3.june_dtails_live3, name='june_dtails_live3'),
+    path('june_details_live3/', reports3.june_details_live3, name='june_details_live3'),
     path('june_print_live3/', reports3.june_print_live3, name='june_print_live3'),
+    path('july_details_live3/', reports3.july_details_live3, name='july_details_live3'),
+    path('july_print_live3/', reports3.july_print_live3, name='july_print_live3'),
+
+
     path('viewall_vaccant_room3/', reports3.viewall_vaccant_room3, name='viewall_vaccant_room3'),
 
     ########################################

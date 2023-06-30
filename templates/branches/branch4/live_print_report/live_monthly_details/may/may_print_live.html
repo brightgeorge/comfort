@@ -257,8 +257,11 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                 <th><button onclick="window.print()">Print3 this page</button></th>
+                     <th ><a href="{% url 'detailed_report_choose_months4' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
+                       <th ><a href="{% url 'may_details_live4' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
+
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of MAY')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
                  </tr>
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">

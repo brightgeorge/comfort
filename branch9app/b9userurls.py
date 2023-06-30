@@ -261,11 +261,14 @@ urlpatterns = [
     path('nov_close9/', branch9.nov_close9, name='nov_close9'),
     path('nov_close_decision_page9/', branch9.nov_close_decision_page9, name='nov_close_decision_page9'),
 
-    path('detailed_report_choose_months9/', reports9.detailed_report_choose_months9,
-         name='detailed_report_choose_months9'),
+    path('detailed_report_choose_months9/', reports9.detailed_report_choose_months9,name='detailed_report_choose_months9'),
+    path('may_details_live9/', reports9.may_details_live9, name='may_details_live9'),
     path('may_print_live9/', reports9.may_print_live9, name='may_print_live9'),
-    path('june_dtails_live9/', reports9.june_dtails_live9, name='june_dtails_live9'),
+    path('june_details_live9/', reports9.june_details_live9, name='june_details_live9'),
     path('june_print_live9/', reports9.june_print_live9, name='june_print_live9'),
+    path('july_details_live9/', reports9.july_details_live9, name='july_details_live9'),
+    path('july_print_live9/', reports9.july_print_live9, name='july_print_live9'),
+
     path('viewall_vaccant_room9/', reports9.viewall_vaccant_room9, name='viewall_vaccant_room9'),
 
     # path('d9/', branch9.dynamic, name='dynamic'),

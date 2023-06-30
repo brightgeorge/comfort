@@ -295,9 +295,13 @@ urlpatterns = [
 ################################
 
     path('detailed_report_choose_months/',reports1.detailed_report_choose_months,name='detailed_report_choose_months'),
+    path('may_details_live/', reports1.may_details_live, name='may_details_live'),
     path('may_print_live/', reports1.may_print_live, name='may_print_live'),
-    path('june_dtails_live/',reports1.june_dtails_live,name='june_dtails_live'),
+    path('june_details_live/',reports1.june_details_live,name='june_details_live'),
     path('june_print_live/', reports1.june_print_live, name='june_print_live'),
+    path('july_details_live/', reports1.july_details_live, name='july_details_live'),
+    path('july_print_live/', reports1.july_print_live, name='july_print_live'),
+
     path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
 
 ########################################

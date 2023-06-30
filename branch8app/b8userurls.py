@@ -266,9 +266,13 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
     path('nov_close_decision_page8/', branch8.nov_close_decision_page8, name='nov_close_decision_page8'),
 
     path('detailed_report_choose_months8/',reports8.detailed_report_choose_months8,name='detailed_report_choose_months8'),
+    path('may_details_live8/', reports8.may_details_live8, name='may_details_live8'),
     path('may_print_live8/', reports8.may_print_live8, name='may_print_live8'),
-    path('june_dtails_live8/',reports8.june_dtails_live8,name='june_dtails_live8'),
+    path('june_details_live8/',reports8.june_details_live8,name='june_details_live8'),
     path('june_print_live8/', reports8.june_print_live8, name='june_print_live8'),
+    path('july_details_live8/', reports8.july_details_live8, name='july_details_live8'),
+    path('july_print_live8/', reports8.july_print_live8, name='july_print_live8'),
+
     path('viewall_vaccant_room8/', reports8.viewall_vaccant_room8, name='viewall_vaccant_room8'),
 
     #path('d8/', branch8.dynamic, name='dynamic'),
