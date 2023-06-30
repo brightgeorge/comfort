@@ -1879,6 +1879,7 @@ def june_make_payments5(request,id):
         }
         return render(request, 'branches/branch5/payments/details_of_months/june/june_make_payments.html', context)
 
+
 #june make payments start here
 
 #july make payments start here
@@ -1970,6 +1971,7 @@ def july_make_payments5(request,id):
             'discount_amt': total_discout_amt[0],
         }
         return render(request,'branches/branch5/payments/details_of_months/july/july_make_payments.html', context)
+
 
 #july make payments start here
 

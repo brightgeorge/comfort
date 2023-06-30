@@ -5,6 +5,7 @@ from django.urls import path, include
 from . import admin_branch5
 from . import branch5
 from . import reports5
+from . import payment5
 
 urlpatterns = [
     path('branch1_dashboard5/', branch5.branch1_dashboard5, name='branch1_dashboard5'),
@@ -327,5 +328,8 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 ########################################
 # DUE AMT MANAGEMENT END HERE
 ###########################
+
+    path('choose_user5/', payment5.choose_user5, name='choose_user5'),
+    path('payment_user_details5/<id>', payment5.payment_user_details5, name='payment_user_details5'),
 
 ]
