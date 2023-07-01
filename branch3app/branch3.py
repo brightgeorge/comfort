@@ -5848,7 +5848,8 @@ def july_account_mgt3(request,id):
             ic.remark = remark
             ic.save()
 
-            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            import branch3app
+            ic = branch3app.models.pg1_new_beds.objects.get(guest_code=l[0])
             ic.july_rent = paid_amt
             ic.july_advance = advance
             ic.july_dis_amt = discount
