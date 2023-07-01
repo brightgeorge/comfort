@@ -49,7 +49,7 @@ def total_collection_june():
         a = 0
         b = type(a)
         m=int(i.june_dis_amt)
-        if i.b == m:
+        if b == m:
             total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
