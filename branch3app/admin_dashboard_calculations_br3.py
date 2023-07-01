@@ -26,9 +26,15 @@ def total_collection_june():
     total_due_amt = []
     total_guest_br3 = branch3app.models.pg1_new_guest.objects.all().filter(flag=2)
     for i in total_guest_br3:
-        total_mthly_rent.append(int(i.monthly_rent))
-        total_advance_amt.append(int(i.june_advance))
-        total_due_amt.append(int(i.may_due_amt))
+        a=0
+        b=type(a)
+        print('this is b',b)
+        if i.monthly_rent == b:
+            total_mthly_rent.append(int(i.monthly_rent))
+        if i.june_advance == b:
+            total_advance_amt.append(int(i.june_advance))
+        if i.may_due_amt == b:
+            total_due_amt.append(int(i.may_due_amt))
 
     tm=sum(total_mthly_rent)
     ta=sum(total_advance_amt)
@@ -75,10 +81,16 @@ def total_due_june():
     total_due_amt = []
     total_guest_br3 = branch3app.models.pg1_new_guest.objects.all().filter(flag=2)
     for i in total_guest_br3:
-        total_mthly_rent.append(int(i.monthly_rent))
-        total_collection.append(int(i.june_rent))
-        total_advance_amt.append(int(i.june_advance))
-        total_due_amt.append(int(i.may_due_amt))
+        a=10
+        b=type(a)
+        if i.monthly_rent == a:
+            total_mthly_rent.append(int(i.monthly_rent))
+        if i.june_rent == a:
+            total_collection.append(int(i.june_rent))
+        if i.june_advance == a:
+            total_advance_amt.append(int(i.june_advance))
+        if i.may_due_amt == a:
+            total_due_amt.append(int(i.may_due_amt))
 
     tm=sum(total_mthly_rent)
     tc=sum(total_collection)
@@ -113,7 +125,10 @@ def total_collection_advance_june():
 
     total_guest_br3 = branch3app.models.pg1_new_guest.objects.all().filter(flag=2)
     for i in total_guest_br3:
-        total_advance_amt.append(int(i.june_advance))
+        a=0
+        b=type(a)
+        if i.june_advance == b:
+            total_advance_amt.append(int(i.june_advance))
 
     ta=sum(total_advance_amt)
 
@@ -124,7 +139,10 @@ def total_collection_due_june():
     total_due_amt = []
     total_guest_br3 = branch3app.models.pg1_new_guest.objects.all().filter(flag=2)
     for i in total_guest_br3:
-        total_due_amt.append(int(i.may_due_amt))
+        a=0
+        b=type(a)
+        if i.may_due_amt == b:
+            total_due_amt.append(int(i.may_due_amt))
 
     td=sum(total_due_amt)
 

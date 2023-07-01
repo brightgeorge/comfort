@@ -136,38 +136,36 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 
 #*********reports start here
 
+
+
 #unpaid rent start here
     path('unpaid_rent_choose_months3/',branch3.unpaid_rent_choose_months3,name='unpaid_rent_choose_months3'),
-    path('partially_paid_guest_choose_months3/',reports3.partially_paid_guest_choose_months3,name='partially_paid_guest_choose_months3'),
 
     path('jan_unpaid_rent3/', branch3.jan_unpaid_rent3, name='jan_unpaid_rent3'),
+    path('table_jan_unpaid_rent3/', branch3.table_jan_unpaid_rent3, name='table_jan_unpaid_rent3'),
     path('feb_unpaid_rent3/', branch3.feb_unpaid_rent3, name='feb_unpaid_rent3'),
+    path('table_feb_unpaid_rent3/', branch3.table_feb_unpaid_rent3, name='table_feb_unpaid_rent3'),
     path('mar_unpaid_rent3/', branch3.mar_unpaid_rent3, name='mar_unpaid_rent3'),
+    path('table_mar_unpaid_rent3/', branch3.table_mar_unpaid_rent3, name='table_mar_unpaid_rent3'),
+    path('april_unpaid_rent3/', branch3.april_unpaid_rent3, name='april_unpaid_rent3'),
+    path('table_april_unpaid_rent3/', branch3.table_april_unpaid_rent3, name='table_april_unpaid_rent3'),
 
-    path('april_paid_rent3/', branch3.april_paid_rent3, name='april_paid_rent3'),
-    path('may_paid_rent3/', branch3.may_paid_rent3, name='may_paid_rent3'),
-    path('table_may_paid_rent3/', branch3.table_may_paid_rent3, name='table_may_paid_rent3'),
-    path('may_full_paid_guest3/', reports3.may_full_paid_guest3, name='may_full_paid_guest3'),
-    path('may_partially_paid_guest3/', reports3.may_partially_paid_guest3, name='may_partially_paid_guest3'),
-    path('table_may_partially_paid_guest3/', reports3.table_may_partially_paid_guest3,name='table_may_partially_paid_guest3'),
-    path('june_paid_rent3/', branch3.june_paid_rent3, name='june_paid_rent3'),
-    path('table_june_paid_rent3/', branch3.table_june_paid_rent3, name='table_june_paid_rent3'),
-    path('june_full_paid_guest3/', reports3.june_full_paid_guest3, name='june_full_paid_guest3'),
-    path('june_partially_paid_guest3/', reports3.june_partially_paid_guest3, name='june_partially_paid_guest3'),
-    path('table_june_partially_paid_guest3/', reports3.table_june_partially_paid_guest3,name='table_june_partially_paid_guest3'),
+    path('may_unpaid_rent3/', branch3.may_unpaid_rent3, name='may_unpaid_rent3'),
+    path('table_may_unpaid_rent3/', branch3.table_may_unpaid_rent3, name='table_may_unpaid_rent3'),
+    path('june_unpaid_rent3/', branch3.june_unpaid_rent3, name='june_unpaid_rent3'),
+    path('table_june_unpaid_rent3/', branch3.table_june_unpaid_rent3, name='table_june_unpaid_rent3'),
+    path('july_unpaid_rent3/', branch3.july_unpaid_rent3, name='july_unpaid_rent3'),
+    path('table_july_unpaid_rent3',branch3.table_july_unpaid_rent3,name='table_july_unpaid_rent3'),
+    path('aug_unpaid_rent3/', branch3.aug_unpaid_rent3, name='aug_unpaid_rent3'),
+    path('table_aug_unpaid_rent3/',branch3.table_aug_unpaid_rent3,name='table_aug_unpaid_rent3'),
 
-    path('july_paid_rent3/', branch3.july_paid_rent3, name='july_paid_rent3'),
-    path('table_july_paid_rent3/', branch3.table_july_paid_rent3, name='table_july_paid_rent3'),
-    path('july_full_paid_guest3/', reports3.july_full_paid_guest3, name='july_full_paid_guest3'),
-    path('july_partially_paid_guest3/', reports3.july_partially_paid_guest3, name='july_partially_paid_guest3'),
-    path('table_july_partially_paid_guest3/', reports3.table_july_partially_paid_guest3,name='table_july_partially_paid_guest3'),
-
-    path('aug_paid_rent3/', branch3.aug_paid_rent3, name='aug_paid_rent3'),
-    path('sept_paid_rent3/', branch3.sept_paid_rent3, name='sept_paid_rent3'),
-
+    path('sept_unpaid_rent3/', branch3.sept_unpaid_rent3, name='sept_unpaid_rent3'),
+    path('table_sept_unpaid_rent3/', branch3.table_sept_unpaid_rent3, name='table_sept_unpaid_rent3'),
     path('oct_unpaid_rent3/', branch3.oct_unpaid_rent3, name='oct_unpaid_rent3'),
+    path('table_oct_unpaid_rent3/', branch3.table_oct_unpaid_rent3, name='table_oct_unpaid_rent3'),
     path('nov_unpaid_rent3/', branch3.nov_unpaid_rent3, name='nov_unpaid_rent3'),
     path('dec_unpaid_rent3/', branch3.dec_unpaid_rent3, name='dec_unpaid_rent3'),
+    path('table_dec_unpaid_rent3/', branch3.table_dec_unpaid_rent3, name='table_dec_unpaid_rent3'),
 
     path('details_of_unpaid_guests3/<id>',branch3.details_of_unpaid_guests3,name='details_of_unpaid_guests3'),
 
@@ -175,26 +173,43 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 
 #paid rent start here
     path('paid_rent_choose_months3/',branch3.paid_rent_choose_months3,name='paid_rent_choose_months3'),
+    path('partially_paid_guest_choose_months3/',reports3.partially_paid_guest_choose_months3,name='partially_paid_guest_choose_months3'),
 
     path('jan_paid_rent3/', branch3.jan_paid_rent3, name='jan_paid_rent3'),
     path('feb_paid_rent3/', branch3.feb_paid_rent3, name='feb_paid_rent3'),
     path('mar_paid_rent3/', branch3.mar_paid_rent3, name='mar_paid_rent3'),
+
     path('april_paid_rent3/', branch3.april_paid_rent3, name='april_paid_rent3'),
-
     path('may_paid_rent3/', branch3.may_paid_rent3, name='may_paid_rent3'),
+    path('table_may_paid_rent3/', branch3.table_may_paid_rent3, name='table_may_paid_rent3'),
+    path('may_full_paid_guest3/', reports3.may_full_paid_guest3, name='may_full_paid_guest3'),
+    path('may_partially_paid_guest3/', reports3.may_partially_paid_guest3, name='may_partially_paid_guest3'),
+    path('table_may_partially_paid_guest3/', reports3.table_may_partially_paid_guest3, name='table_may_partially_paid_guest3'),
     path('june_paid_rent3/', branch3.june_paid_rent3, name='june_paid_rent3'),
-    path('july_paid_rent3/', branch3.july_paid_rent3, name='july_paid_rent3'),
-    path('aug_paid_rent3/', branch3.aug_paid_rent3, name='aug_paid_rent3'),
+    path('table_june_paid_rent3/', branch3.table_june_paid_rent3, name='table_june_paid_rent3'),
+    path('june_full_paid_guest3/', reports3.june_full_paid_guest3, name='june_full_paid_guest3'),
+    path('june_partially_paid_guest3/', reports3.june_partially_paid_guest3, name='june_partially_paid_guest3'),
+    path('table_june_partially_paid_guest3/', reports3.table_june_partially_paid_guest3, name='table_june_partially_paid_guest3'),
 
+    path('july_paid_rent3/', branch3.july_paid_rent3, name='july_paid_rent3'),
+    path('table_july_paid_rent3/', branch3.table_july_paid_rent3, name='table_july_paid_rent3'),
+    path('july_full_paid_guest3/', reports3.july_full_paid_guest3, name='july_full_paid_guest3'),
+    path('july_partially_paid_guest3/', reports3.july_partially_paid_guest3, name='july_partially_paid_guest3'),
+    path('table_july_partially_paid_guest3/', reports3.table_july_partially_paid_guest3, name='table_july_partially_paid_guest3'),
+
+    path('aug_paid_rent3/', branch3.aug_paid_rent3, name='aug_paid_rent3'),
     path('sept_paid_rent3/', branch3.sept_paid_rent3, name='sept_paid_rent3'),
+
     path('oct_paid_rent3/', branch3.oct_paid_rent3, name='oct_paid_rent3'),
     path('nov_paid_rent3/', branch3.nov_paid_rent3, name='nov_paid_rent3'),
     path('dec_paid_rent3/', branch3.dec_paid_rent3, name='dec_paid_rent3'),
 
     path('details_of_paid_guests3/<id>',branch3.details_of_paid_guests3,name='details_of_paid_guests3'),
-    path('full_paid_guest3',reports3.full_paid_guest3,name='full_paid_guest3'),
+    path('full_paid_guest3/',reports3.full_paid_guest3,name='full_paid_guest3'),
 
 #paid rent end here
+
+
 
 #*********reports end here
 
