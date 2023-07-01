@@ -131,7 +131,9 @@ def total_due_june():
     for i in pg1_new_beds:
         a = 0
         b = type(a)
-        if i.june_dis_amt == b:
+        m=int(i.june_dis_amt)
+        n=type(m)
+        if b == n:
             total_discout_amt.append(int(i.june_dis_amt))
 
     tdis = sum(total_discout_amt)
@@ -146,7 +148,9 @@ def total_collection_monthly_june():
     for i in total_guest_br3:
         a=0
         b=type(a)
-        if i.monthly_rent == b:
+        m = int(i.monthly_rent)
+        n = type(m)
+        if b == n:
             total_mthly_rent.append(int(i.monthly_rent))
 
     tm=sum(total_mthly_rent)
@@ -162,7 +166,9 @@ def total_collection_advance_june():
     for i in total_guest_br3:
         a=0
         b=type(a)
-        if i.june_advance == b:
+        m = int(i.june_advance)
+        n = type(m)
+        if b == n:
             total_advance_amt.append(int(i.june_advance))
 
     ta=sum(total_advance_amt)
@@ -176,7 +182,9 @@ def total_collection_due_june():
     for i in total_guest_br3:
         a=0
         b=type(a)
-        if i.may_due_amt == b:
+        m = int(i.may_due_amt)
+        n = type(m)
+        if b == n:
             total_due_amt.append(int(i.may_due_amt))
 
     td=sum(total_due_amt)
@@ -190,7 +198,9 @@ def total_collection_discount_june():
     for i in pg1_new_beds:
         a=0
         b=type(a)
-        if i.june_dis_amt == b:
+        m = int(i.june_dis_amt)
+        n = type(m)
+        if b == n:
             total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
