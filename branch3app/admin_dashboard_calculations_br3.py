@@ -29,9 +29,9 @@ def total_collection_june():
         a=0
         b=type(a)
         print('this is b',b)
-        x=i.monthly_rent
-        y=i.june_advance
-        z=i.june_dis_amt
+        x=int(i.monthly_rent)
+        y=int(i.june_advance)
+        z=int(i.june_dis_amt)
         if x == b:
             total_mthly_rent.append(int(i.monthly_rent))
         if y == b:
