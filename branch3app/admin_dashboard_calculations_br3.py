@@ -52,7 +52,8 @@ def total_collection_june():
         a = 0
         b = type(a)
         m=int(i.june_dis_amt)
-        if b == m:
+        n=type(m)
+        if b == n:
             total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
@@ -66,7 +67,9 @@ def total_received_june():
     for i in total_guest_br3:
         a=0
         b=type(a)
-        if i.june_rent == b:
+        x=int(i.june_rent)
+        j=type(x)
+        if b == j:
             total_collection.append(int(i.june_rent))
     print(total_collection)
 
@@ -81,7 +84,9 @@ def total_received_june_list():
     for i in total_guest_br3:
         a = 0
         b = type(a)
-        if i.june_rent == b:
+        x = int(i.june_rent)
+        j = type(x)
+        if b == j:
             total_collection.append(int(i.june_rent))
     print(total_collection)
 
@@ -99,13 +104,21 @@ def total_due_june():
     for i in total_guest_br3:
         a=10
         b=type(a)
-        if i.monthly_rent == a:
+        q=int(i.monthly_rent)
+        x=int(i.june_rent)
+        y=int(i.june_advance)
+        z=int(i.june_dis_amt)
+        j=type(x)
+        k=type(y)
+        l=type(z)
+        m=type(q)
+        if b == m:
             total_mthly_rent.append(int(i.monthly_rent))
-        if i.june_rent == a:
+        if b == j:
             total_collection.append(int(i.june_rent))
-        if i.june_advance == a:
+        if b == k:
             total_advance_amt.append(int(i.june_advance))
-        if i.may_due_amt == a:
+        if b == l:
             total_due_amt.append(int(i.may_due_amt))
 
     tm=sum(total_mthly_rent)
