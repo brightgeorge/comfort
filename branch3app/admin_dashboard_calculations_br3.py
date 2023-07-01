@@ -32,11 +32,11 @@ def total_collection_june():
         x=int(i.monthly_rent)
         y=int(i.june_advance)
         z=int(i.june_dis_amt)
-        if x == b:
+        if b == x:
             total_mthly_rent.append(int(i.monthly_rent))
-        if y == b:
+        if b == y:
             total_advance_amt.append(int(i.june_advance))
-        if z == b:
+        if b == z:
             total_due_amt.append(int(i.may_due_amt))
 
     tm=sum(total_mthly_rent)
@@ -48,7 +48,8 @@ def total_collection_june():
     for i in pg1_new_beds:
         a = 0
         b = type(a)
-        if i.june_dis_amt == b:
+        m=int(i.june_dis_amt)
+        if i.b == m:
             total_discout_amt.append(int(i.june_dis_amt))
 
     tdis=sum(total_discout_amt)
