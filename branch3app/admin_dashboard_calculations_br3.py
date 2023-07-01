@@ -32,11 +32,14 @@ def total_collection_june():
         x=int(i.monthly_rent)
         y=int(i.june_advance)
         z=int(i.june_dis_amt)
-        if b == x:
+        j=type(x)
+        k=type(y)
+        l=type(z)
+        if b == j:
             total_mthly_rent.append(int(i.monthly_rent))
-        if b == y:
+        if b == k:
             total_advance_amt.append(int(i.june_advance))
-        if b == z:
+        if b == l:
             total_due_amt.append(int(i.may_due_amt))
 
     tm=sum(total_mthly_rent)
