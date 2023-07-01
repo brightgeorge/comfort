@@ -5757,7 +5757,8 @@ def may_account_mgt3(request, id):
             ic.remark = remark
             ic.save()
 
-            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            import branch3app
+            ic = branch3app.models.pg1_new_beds.objects.get(guest_code=l[0])
             ic.may_rent = paid_amt
             ic.may_advance = advance
             ic.may_dis_amt = discount
