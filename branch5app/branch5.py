@@ -1814,9 +1814,7 @@ def june_make_payments5(request,id):
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
-            jp.july_due_amt = due_amt
             jp.june_dis_amt = dis_amt
-            #jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
@@ -1834,7 +1832,7 @@ def june_make_payments5(request,id):
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
-            jp.july_due_amt = due_amt
+            #jp.july_due_amt = due_amt
             jp.june_dis_amt = dis_amt
             # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date

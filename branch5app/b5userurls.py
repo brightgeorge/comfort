@@ -133,6 +133,30 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 #PAYMENTS END HERE
 ################################
 
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user5/', payment5.choose_user5, name='choose_user5'),
+    path('payment_user_details5/<id>', payment5.payment_user_details5, name='payment_user_details5'),
+
+    path('monthly_jan_make_payments5/<id>', payment5.monthly_jan_make_payments5, name='monthly_jan_make_payments5'),
+    path('monthly_feb_make_payments5/<id>', payment5.monthly_feb_make_payments5, name='monthly_feb_make_payments5'),
+    path('monthly_march_make_payments5/<id>', payment5.monthly_march_make_payments5, name='monthly_march_make_payments5'),
+    path('monthly_april_make_payments5/<id>', payment5.monthly_april_make_payments5, name='monthly_april_make_payments5'),
+    path('monthly_may_make_payments5/<id>', payment5.monthly_may_make_payments5, name='monthly_may_make_payments5'),
+    path('monthly_june_make_payments5/<id>', payment5.monthly_june_make_payments5, name='monthly_june_make_payments5'),
+
+    path('monthly_july_make_payments5/<id>', payment5.monthly_july_make_payments5, name='monthly_july_make_payments5'),
+    path('monthly_aug_make_payments5/<id>', payment5.monthly_aug_make_payments5, name='monthly_aug_make_payments5'),
+    path('monthly_sept_make_payments5/<id>', payment5.monthly_sept_make_payments5, name='monthly_sept_make_payments5'),
+    path('monthly_oct_make_payments5/<id>', payment5.monthly_oct_make_payments5, name='monthly_oct_make_payments5'),
+    path('monthly_nov_make_payments5/<id>', payment5.monthly_nov_make_payments5, name='monthly_nov_make_payments5'),
+    path('monthly_dec_make_payments5/<id>', payment5.monthly_dec_make_payments5, name='monthly_dec_make_payments5'),
+
+    ##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
+################################
 
 
 #*********reports start here
@@ -329,7 +353,5 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 # DUE AMT MANAGEMENT END HERE
 ###########################
 
-    path('choose_user5/', payment5.choose_user5, name='choose_user5'),
-    path('payment_user_details5/<id>', payment5.payment_user_details5, name='payment_user_details5'),
 
 ]

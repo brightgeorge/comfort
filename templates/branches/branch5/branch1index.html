@@ -103,11 +103,19 @@
        </li>
 
 
-      <li>
-        <a href="{% url 'choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 5</span>
-        </a>
-      </li>
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments 5</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance5' %}">

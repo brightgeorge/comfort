@@ -233,7 +233,7 @@ th.break {
       <div class="col-lg-12" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="#"> <button class="mybutton button1">X Close</button></a>
+		  <a href="{% url 'choose_user5' %}"> <button class="mybutton button1">X Close</button></a>
            <div class="card-title"><span style="display: flex;justify-content: center;align-items: center;">USER PAYMENT DETAILS</span> </div>
 
                {% for i in pd %}
@@ -268,21 +268,21 @@ th.break {
 
 
              {% if i.jan_rent_flag == 100 %}
-            <a href="{% url 'jan_account_mgt5' id=i.id %}">
+            <a href="{% url 'monthly_jan_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                       Paid Rent : {{i.jan_rent}} Due Amount  : {{i.jan_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.jan_due_amt == '0' and i.jan_rent_flag == 200 %}
-             <a href="{% url 'jan_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_jan_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                       Paid Rent : {{i.jan_rent}} Due Amount  : {{i.jan_due_amt}}
                   </label></br>
                 </div></a>
              {% elif i.jan_due_amt > '0' and i.jan_rent_flag == 200 %}
-             <a href="{% url 'jan_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_jan_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                        Paid Rent : {{i.jan_rent}} Due Amount  : {{i.jan_due_amt}}
@@ -298,21 +298,21 @@ th.break {
 
 
              {% if i.feb_rent_flag == 100 %}
-            <a href="{% url 'feb_account_mgt5' id=i.id %}">
+            <a href="{% url 'monthly_feb_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                       Paid Rent : {{i.feb_rent}} Due Amount  : {{i.feb_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.feb_due_amt == '0' and i.feb_rent_flag == 200 %}
-             <a href="{% url 'feb_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_feb_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                       Paid Rent : {{i.feb_rent}} Due Amount  : {{i.feb_due_amt}}
                   </label></br>
                 </div></a>
              {% elif i.feb_due_amt > '0' and i.feb_rent_flag == 200 %}
-             <a href="{% url 'feb_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_feb_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
                        Paid Rent : {{i.feb_rent}} Due Amount  : {{i.feb_due_amt}}
@@ -330,30 +330,30 @@ th.break {
 
 
              {% if i.march_rent_flag == 100 %}
-          <a href="{% url 'march_account_mgt5' id=i.id %}">
+          <a href="{% url 'monthly_march_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MARCH</span>
+                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAR</span>
                       Paid : {{i.march_rent}} Due : {{i.march_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.march_due_amt == '0' and i.march_rent_flag == 200 %}
-             <a href="{% url 'march_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_march_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MARCH</span>
+                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAR</span>
                          Paid : {{i.march_rent}} Due : {{i.march_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.march_due_amt > '0' and i.march_rent_flag == 200 %}
-             <a href="{% url 'march_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_march_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MARCH</span>
+                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAR</span>
                          Paid : {{i.march_rent}} Due : {{i.march_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
               <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
-                     JAN
+                     MAR
                   </label></br>
                 </div></a>
              {% endif %}
@@ -363,30 +363,30 @@ th.break {
 
 
              {% if i.april_rent_flag == 100 %}
-          <a href="{% url 'april_account_mgt5' id=i.id %}">
+          <a href="{% url 'monthly_april_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APRIL</span>
+                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APR</span>
                       Paid : {{i.april_rent}} Due : {{i.april_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.april_due_amt == '0' and i.april_rent_flag == 200 %}
-             <a href="{% url 'april_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_april_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APRIL</span>
+                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APR</span>
                          Paid : {{i.april_rent}} Due : {{i.april_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.april_due_amt > '0' and i.april_rent_flag == 200 %}
-             <a href="{% url 'april_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_april_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APRIL</span>
+                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">APR</span>
                          Paid : {{i.april_rent}} Due : {{i.april_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
               <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
-                     JAN
+                     APR
                   </label></br>
                 </div></a>
              {% endif %}
@@ -395,21 +395,21 @@ th.break {
 
 
              {% if i.may_rent_flag == 100 %}
-          <a href="{% url 'may_account_mgt5' id=i.id %}">
+          <a href="{% url 'monthly_may_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAY</span>
                       Paid : {{i.may_rent}} Due : {{i.may_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.may_due_amt == '0' and i.may_rent_flag == 200 %}
-             <a href="{% url 'may_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_may_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAY</span>
                          Paid : {{i.may_rent}} Due : {{i.may_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.may_due_amt > '0' and i.may_rent_flag == 200 %}
-             <a href="{% url 'may_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_may_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">MAY</span>
                          Paid : {{i.may_rent}} Due : {{i.may_due_amt}}
@@ -418,7 +418,7 @@ th.break {
              {% else %}
               <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
-                     JAN
+                     MAY
                   </label></br>
                 </div></a>
              {% endif %}
@@ -428,190 +428,194 @@ th.break {
 
 
                 {% if i.june_rent_flag == 100 %}
-             <a href="{% url 'june_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_june_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                    <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JUNE</span>
-                         Paid : {{i.june_rent}} Due : {{i.june_due_amt}}
-                     </label></br>
-                 </div></a>
+                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JUNE</span>
+                      Paid : {{i.june_rent}} Due : {{i.june_due_amt}}
+                  </label></br>
+              </div></a>
                 {% elif i.june_due_amt == '0' and i.june_rent_flag == 200 %}
-                <a href="{% url 'june_account_mgt5' id=i.id %}">
+                <a href="{% url 'monthly_june_make_payments5' id=i.id %}">
                     <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                         <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JUNE</span>
                             Paid : {{i.june_rent}} Due : {{i.june_due_amt}}
                         </label></br>
 			        </div></a>
                 {% elif i.june_due_amt > '0' and i.june_rent_flag == 200 %}
-                <a href="{% url 'june_account_mgt5' id=i.id %}">
+                <a href="{% url 'monthly_june_make_payments5' id=i.id %}">
                     <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                         <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JUNE</span>
                             Paid : {{i.june_rent}} Advance : {{i.june_advance}} Discount : {{i.june_dis_amt}} Due : {{i.june_due_amt}}
                          </label></br>
 			        </div></a>
                 {% else %}
-                 <a href="#">     <div class="form-group" >
-                    <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                        <span style="background-color:white;color:red;">JUNE</span>
-                     </label></br>
-			</div></a>
+                 <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+                     JUNE
+                  </label></br>
+                </div></a>
                 {% endif %}
 
 
 
              {% if i.july_rent_flag == 100 %}
-          <a href="{% url 'july_account_mgt5' id=i.id %}">
+          <a href="{% url 'monthly_july_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JULY</span>
-                      Paid : {{i.july_rent}} Due : {{i.july_due_amt}}
+                      Paid : {{i.july_rent}} Advance : {{i.july_advance}} Discount : {{i.july_dis_amt}} Due : {{i.july_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.july_due_amt == '0' and i.july_rent_flag == 200 %}
-             <a href="{% url 'july_account_mgt5' id=i.id %}">
+             <a href="{% url 'monthly_july_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JULY</span>
-                         Paid : {{i.july_rent}} Due : {{i.july_due_amt}}
+                         Paid : {{i.july_rent}} Advance : {{i.july_advance}} Discount : {{i.july_dis_amt}} Due : {{i.july_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.july_due_amt > '0' and i.july_rent_flag == 200 %}
-             <a href="{% url 'july_account_mgt5' id=i.id %}">
-                 <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+             <a href="{% url 'monthly_july_make_payments5' id=i.id %}">
+                 <div class="form-group" style="background-color:#FEC20C;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">JULY</span>
-                         Paid : {{i.july_rent}} Due : {{i.july_due_amt}}
+                        Paid : {{i.july_rent}} Advance : {{i.july_advance}} Discount : {{i.july_dis_amt}} Due : {{i.july_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">JULY</span>
+             <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+                     JULY
                   </label></br>
-</div></a>
+                </div></a>
              {% endif %}
 
 
 
 
-             {% if i.auguest_rent_flag == 100 %}
-          <a href="">
-              <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
-                      Paid : {{i.auguest_rent}} Due : {{i.auguest_due_amt}}
-                  </label></br>
-              </div></a>
-             {% elif i.auguest_due_amt == '0' and i.auguest_rent_flag == 200 %}
-             <a href="">
-                 <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
-                         Paid : {{i.auguest_rent}} Due : {{i.auguest_due_amt}}
-                     </label></br>
-        </div></a>
-             {% elif i.auguest_due_amt > '0' and i.auguest_rent_flag == 200 %}
-             <a href="">
-                 <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
-                         Paid : {{i.auguest_rent}} Due : {{i.auguest_due_amt}}
-                      </label></br>
-        </div></a>
-             {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">AUG</span>
-                  </label></br>
+
+     {% if i.auguest_rent_flag == 100 %}
+  <a href="{% url 'monthly_aug_make_payments5' id=i.id %}">
+      <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+         <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
+              Paid : {{i.auguest_rent}} Advance : {{i.auguest_advance}} Discount : {{i.auguest_dis_amt}} Due : {{i.auguest_due_amt}}
+          </label></br>
+      </div></a>
+     {% elif i.auguest_due_amt == '0' and i.auguest_rent_flag == 200 %}
+     <a href="{% url 'monthly_aug_make_payments5' id=i.id %}">
+         <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+             <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
+                 Paid : {{i.auguest_rent}} Advance : {{i.auguest_advance}} Discount : {{i.auguest_dis_amt}} Due : {{i.auguest_due_amt}}
+             </label></br>
 </div></a>
-             {% endif %}
-
-
-
-             {% if i.sept_rent_flag == 100 %}
-          <a href="">
-              <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                 <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
-                      Paid : {{i.sept_rent}} Due : {{i.sept_due_amt}}
-                  </label></br>
-              </div></a>
-             {% elif i.sept_due_amt == '0' and i.sept_rent_flag == 200 %}
-             <a href="">
-                 <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
-                         Paid : {{i.sept_rent}} Due : {{i.sept_due_amt}}
-                     </label></br>
-        </div></a>
-             {% elif i.sept_due_amt > '0' and i.sept_rent_flag == 200 %}
-             <a href="">
-                 <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
-                     <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
-                         Paid : {{i.sept_rent}} Due : {{i.sept_due_amt}}
-                      </label></br>
-        </div></a>
-             {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">SEPT</span>
-                  </label></br>
+     {% elif i.auguest_due_amt > '0' and i.auguest_rent_flag == 200 %}
+     <a href="{% url 'monthly_aug_make_payments5' id=i.id %}">
+         <div class="form-group" style="background-color:#FEC20C;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+             <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">AUG</span>
+                Paid : {{i.auguest_rent}} Advance : {{i.auguest_advance}} Discount : {{i.auguest_dis_amt}} Due : {{i.auguest_due_amt}}
+              </label></br>
 </div></a>
-             {% endif %}
+     {% else %}
+     <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+         <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+             AUG
+          </label></br>
+        </div></a>
+     {% endif %}
+
+
+
+
+     {% if i.sept_rent_flag == 100 %}
+  <a href="{% url 'monthly_sept_make_payments5' id=i.id %}">
+      <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+         <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
+              Paid : {{i.sept_rent}} Advance : {{i.sept_advance}} Discount : {{i.sept_dis_amt}} Due : {{i.sept_due_amt}}
+          </label></br>
+      </div></a>
+     {% elif i.sept_due_amt == '0' and i.sept_rent_flag == 200 %}
+     <a href="{% url 'monthly_sept_make_payments5' id=i.id %}">
+         <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+             <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
+                 Paid : {{i.sept_rent}} Advance : {{i.sept_advance}} Discount : {{i.sept_dis_amt}} Due : {{i.sept_due_amt}}
+             </label></br>
+</div></a>
+     {% elif i.sept_due_amt > '0' and i.sept_rent_flag == 200 %}
+     <a href="{% url 'monthly_sept_make_payments5' id=i.id %}">
+         <div class="form-group" style="background-color:#FEC20C;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+             <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">SEPT</span>
+                Paid : {{i.sept_rent}} Advance : {{i.sept_advance}} Discount : {{i.sept_dis_amt}} Due : {{i.sept_due_amt}}
+              </label></br>
+</div></a>
+     {% else %}
+     <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+         <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+             SEPT
+          </label></br>
+        </div></a>
+     {% endif %}
+
+
 
 
 
 
              {% if i.october_rent_flag == 100 %}
-          <a href="">
+          <a href="{% url 'monthly_oct_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">OCT</span>
-                      Paid : {{i.october_rent}} Due : {{i.october_due_amt}}
+                      Paid : {{i.october_rent}} Advance : {{i.october_advance}} Discount : {{i.october_dis_amt}} Due : {{i.october_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.october_due_amt == '0' and i.october_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_oct_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">OCT</span>
-                         Paid : {{i.october_rent}} Due : {{i.october_due_amt}}
+                         Paid : {{i.october_rent}} Advance : {{i.october_advance}} Discount : {{i.october_dis_amt}} Due : {{i.october_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.october_due_amt > '0' and i.october_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_oct_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">OCT</span>
-                         Paid : {{i.october_rent}} Due : {{i.october_due_amt}}
+                        Paid : {{i.october_rent}} Advance : {{i.october_advance}} Discount : {{i.october_dis_amt}} Due : {{i.october_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">OCT</span>
+             <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+                     OCT
                   </label></br>
-</div></a>
+                </div></a>
              {% endif %}
 
 
 
 
              {% if i.nov_rent_flag == 100 %}
-          <a href="">
+          <a href="{% url 'monthly_nov_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">NOV</span>
-                      Paid : {{i.nov_rent}} Due : {{i.nov_due_amt}}
+                      Paid : {{i.nov_rent}} Advance : {{i.nov_advance}} Discount : {{i.nov_dis_amt}} Due : {{i.nov_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.nov_due_amt == '0' and i.nov_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_nov_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">NOV</span>
-                         Paid : {{i.nov_rent}} Due : {{i.nov_due_amt}}
+                         Paid : {{i.nov_rent}} Advance : {{i.nov_advance}} Discount : {{i.nov_dis_amt}} Due : {{i.nov_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.nov_due_amt > '0' and i.nov_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_nov_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">NOV</span>
-                         Paid : {{i.nov_rent}} Due : {{i.nov_due_amt}}
+                         Paid : {{i.nov_rent}} Advance : {{i.nov_advance}} Discount : {{i.nov_dis_amt}} Due : {{i.nov_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">NOV</span>
+             <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+                     JAN
                   </label></br>
-</div></a>
+                </div></a>
              {% endif %}
 
 
@@ -619,32 +623,32 @@ th.break {
 
 
              {% if i.dec_rent_flag == 100 %}
-          <a href="">
+          <a href="{% url 'monthly_dec_make_payments5' id=i.id %}">
               <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                  <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">DEC</span>
-                      Paid : {{i.dec_rent}} Due : {{i.dec_due_amt}}
+                      Paid : {{i.dec_rent}} Advance : {{i.dec_advance}} Discount : {{i.dec_dis_amt}} Due : {{i.dec_due_amt}}
                   </label></br>
               </div></a>
              {% elif i.dec_due_amt == '0' and i.dec_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_dec_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">DEC</span>
-                         Paid : {{i.dec_rent}} Due : {{i.dec_due_amt}}
+                        Paid : {{i.dec_rent}} Advance : {{i.dec_advance}} Discount : {{i.dec_dis_amt}} Due : {{i.dec_due_amt}}
                      </label></br>
         </div></a>
              {% elif i.dec_due_amt > '0' and i.dec_rent_flag == 200 %}
-             <a href="">
+             <a href="{% url 'monthly_dec_make_payments5' id=i.id %}">
                  <div class="form-group" style="background-color:#ffd700;border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
                      <label for="input-4" class="col0-lg-1" style="margin-left:10px;"><span style="background-color:white;color:red;">DEC</span>
-                         Paid : {{i.dec_rent}} Due : {{i.dec_due_amt}}
+                         Paid : {{i.dec_rent}} Advance : {{i.dec_advance}} Discount : {{i.dec_dis_amt}} Due : {{i.dec_due_amt}}
                       </label></br>
         </div></a>
              {% else %}
-              <a href="#">     <div class="form-group" >
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                     <span style="background-color:white;color:red;">DEC</span>
+              <a href="#">     <div class="form-group" style="border:1px white;border-style: groove;border-width: 7px;border-color: coral;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;" >
+                     JAN
                   </label></br>
-</div></a>
+                </div></a>
              {% endif %}
 
 
