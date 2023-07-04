@@ -3887,6 +3887,10 @@ def july_print5(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+        l113=[]
+        d113=pg1_new_beds.objects.all().filter(roon_no=113),
+
+
         context = {
             'brname': 'BRANCH 3 Room Creation Form',
             # 'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
@@ -3894,6 +3898,7 @@ def july_print5(request):
             'table_height': '50px',
 
             'rs113': ll[0],
+
             '113_data': pg1_new_beds.objects.all().filter(roon_no=113),
             'rs114': ll[1],
             '114_data': pg1_new_beds.objects.all().filter(roon_no=114),
