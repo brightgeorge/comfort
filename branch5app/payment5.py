@@ -15,11 +15,30 @@ import pymysql as py
 
 def choose_user5(request):
     if 'username' in request.session:
+        from datetime import datetime
+
+        currentMonth = datetime.now().month
+        a = currentMonth - 1
+        l = ['jan_rent_flag', 'feb_rent_flag', 'march_rent_flag', 'april_rent_flag', 'may_rent_flag', 'june_rent_flag',
+             'july_rent_flag',
+             'auguest_rent_flag', 'sept_rent_flag', 'october_rent_flag', 'nov_rent_flag', 'dec_rent_flag']
+        ll = ['jan_due_amt', 'feb_due_amt', 'march_due_amt', 'april_due_amt', 'may_due_amt', 'june_due_amt',
+              'july_due_amt',
+              'auguest_due_amt', 'sept_due_amt', 'october_due_amt', 'nov_due_amt', 'dec_due_amt']
+
+        res = []
+        res.append(l[a])
+        #res.append(ll[a])
+
+        print(res)
+
         rn = request.POST.get('rno')
         context={
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2),
             'roomno':rn,
             'room': room_pg1.objects.all(),
+            'res' : res,
+            'a' : 1
         }
         return render(request, 'branches/branch5/payments/choose_user.html',context)
 def payment_user_details5(request, id):
@@ -46,7 +65,8 @@ def monthly_jan_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
             jp.remark = remark
             jp.jan_due_amt = due_amt
@@ -83,7 +103,7 @@ def monthly_jan_make_payments5(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch5/payments/details_of_months/jan/jan.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -107,7 +127,7 @@ def monthly_jan_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/jan/jan_manke_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/jan/monthly_jan_manke_payments.html', context)
 
 #jan make payments start here
 
@@ -122,7 +142,8 @@ def monthly_feb_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
             jp.remark = remark
             jp.feb_due_amt = due_amt
@@ -159,7 +180,7 @@ def monthly_feb_make_payments5(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch5/payments/details_of_months/feb/feb.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -183,7 +204,7 @@ def monthly_feb_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/feb/feb_manke_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/feb/monthly_feb_manke_payments.html', context)
 
 #feb make payments start here
 
@@ -198,7 +219,8 @@ def monthly_march_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
             jp.remark = remark
             jp.march_due_amt = due_amt
@@ -235,7 +257,7 @@ def monthly_march_make_payments5(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch5/payments/details_of_months/march/march.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -259,7 +281,7 @@ def monthly_march_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/march/march_manke_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/march/monthly_march_manke_payments.html', context)
 
 #march make payments start here
 
@@ -275,7 +297,8 @@ def monthly_april_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
             jp.remark = remark
             jp.april_due_amt = due_amt
@@ -312,7 +335,7 @@ def monthly_april_make_payments5(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch5/payments/details_of_months/april/april.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -336,7 +359,7 @@ def monthly_april_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/april/april_make_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/april/monthly_april_make_payments.html', context)
 
 #april make payments start here
 
@@ -352,7 +375,8 @@ def monthly_may_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = due_amt
@@ -389,7 +413,7 @@ def monthly_may_make_payments5(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch5/payments/details_of_months/may/may.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -413,7 +437,7 @@ def monthly_may_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/may/may_make_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/may/monthly_may_make_payments.html', context)
 
 #may make payments start here
 
@@ -428,7 +452,8 @@ def monthly_june_make_payments5(request,id):
             due_amt = request.POST.get('dueamt')
             dis_amt = request.POST.get('disamt')
 
-            jp = pg1_new_guest.objects.get(id=id)
+            import branch5app
+            jp = branch5app.models.pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
@@ -466,7 +491,7 @@ def monthly_june_make_payments5(request,id):
                 'room': room_pg1.objects.all(),
 
             }
-            return render(request, 'branches/branch5/payments/details_of_months/june/june.html',context)
+            return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -490,7 +515,7 @@ def monthly_june_make_payments5(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/june/june_make_payments.html', context)
+        return render(request, 'branches/branch5/payments/payment_details_of_months/june/monthly_june_make_payments.html', context)
 
 
 #june make payments start here

@@ -300,35 +300,20 @@
                        <th>Manage</th>
                      <th>Name</th>
                      <th>Monthly Rent</th>
-                     <th>Amount Paid</th>
+
                    </tr>
                    </thead>
                    <tbody>
                    {% for i in pd %}
-                   {% if i.july_rent_flag == 100 %}
 
-				   <tr>
-                       <td><a href="{% url 'payment_user_details5' id=i.id %}"> <button style="background-color:red;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
-                    <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.june_rent}}</td>
-                   </tr>
-                   {% elif i.july_due_amt == '0' and i.july_rent_flag == 200 %}
-                    <tr>
-                       <td><a href="{% url 'payment_user_details5' id=i.id %}"> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
-                    <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.june_rent}}</td>
-                   </tr>
-                   {% else %}
                    <tr>
-                       <td><a href="{% url 'payment_user_details5' id=i.id %}"> <button style="background-color:yellow;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
+                       <td><a href="{% url 'payment_user_details5' id=i.id %}"> <button style="background-color:blue;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
                     <td>{{i.name}}</td>
                     <td>{{i.monthly_rent}}</td>
-                    <td>{{i.june_rent}}</td>
+
                    </tr>
-                   {% endif %}
-                {% endfor %}
+                   {% endfor %}
+
 
                  </tbody></table>
                </div>
