@@ -4,6 +4,7 @@ from django.urls import path, include
 from . import admin_branch4
 from . import branch4
 from . import reports4
+from . import payment4
 #from . import admin_dashboard_calculations_br4
 
 urlpatterns = [
@@ -127,6 +128,32 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
 
 ##################################
 #PAYMENTS END HERE
+################################
+
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user4/', payment4.choose_user4, name='choose_user4'),
+    path('payment_user_details4/<id>', payment4.payment_user_details4, name='payment_user_details4'),
+
+    path('monthly_jan_make_payments4/<id>', payment4.monthly_jan_make_payments4, name='monthly_jan_make_payments4'),
+    path('monthly_feb_make_payments4/<id>', payment4.monthly_feb_make_payments4, name='monthly_feb_make_payments4'),
+    path('monthly_march_make_payments4/<id>', payment4.monthly_march_make_payments4, name='monthly_march_make_payments4'),
+    path('monthly_april_make_payments4/<id>', payment4.monthly_april_make_payments4, name='monthly_april_make_payments4'),
+    path('monthly_may_make_payments4/<id>', payment4.monthly_may_make_payments4, name='monthly_may_make_payments4'),
+    path('monthly_june_make_payments4/<id>', payment4.monthly_june_make_payments4, name='monthly_june_make_payments4'),
+
+    path('monthly_july_make_payments4/<id>', payment4.monthly_july_make_payments4, name='monthly_july_make_payments4'),
+    path('monthly_aug_make_payments4/<id>', payment4.monthly_aug_make_payments4, name='monthly_aug_make_payments4'),
+    path('monthly_sept_make_payments4/<id>', payment4.monthly_sept_make_payments4, name='monthly_sept_make_payments4'),
+    path('monthly_oct_make_payments4/<id>', payment4.monthly_oct_make_payments4, name='monthly_oct_make_payments4'),
+    path('monthly_nov_make_payments4/<id>', payment4.monthly_nov_make_payments4, name='monthly_nov_make_payments4'),
+    path('monthly_dec_make_payments4/<id>', payment4.monthly_dec_make_payments4, name='monthly_dec_make_payments4'),
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
 ################################
 
 
