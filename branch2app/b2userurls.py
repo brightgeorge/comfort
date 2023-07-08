@@ -8,6 +8,7 @@ from . import admin_branch2
 #from . import branch1
 from . import branch2
 from . import reports2
+from . import payment2
 
 
 d='test'
@@ -102,6 +103,31 @@ urlpatterns = [
 
 ##################################
 #PAYMENTS END HERE
+################################
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user2/', payment2.choose_user2, name='choose_user2'),
+    path('payment_user_details2/<id>', payment2.payment_user_details2, name='payment_user_details2'),
+
+    path('monthly_jan_make_payments2/<id>', payment2.monthly_jan_make_payments2, name='monthly_jan_make_payments2'),
+    path('monthly_feb_make_payments2/<id>', payment2.monthly_feb_make_payments2, name='monthly_feb_make_payments2'),
+    path('monthly_march_make_payments2/<id>', payment2.monthly_march_make_payments2, name='monthly_march_make_payments2'),
+    path('monthly_april_make_payments2/<id>', payment2.monthly_april_make_payments2, name='monthly_april_make_payments2'),
+    path('monthly_may_make_payments2/<id>', payment2.monthly_may_make_payments2, name='monthly_may_make_payments2'),
+    path('monthly_june_make_payments2/<id>', payment2.monthly_june_make_payments2, name='monthly_june_make_payments2'),
+
+    path('monthly_july_make_payments2/<id>', payment2.monthly_july_make_payments2, name='monthly_july_make_payments2'),
+    path('monthly_aug_make_payments2/<id>', payment2.monthly_aug_make_payments2, name='monthly_aug_make_payments2'),
+    path('monthly_sept_make_payments2/<id>', payment2.monthly_sept_make_payments2, name='monthly_sept_make_payments2'),
+    path('monthly_oct_make_payments2/<id>', payment2.monthly_oct_make_payments2, name='monthly_oct_make_payments2'),
+    path('monthly_nov_make_payments2/<id>', payment2.monthly_nov_make_payments2, name='monthly_nov_make_payments2'),
+    path('monthly_dec_make_payments2/<id>', payment2.monthly_dec_make_payments2, name='monthly_dec_make_payments2'),
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
 ################################
 
 

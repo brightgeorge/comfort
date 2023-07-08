@@ -3,6 +3,7 @@ from django.urls import path
 from . import admin_branch3
 from . import branch3
 from . import reports3
+from . import payment3
 
 
 urlpatterns = [
@@ -131,6 +132,35 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 ##################################
 #PAYMENTS END HERE
 ################################
+
+
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user3/', payment3.choose_user3, name='choose_user3'),
+    path('payment_user_details3/<id>', payment3.payment_user_details3, name='payment_user_details3'),
+
+    path('monthly_jan_make_payments3/<id>', payment3.monthly_jan_make_payments3, name='monthly_jan_make_payments3'),
+    path('monthly_feb_make_payments3/<id>', payment3.monthly_feb_make_payments3, name='monthly_feb_make_payments3'),
+    path('monthly_march_make_payments3/<id>', payment3.monthly_march_make_payments3, name='monthly_march_make_payments3'),
+    path('monthly_april_make_payments3/<id>', payment3.monthly_april_make_payments3, name='monthly_april_make_payments3'),
+    path('monthly_may_make_payments3/<id>', payment3.monthly_may_make_payments3, name='monthly_may_make_payments3'),
+    path('monthly_june_make_payments3/<id>', payment3.monthly_june_make_payments3, name='monthly_june_make_payments3'),
+
+    path('monthly_july_make_payments3/<id>', payment3.monthly_july_make_payments3, name='monthly_july_make_payments3'),
+    path('monthly_aug_make_payments3/<id>', payment3.monthly_aug_make_payments3, name='monthly_aug_make_payments3'),
+    path('monthly_sept_make_payments3/<id>', payment3.monthly_sept_make_payments3, name='monthly_sept_make_payments3'),
+    path('monthly_oct_make_payments3/<id>', payment3.monthly_oct_make_payments3, name='monthly_oct_make_payments3'),
+    path('monthly_nov_make_payments3/<id>', payment3.monthly_nov_make_payments3, name='monthly_nov_make_payments3'),
+    path('monthly_dec_make_payments3/<id>', payment3.monthly_dec_make_payments3, name='monthly_dec_make_payments3'),
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
+################################
+
+
 
 
 

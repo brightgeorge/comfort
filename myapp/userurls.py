@@ -8,6 +8,7 @@ from . import branch1
 #from . import branch3
 from . import reports1
 from . import admin_dahsboard_calculations
+from . import payment1
 
 d='test'
 
@@ -181,6 +182,32 @@ urlpatterns = [
 
 ##################################
 #PAYMENTS END HERE
+################################
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user/', payment1.choose_user, name='choose_user'),
+    path('payment_user_details/<id>', payment1.payment_user_details, name='payment_user_details'),
+
+    path('monthly_jan_make_payments/<id>', payment1.monthly_jan_make_payments, name='monthly_jan_make_payments'),
+    path('monthly_feb_make_payments/<id>', payment1.monthly_feb_make_payments, name='monthly_feb_make_payments'),
+    path('monthly_march_make_payments/<id>', payment1.monthly_march_make_payments, name='monthly_march_make_payments'),
+    path('monthly_april_make_payments/<id>', payment1.monthly_april_make_payments, name='monthly_april_make_payments'),
+    path('monthly_may_make_payments/<id>', payment1.monthly_may_make_payments, name='monthly_may_make_payments'),
+    path('monthly_june_make_payments/<id>', payment1.monthly_june_make_payments, name='monthly_june_make_payments'),
+
+    path('monthly_july_make_payments/<id>', payment1.monthly_july_make_payments, name='monthly_july_make_payments'),
+    path('monthly_aug_make_payments/<id>', payment1.monthly_aug_make_payments, name='monthly_aug_make_payments'),
+    path('monthly_sept_make_payments/<id>', payment1.monthly_sept_make_payments, name='monthly_sept_make_payments'),
+    path('monthly_oct_make_payments/<id>', payment1.monthly_oct_make_payments, name='monthly_oct_make_payments'),
+    path('monthly_nov_make_payments/<id>', payment1.monthly_nov_make_payments, name='monthly_nov_make_payments'),
+    path('monthly_dec_make_payments/<id>', payment1.monthly_dec_make_payments, name='monthly_dec_make_payments'),
+
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
 ################################
 
 ##################################

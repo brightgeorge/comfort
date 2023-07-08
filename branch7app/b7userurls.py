@@ -4,6 +4,7 @@ from django.urls import path, include
 from . import admin_branch7
 from . import branch7
 from . import reports7
+from . import payment7
 
 
 urlpatterns = [
@@ -208,7 +209,30 @@ path('dec_make_payments_advance7/<id>', branch7.dec_make_payments_advance7, name
 #PAYMENTS END HERE
 ################################
 
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
 
+    path('choose_user7/', payment7.choose_user7, name='choose_user7'),
+    path('payment_user_details7/<id>', payment7.payment_user_details7, name='payment_user_details7'),
+
+    path('monthly_jan_make_payments7/<id>', payment7.monthly_jan_make_payments7, name='monthly_jan_make_payments7'),
+    path('monthly_feb_make_payments7/<id>', payment7.monthly_feb_make_payments7, name='monthly_feb_make_payments7'),
+    path('monthly_march_make_payments7/<id>', payment7.monthly_march_make_payments7, name='monthly_march_make_payments7'),
+    path('monthly_april_make_payments7/<id>', payment7.monthly_april_make_payments7, name='monthly_april_make_payments7'),
+    path('monthly_may_make_payments7/<id>', payment7.monthly_may_make_payments7, name='monthly_may_make_payments7'),
+    path('monthly_june_make_payments7/<id>', payment7.monthly_june_make_payments7, name='monthly_june_make_payments7'),
+
+    path('monthly_july_make_payments7/<id>', payment7.monthly_july_make_payments7, name='monthly_july_make_payments7'),
+    path('monthly_aug_make_payments7/<id>', payment7.monthly_aug_make_payments7, name='monthly_aug_make_payments7'),
+    path('monthly_sept_make_payments7/<id>', payment7.monthly_sept_make_payments7, name='monthly_sept_make_payments7'),
+    path('monthly_oct_make_payments7/<id>', payment7.monthly_oct_make_payments7, name='monthly_oct_make_payments7'),
+    path('monthly_nov_make_payments7/<id>', payment7.monthly_nov_make_payments7, name='monthly_nov_make_payments7'),
+    path('monthly_dec_make_payments7/<id>', payment7.monthly_dec_make_payments7, name='monthly_dec_make_payments7'),
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
+################################
 
 ##################################
 #PRINT OUTS START HERE

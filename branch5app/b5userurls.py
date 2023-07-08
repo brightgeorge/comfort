@@ -6,9 +6,11 @@ from . import admin_branch5
 from . import branch5
 from . import reports5
 from . import payment5
+from . import admin_dashboard_calculations_br5
 
 urlpatterns = [
     path('branch1_dashboard5/', branch5.branch1_dashboard5, name='branch1_dashboard5'),
+    path('monthly_details_due',admin_dashboard_calculations_br5.monthly_details_due,name='monthly_details_due'),
 
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
@@ -154,7 +156,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
     path('monthly_nov_make_payments5/<id>', payment5.monthly_nov_make_payments5, name='monthly_nov_make_payments5'),
     path('monthly_dec_make_payments5/<id>', payment5.monthly_dec_make_payments5, name='monthly_dec_make_payments5'),
 
-    ##################################
+##################################
 #MONTHLY MANAGEMENT PAYMENTS END HERE
 ################################
 

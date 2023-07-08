@@ -4,6 +4,7 @@ from django.urls import path, include
 from . import admin_branch9
 from . import branch9
 from . import reports9
+from . import payment9
 
 urlpatterns = [
     path('branch1_dashboard9/', branch9.branch1_dashboard9, name='branch1_dashboard9'),
@@ -205,6 +206,33 @@ urlpatterns = [
 
     ##################################
     # PAYMENTS END HERE
+    ################################
+
+    ##################################
+    # MONTHLY MANAGEMENT PAYMENTS START HERE
+    ################################
+
+    path('choose_user9/', payment9.choose_user9, name='choose_user9'),
+    path('payment_user_details9/<id>', payment9.payment_user_details9, name='payment_user_details9'),
+
+    path('monthly_jan_make_payments9/<id>', payment9.monthly_jan_make_payments9, name='monthly_jan_make_payments9'),
+    path('monthly_feb_make_payments9/<id>', payment9.monthly_feb_make_payments9, name='monthly_feb_make_payments9'),
+    path('monthly_march_make_payments9/<id>', payment9.monthly_march_make_payments9,
+         name='monthly_march_make_payments9'),
+    path('monthly_april_make_payments9/<id>', payment9.monthly_april_make_payments9,
+         name='monthly_april_make_payments9'),
+    path('monthly_may_make_payments9/<id>', payment9.monthly_may_make_payments9, name='monthly_may_make_payments9'),
+    path('monthly_june_make_payments9/<id>', payment9.monthly_june_make_payments9, name='monthly_june_make_payments9'),
+
+    path('monthly_july_make_payments9/<id>', payment9.monthly_july_make_payments9, name='monthly_july_make_payments9'),
+    path('monthly_aug_make_payments9/<id>', payment9.monthly_aug_make_payments9, name='monthly_aug_make_payments9'),
+    path('monthly_sept_make_payments9/<id>', payment9.monthly_sept_make_payments9, name='monthly_sept_make_payments9'),
+    path('monthly_oct_make_payments9/<id>', payment9.monthly_oct_make_payments9, name='monthly_oct_make_payments9'),
+    path('monthly_nov_make_payments9/<id>', payment9.monthly_nov_make_payments9, name='monthly_nov_make_payments9'),
+    path('monthly_dec_make_payments9/<id>', payment9.monthly_dec_make_payments9, name='monthly_dec_make_payments9'),
+
+    ##################################
+    # MONTHLY MANAGEMENT PAYMENTS END HERE
     ################################
 
     ##################################

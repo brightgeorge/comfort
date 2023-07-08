@@ -29,14 +29,15 @@ def branch1_dashboard5(request):
             'name': us,
             'total_count_active_guests' : admin_dashboard_calculations_br5.total_count_active_guests(),
             'total_count_vaccant_rooms' : admin_dashboard_calculations_br5.total_count_vaccant_rooms(),
-            'total_collection_june' : admin_dashboard_calculations_br5.total_collection_june(),
-            'total_received_june' : admin_dashboard_calculations_br5.total_received_june(),
-            'total_received_june_list' : admin_dashboard_calculations_br5.total_received_june_list(),
-            'total_due_june' : admin_dashboard_calculations_br5.total_due_june(),
-            'total_collection_monthly_june' : admin_dashboard_calculations_br5.total_collection_monthly_june(),
-            'total_collection_advance_june' : admin_dashboard_calculations_br5.total_collection_advance_june(),
-            'total_collection_due_june' : admin_dashboard_calculations_br5.total_collection_due_june(),
-            'total_collection_discount_june' : admin_dashboard_calculations_br5.total_collection_discount_june(),
+            'grand_total_collection' : admin_dashboard_calculations_br5.grand_total_collection(),
+            'total_collection_advance' : admin_dashboard_calculations_br5.total_collection_advance(),
+            'total_discount' : admin_dashboard_calculations_br5.total_discount(),
+
+            'total_colatable_amount' : admin_dashboard_calculations_br5.total_colatable_amount(),
+            'total_collected_amount' : admin_dashboard_calculations_br5.total_collected_amount(),
+            'total_due' : admin_dashboard_calculations_br5.total_due(),
+            #'total_collection_due_june' : admin_dashboard_calculations_br5.total_collection_due_june(),
+            #'total_collection_discount_june' : admin_dashboard_calculations_br5.total_collection_discount_june(),
             'y' : admin_dashboard_calculations_br5.bar_chart(),
         }
         return render(request, 'branches/branch5/branch1index.html',context)
@@ -2831,9 +2832,11 @@ def july_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_advance = amt
+            jp.july_dis_amt = dis
             jp.remark = remark
             jp.july_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
@@ -2850,6 +2853,7 @@ def july_make_payments_advance5(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.july_advance = amt
             jp.remark = remark
+            jp.july_dis_amt = dis
             jp.july_due_amt = amt
             # jp.may_rent_rec_date = datetime.date.today()
 

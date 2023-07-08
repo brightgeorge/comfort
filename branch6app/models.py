@@ -126,6 +126,562 @@ class pg1_new_beds(models.Model):
     flag = models.IntegerField()
 
 
+
+
+    def get_total_due_feb(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_march(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_april(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_may(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_june(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_july(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_auguest(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+            if i.july_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.july_rent_flag == 200:
+                l.append(i.july_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+
+    def get_total_due_sept(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+            if i.july_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.july_rent_flag == 200:
+                l.append(i.july_due_amt)
+
+            if i.auguest_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.auguest_rent_flag == 200:
+                l.append(i.auguest_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+    def get_total_due_october(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code = self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l=[]
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+            if i.july_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.july_rent_flag == 200:
+                l.append(i.july_due_amt)
+
+            if i.auguest_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.auguest_rent_flag == 200:
+                l.append(i.auguest_due_amt)
+
+            if i.sept_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.sept_rent_flag == 200:
+                l.append(i.sept_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll',l)
+
+        return sum(ll)
+
+    def get_total_due_nov(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code=self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l = []
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+            if i.july_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.july_rent_flag == 200:
+                l.append(i.july_due_amt)
+
+            if i.auguest_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.auguest_rent_flag == 200:
+                l.append(i.auguest_due_amt)
+
+            if i.sept_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.sept_rent_flag == 200:
+                l.append(i.sept_due_amt)
+
+            if i.october_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.october_rent_flag == 200:
+                l.append(i.october_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll', l)
+
+        return sum(ll)
+
+
+    def get_total_due_dec(self):
+        rno = pg1_new_guest.objects.all().filter(guest_code=self.guest_code)
+        lr = []
+        for i in rno:
+            lr.append(str(i.guest_code))
+        gc = ''.join(lr)
+        print('lllrr', lr)
+
+        l = []
+
+        for i in rno:
+            if i.jan_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.jan_rent_flag == 200:
+                l.append(i.jan_due_amt)
+
+            if i.feb_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.feb_rent_flag == 200:
+                l.append(i.feb_due_amt)
+
+            if i.march_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.march_rent_flag == 200:
+                l.append(i.march_due_amt)
+
+            if i.april_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.april_rent_flag == 200:
+                l.append(i.april_due_amt)
+
+            if i.may_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.may_rent_flag == 200:
+                l.append(i.may_due_amt)
+
+            if i.june_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.june_rent_flag == 200:
+                l.append(i.june_due_amt)
+
+            if i.july_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.july_rent_flag == 200:
+                l.append(i.july_due_amt)
+
+            if i.auguest_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.auguest_rent_flag == 200:
+                l.append(i.auguest_due_amt)
+
+            if i.sept_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.sept_rent_flag == 200:
+                l.append(i.sept_due_amt)
+
+            if i.october_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.october_rent_flag == 200:
+                l.append(i.october_due_amt)
+
+            if i.nov_rent_flag == 100:
+                l.append(i.monthly_rent)
+            if i.nov_rent_flag == 200:
+                l.append(i.nov_due_amt)
+
+        ll = []
+        for i in l:
+            if i != '':
+                ll.append(int(i))
+        print('my lll', l)
+
+        return sum(ll)
+
+
+
+
+
+
 class pg1_new_guest(models.Model):
     roon_no = models.IntegerField()
     room_name = models.CharField(max_length=100)

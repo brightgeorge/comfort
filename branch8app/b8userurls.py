@@ -4,6 +4,7 @@ from django.urls import path, include
 from . import admin_branch8
 from . import branch8
 from . import reports8
+from . import payment8
 
 
 urlpatterns = [
@@ -208,9 +209,34 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
 #PAYMENTS END HERE
 ################################
 
+    ##################################
+    # MONTHLY MANAGEMENT PAYMENTS START HERE
+    ################################
 
+    path('choose_user8/', payment8.choose_user8, name='choose_user8'),
+    path('payment_user_details8/<id>', payment8.payment_user_details8, name='payment_user_details8'),
 
-##################################
+    path('monthly_jan_make_payments8/<id>', payment8.monthly_jan_make_payments8, name='monthly_jan_make_payments8'),
+    path('monthly_feb_make_payments8/<id>', payment8.monthly_feb_make_payments8, name='monthly_feb_make_payments8'),
+    path('monthly_march_make_payments8/<id>', payment8.monthly_march_make_payments8,
+         name='monthly_march_make_payments8'),
+    path('monthly_april_make_payments8/<id>', payment8.monthly_april_make_payments8,
+         name='monthly_april_make_payments8'),
+    path('monthly_may_make_payments8/<id>', payment8.monthly_may_make_payments8, name='monthly_may_make_payments8'),
+    path('monthly_june_make_payments8/<id>', payment8.monthly_june_make_payments8, name='monthly_june_make_payments8'),
+
+    path('monthly_july_make_payments8/<id>', payment8.monthly_july_make_payments8, name='monthly_july_make_payments8'),
+    path('monthly_aug_make_payments8/<id>', payment8.monthly_aug_make_payments8, name='monthly_aug_make_payments8'),
+    path('monthly_sept_make_payments8/<id>', payment8.monthly_sept_make_payments8, name='monthly_sept_make_payments8'),
+    path('monthly_oct_make_payments8/<id>', payment8.monthly_oct_make_payments8, name='monthly_oct_make_payments8'),
+    path('monthly_nov_make_payments8/<id>', payment8.monthly_nov_make_payments8, name='monthly_nov_make_payments8'),
+    path('monthly_dec_make_payments8/<id>', payment8.monthly_dec_make_payments8, name='monthly_dec_make_payments8'),
+
+    ##################################
+    # MONTHLY MANAGEMENT PAYMENTS END HERE
+    ################################
+
+    ##################################
 #PRINT OUTS START HERE
 ################################
 
