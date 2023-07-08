@@ -41,7 +41,7 @@ def branch1_dashboard5(request):
             'total_colatable_amount' : admin_dashboard_calculations_br5.total_colatable_amount(),
             'total_collected_amount' : admin_dashboard_calculations_br5.total_collected_amount(),
             'total_due' : admin_dashboard_calculations_br5.total_due(),
-            #'total_collection_due_june' : admin_dashboard_calculations_br5.total_collection_due_june(),
+            'l' : admin_dashboard_calculations_br5.grand_total(),
             #'total_collection_discount_june' : admin_dashboard_calculations_br5.total_collection_discount_june(),
             'y' : admin_dashboard_calculations_br5.bar_chart(),
         }
