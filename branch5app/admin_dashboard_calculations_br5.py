@@ -1,4 +1,6 @@
 #admin_dashboard_calculations_br5
+import lib2to3.pgen2.token
+import locale
 
 from django.shortcuts import render
 from django.contrib import messages
@@ -21,18 +23,98 @@ def total_count_vaccant_rooms():
     return len(l)
 
 def grand_total_collection():
-    l=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    jan_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,jan_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
-            l.append(int(i.monthly_rent))
-    t=sum(l)
+            jan_tc.append(int(i.monthly_rent))
+
+    feb_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,feb_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            feb_tc.append(int(i.monthly_rent))
+
+    mar_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,march_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            mar_tc.append(int(i.monthly_rent))
+
+    apr_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,april_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            apr_tc.append(int(i.monthly_rent))
+
+    may_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            may_tc.append(int(i.monthly_rent))
+
+    jun_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            jun_tc.append(int(i.monthly_rent))
+
+    jul_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            jul_tc.append(int(i.monthly_rent))
+
+    aug_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,auguest_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            aug_tc.append(int(i.monthly_rent))
+
+    sep_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,sept_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            sep_tc.append(int(i.monthly_rent))
+
+    oct_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,october_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            oct_tc.append(int(i.monthly_rent))
+
+    nov_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,nov_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            nov_tc.append(int(i.monthly_rent))
+
+    dec_tc=[]
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,dec_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent !='':
+            dec_tc.append(int(i.monthly_rent))
+
+    l=[]
+    l.append(sum(jan_tc))
+    l.append(sum(feb_tc))
+    l.append(sum(mar_tc))
+    l.append(sum(apr_tc))
+    l.append(sum(may_tc))
+    l.append(sum(jun_tc))
+    l.append(sum(jul_tc))
+    l.append(sum(aug_tc))
+    l.append(sum(sep_tc))
+    l.append(sum(oct_tc))
+    l.append(sum(nov_tc))
+    l.append(sum(dec_tc))
+
+    t=l
     return t
 
 
 def total_collection_advance():
     total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
-
     jan_advance = []
     for i in total_guest_br5:
         if i.jan_advance != '':
@@ -204,7 +286,11 @@ def total_discount():
     return total_due
 
 def total_colatable_amount():
-    a=grand_total_collection()
+    x=grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm=cmm-1
+    a=x[cm]
     b=total_collection_advance()
     c=total_discount()
     ans=a+b-c
@@ -317,12 +403,93 @@ def bar_chart():
 
 
 def monthly_details_due(request):
-    l=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    jan_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, jan_rent_flag__gt=99)
     for i in total_guest_br5:
-        if i.monthly_rent !='':
-            l.append(int(i.monthly_rent))
-    t=sum(l)
+        if i.monthly_rent != '':
+            jan_tc.append(int(i.monthly_rent))
+
+    feb_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, feb_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            feb_tc.append(int(i.monthly_rent))
+
+    mar_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, march_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            mar_tc.append(int(i.monthly_rent))
+
+    apr_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, april_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            apr_tc.append(int(i.monthly_rent))
+
+    may_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, may_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            may_tc.append(int(i.monthly_rent))
+
+    jun_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, june_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            jun_tc.append(int(i.monthly_rent))
+
+    jul_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, july_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            jul_tc.append(int(i.monthly_rent))
+
+    aug_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, auguest_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            aug_tc.append(int(i.monthly_rent))
+
+    sep_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, sept_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            sep_tc.append(int(i.monthly_rent))
+
+    oct_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, october_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            oct_tc.append(int(i.monthly_rent))
+
+    nov_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, nov_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            nov_tc.append(int(i.monthly_rent))
+
+    dec_tc = []
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, dec_rent_flag__gt=99)
+    for i in total_guest_br5:
+        if i.monthly_rent != '':
+            dec_tc.append(int(i.monthly_rent))
+
+    l=[]
+    l.append(sum(jan_tc))
+    l.append(sum(feb_tc))
+    l.append(sum(mar_tc))
+    l.append(sum(apr_tc))
+    l.append(sum(may_tc))
+    l.append(sum(jun_tc))
+    l.append(sum(jul_tc))
+    l.append(sum(aug_tc))
+    l.append(sum(sep_tc))
+    l.append(sum(oct_tc))
+    l.append(sum(nov_tc))
+    l.append(sum(dec_tc))
+
+    t = l
 
     #advance start here
 
@@ -567,18 +734,18 @@ def monthly_details_due(request):
 
     total_collatable_amount=[]
 
-    total_collatable_amount.append(t+total_advance_amt[0]-total_dis_amount[0])
-    total_collatable_amount.append(t+total_advance_amt[1]-total_dis_amount[1])
-    total_collatable_amount.append(t+total_advance_amt[2]-total_dis_amount[2])
-    total_collatable_amount.append(t+total_advance_amt[3]-total_dis_amount[3])
-    total_collatable_amount.append(t+total_advance_amt[4]-total_dis_amount[4])
-    total_collatable_amount.append(t+total_advance_amt[5]-total_dis_amount[5])
-    total_collatable_amount.append(t+total_advance_amt[6]-total_dis_amount[6])
-    total_collatable_amount.append(t+total_advance_amt[7]-total_dis_amount[7])
-    total_collatable_amount.append(t+total_advance_amt[8]-total_dis_amount[8])
-    total_collatable_amount.append(t+total_advance_amt[9]-total_dis_amount[9])
-    total_collatable_amount.append(t+total_advance_amt[10]-total_dis_amount[10])
-    total_collatable_amount.append(t+total_advance_amt[11]-total_dis_amount[11])
+    total_collatable_amount.append(t[0]+total_advance_amt[0]-total_dis_amount[0])
+    total_collatable_amount.append(t[1]+total_advance_amt[1]-total_dis_amount[1])
+    total_collatable_amount.append(t[2]+total_advance_amt[2]-total_dis_amount[2])
+    total_collatable_amount.append(t[3]+total_advance_amt[3]-total_dis_amount[3])
+    total_collatable_amount.append(t[4]+total_advance_amt[4]-total_dis_amount[4])
+    total_collatable_amount.append(t[5]+total_advance_amt[5]-total_dis_amount[5])
+    total_collatable_amount.append(t[6]+total_advance_amt[6]-total_dis_amount[6])
+    total_collatable_amount.append(t[7]+total_advance_amt[7]-total_dis_amount[7])
+    total_collatable_amount.append(t[8]+total_advance_amt[8]-total_dis_amount[8])
+    total_collatable_amount.append(t[9]+total_advance_amt[9]-total_dis_amount[9])
+    total_collatable_amount.append(t[10]+total_advance_amt[10]-total_dis_amount[10])
+    total_collatable_amount.append(t[11]+total_advance_amt[11]-total_dis_amount[11])
 
     #total collatable amount end here
     #total due amount start here

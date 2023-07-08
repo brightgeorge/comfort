@@ -24,12 +24,17 @@ import pymysql.cursors
 def branch1_dashboard5(request):
     if 'username' in request.session:
         us = request.session['username']
+        a=admin_dashboard_calculations_br5.grand_total_collection()
+        from datetime import datetime
+        cmm = datetime.now().month
+        cm = cmm - 1
+        gtc = a[cm]
 
         context = {
             'name': us,
             'total_count_active_guests' : admin_dashboard_calculations_br5.total_count_active_guests(),
             'total_count_vaccant_rooms' : admin_dashboard_calculations_br5.total_count_vaccant_rooms(),
-            'grand_total_collection' : admin_dashboard_calculations_br5.grand_total_collection(),
+            'grand_total_collection' : gtc,
             'total_collection_advance' : admin_dashboard_calculations_br5.total_collection_advance(),
             'total_discount' : admin_dashboard_calculations_br5.total_discount(),
 
