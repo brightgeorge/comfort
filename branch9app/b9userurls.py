@@ -5,6 +5,7 @@ from . import admin_branch9
 from . import branch9
 from . import reports9
 from . import payment9
+from . import admin_dashboard_calculations_br9
 
 urlpatterns = [
     path('branch1_dashboard9/', branch9.branch1_dashboard9, name='branch1_dashboard9'),
@@ -359,6 +360,19 @@ urlpatterns = [
     ##################################
     # VACATE GUEST DETAILS END HERE
     ################################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due9', admin_dashboard_calculations_br9.monthly_details_due9, name='monthly_details_due9'),
+    path('monthly_collection_details9/', admin_dashboard_calculations_br9.monthly_collection_details9, name='monthly_collection_details9'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
+
+
 
 ]
 

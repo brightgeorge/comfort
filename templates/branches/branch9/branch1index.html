@@ -268,16 +268,17 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'monthly_details_due9' %}"
                 <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_collection_june}} - {{total_received_june}} = {{total_due_june}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">{{total_colatable_amount}} - {{total_collected_amount}} = {{total_due}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">Total Collection
-                      {{total_collection_monthly_june}}+{{total_collection_advance_june}}+{{total_collection_due_june}}-{{total_collection_discount_june}}
+                      {{grand_total_collection}}+{{total_collection_advance}}-{{total_discount}}
 
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                </div></a>
             </div>
 
         </div>

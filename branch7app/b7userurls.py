@@ -5,6 +5,7 @@ from . import admin_branch7
 from . import branch7
 from . import reports7
 from . import payment7
+from . import admin_dashboard_calculations_br7
 
 
 urlpatterns = [
@@ -361,6 +362,18 @@ path('dec_make_payments_advance7/<id>', branch7.dec_make_payments_advance7, name
 ##################################
 #VACATE GUEST DETAILS END HERE
 ################################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due7', admin_dashboard_calculations_br7.monthly_details_due7, name='monthly_details_due7'),
+    path('monthly_collection_details7/', admin_dashboard_calculations_br7.monthly_collection_details7, name='monthly_collection_details7'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
+
 
 
 

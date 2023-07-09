@@ -21,23 +21,29 @@ import pymysql.cursors
 def branch1_dashboard7(request):
     if 'username' in request.session:
         us = request.session['username']
+        a = admin_dashboard_calculations_br7.grand_total_collection()
+        from datetime import datetime
+        cmm = datetime.now().month
+        cm = cmm - 1
+        gtc = a[cm]
 
         context = {
             'name': us,
             'total_count_active_guests': admin_dashboard_calculations_br7.total_count_active_guests(),
             'total_count_vaccant_rooms': admin_dashboard_calculations_br7.total_count_vaccant_rooms(),
-            'total_collection_june': admin_dashboard_calculations_br7.total_collection_june(),
-            'total_received_june': admin_dashboard_calculations_br7.total_received_june(),
-            'total_received_june_list': admin_dashboard_calculations_br7.total_received_june_list(),
-            'total_due_june': admin_dashboard_calculations_br7.total_due_june(),
-            'total_collection_monthly_june': admin_dashboard_calculations_br7.total_collection_monthly_june(),
-            'total_collection_advance_june': admin_dashboard_calculations_br7.total_collection_advance_june(),
-            'total_collection_due_june': admin_dashboard_calculations_br7.total_collection_due_june(),
-            'total_collection_discount_june': admin_dashboard_calculations_br7.total_collection_discount_june(),
-            'y': admin_dashboard_calculations_br7.bar_chart(),
+            'grand_total_collection': gtc,
+            'total_collection_advance': admin_dashboard_calculations_br7.total_collection_advance(),
+            'total_discount': admin_dashboard_calculations_br7.total_discount(),
 
+            'total_colatable_amount': admin_dashboard_calculations_br7.total_colatable_amount(),
+            'total_collected_amount': admin_dashboard_calculations_br7.total_collected_amount(),
+            'total_due': admin_dashboard_calculations_br7.total_due(),
+            'l': admin_dashboard_calculations_br7.grand_total(),
+            # 'total_collection_discount_june' : admin_dashboard_calculations_br7.total_collection_discount_june(),
+            'y': admin_dashboard_calculations_br7.bar_chart(),
         }
-        return render(request, 'branches/branch7/branch1index.html',context)
+
+    return render(request, 'branches/branch7/branch1index.html',context)
     return render(request, 'index.html')
 
 

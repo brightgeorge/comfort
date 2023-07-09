@@ -9,6 +9,7 @@ from . import admin_branch2
 from . import branch2
 from . import reports2
 from . import payment2
+from . import admin_dashboard_calculations_br2
 
 
 d='test'
@@ -360,6 +361,17 @@ urlpatterns = [
 
 ########################################
 # DUE AMT MANAGEMENT END HERE
+###########################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due2', admin_dashboard_calculations_br2.monthly_details_due2, name='monthly_details_due2'),
+    path('monthly_collection_details2/', admin_dashboard_calculations_br2.monthly_collection_details2, name='monthly_collection_details2'),
+
+########################################
+# DASHBOARD REPORTS END HERE
 ###########################
 
 

@@ -5,13 +5,14 @@ from . import admin_branch4
 from . import branch4
 from . import reports4
 from . import payment4
-#from . import admin_dashboard_calculations_br4
+from . import admin_dashboard_calculations_br4
 
 urlpatterns = [
 
     path('branch1_dashboard4/', branch4.branch1_dashboard4, name='branch1_dashboard4'),
+    path('monthly_details_due4', admin_dashboard_calculations_br4.monthly_details_due4, name='monthly_details_due4'),
 
-#**room creation start here
+    #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
     path('branch1_room_create_regi4/',admin_branch4.branch1_room_create_regi4,name='branch1_room_create_regi4'),
     path('view_all_room4/',admin_branch4.view_all_room4,name='view_all_room4'),
@@ -358,6 +359,15 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('manage_update_beds4/<id>', branch4.manage_update_beds4, name='manage_update_beds4'),
 
 
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_collection_details4/', admin_dashboard_calculations_br4.monthly_collection_details4, name='monthly_collection_details4'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
 
 
 ]

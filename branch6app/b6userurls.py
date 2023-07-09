@@ -4,6 +4,7 @@ from django.urls import path, include
 from . import admin_branch6
 from . import branch6
 from . import reports6
+from . import admin_dashboard_calculations_br6
 
 
 urlpatterns = [
@@ -333,6 +334,17 @@ path('dec_make_payments_advance6/<id>', branch6.dec_make_payments_advance6, name
 ##################################
 #VACATE GUEST DETAILS END HERE
 ################################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due6', admin_dashboard_calculations_br6.monthly_details_due6, name='monthly_details_due6'),
+    path('monthly_collection_details6/', admin_dashboard_calculations_br6.monthly_collection_details6, name='monthly_collection_details6'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
 
 
 

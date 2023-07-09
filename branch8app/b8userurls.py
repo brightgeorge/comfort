@@ -5,6 +5,7 @@ from . import admin_branch8
 from . import branch8
 from . import reports8
 from . import payment8
+from . import admin_dashboard_calculations_br8
 
 
 urlpatterns = [
@@ -363,6 +364,18 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
 ##################################
 #VACATE GUEST DETAILS END HERE
 ################################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due8', admin_dashboard_calculations_br8.monthly_details_due8, name='monthly_details_due8'),
+    path('monthly_collection_details8/', admin_dashboard_calculations_br8.monthly_collection_details8, name='monthly_collection_details8'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
+
 
 
 

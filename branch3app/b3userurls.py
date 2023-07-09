@@ -4,6 +4,7 @@ from . import admin_branch3
 from . import branch3
 from . import reports3
 from . import payment3
+from . import admin_dashboard_calculations_br3
 
 
 urlpatterns = [
@@ -355,6 +356,19 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 ########################################
 # DUE AMT MANAGEMENT END HERE
 ###########################
+
+########################################
+# DASHBOARD REPORTS START HERE
+###########################
+
+    path('monthly_details_due3', admin_dashboard_calculations_br3.monthly_details_due3, name='monthly_details_due3'),
+    path('monthly_collection_details3/', admin_dashboard_calculations_br3.monthly_collection_details3, name='monthly_collection_details3'),
+
+########################################
+# DASHBOARD REPORTS END HERE
+###########################
+
+
 
 
 

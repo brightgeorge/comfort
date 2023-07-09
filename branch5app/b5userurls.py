@@ -10,7 +10,6 @@ from . import admin_dashboard_calculations_br5
 
 urlpatterns = [
     path('branch1_dashboard5/', branch5.branch1_dashboard5, name='branch1_dashboard5'),
-    path('monthly_details_due5',admin_dashboard_calculations_br5.monthly_details_due5,name='monthly_details_due5'),
 
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
@@ -359,6 +358,7 @@ path('dec_make_payments_advance5/<id>', branch5.dec_make_payments_advance5, name
 # DASHBOARD REPORTS START HERE
 ###########################
 
+    path('monthly_details_due5', admin_dashboard_calculations_br5.monthly_details_due5, name='monthly_details_due5'),
     path('monthly_collection_details5/', admin_dashboard_calculations_br5.monthly_collection_details5, name='monthly_collection_details5'),
 
 ########################################
