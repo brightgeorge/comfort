@@ -2452,11 +2452,13 @@ def jan_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_advance = amt
             jp.remark = remark
             jp.jan_due_amt = amt
+            jp.jan_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2470,6 +2472,7 @@ def jan_make_payments_advance5(request, id):
             jp.jan_advance = amt
             jp.remark = remark
             jp.jan_due_amt = amt
+            jp.jan_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2513,11 +2516,13 @@ def feb_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_advance = amt
             jp.remark = remark
             jp.feb_due_amt = amt
+            jp.feb_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2531,6 +2536,7 @@ def feb_make_payments_advance5(request, id):
             jp.feb_advance = amt
             jp.remark = remark
             jp.feb_due_amt = amt
+            jp.feb_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2574,11 +2580,13 @@ def march_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_advance = amt
             jp.remark = remark
             jp.march_due_amt = amt
+            jp.march_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2592,6 +2600,7 @@ def march_make_payments_advance5(request, id):
             jp.march_advance = amt
             jp.remark = remark
             jp.march_due_amt = amt
+            jp.march_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2637,11 +2646,13 @@ def april_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_advance = amt
             jp.remark = remark
             jp.april_due_amt = amt
+            jp.april_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2657,6 +2668,7 @@ def april_make_payments_advance5(request, id):
             jp.april_advance = amt
             jp.remark = remark
             jp.april_due_amt = amt
+            jp.april_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2704,11 +2716,13 @@ def may_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_advance = amt
             jp.remark = remark
             jp.may_due_amt = amt
+            jp.may_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2724,6 +2738,7 @@ def may_make_payments_advance5(request, id):
             jp.may_advance = amt
             jp.remark = remark
             jp.may_due_amt = amt
+            jp.may_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2770,11 +2785,13 @@ def june_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_advance = amt
             jp.remark = remark
             jp.june_due_amt = amt
+            jp.june_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2789,7 +2806,8 @@ def june_make_payments_advance5(request, id):
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_advance = amt
             jp.remark = remark
-            #jp.june_due_amt = amt
+            jp.june_due_amt = amt
+            jp.june_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2907,11 +2925,13 @@ def auguest_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_advance = amt
             jp.remark = remark
             jp.auguest_due_amt = amt
+            jp.auguest_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2927,6 +2947,7 @@ def auguest_make_payments_advance5(request, id):
             jp.auguest_advance = amt
             jp.remark = remark
             jp.auguest_due_amt = amt
+            jp.auguest_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2973,11 +2994,13 @@ def sept_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_advance = amt
             jp.remark = remark
             jp.sept_due_amt = amt
+            jp.sept_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -2993,6 +3016,7 @@ def sept_make_payments_advance5(request, id):
             jp.sept_advance = amt
             jp.remark = remark
             jp.sept_due_amt = amt
+            jp.sept_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3040,11 +3064,13 @@ def october_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_advance = amt
             jp.remark = remark
             jp.october_due_amt = amt
+            jp.october_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3060,6 +3086,7 @@ def october_make_payments_advance5(request, id):
             jp.october_advance = amt
             jp.remark = remark
             jp.october_due_amt = amt
+            jp.october_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3106,11 +3133,13 @@ def nov_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_advance = amt
             jp.remark = remark
             jp.nov_due_amt = amt
+            jp.nov_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3126,6 +3155,7 @@ def nov_make_payments_advance5(request, id):
             jp.nov_advance = amt
             jp.remark = remark
             jp.nov_due_amt = amt
+            jp.nov_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3172,11 +3202,13 @@ def dec_make_payments_advance5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_advance = amt
             jp.remark = remark
             jp.dec_due_amt = amt
+            jp.dec_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -3192,6 +3224,7 @@ def dec_make_payments_advance5(request, id):
             jp.dec_advance = amt
             jp.remark = remark
             jp.dec_due_amt = amt
+            jp.dec_dis_amt = dis
             # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
@@ -4440,10 +4473,12 @@ def dec_print5(request):
 ################################
 
 
-
 def viewall_vacate_guest5(request):
+
     context = {
-        'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id')
+        #'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id'),
+        'vgs':pg1_new_guest.objects.all().filter(flag=3).order_by('-id')
+
     }
     return render(request, 'branches/branch5/vacate_guest/viewall_vacate_guest.html', context)
 
@@ -4462,12 +4497,16 @@ def jan_manke_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
-            jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_due_amt = due_amt
+            jp.jan_dis_amt = dis_amt
+            jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
 
@@ -4475,12 +4514,26 @@ def jan_manke_payments_vacate5(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.jan_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/jan/jan_manke_payments_vacate.html',
-                      context)
+        return render(request, 'branches/branch5/payments/details_of_months/jan/jan_manke_payments_vacate.html',context)
 
 
 def feb_manke_payments_vacate5(request, id):
@@ -4488,24 +4541,42 @@ def feb_manke_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
-            jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_due_amt = due_amt
+            jp.feb_dis_amt = dis_amt
+            jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.feb_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/feb/feb_manke_payments_vacate.html',
-                      context)
+        return render(request, 'branches/branch5/payments/details_of_months/feb/feb_manke_payments_vacate.html',context)
 
 
 def march_manke_payments_vacate5(request, id):
@@ -4513,24 +4584,42 @@ def march_manke_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
             jp.remark = remark
-            jp.march_due_amt = remark
-            jp.march_rent_rec_date = datetime.date.today()
+            jp.march_due_amt = due_amt
+            jp.march_dis_amt = dis_amt
+            jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.march_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch5/payments/details_of_months/march/march_manke_payments_vacate.html',
-                      context)
+        return render(request, 'branches/branch5/payments/details_of_months/march/march_manke_payments_vacate.html',context)
 
 
 def april_make_payments_vacate5(request, id):
@@ -4538,12 +4627,16 @@ def april_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
             jp.remark = remark
-            jp.april_due_amt = remark
-            jp.april_rent_rec_date = datetime.date.today()
+            jp.april_due_amt = due_amt
+            jp.april_dis_amt = dis_amt
+            jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
 
@@ -4551,14 +4644,26 @@ def april_make_payments_vacate5(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.april_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html',
-                      context)
-    return render(request, 'index.html')
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html',context)
 
 
 def may_make_payments_vacate5(request, id):
@@ -4566,12 +4671,16 @@ def may_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
+            jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
             context = {
@@ -4579,13 +4688,25 @@ def may_make_payments_vacate5(request, id):
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
 
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.may_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html',context)
 
 
 def june_make_payments_vacate5(request, id):
@@ -4593,12 +4714,16 @@ def june_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            jp.june_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = due_amt
+            jp.june_dis_amt = dis_amt
+            jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
             context = {
@@ -4606,13 +4731,25 @@ def june_make_payments_vacate5(request, id):
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
 
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.june_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html',context)
 
 
 def july_make_payments_vacate5(request, id):
@@ -4620,25 +4757,40 @@ def july_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
             jp.remark = remark
-            jp.july_due_amt = remark
-            jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
+            jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.july_dis_amt))
         context = {
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'sd': pg1_new_guest.objects.get(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',context)
 
 
 def aug_make_payments_vacate5(request, id):
@@ -4646,12 +4798,16 @@ def aug_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_rent = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
-            jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_due_amt = due_amt
+            jp.auguest_dis_amt = dis_amt
+            jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
 
@@ -4659,13 +4815,26 @@ def aug_make_payments_vacate5(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+            gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.auguest_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html',context)
 
 
 def sept_make_payments_vacate5(request, id):
@@ -4673,12 +4842,16 @@ def sept_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_rent = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
-            jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_due_amt = due_amt
+            jp.sept_dis_amt = dis_amt
+            jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
 
@@ -4686,13 +4859,26 @@ def sept_make_payments_vacate5(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.sept_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html',context)
 
 
 def oct_make_payments_vacate5(request, id):
@@ -4700,12 +4886,16 @@ def oct_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_rent = amt
             jp.remark = remark
-            jp.october_due_amt = remark
-            jp.october_rent_rec_date = datetime.date.today()
+            jp.october_due_amt = due_amt
+            jp.october_dis_amt = dis_amt
+            jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
             context = {
@@ -4713,13 +4903,25 @@ def oct_make_payments_vacate5(request, id):
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
 
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.october_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html',context)
 
 
 def nov_make_payments_vacate5(request, id):
@@ -4727,12 +4929,16 @@ def nov_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_rent = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
-            jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_due_amt = due_amt
+            jp.nov_dis_amt = dis_amt
+            jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
             context = {
@@ -4740,13 +4946,25 @@ def nov_make_payments_vacate5(request, id):
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
 
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.nov_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,
-                      'branches/branch5/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html',
-                      context)
+        return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html',context)
 
 
 def dec_make_payments_vacate5(request, id):
@@ -4754,21 +4972,40 @@ def dec_make_payments_vacate5(request, id):
         if request.method == 'POST':
             amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_rent = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
-            jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_due_amt = due_amt
+            jp.dec_dis_amt = dis_amt
+            jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch5app
+        total_discout_amt = []
+        pg1_new_beds = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.dec_dis_amt))
+
         context = {
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
         return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html',context)
 

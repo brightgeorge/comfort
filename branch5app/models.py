@@ -1346,6 +1346,159 @@ class pg1_new_guest(models.Model):
 
         return sum(ll)
 
+    def vcated_guest(self):
+        vg = pg1_new_guest.objects.all().filter(flag=3,guest_code=self.guest_code)
+
+        l=[]
+        for i in vg:
+            #l.append(int(i.jan_due_amt))
+            #l.append(int(i.feb_due_amt))
+            #l.append(int(i.march_due_amt))
+            #l.append(int(i.april_due_amt))
+            #l.append(int(i.may_due_amt))
+            #l.append(int(i.june_due_amt))
+            #l.append(int(i.july_due_amt))
+            #l.append(int(i.auguest_due_amt))
+            #l.append(int(i.sept_due_amt))
+            #l.append(int(i.october_due_amt))
+            #l.append(int(i.nov_due_amt))
+            #l.append(int(i.dec_due_amt))
+
+            if 1 <= int(i.guest_vacate_month):
+                if i.jan_rent_flag == 100 and int(i.jan_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.jan_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.jan_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.jan_rent_flag == 200:
+                    l.append(int(i.jan_due_amt))
+
+            if 2 <= int(i.guest_vacate_month):
+                if i.feb_rent_flag == 100 and int(i.feb_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.feb_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.feb_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.feb_rent_flag == 200:
+                    l.append(int(i.feb_due_amt))
+
+            if 3 <= int(i.guest_vacate_month):
+                if i.march_rent_flag == 100 and int(i.march_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.march_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.march_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.march_rent_flag == 200:
+                    l.append(int(i.march_due_amt))
+
+            if 4 <= int(i.guest_vacate_month):
+                if i.april_rent_flag == 100 and int(i.april_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.april_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.april_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.april_rent_flag == 200:
+                    l.append(int(i.april_due_amt))
+
+            if 5 <= int(i.guest_vacate_month):
+                if i.may_rent_flag == 100 and int(i.may_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.may_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.may_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.may_rent_flag == 200:
+                    l.append(int(i.may_due_amt))
+
+            if 6 <= int(i.guest_vacate_month):
+                if i.june_rent_flag == 100 and int(i.june_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.june_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.june_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.june_rent_flag == 200:
+                    l.append(int(i.june_due_amt))
+
+            if 7 <= int(i.guest_vacate_month):
+                if i.july_rent_flag == 100 and int(i.july_dis_amt) >0:
+                    a=int(i.monthly_rent)
+                    b=int(i.july_dis_amt)
+                    c=a-b
+                    l.append(c)
+                elif i.july_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.july_rent_flag == 200:
+                    l.append(int(i.july_due_amt))
+
+            if 8 <= int(i.guest_vacate_month):
+                if i.auguest_rent_flag == 100 and int(i.auguest_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.auguest_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.auguest_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.auguest_rent_flag == 200:
+                    l.append(int(i.auguest_due_amt))
+
+            if 9 <= int(i.guest_vacate_month):
+                if i.sept_rent_flag == 100 and int(i.sept_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.sept_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.sept_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.sept_rent_flag == 200:
+                    l.append(int(i.sept_due_amt))
+
+            if 10 <= int(i.guest_vacate_month):
+                if i.october_rent_flag == 100 and int(i.october_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.october_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.october_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.october_rent_flag == 200:
+                    l.append(int(i.october_due_amt))
+
+            if 11 <= int(i.guest_vacate_month):
+                if i.nov_rent_flag == 100 and int(i.nov_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.nov_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.nov_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.nov_rent_flag == 200:
+                    l.append(int(i.nov_due_amt))
+
+            if 12 <= int(i.guest_vacate_month):
+                if i.dec_rent_flag == 100 and int(i.dec_dis_amt) > 0:
+                    a = int(i.monthly_rent)
+                    b = int(i.dec_dis_amt)
+                    c = a - b
+                    l.append(c)
+                elif i.dec_rent_flag == 100:
+                    l.append(int(i.monthly_rent))
+                elif i.dec_rent_flag == 200:
+                    l.append(int(i.dec_due_amt))
+        print('my llllll due vcated',l)
+        return sum(l)
+
+
 
 
 

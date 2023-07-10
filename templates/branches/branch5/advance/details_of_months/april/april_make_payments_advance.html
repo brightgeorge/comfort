@@ -247,9 +247,15 @@
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Enter Amount</label>
-				<input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.advance}}" style="display:inline;" name="janamt" required>
+				<input type="number" class="form-control col-lg-2" id="input-11" value="{{sd.advance}}" style="display:inline;" name="janamt" required>
 			</div>
+
                 <div class="form-group">
+				<label for="input-11">Enter Discount</label>
+				<input type="number" class="form-control col-lg-2" id="input-11" value="{{sd.april_dis_amt}}" style="display:inline;" name="discount" required>
+			</div>
+
+                 <div class="form-group">
 				<label for="input-12">Enter Remark</label>
 				<input type="text" class="form-control col-lg-2" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark">
 			</div>
