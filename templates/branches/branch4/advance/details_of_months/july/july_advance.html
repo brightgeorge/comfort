@@ -89,7 +89,7 @@
       </li>
        <li>
         <a href="{% url 'detail_guest_general4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 4</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 4</span>
         </a>
       </li>
        <li>
@@ -110,6 +110,17 @@
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live4' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 4</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room4' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 4</span>
+        </a>
+      </li>
 
 
       <li>
@@ -305,8 +316,8 @@
                    <tr>
                        <td> <button style="background-color:green;border:1px solid white;border-radius:10px;" id="hov">Already Paid</button> </a></td>
                     <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
-                    <td>{{i.july_rent}}</td>
+                    <td>{{i.advance}}</td>
+                    <td>{{i.july_advance}}</td>
                    </tr>
 
                    {% endif %}

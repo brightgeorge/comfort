@@ -105,7 +105,7 @@
       </li>
        <li>
         <a href="{% url 'detail_guest_general4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 4</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 4</span>
         </a>
       </li>
        <li>
@@ -126,6 +126,17 @@
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live4' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 4</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room4' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 4</span>
+        </a>
+      </li>
 
 
       <li>
@@ -236,9 +247,15 @@
                 {% csrf_token %}
 			<div class="form-group">
 				<label for="input-11">Enter Amount</label>
-				<input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.advance}}" style="display:inline;" name="janamt" required>
+				<input type="number" class="form-control col-lg-2" id="input-11" value="{{sd.advance}}" style="display:inline;" name="janamt" required>
 			</div>
+
                 <div class="form-group">
+				<label for="input-11">Enter Discount</label>
+				<input type="number" class="form-control col-lg-2" id="input-11" value="{{sd.april_dis_amt}}" style="display:inline;" name="discount" required>
+			</div>
+
+                 <div class="form-group">
 				<label for="input-12">Enter Remark</label>
 				<input type="text" class="form-control col-lg-2" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark">
 			</div>

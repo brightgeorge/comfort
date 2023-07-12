@@ -2320,37 +2320,41 @@ def dec_make_payments2(request,id):
 #PAYMENTS END HERE
 ################################
 
+
 ##################################
-#ADVANCE START HERE
+# ADVANCE START HERE
 ################################
 
 def choose_months_advance2(request):
     if 'username' in request.session:
-        return render(request,'branches/branch2/advance/choose_months_advance.html')
+        return render(request, 'branches/branch2/advance/choose_months_advance.html')
 
 
 def jan_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, jan_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/jan/jan_advance.html',context)
-    return render(request,'index.html')
+        return render(request, 'branches/branch2/advance/details_of_months/jan/jan_advance.html', context)
+    return render(request, 'index.html')
 
-def jan_make_payments_advance2(request,id):
+
+def jan_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_advance = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
+            jp.jan_due_amt = amt
+            jp.jan_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2358,31 +2362,32 @@ def jan_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_advance = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
+            jp.jan_due_amt = amt
+            jp.jan_dis_amt = dis
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/jan/jan_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
@@ -2393,24 +2398,27 @@ def jan_make_payments_advance2(request,id):
 def feb_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, feb_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch2/advance/details_of_months/feb/feb_advance.html',context)
-    return render(request,'index.html')
+        return render(request, 'branches/branch2/advance/details_of_months/feb/feb_advance.html', context)
+    return render(request, 'index.html')
 
-def feb_make_payments_advance2(request,id):
+
+def feb_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_advance = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
+            jp.feb_due_amt = amt
+            jp.feb_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2418,58 +2426,63 @@ def feb_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.feb_advance = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
+            jp.feb_due_amt = amt
+            jp.feb_dis_amt = dis
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, feb_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/feb/feb_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/feb/feb_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch2/advance/details_of_months/feb/feb_make_payments_advance.html', context)
     return render(request, 'index.html')
 
+
 def march_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, march_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch2/advance/details_of_months/march/march_advance.html',context)
-    return render(request,'index.html')
+        return render(request, 'branches/branch2/advance/details_of_months/march/march_advance.html', context)
+    return render(request, 'index.html')
 
-def march_make_payments_advance2(request,id):
+
+def march_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_advance = amt
             jp.remark = remark
-            jp.march_due_amt = remark
+            jp.march_due_amt = amt
+            jp.march_dis_amt = dis
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2477,60 +2490,66 @@ def march_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.march_advance = amt
             jp.remark = remark
-            jp.march_due_amt = remark
+            jp.march_due_amt = amt
+            jp.march_dis_amt = dis
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, march_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/march/march_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/march/march_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch2/advance/details_of_months/march/march_make_payments_advance.html', context)
+        return render(request, 'branches/branch2/advance/details_of_months/march/march_make_payments_advance.html',
+                      context)
     return render(request, 'index.html')
 
-def april_advane2(request):
+
+def april_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,april_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, april_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/april/april_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/april/april_advance.html', context)
     return render(request, 'index.html')
 
-def april_make_payments_advance2(request,id):
+
+def april_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_advance = amt
             jp.remark = remark
-            jp.april_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.april_due_amt = amt
+            jp.april_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2539,62 +2558,68 @@ def april_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.april_advance = amt
             jp.remark = remark
-            jp.april_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.april_due_amt = amt
+            jp.april_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, april_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/april/april_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/april/april_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch2/advance/details_of_months/april/april_make_payments_advance.html', context)
+        return render(request, 'branches/branch2/advance/details_of_months/april/april_make_payments_advance.html',
+                      context)
     return render(request, 'index.html')
 
-def may_advane2(request):
+
+def may_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,may_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, may_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/may/may_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/may/may_advance.html', context)
     return render(request, 'index.html')
 
-def may_make_payments_advance2(request,id):
+
+def may_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_advance = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = amt
+            jp.may_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2603,62 +2628,67 @@ def may_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.may_advance = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = amt
+            jp.may_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/may/may_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/may/may_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch2/advance/details_of_months/may/may_make_payments_advance.html', context)
     return render(request, 'index.html')
 
-def june_advane2(request):
+
+def june_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,june_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, june_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/june/june_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/june/june_advance.html', context)
     return render(request, 'index.html')
 
-def june_make_payments_advance2(request,id):
+
+def june_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_advance = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = amt
+            jp.june_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2667,62 +2697,68 @@ def june_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_advance = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = amt
+            jp.june_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/june/june_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/june/june_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch2/advance/details_of_months/june/june_make_payments_advance.html', context)
+        return render(request, 'branches/branch2/advance/details_of_months/june/june_make_payments_advance.html',
+                      context)
     return render(request, 'index.html')
+
 
 def july_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,july_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, july_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/july/july_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/july/july_advance.html', context)
     return render(request, 'index.html')
 
-def july_make_payments_advance2(request,id):
+
+def july_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_advance = amt
+            jp.july_dis_amt = dis
             jp.remark = remark
-            jp.july_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = amt
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2731,62 +2767,68 @@ def july_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.july_advance = amt
             jp.remark = remark
-            jp.july_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.july_dis_amt = dis
+            jp.july_due_amt = amt
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/july/july_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/july/july_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch2/advance/details_of_months/july/july_make_payments_advance.html', context)
+        return render(request, 'branches/branch2/advance/details_of_months/july/july_make_payments_advance.html',
+                      context)
     return render(request, 'index.html')
+
 
 def auguest_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,auguest_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, auguest_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/aug/aug_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/aug/aug_advance.html', context)
     return render(request, 'index.html')
 
-def auguest_make_payments_advance2(request,id):
+
+def auguest_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_advance = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.auguest_due_amt = amt
+            jp.auguest_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2795,62 +2837,67 @@ def auguest_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.auguest_advance = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.auguest_due_amt = amt
+            jp.auguest_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, auguest_rent_flag__gt=99),
                 'room': room_pg1.objects.all(),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/aug/aug_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/aug/aug_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch2/advance/details_of_months/aug/aug_make_payments_advance.html', context)
     return render(request, 'index.html')
 
+
 def sept_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,sept_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, sept_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/sept/sept_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/sept/sept_advance.html', context)
     return render(request, 'index.html')
 
-def sept_make_payments_advance2(request,id):
+
+def sept_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_advance = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.sept_due_amt = amt
+            jp.sept_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2859,62 +2906,68 @@ def sept_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.sept_advance = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.sept_due_amt = amt
+            jp.sept_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, sept_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/sept/sept_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/sept/sept_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch2/advance/details_of_months/sept/sept_make_payments_advance.html', context)
+        return render(request, 'branches/branch2/advance/details_of_months/sept/sept_make_payments_advance.html',
+                      context)
     return render(request, 'index.html')
+
 
 def october_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,october_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, october_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/oct/oct_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/oct/oct_advance.html', context)
     return render(request, 'index.html')
 
-def october_make_payments_advance2(request,id):
+
+def october_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_advance = amt
             jp.remark = remark
-            jp.october_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.october_due_amt = amt
+            jp.october_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2923,62 +2976,67 @@ def october_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.october_advance = amt
             jp.remark = remark
-            jp.october_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.october_due_amt = amt
+            jp.october_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, october_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/oct/oct_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/oct/oct_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch2/advance/details_of_months/oct/oct_make_payments_advance.html', context)
     return render(request, 'index.html')
 
+
 def nov_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,nov_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, nov_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/nov/nov_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/nov/nov_advance.html', context)
     return render(request, 'index.html')
 
-def nov_make_payments_advance2(request,id):
+
+def nov_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_advance = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.nov_due_amt = amt
+            jp.nov_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -2987,62 +3045,67 @@ def nov_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.nov_advance = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.nov_due_amt = amt
+            jp.nov_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, nov_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/nov/nov_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/nov/nov_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch2/advance/details_of_months/nov/nov_make_payments_advance.html', context)
     return render(request, 'index.html')
 
+
 def dec_advance2(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
-            'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,dec_rent_flag__gt=99),
-            'roomno':rn,
+        context = {
+            'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, dec_rent_flag__gt=99),
+            'roomno': rn,
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch2/advance/details_of_months/dec/dec_advance.html',context)
+        return render(request, 'branches/branch2/advance/details_of_months/dec/dec_advance.html', context)
     return render(request, 'index.html')
 
-def dec_make_payments_advance2(request,id):
+
+def dec_make_payments_advance2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            dis = request.POST.get('discount')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_advance = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.dec_due_amt = amt
+            jp.dec_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
@@ -3051,33 +3114,34 @@ def dec_make_payments_advance2(request,id):
             for i in rno:
                 l.append(str(i.guest_code))
             gc = ''.join(l)
-            print('lll',l)
+            print('lll', l)
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.dec_advance = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.dec_due_amt = amt
+            jp.dec_dis_amt = dis
+            # jp.may_rent_rec_date = datetime.date.today()
 
             jp.save()
 
-            rno= pg1_new_guest.objects.all().filter(id=id)
-            l=[]
+            rno = pg1_new_guest.objects.all().filter(id=id)
+            l = []
             for i in rno:
                 l.append(str(i.roon_no))
-            s=''.join(l)
+            s = ''.join(l)
             context = {
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, dec_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch2/advance/details_of_months/dec/dec_advance.html',context)
+            return render(request, 'branches/branch2/advance/details_of_months/dec/dec_advance.html', context)
         rn = request.POST.get('rno')
 
         context = {
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'room': room_pg1.objects.all(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
@@ -3086,8 +3150,9 @@ def dec_make_payments_advance2(request,id):
 
 
 ##################################
-#ADVANCE END HERE
+# ADVANCE END HERE
 ################################
+
 
 ##################################
 #PRINT OUTS START HERE
@@ -5541,304 +5606,531 @@ def details_of_vacate_guest2(request,id):
     }
     return render(request,'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
 
-#***********vacate guest payments start here*******
 
-def jan_manke_payments_vacate2(request,id):
+# ***********vacate guest payments start here*******
+
+def jan_manke_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
             jp.remark = remark
-            jp.jan_due_amt = remark
-            jp.jan_rent_rec_date = datetime.date.today()
+            jp.jan_due_amt = due_amt
+            jp.jan_dis_amt = dis_amt
+            jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
 
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.jan_dis_amt))
+
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch2/payments/details_of_months/jan/jan_manke_payments_vacate.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/jan/jan_manke_payments_vacate.html',context)
 
 
-def feb_manke_payments_vacate2(request,id):
+def feb_manke_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
             jp.remark = remark
-            jp.feb_due_amt = remark
-            jp.feb_rent_rec_date = datetime.date.today()
+            jp.feb_due_amt = due_amt
+            jp.feb_dis_amt = dis_amt
+            jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
-        context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id),
-        }
-        return render(request, 'branches/branch2/payments/details_of_months/feb/feb_manke_payments_vacate.html', context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
 
-def march_manke_payments_vacate2(request,id):
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.feb_dis_amt))
+
+        context = {
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
+        }
+        return render(request, 'branches/branch2/payments/details_of_months/feb/feb_manke_payments_vacate.html',context)
+
+
+def march_manke_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
             jp.remark = remark
-            jp.march_due_amt = remark
-            jp.march_rent_rec_date = datetime.date.today()
+            jp.march_due_amt = due_amt
+            jp.march_dis_amt = dis_amt
+            jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.march_dis_amt))
+
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch2/payments/details_of_months/march/march_manke_payments_vacate.html', context)
+        return render(request, 'branches/branch2/payments/details_of_months/march/march_manke_payments_vacate.html',context)
 
 
-def april_make_payments_vacate2(request,id):
+def april_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
             jp.remark = remark
-            jp.april_due_amt = remark
-            jp.april_rent_rec_date = datetime.date.today()
+            jp.april_due_amt = due_amt
+            jp.april_dis_amt = dis_amt
+            jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
 
             context = {
-                'user_details' : pg1_new_guest.objects.all().filter(id=id),
+                'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.april_dis_amt))
+
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html', context)
-    return render(request,'index.html')
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html',context)
 
 
-
-def may_make_payments_vacate2(request,id):
+def may_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
             jp.remark = remark
-            jp.may_due_amt = remark
-            jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.may_dis_amt = dis_amt
+            jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.may_dis_amt))
 
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html',context)
 
 
-def june_make_payments_vacate2(request,id):
+def june_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
             jp.remark = remark
-            jp.june_due_amt = remark
-            jp.june_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = due_amt
+            jp.june_dis_amt = dis_amt
+            jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.june_dis_amt))
 
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id)
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch2/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html',context)
 
 
-def july_make_payments_vacate2(request,id):
+def july_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
             jp.remark = remark
-            jp.july_due_amt = remark
-            jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.july_dis_amt = dis_amt
+            jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.july_dis_amt))
         context = {
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'sd': pg1_new_guest.objects.get(id=id),
+            'discount_amt': total_discout_amt[0],
         }
         return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',context)
 
-def aug_make_payments_vacate2(request,id):
+
+def aug_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_rent = amt
             jp.remark = remark
-            jp.auguest_due_amt = remark
-            jp.auguest_rent_rec_date = datetime.date.today()
+            jp.auguest_due_amt = due_amt
+            jp.auguest_dis_amt = dis_amt
+            jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
 
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+            gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.auguest_dis_amt))
+
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html',context)
 
 
-def sept_make_payments_vacate2(request,id):
+def sept_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_rent = amt
             jp.remark = remark
-            jp.sept_due_amt = remark
-            jp.sept_rent_rec_date = datetime.date.today()
+            jp.sept_due_amt = due_amt
+            jp.sept_dis_amt = dis_amt
+            jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
 
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
-        context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
-            'user_details': pg1_new_guest.objects.all().filter(id=id),
-        }
-        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html', context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
 
-def oct_make_payments_vacate2(request,id):
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.sept_dis_amt))
+
+        context = {
+            'sd': pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
+        }
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html',context)
+
+
+def oct_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_rent = amt
             jp.remark = remark
-            jp.october_due_amt = remark
-            jp.october_rent_rec_date = datetime.date.today()
+            jp.october_due_amt = due_amt
+            jp.october_dis_amt = dis_amt
+            jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.october_dis_amt))
 
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html',context)
 
 
-def nov_make_payments_vacate2(request,id):
+def nov_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_rent = amt
             jp.remark = remark
-            jp.nov_due_amt = remark
-            jp.nov_rent_rec_date = datetime.date.today()
+            jp.nov_due_amt = due_amt
+            jp.nov_dis_amt = dis_amt
+            jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.nov_dis_amt))
 
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html',context)
 
 
-def dec_make_payments_vacate2(request,id):
+def dec_make_payments_vacate2(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
-            amt=request.POST.get('janamt')
+            amt = request.POST.get('janamt')
             remark = request.POST.get('janremark')
+            date = request.POST.get('pdate')
+            due_amt = request.POST.get('dueamt')
+            dis_amt = request.POST.get('disamt')
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_rent = amt
             jp.remark = remark
-            jp.dec_due_amt = remark
-            jp.dec_rent_rec_date = datetime.date.today()
+            jp.dec_due_amt = due_amt
+            jp.dec_dis_amt = dis_amt
+            jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
             context = {
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html',context)
+            return render(request, 'branches/branch2/vacate_guest/details_of_vacate_guest.html', context)
+
+        rno = pg1_new_guest.objects.all().filter(id=id)
+        l = []
+        for i in rno:
+            l.append(str(i.guest_code))
+        gc = ''.join(l)
+        print('lll', l)
+
+        import branch2app
+        total_discout_amt = []
+        pg1_new_beds = branch2app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        for i in pg1_new_beds:
+            total_discout_amt.append(int(i.dec_dis_amt))
+
         context = {
-            'sd' : pg1_new_guest.objects.get(id=id),
+            'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
+            'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html', context)
+        return render(request,'branches/branch2/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html',context)
 
 
-#************vacate guest payments end here*******
+
+# ************vacate guest payments end here*******
+
+
 
 ##################################
 #VACATE GUEST DETAILS END HERE

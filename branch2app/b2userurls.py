@@ -131,44 +131,46 @@ urlpatterns = [
 #MONTHLY MANAGEMENT PAYMENTS END HERE
 ################################
 
+##################################
+# _ADVANCE2 START HERE
+################################
+
+    path('choose_months_advance2/', branch2.choose_months_advance2, name='choose_months_advance2'),
+
+    path('jan_advance2/', branch2.jan_advance2, name='jan_advance2'),
+    path('jan_make_payments_advance2/<id>', branch2.jan_make_payments_advance2, name='jan_make_payments_advance2'),
+    path('feb_advance2/', branch2.feb_advance2, name='feb_advance2'),
+    path('feb_make_payments_advance2/<id>', branch2.feb_make_payments_advance2, name='feb_make_payments_advance2'),
+    path('march_advance2/', branch2.march_advance2, name='march_advance2'),
+    path('march_make_payments_advance2/<id>', branch2.march_make_payments_advance2,
+         name='march_make_payments_advance2'),
+    path('april_advance2/', branch2.april_advance2, name='april_advance2'),
+    path('april_make_payments_advance2/<id>', branch2.april_make_payments_advance2,
+         name='april_make_payments_advance2'),
+
+    path('may_advance2/', branch2.may_advance2, name='may_advance2'),
+    path('may_make_payments_advance2/<id>', branch2.may_make_payments_advance2, name='may_make_payments_advance2'),
+    path('june_advance2/', branch2.june_advance2, name='june_advance2'),
+    path('june_make_payments_advance2/<id>', branch2.june_make_payments_advance2, name='june_make_payments_advance2'),
+    path('july_advance2/', branch2.july_advance2, name='july_advance2'),
+    path('july_make_payments_advance2/<id>', branch2.july_make_payments_advance2, name='july_make_payments_advance2'),
+    path('auguest_advance2/', branch2.auguest_advance2, name='auguest_advance2'),
+    path('auguest_make_payments_advance2/<id>', branch2.auguest_make_payments_advance2,
+         name='auguest_make_payments_advance2'),
+
+    path('sept_advance2/', branch2.sept_advance2, name='sept_advance2'),
+    path('sept_make_payments_advance2/<id>', branch2.sept_make_payments_advance2, name='sept_make_payments_advance2'),
+    path('october_advance2/', branch2.october_advance2, name='october_advance2'),
+    path('october_make_payments_advance2/<id>', branch2.october_make_payments_advance2,
+         name='october_make_payments_advance2'),
+    path('nov_advance2/', branch2.nov_advance2, name='nov_advance2'),
+    path('nov_make_payments_advance2/<id>', branch2.nov_make_payments_advance2, name='nov_make_payments_advance2'),
+    path('dec_advance2/', branch2.dec_advance2, name='dec_advance2'),
+    path('dec_make_payments_advance2/<id>', branch2.dec_make_payments_advance2, name='dec_make_payments_advance2'),
 
 ##################################
-#ADVANCE START HERE
+# _ADVANCE2 END HERE
 ################################
-
-    path('choose_months_advance2/',branch2.choose_months_advance2,name='choose_months_advance'+name),
-
-    path('jan_advance2/', branch2.jan_advance2, name='jan_advance'+name),
-    path('jan_make_payments_advance2/<id>', branch2.jan_make_payments_advance2,name='jan_make_payments_advance'+name),
-    path('feb_advance2/', branch2.feb_advance2, name='feb_advance'+name),
-    path('feb_make_payments_advance2/<id>', branch2.feb_make_payments_advance2,name='feb_make_payments_advance' + name),
-    path('march_advance2/', branch2.march_advance2, name='march_advance'+name),
-    path('march_make_payments_advance2/<id>', branch2.march_make_payments_advance2,name='march_make_payments_advance'+name),
-    path('april_advance2/', branch2.april_advane2, name='april_advane'+name),
-    path('april_make_payments_advance2/<id>', branch2.april_make_payments_advance2, name='april_make_payments_advance'+name),
-
-    path('may_advane2/',branch2.may_advane2,name='may_advane'+name),
-    path('may_make_payments_advance2/<id>', branch2.may_make_payments_advance2, name='may_make_payments_advance'+name),
-    path('june_advane2/',branch2.june_advane2,name='june_advane'+name),
-    path('june_make_payments_advance2/<id>', branch2.june_make_payments_advance2, name='june_make_payments_advance'+name),
-    path('july_advane2/',branch2.july_advance2,name='july_advane'+name),
-    path('july_make_payments_advance2/<id>', branch2.july_make_payments_advance2, name='july_make_payments_advance'+name),
-    path('auguest_advance2/', branch2.auguest_advance2, name='auguest_advance'+name),
-    path('auguest_make_payments_advance2/<id>', branch2.auguest_make_payments_advance2, name='auguest_make_payments_advance'+name),
-
-    path('sept_advance2/', branch2.sept_advance2, name='sept_advance'+name),
-    path('sept_make_payments_advance2/<id>', branch2.sept_make_payments_advance2,name='sept_make_payments_advance'+name),
-    path('october_advance2/', branch2.october_advance2, name='october_advance'+name),
-    path('october_make_payments_advance2/<id>', branch2.october_make_payments_advance2, name='october_make_payments_advance'+name),
-    path('nov_advance2/', branch2.nov_advance2, name='nov_advance'+name),
-    path('nov_make_payments_advance2/<id>', branch2.nov_make_payments_advance2,name='nov_make_payments_advance'+name),
-    path('dec_advance2/', branch2.dec_advance2, name='dec_advance'+name),
-    path('dec_make_payments_advance2/<id>', branch2.dec_make_payments_advance2, name='dec_make_payments_advance'+name),
-
-    ##################################
-#ADVANCE END HERE
-################################
-
 
 #*********reports start here
 

@@ -44,6 +44,7 @@ def branch1_dashboard5(request):
             'l' : admin_dashboard_calculations_br5.grand_total(),
             #'total_collection_discount_june' : admin_dashboard_calculations_br5.total_collection_discount_june(),
             'y' : admin_dashboard_calculations_br5.bar_chart(),
+            'bg':'bg-theme1',
         }
         return render(request, 'branches/branch5/branch1index.html',context)
     return render(request, 'index.html')
@@ -1376,10 +1377,9 @@ def jan_manke_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.jan_rent = amt
-            jp.remark = remark
+            jp.jan_dis_amt = dis_amt
             jp.jan_due_amt = due_amt
-            jp.feb_due_amt = due_amt
-            #jp.jan_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
@@ -1394,15 +1394,13 @@ def jan_manke_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.jan_rent = dis_amt
-            jp.remark = remark
+            jp.jan_rent = amt
+            jp.jan_dis_amt = dis_amt
             jp.jan_due_amt = due_amt
-            jp.feb_due_amt = due_amt
-            #jp.jan_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.jan_rent_rec_date = date
             jp.jan_rent_flag = 200
             jp.save()
-
 
             rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
@@ -1464,10 +1462,9 @@ def feb_manke_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.feb_rent = amt
-            jp.remark = remark
+            jp.feb_dis_amt = dis_amt
             jp.feb_due_amt = due_amt
-            jp.march_due_amt = due_amt
-            #jp.feb_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
@@ -1482,11 +1479,10 @@ def feb_manke_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.feb_rent = dis_amt
-            jp.remark = remark
+            jp.feb_rent = amt
+            jp.feb_dis_amt = dis_amt
             jp.feb_due_amt = due_amt
-            jp.march_due_amt = due_amt
-            #jp.feb_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
@@ -1551,10 +1547,9 @@ def march_manke_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.march_rent = amt
-            jp.remark = remark
+            jp.march_dis_amt = dis_amt
             jp.march_due_amt = due_amt
-            jp.april_due_amt = due_amt
-            #jp.march_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
@@ -1569,11 +1564,10 @@ def march_manke_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.march_rent = dis_amt
-            jp.remark = remark
+            jp.march_rent = amt
+            jp.march_dis_amt = dis_amt
             jp.march_due_amt = due_amt
-            jp.april_due_amt = due_amt
-            #jp.march_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
@@ -1640,10 +1634,9 @@ def april_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.april_rent = amt
-            jp.remark = remark
+            jp.april_dis_amt = dis_amt
             jp.april_due_amt = due_amt
-            jp.may_due_amt = due_amt
-            #jp.april_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
@@ -1658,11 +1651,10 @@ def april_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.april_rent = dis_amt
-            jp.remark = remark
+            jp.april_rent = amt
+            jp.april_dis_amt = dis_amt
             jp.april_due_amt = due_amt
-            jp.may_due_amt = due_amt
-            #jp.april_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.april_rent_rec_date = date
             jp.april_rent_flag = 200
             jp.save()
@@ -1729,11 +1721,9 @@ def may_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.may_rent = amt
-            jp.remark = remark
-            jp.may_due_amt = due_amt
-            jp.june_due_amt = due_amt
             jp.may_dis_amt = dis_amt
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.remark = remark
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
@@ -1749,11 +1739,9 @@ def may_make_payments5(request,id):
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.may_rent = amt
-            jp.remark = remark
-            jp.may_due_amt = due_amt
-            jp.june_due_amt = due_amt
             jp.may_dis_amt = dis_amt
-            #jp.may_rent_rec_date = datetime.date.today()
+            jp.may_due_amt = due_amt
+            jp.remark = remark
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
@@ -1818,13 +1806,12 @@ def june_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.june_rent = amt
-            jp.remark = remark
-            jp.june_due_amt = due_amt
             jp.june_dis_amt = dis_amt
+            jp.june_due_amt = due_amt
+            jp.remark = remark
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -1836,11 +1823,9 @@ def june_make_payments5(request,id):
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_rent = amt
-            jp.remark = remark
-            jp.june_due_amt = due_amt
-            #jp.july_due_amt = due_amt
             jp.june_dis_amt = dis_amt
-            # jp.june_rent_rec_date = datetime.date.today()
+            jp.june_due_amt = due_amt
+            jp.remark = remark
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
@@ -1908,15 +1893,12 @@ def july_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.july_rent = amt
-            jp.remark = remark
-            jp.july_due_amt = due_amt
-            jp.auguest_due_amt = due_amt
             jp.july_dis_amt = dis_amt
-            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.remark = remark
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -1928,16 +1910,13 @@ def july_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.july_rent = dis_amt
-            jp.remark = remark
-            jp.july_due_amt = due_amt
-            jp.auguest_due_amt = due_amt
+            jp.july_rent = amt
             jp.july_dis_amt = dis_amt
-            #jp.july_rent_rec_date = datetime.date.today()
+            jp.july_due_amt = due_amt
+            jp.remark = remark
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
-
 
             rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
@@ -2001,10 +1980,9 @@ def aug_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.auguest_rent = amt
-            jp.remark = remark
+            jp.auguest_dis_amt = dis_amt
             jp.auguest_due_amt = due_amt
-            jp.sept_due_amt = due_amt
-            #jp.auguest_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
@@ -2019,11 +1997,10 @@ def aug_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.auguest_rent = dis_amt
-            jp.remark = remark
+            jp.auguest_rent = amt
+            jp.auguest_dis_amt = dis_amt
             jp.auguest_due_amt = due_amt
-            jp.sept_due_amt = due_amt
-            #jp.auguest_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.auguest_rent_rec_date = date
             jp.auguest_rent_flag = 200
             jp.save()
@@ -2088,14 +2065,12 @@ def sept_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.sept_rent = amt
-            jp.remark = remark
+            jp.sept_dis_amt = dis_amt
             jp.sept_due_amt = due_amt
-            jp.october_due_amt = due_amt
-            #jp.sept_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -2107,11 +2082,10 @@ def sept_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.sept_rent = dis_amt
-            jp.remark = remark
+            jp.sept_rent = amt
+            jp.sept_dis_amt = dis_amt
             jp.sept_due_amt = due_amt
-            jp.october_due_amt = due_amt
-            #jp.sept_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.sept_rent_rec_date = date
             jp.sept_rent_flag = 200
             jp.save()
@@ -2179,14 +2153,12 @@ def oct_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.october_rent = amt
-            jp.remark = remark
+            jp.october_dis_amt = dis_amt
             jp.october_due_amt = due_amt
-            jp.nov_due_amt = due_amt
-            #jp.october_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
-
 
             rno = pg1_new_guest.objects.all().filter(id=id)
             l = []
@@ -2198,11 +2170,10 @@ def oct_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.october_rent = dis_amt
-            jp.remark = remark
+            jp.october_rent = amt
+            jp.october_dis_amt = dis_amt
             jp.october_due_amt = due_amt
-            jp.nov_due_amt = due_amt
-            #jp.october_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
@@ -2267,10 +2238,9 @@ def nov_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.nov_rent = amt
-            jp.remark = remark
+            jp.nov_dis_amt = dis_amt
             jp.nov_due_amt = due_amt
-            jp.dec_due_amt = due_amt
-            #jp.nov_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
@@ -2285,11 +2255,10 @@ def nov_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.nov_rent = dis_amt
-            jp.remark = remark
+            jp.nov_rent = amt
+            jp.nov_dis_amt = dis_amt
             jp.nov_due_amt = due_amt
-            jp.dec_due_amt = due_amt
-            #jp.nov_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
@@ -2355,9 +2324,9 @@ def dec_make_payments5(request,id):
 
             jp = pg1_new_guest.objects.get(id=id)
             jp.dec_rent = amt
-            jp.remark = remark
+            jp.dec_dis_amt = dis_amt
             jp.dec_due_amt = due_amt
-            #jp.dec_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
@@ -2372,10 +2341,10 @@ def dec_make_payments5(request,id):
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
             import branch5app
             jp = branch5app.models.pg1_new_beds.objects.get(guest_code=l[0])
-            jp.dec_rent = dis_amt
-            jp.remark = remark
+            jp.dec_rent = amt
+            jp.dec_dis_amt = dis_amt
             jp.dec_due_amt = due_amt
-            #jp.dec_rent_rec_date = datetime.date.today()
+            jp.remark = remark
             jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
@@ -5008,7 +4977,6 @@ def dec_make_payments_vacate5(request, id):
             'discount_amt': total_discout_amt[0],
         }
         return render(request,'branches/branch5/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html',context)
-
 
 
 # ************vacate guest payments end here*******
