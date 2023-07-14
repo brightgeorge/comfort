@@ -90,7 +90,20 @@ def login_request(request):
             if role=='Branch5':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch5app
+                bgs = branch5app.models.background_color.objects.all().filter(username=us)
+                bg = branch5app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
                     'user': loginobj,
                     'name' : us
                 }
