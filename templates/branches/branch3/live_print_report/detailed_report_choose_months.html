@@ -52,26 +52,47 @@
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months3' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 3</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months3' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 3</span>
-        </a>
-      </li>
+         <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 3</span>
+  </a>
 
-      <li>
-        <a href="{% url 'choose_months3' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 3</span>
-        </a>
-      </li>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months3' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 3</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months3' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 3</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months3' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 3</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months3' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 3</span></a>
+  </div>
+</div>
+       </li>
+
+
+
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments 3</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user3' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment 3</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months3' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment 3</span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance3' %}">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 3</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'due_amt_mgt_choose_months3' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 3</span>
         </a>
       </li>
 
@@ -100,6 +121,19 @@
        <li>
         <a href="{% url 'pg1_view_all_beds3' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 3</span>
+        </a>
+      </li>
+
+
+               <li>
+        <a href="{% url 'may_print_live3' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 3</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room3' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 3</span>
         </a>
       </li>
 
@@ -190,12 +224,12 @@
 
   <!--Start Dashboard Content-->
 
-	<div class="card mt-3">
+   <div class="card mt-3">
     <div class="card-content">
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'jan_paid_rent3' %}">
+                <a href="{% url 'jan_details_live3' %}">
                 <div class="card-body" style="background-color:red;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -206,7 +240,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'feb_paid_rent3' %}">
+                <a href="{% url 'feb_details_live3' %}">
                 <div class="card-body" style="background-color:purple;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -217,7 +251,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'mar_paid_rent3' %}">
+                <a href="{% url 'march_details_live3' %}">
                 <div class="card-body" style="background-color:green;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -236,7 +270,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'april_paid_rent3' %}">
+                <a href="{% url 'april_details_live3' %}">
                 <div class="card-body" style="background-color:yellow;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -288,7 +322,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'aug_paid_rent3' %}">
+                <a href="{% url 'auguest_details_live3' %}">
                 <div class="card-body" style="background-color:#9acd32">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -298,7 +332,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'sept_paid_rent3' %}">
+                <a href="{% url 'sept_details_live3' %}">
                 <div class="card-body" style="background-color:#00008b">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -317,7 +351,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'oct_paid_rent3' %}">
+                <a href="{% url 'october_details_live3' %}">
                 <div class="card-body" style="background-color:#2A52BE">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -327,7 +361,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'nov_paid_rent3' %}">
+                <a href="{% url 'nov_details_live3' %}">
                 <div class="card-body" style="background-color:#ffd700">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -337,7 +371,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'dec_paid_rent3' %}">
+                <a href="{% url 'dec_details_live3' %}">
                 <div class="card-body" style="background-color:#0D98BA">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -351,13 +385,13 @@
     </div>
  </div>
 
-	<!--End Row-->
+   <!--End Row-->
 
-	<div class="row">
-	 <div class="col-12 col-lg-12">
-	   <div class="card">
-	     <div class="card-header">
-		  <div class="card-action">
+   <div class="row">
+    <div class="col-12 col-lg-12">
+      <div class="card">
+        <div class="card-header">
+        <div class="card-action">
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
               <i class="icon-options"></i>
@@ -367,15 +401,15 @@
                </div>
               </div>
              </div>
-		 </div>
-	       <div class="table-responsive">
+       </div>
+          <div class="table-responsive">
                {% comment %}
                  <table class="table align-items-center table-flush table-borderless">
 
                     <thead>
                    <tr>
                        <th>Action</th>
-						<th>Sl No</th>
+                  <th>Sl No</th>
 
 
 
@@ -384,7 +418,7 @@
                    <tbody>
                    {% for i in con %}
 
-				   <tr>
+               <tr>
                        <td><div class="dropdown1">
              <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
               <i class="icon-options"></i>
@@ -414,15 +448,15 @@
                  </table>
                {% endcomment %}
                </div>
-	   </div>
-	 </div>
-	</div><!--End Row-->
+      </div>
+    </div>
+   </div><!--End Row-->
 
       <!--End Dashboard Content-->
 
-	<!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+   <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+      <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -432,15 +466,15 @@
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 
-	<!--Start footer-->
-	<footer class="footer">
+   <!--Start footer-->
+   <footer class="footer">
       <div class="container">
         <div class="text-center">
           Copyright © 2018 Open Bright Admin
         </div>
       </div>
     </footer>
-	<!--End footer-->
+   <!--End footer-->
 
   <!--start color switcher-->
    <div class="right-sidebar">
@@ -471,7 +505,7 @@
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-		<li id="theme13"></li>
+      <li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -505,3 +539,4 @@
 
 </body>
 </html>
+

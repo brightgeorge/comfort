@@ -1164,3 +1164,16 @@ def monthly_collection_details2(request):
 
     return render(request,'branches/branch2/reports/dashboard_reports/due_amount/monthly_collection_details.html',context)
 
+
+def bar_chart():
+    a=total_colatable_amount()
+    b=total_collected_amount()
+    c=total_due()
+    d=total_collection_advance()
+
+    t=[]
+    t.append(a)
+    t.append(b)
+    t.append(c)
+    t.append(d)
+    return t

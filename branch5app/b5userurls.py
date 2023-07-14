@@ -10,6 +10,9 @@ from . import admin_dashboard_calculations_br5
 
 urlpatterns = [
     path('branch1_dashboard5/', branch5.branch1_dashboard5, name='branch1_dashboard5'),
+    path('background',branch5.background,name='background'),
+    path('background_regi',branch5.background_regi,name='background_regi'),
+    path('custom_background_regi',branch5.custom_background_regi,name='custom_background_regi'),
 
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
@@ -188,6 +191,7 @@ urlpatterns = [
     path('oct_unpaid_rent5/', branch5.oct_unpaid_rent5, name='oct_unpaid_rent5'),
     path('table_oct_unpaid_rent5/', branch5.table_oct_unpaid_rent5, name='table_oct_unpaid_rent5'),
     path('nov_unpaid_rent5/', branch5.nov_unpaid_rent5, name='nov_unpaid_rent5'),
+    path('table_nov_unpaid_rent5/', branch5.table_nov_unpaid_rent5, name='table_nov_unpaid_rent5'),
     path('dec_unpaid_rent5/', branch5.dec_unpaid_rent5, name='dec_unpaid_rent5'),
     path('table_dec_unpaid_rent5/', branch5.table_dec_unpaid_rent5, name='table_dec_unpaid_rent5'),
 
@@ -317,14 +321,44 @@ urlpatterns = [
     path('nov_close5/', branch5.nov_close5, name='nov_close5'),
     path('nov_close_decision_page5/', branch5.nov_close_decision_page5, name='nov_close_decision_page5'),
 
+
+########################################
+# DETAILED REPORT START HERE
+###########################
+
     path('detailed_report_choose_months5/',reports5.detailed_report_choose_months5,name='detailed_report_choose_months5'),
+
+    path('jan_details_live5/', reports5.jan_details_live5, name='jan_details_live5'),
+    path('jan_print_live5/', reports5.jan_print_live5, name='jan_print_live5'),
+    path('feb_details_live5/', reports5.feb_details_live5, name='feb_details_live5'),
+    path('feb_print_live5/', reports5.feb_print_live5, name='feb_print_live5'),
+    path('march_details_live5/', reports5.march_details_live5, name='march_details_live5'),
+    path('march_print_live5/', reports5.march_print_live5, name='march_print_live5'),
+
+    path('april_details_live5/', reports5.april_details_live5, name='april_details_live5'),
+    path('april_print_live5/', reports5.april_print_live5, name='april_print_live5'),
     path('may_details_live5/', reports5.may_details_live5, name='may_details_live5'),
     path('may_print_live5/', reports5.may_print_live5, name='may_print_live5'),
     path('june_details_live5/',reports5.june_details_live5,name='june_details_live5'),
     path('june_print_live5/', reports5.june_print_live5, name='june_print_live5'),
+
     path('july_details_live5/', reports5.july_details_live5, name='july_details_live5'),
     path('july_print_live5/', reports5.july_print_live5, name='july_print_live5'),
+    path('auguest_details_live5/', reports5.auguest_details_live5, name='auguest_details_live5'),
+    path('auguest_print_live5/', reports5.auguest_print_live5, name='auguest_print_live5'),
+    path('sept_details_live5/', reports5.sept_details_live5, name='sept_details_live5'),
+    path('sept_print_live5/', reports5.sept_print_live5, name='sept_print_live5'),
 
+    path('october_details_live5/', reports5.october_details_live5, name='october_details_live5'),
+    path('october_print_live5/', reports5.october_print_live5, name='october_print_live5'),
+    path('nov_details_live5/', reports5.nov_details_live5, name='nov_details_live5'),
+    path('nov_print_live5/', reports5.nov_print_live5, name='nov_print_live5'),
+    path('dec_details_live5/', reports5.dec_details_live5, name='dec_details_live5'),
+    path('dec_print_live5/', reports5.dec_print_live5, name='dec_print_live5'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
 
     path('viewall_vaccant_room5/', reports5.viewall_vaccant_room5, name='viewall_vaccant_room5'),
 
@@ -334,6 +368,9 @@ urlpatterns = [
     path('manage_new_guest5/', branch5.manage_new_guest5, name='manage_new_guest5'),
     path('manage_update_new_guest5/<id>', branch5.manage_update_new_guest5, name='manage_update_new_guest5'),
     path('manage_update_beds5/<id>', branch5.manage_update_beds5, name='manage_update_beds5'),
+
+
+
 
 ########################################
 # DUE AMT MANAGEMENT START HERE

@@ -50,7 +50,14 @@
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -89,7 +96,7 @@
        <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 5</span>
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Reports 5</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
@@ -106,7 +113,7 @@
               <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments 5</span>
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Payments 5</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
@@ -567,6 +574,14 @@ new Chart("myCharts", {
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
+
+        <p class="mb-0">Settings</p>
+      <hr>
+
+      <ul class="switcher">
+      <a href="{% url 'background' %}"  <li style="background-color:red;">Change Theme</li></a>
+      </ul>
+  <hr>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>

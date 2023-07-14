@@ -324,13 +324,46 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('test/',branch4.pysql,name='pysql'),
     path('d4/', branch4.dynamic, name='dynamic'),
 
-    path('detailed_report_choose_months4/', reports4.detailed_report_choose_months4, name='detailed_report_choose_months4'),
-    path('may_print_live4/',reports4.may_print_live4,name='may_print_live4'),
+
+########################################
+# DETAILED REPORT START HERE
+###########################
+
+    path('detailed_report_choose_months4/',reports4.detailed_report_choose_months4,name='detailed_report_choose_months4'),
+
+    path('jan_details_live4/', reports4.jan_details_live4, name='jan_details_live4'),
+    path('jan_print_live4/', reports4.jan_print_live4, name='jan_print_live4'),
+    path('feb_details_live4/', reports4.feb_details_live4, name='feb_details_live4'),
+    path('feb_print_live4/', reports4.feb_print_live4, name='feb_print_live4'),
+    path('march_details_live4/', reports4.march_details_live4, name='march_details_live4'),
+    path('march_print_live4/', reports4.march_print_live4, name='march_print_live4'),
+
+    path('april_details_live4/', reports4.april_details_live4, name='april_details_live4'),
+    path('april_print_live4/', reports4.april_print_live4, name='april_print_live4'),
     path('may_details_live4/', reports4.may_details_live4, name='may_details_live4'),
+    path('may_print_live4/', reports4.may_print_live4, name='may_print_live4'),
+    path('june_details_live4/',reports4.june_details_live4,name='june_details_live4'),
     path('june_print_live4/', reports4.june_print_live4, name='june_print_live4'),
-    path('june_details_live4/', reports4.june_details_live4, name='june_details_live4'),
-    path('july_print_live4/', reports4.july_print_live4, name='july_print_live4'),
+
     path('july_details_live4/', reports4.july_details_live4, name='july_details_live4'),
+    path('july_print_live4/', reports4.july_print_live4, name='july_print_live4'),
+    path('auguest_details_live4/', reports4.auguest_details_live4, name='auguest_details_live4'),
+    path('auguest_print_live4/', reports4.auguest_print_live4, name='auguest_print_live4'),
+    path('sept_details_live4/', reports4.sept_details_live4, name='sept_details_live4'),
+    path('sept_print_live4/', reports4.sept_print_live4, name='sept_print_live4'),
+
+    path('october_details_live4/', reports4.october_details_live4, name='october_details_live4'),
+    path('october_print_live4/', reports4.october_print_live4, name='october_print_live4'),
+    path('nov_details_live4/', reports4.nov_details_live4, name='nov_details_live4'),
+    path('nov_print_live4/', reports4.nov_print_live4, name='nov_print_live4'),
+    path('dec_details_live4/', reports4.dec_details_live4, name='dec_details_live4'),
+    path('dec_print_live4/', reports4.dec_print_live4, name='dec_print_live4'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
+
+
 
     path('viewall_vaccant_room4/',reports4.viewall_vaccant_room4,name='viewall_vaccant_room4'),
 
