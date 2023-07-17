@@ -12,6 +12,10 @@ urlpatterns = [
     path('branch1_dashboard4/', branch4.branch1_dashboard4, name='branch1_dashboard4'),
     path('monthly_details_due4', admin_dashboard_calculations_br4.monthly_details_due4, name='monthly_details_due4'),
 
+    path('background4', branch4.background4, name='background4'),
+    path('background_regi4', branch4.background_regi4, name='background_regi4'),
+    path('custom_background_regi4', branch4.custom_background_regi4, name='custom_background_regi4'),
+
     #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
     path('branch1_room_create_regi4/',admin_branch4.branch1_room_create_regi4,name='branch1_room_create_regi4'),
@@ -199,40 +203,84 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
 #unpaid rent end here
 
 #paid rent start here
+
     path('paid_rent_choose_months4/',branch4.paid_rent_choose_months4,name='paid_rent_choose_months4'),
-    path('partially_paid_guest_choose_months4/', reports4.partially_paid_guest_choose_months4,name='partially_paid_guest_choose_months4'),
+    path('partially_paid_guest_choose_months4/',reports4.partially_paid_guest_choose_months4,name='partially_paid_guest_choose_months4'),
 
     path('jan_paid_rent4/', branch4.jan_paid_rent4, name='jan_paid_rent4'),
+    path('table_jan_paid_rent4/', branch4.table_jan_paid_rent4, name='table_jan_paid_rent4'),
+    path('jan_full_paid_guest4/', reports4.jan_full_paid_guest4, name='jan_full_paid_guest4'),
+    path('jan_partially_paid_guest4/', reports4.jan_partially_paid_guest4, name='jan_partially_paid_guest4'),
+    path('table_jan_partially_paid_guest4/', reports4.table_jan_partially_paid_guest4,name='table_jan_partially_paid_guest4'),
+
     path('feb_paid_rent4/', branch4.feb_paid_rent4, name='feb_paid_rent4'),
+    path('table_feb_paid_rent4/', branch4.table_feb_paid_rent4, name='table_feb_paid_rent4'),
+    path('feb_full_paid_guest4/', reports4.feb_full_paid_guest4, name='feb_full_paid_guest4'),
+    path('feb_partially_paid_guest4/', reports4.feb_partially_paid_guest4, name='feb_partially_paid_guest4'),
+    path('table_feb_partially_paid_guest4/', reports4.table_feb_partially_paid_guest4,name='table_feb_partially_paid_guest4'),
+
     path('mar_paid_rent4/', branch4.mar_paid_rent4, name='mar_paid_rent4'),
+    path('table_mar_paid_rent4/', branch4.table_mar_paid_rent4, name='table_mar_paid_rent4'),
+    path('march_full_paid_guest4/', reports4.march_full_paid_guest4, name='march_full_paid_guest4'),
+    path('march_partially_paid_guest4/', reports4.march_partially_paid_guest4, name='march_partially_paid_guest4'),
+    path('table_march_partially_paid_guest4/', reports4.table_march_partially_paid_guest4,name='table_march_partially_paid_guest4'),
 
     path('april_paid_rent4/', branch4.april_paid_rent4, name='april_paid_rent4'),
+    path('table_april_paid_rent4/', branch4.table_april_paid_rent4, name='table_april_paid_rent4'),
+    path('april_full_paid_guest4/', reports4.april_full_paid_guest4, name='april_full_paid_guest4'),
+    path('april_partially_paid_guest4/', reports4.april_partially_paid_guest4, name='april_partially_paid_guest4'),
+    path('table_april_partially_paid_guest4/', reports4.table_april_partially_paid_guest4,name='table_april_partially_paid_guest4'),
+
     path('may_paid_rent4/', branch4.may_paid_rent4, name='may_paid_rent4'),
     path('table_may_paid_rent4/', branch4.table_may_paid_rent4, name='table_may_paid_rent4'),
     path('may_full_paid_guest4/', reports4.may_full_paid_guest4, name='may_full_paid_guest4'),
     path('may_partially_paid_guest4/', reports4.may_partially_paid_guest4, name='may_partially_paid_guest4'),
-    path('table_may_partially_paid_guest4/', reports4.table_may_partially_paid_guest4,name='table_may_partially_paid_guest4'),
+    path('table_may_partially_paid_guest4/', reports4.table_may_partially_paid_guest4, name='table_may_partially_paid_guest4'),
+
     path('june_paid_rent4/', branch4.june_paid_rent4, name='june_paid_rent4'),
     path('table_june_paid_rent4/', branch4.table_june_paid_rent4, name='table_june_paid_rent4'),
     path('june_full_paid_guest4/', reports4.june_full_paid_guest4, name='june_full_paid_guest4'),
     path('june_partially_paid_guest4/', reports4.june_partially_paid_guest4, name='june_partially_paid_guest4'),
-    path('table_june_partially_paid_guest4/', reports4.table_june_partially_paid_guest4,name='table_june_partially_paid_guest4'),
+    path('table_june_partially_paid_guest4/', reports4.table_june_partially_paid_guest4, name='table_june_partially_paid_guest4'),
 
     path('july_paid_rent4/', branch4.july_paid_rent4, name='july_paid_rent4'),
     path('table_july_paid_rent4/', branch4.table_july_paid_rent4, name='table_july_paid_rent4'),
     path('july_full_paid_guest4/', reports4.july_full_paid_guest4, name='july_full_paid_guest4'),
     path('july_partially_paid_guest4/', reports4.july_partially_paid_guest4, name='july_partially_paid_guest4'),
-    path('table_july_partially_paid_guest4/', reports4.table_july_partially_paid_guest4,name='table_july_partially_paid_guest4'),
+    path('table_july_partially_paid_guest4/', reports4.table_july_partially_paid_guest4, name='table_july_partially_paid_guest4'),
 
     path('aug_paid_rent4/', branch4.aug_paid_rent4, name='aug_paid_rent4'),
+    path('table_aug_paid_rent4/', branch4.table_aug_paid_rent4, name='table_aug_paid_rent4'),
+    path('auguest_full_paid_guest4/', reports4.auguest_full_paid_guest4, name='auguest_full_paid_guest4'),
+    path('auguest_partially_paid_guest4/', reports4.auguest_partially_paid_guest4,name='auguest_partially_paid_guest4'),
+    path('table_auguest_partially_paid_guest4/', reports4.table_auguest_partially_paid_guest4,name='table_auguest_partially_paid_guest4'),
+
     path('sept_paid_rent4/', branch4.sept_paid_rent4, name='sept_paid_rent4'),
+    path('table_sept_paid_rent4/', branch4.table_sept_paid_rent4, name='table_sept_paid_rent4'),
+    path('sept_full_paid_guest4/', reports4.sept_full_paid_guest4, name='sept_full_paid_guest4'),
+    path('sept_partially_paid_guest4/', reports4.sept_partially_paid_guest4, name='sept_partially_paid_guest4'),
+    path('table_sept_partially_paid_guest4/', reports4.table_sept_partially_paid_guest4,name='table_sept_partially_paid_guest4'),
 
     path('oct_paid_rent4/', branch4.oct_paid_rent4, name='oct_paid_rent4'),
+    path('table_oct_paid_rent4/', branch4.table_oct_paid_rent4, name='table_oct_paid_rent4'),
+    path('october_full_paid_guest4/', reports4.october_full_paid_guest4, name='october_full_paid_guest4'),
+    path('october_partially_paid_guest4/', reports4.october_partially_paid_guest4,name='october_partially_paid_guest4'),
+    path('table_october_partially_paid_guest4/', reports4.table_october_partially_paid_guest4,name='table_october_partially_paid_guest4'),
+
     path('nov_paid_rent4/', branch4.nov_paid_rent4, name='nov_paid_rent4'),
+    path('table_nov_paid_rent4/', branch4.table_nov_paid_rent4, name='table_nov_paid_rent4'),
+    path('nov_full_paid_guest4/', reports4.nov_full_paid_guest4, name='nov_full_paid_guest4'),
+    path('nov_partially_paid_guest4/', reports4.nov_partially_paid_guest4, name='nov_partially_paid_guest4'),
+    path('table_nov_partially_paid_guest4/', reports4.table_nov_partially_paid_guest4,name='table_nov_partially_paid_guest4'),
+
     path('dec_paid_rent4/', branch4.dec_paid_rent4, name='dec_paid_rent4'),
+    path('table_dec_paid_rent4/', branch4.table_dec_paid_rent4, name='table_dec_paid_rent4'),
+    path('dec_full_paid_guest4/', reports4.dec_full_paid_guest4, name='dec_full_paid_guest4'),
+    path('dec_partially_paid_guest4/', reports4.dec_partially_paid_guest4, name='dec_partially_paid_guest4'),
+    path('table_dec_partially_paid_guest4/', reports4.table_dec_partially_paid_guest4,name='table_dec_partially_paid_guest4'),
 
     path('details_of_paid_guests4/<id>',branch4.details_of_paid_guests4,name='details_of_paid_guests4'),
-    path('full_paid_guest4/', reports4.full_paid_guest4, name='full_paid_guest4'),
+    path('full_paid_guest4/',reports4.full_paid_guest4,name='full_paid_guest4'),
 
 #paid rent end here
 

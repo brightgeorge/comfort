@@ -74,7 +74,22 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -101,7 +116,7 @@ function exportTableToExcel(tableID, filename = ''){
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR4</li>
 
-       <li>
+<li>
         <a href="{% url 'branch1_dashboard4' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 4</span>
         </a>
@@ -137,7 +152,7 @@ function exportTableToExcel(tableID, filename = ''){
       </li>
        <li>
         <a href="{% url 'detail_guest_general4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 4</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 4</span>
         </a>
       </li>
        <li>
@@ -158,6 +173,17 @@ function exportTableToExcel(tableID, filename = ''){
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live4' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 4</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room4' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 4</span>
+        </a>
+      </li>
 
 
       <li>
@@ -339,21 +365,19 @@ function exportTableToExcel(tableID, filename = ''){
       <ul>
 
         <li><a href="{% url 'jan_unpaid_rent4' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Unpaid 4</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'feb_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb Unpaid 4</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'mar_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March Unpaid 4</button> </a></li>
-<li style="margin-top:5px;"><a href="{% url 'april_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Unpaid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb Unpaid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March Unpaid 4</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Unpaid 4</button> </a></li>
 
-  <li style="margin-top:5px;"><a href="{% url 'may_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Unpaid 4</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'june_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Unpaid 4</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July Unpaid 4</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'aug_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest Unpaid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'may_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Unpaid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Unpaid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Unpaid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest Unpaid 4</button> </a></li>
 
-   <li style="margin-top:5px;"><a href="{% url 'sept_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept Unpaid 4</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'oct_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Unpaid 4</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'nov_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Unpaid 4</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'dec_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Unpaid 4</button> </a></li>
-
-
+           <li style="margin-top:5px;"><a href="{% url 'sept_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept Unpaid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Unpaid 4</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Unpaid 4</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_unpaid_rent4' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Unpaid 4</button> </a></li>
 
 
           <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>

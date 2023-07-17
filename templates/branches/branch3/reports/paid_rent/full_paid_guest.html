@@ -72,7 +72,22 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
  
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -90,7 +105,7 @@ function exportTableToExcel(tableID, filename = ''){
 
       <li>
         <a href="{% url 'branch1_dashboard3' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard3</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 3</span>
         </a>
       </li>
 
@@ -124,7 +139,7 @@ function exportTableToExcel(tableID, filename = ''){
       </li>
        <li>
         <a href="{% url 'detail_guest_general3' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 3</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 3</span>
         </a>
       </li>
        <li>
@@ -145,8 +160,7 @@ function exportTableToExcel(tableID, filename = ''){
         </a>
       </li>
 
-
-               <li>
+        <li>
         <a href="{% url 'may_print_live3' %}">
           <i class="zmdi zmdi-spinner"></i> <span>Live Report 3</span>
         </a>
@@ -157,7 +171,6 @@ function exportTableToExcel(tableID, filename = ''){
           <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 3</span>
         </a>
       </li>
-
 
 
       <li>
@@ -327,6 +340,8 @@ function exportTableToExcel(tableID, filename = ''){
                      <th>Roon No</th>
                      <th>Guest Name</th>
                      <th>Contact No</th>
+                       <th>Paid Amount</th>
+                       <th>Due Amount</th>
                         <th>Details</th>
                    </tr>
                    </thead>
@@ -338,6 +353,8 @@ function exportTableToExcel(tableID, filename = ''){
 				   <td>{{i.room_name}}</td>
                     <td>{{i.name|upper}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
+                       <td>{{i.june_rent}}</td>
+                       <td>{{i.june_due_amt}}</td>
                        <td>
                            <a href="{% url 'details_of_paid_guests3' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
@@ -385,22 +402,20 @@ function exportTableToExcel(tableID, filename = ''){
       <hr>
 
       <ul>
+        <li><a href="{% url 'jan_paid_rent3' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid 5</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid 5</button> </a></li>
 
-       <li><a href="{% url 'jan_paid_rent3' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid 3</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid 3</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid 3</button> </a></li>
-<li style="margin-top:5px;"><a href="{% url 'april_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid 3</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid 5</button> </a></li>
 
-  <li style="margin-top:5px;"><a href="{% url 'may_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid 3</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'june_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid 3</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'july_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid 3</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid 3</button> </a></li>
-
-   <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid 3</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid 3</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid 3</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid 3</button> </a></li>
-
+           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid 5</button> </a></li>
 
 
 

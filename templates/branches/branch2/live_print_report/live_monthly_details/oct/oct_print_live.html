@@ -73,7 +73,15 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -1247,20 +1255,6 @@ function exportTableToExcel(tableID, filename = ''){
       <ul>
 
 
-          <li><a href="{% url 'october_print5' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'october_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'october_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
-<li style="margin-top:5px;"><a href="{% url 'mar_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
-
-  <li style="margin-top:5px;"><a href="{% url 'apr_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'may_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'jun_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'jul_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
-
-   <li style="margin-top:5px;"><a href="{% url 'aug_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept 5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'sep_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'oct_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'october_close_octoberision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Print5</button> </a></li>
 
 
 

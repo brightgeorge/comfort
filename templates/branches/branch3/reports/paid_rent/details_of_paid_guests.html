@@ -49,7 +49,22 @@
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -71,7 +86,7 @@
 
       <li>
         <a href="{% url 'branch1_dashboard3' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard3</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 3</span>
         </a>
       </li>
 
@@ -105,7 +120,7 @@
       </li>
        <li>
         <a href="{% url 'detail_guest_general3' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 3</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 3</span>
         </a>
       </li>
        <li>
@@ -126,6 +141,17 @@
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live3' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 3</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room3' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 3</span>
+        </a>
+      </li>
 
 
       <li>
@@ -698,20 +724,20 @@
       <hr>
 
       <ul>
-        <li><a href="{% url 'jan_paid_rent' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid</button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid</button> </a></li>
-        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid</button> </a></li>
+        <li><a href="{% url 'jan_paid_rent3' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid 5</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid 5</button> </a></li>
 
-          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid</button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid 5</button> </a></li>
 
-           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid</button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid</button> </a></li>
+           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent3' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid 5</button> </a></li>
 
 
 

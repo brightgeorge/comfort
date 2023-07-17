@@ -66,7 +66,19 @@ def login_request(request):
             if role=='Branch2':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch2app
+                bgs = branch2app.models.background_color.objects.all().filter(username=us)
+                bg = branch2app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }
@@ -74,7 +86,19 @@ def login_request(request):
             if role=='Branch3':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch3app
+                bgs = branch3app.models.background_color.objects.all().filter(username=us)
+                bg = branch3app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }
@@ -82,7 +106,19 @@ def login_request(request):
             if role=='Branch4':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch4app
+                bgs = branch4app.models.background_color.objects.all().filter(username=us)
+                bg = branch4app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }

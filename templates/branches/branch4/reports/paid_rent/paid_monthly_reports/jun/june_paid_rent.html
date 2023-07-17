@@ -57,7 +57,22 @@ th.break {
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -113,7 +128,7 @@ th.break {
       </li>
        <li>
         <a href="{% url 'detail_guest_general4' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 4</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 4</span>
         </a>
       </li>
        <li>
@@ -134,6 +149,17 @@ th.break {
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live4' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 4</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room4' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 4</span>
+        </a>
+      </li>
 
 
       <li>

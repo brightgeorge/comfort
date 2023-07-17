@@ -32,6 +32,11 @@ def choose_user5(request):
 
         print(res)
 
+        from datetime import datetime
+        cmm = datetime.now().month
+        cm = cmm - 1
+        #gtc = a[cm]
+
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -51,9 +56,9 @@ def choose_user5(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'res' : res,
-            'a' : 1
+            'a' : 1,
         }
         return render(request, 'branches/branch5/payments/choose_user.html',context)
 def payment_user_details5(request, id):
@@ -149,7 +154,7 @@ def monthly_jan_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -185,7 +190,7 @@ def monthly_jan_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -258,7 +263,7 @@ def monthly_feb_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -294,7 +299,7 @@ def monthly_feb_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -367,7 +372,7 @@ def monthly_march_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -403,7 +408,7 @@ def monthly_march_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -477,7 +482,7 @@ def monthly_april_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -513,7 +518,7 @@ def monthly_april_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -587,7 +592,7 @@ def monthly_may_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -623,7 +628,7 @@ def monthly_may_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -695,7 +700,7 @@ def monthly_june_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -731,7 +736,7 @@ def monthly_june_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -807,7 +812,7 @@ def monthly_july_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -843,7 +848,7 @@ def monthly_july_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -916,7 +921,7 @@ def monthly_aug_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -952,7 +957,7 @@ def monthly_aug_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1025,7 +1030,7 @@ def monthly_sept_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -1061,7 +1066,7 @@ def monthly_sept_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=1),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1137,7 +1142,7 @@ def monthly_oct_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -1173,7 +1178,7 @@ def monthly_oct_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1246,7 +1251,7 @@ def monthly_nov_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -1282,7 +1287,7 @@ def monthly_nov_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1355,7 +1360,7 @@ def monthly_dec_make_payments5(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch5/payments/payment_user_details.html',context)
         rn = request.POST.get('rno')
@@ -1391,7 +1396,7 @@ def monthly_dec_make_payments5(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }

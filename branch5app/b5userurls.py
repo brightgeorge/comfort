@@ -200,19 +200,40 @@ urlpatterns = [
 #unpaid rent end here
 
 #paid rent start here
+
     path('paid_rent_choose_months5/',branch5.paid_rent_choose_months5,name='paid_rent_choose_months5'),
     path('partially_paid_guest_choose_months5/',reports5.partially_paid_guest_choose_months5,name='partially_paid_guest_choose_months5'),
 
     path('jan_paid_rent5/', branch5.jan_paid_rent5, name='jan_paid_rent5'),
+    path('table_jan_paid_rent5/', branch5.table_jan_paid_rent5, name='table_jan_paid_rent5'),
+    path('jan_full_paid_guest5/', reports5.jan_full_paid_guest5, name='jan_full_paid_guest5'),
+    path('jan_partially_paid_guest5/', reports5.jan_partially_paid_guest5, name='jan_partially_paid_guest5'),
+    path('table_jan_partially_paid_guest5/', reports5.table_jan_partially_paid_guest5,name='table_jan_partially_paid_guest5'),
+
     path('feb_paid_rent5/', branch5.feb_paid_rent5, name='feb_paid_rent5'),
+    path('table_feb_paid_rent5/', branch5.table_feb_paid_rent5, name='table_feb_paid_rent5'),
+    path('feb_full_paid_guest5/', reports5.feb_full_paid_guest5, name='feb_full_paid_guest5'),
+    path('feb_partially_paid_guest5/', reports5.feb_partially_paid_guest5, name='feb_partially_paid_guest5'),
+    path('table_feb_partially_paid_guest5/', reports5.table_feb_partially_paid_guest5,name='table_feb_partially_paid_guest5'),
+
     path('mar_paid_rent5/', branch5.mar_paid_rent5, name='mar_paid_rent5'),
+    path('table_mar_paid_rent5/', branch5.table_mar_paid_rent5, name='table_mar_paid_rent5'),
+    path('march_full_paid_guest5/', reports5.march_full_paid_guest5, name='march_full_paid_guest5'),
+    path('march_partially_paid_guest5/', reports5.march_partially_paid_guest5, name='march_partially_paid_guest5'),
+    path('table_march_partially_paid_guest5/', reports5.table_march_partially_paid_guest5,name='table_march_partially_paid_guest5'),
 
     path('april_paid_rent5/', branch5.april_paid_rent5, name='april_paid_rent5'),
+    path('table_april_paid_rent5/', branch5.table_april_paid_rent5, name='table_april_paid_rent5'),
+    path('april_full_paid_guest5/', reports5.april_full_paid_guest5, name='april_full_paid_guest5'),
+    path('april_partially_paid_guest5/', reports5.april_partially_paid_guest5, name='april_partially_paid_guest5'),
+    path('table_april_partially_paid_guest5/', reports5.table_april_partially_paid_guest5,name='table_april_partially_paid_guest5'),
+
     path('may_paid_rent5/', branch5.may_paid_rent5, name='may_paid_rent5'),
     path('table_may_paid_rent5/', branch5.table_may_paid_rent5, name='table_may_paid_rent5'),
     path('may_full_paid_guest5/', reports5.may_full_paid_guest5, name='may_full_paid_guest5'),
     path('may_partially_paid_guest5/', reports5.may_partially_paid_guest5, name='may_partially_paid_guest5'),
     path('table_may_partially_paid_guest5/', reports5.table_may_partially_paid_guest5, name='table_may_partially_paid_guest5'),
+
     path('june_paid_rent5/', branch5.june_paid_rent5, name='june_paid_rent5'),
     path('table_june_paid_rent5/', branch5.table_june_paid_rent5, name='table_june_paid_rent5'),
     path('june_full_paid_guest5/', reports5.june_full_paid_guest5, name='june_full_paid_guest5'),
@@ -226,11 +247,34 @@ urlpatterns = [
     path('table_july_partially_paid_guest5/', reports5.table_july_partially_paid_guest5, name='table_july_partially_paid_guest5'),
 
     path('aug_paid_rent5/', branch5.aug_paid_rent5, name='aug_paid_rent5'),
+    path('table_aug_paid_rent5/', branch5.table_aug_paid_rent5, name='table_aug_paid_rent5'),
+    path('auguest_full_paid_guest5/', reports5.auguest_full_paid_guest5, name='auguest_full_paid_guest5'),
+    path('auguest_partially_paid_guest5/', reports5.auguest_partially_paid_guest5,name='auguest_partially_paid_guest5'),
+    path('table_auguest_partially_paid_guest5/', reports5.table_auguest_partially_paid_guest5,name='table_auguest_partially_paid_guest5'),
+
     path('sept_paid_rent5/', branch5.sept_paid_rent5, name='sept_paid_rent5'),
+    path('table_sept_paid_rent5/', branch5.table_sept_paid_rent5, name='table_sept_paid_rent5'),
+    path('sept_full_paid_guest5/', reports5.sept_full_paid_guest5, name='sept_full_paid_guest5'),
+    path('sept_partially_paid_guest5/', reports5.sept_partially_paid_guest5, name='sept_partially_paid_guest5'),
+    path('table_sept_partially_paid_guest5/', reports5.table_sept_partially_paid_guest5,name='table_sept_partially_paid_guest5'),
 
     path('oct_paid_rent5/', branch5.oct_paid_rent5, name='oct_paid_rent5'),
+    path('table_oct_paid_rent5/', branch5.table_oct_paid_rent5, name='table_oct_paid_rent5'),
+    path('october_full_paid_guest5/', reports5.october_full_paid_guest5, name='october_full_paid_guest5'),
+    path('october_partially_paid_guest5/', reports5.october_partially_paid_guest5,name='october_partially_paid_guest5'),
+    path('table_october_partially_paid_guest5/', reports5.table_october_partially_paid_guest5,name='table_october_partially_paid_guest5'),
+
     path('nov_paid_rent5/', branch5.nov_paid_rent5, name='nov_paid_rent5'),
+    path('table_nov_paid_rent5/', branch5.table_nov_paid_rent5, name='table_nov_paid_rent5'),
+    path('nov_full_paid_guest5/', reports5.nov_full_paid_guest5, name='nov_full_paid_guest5'),
+    path('nov_partially_paid_guest5/', reports5.nov_partially_paid_guest5, name='nov_partially_paid_guest5'),
+    path('table_nov_partially_paid_guest5/', reports5.table_nov_partially_paid_guest5,name='table_nov_partially_paid_guest5'),
+
     path('dec_paid_rent5/', branch5.dec_paid_rent5, name='dec_paid_rent5'),
+    path('table_dec_paid_rent5/', branch5.table_dec_paid_rent5, name='table_dec_paid_rent5'),
+    path('dec_full_paid_guest5/', reports5.dec_full_paid_guest5, name='dec_full_paid_guest5'),
+    path('dec_partially_paid_guest5/', reports5.dec_partially_paid_guest5, name='dec_partially_paid_guest5'),
+    path('table_dec_partially_paid_guest5/', reports5.table_dec_partially_paid_guest5,name='table_dec_partially_paid_guest5'),
 
     path('details_of_paid_guests5/<id>',branch5.details_of_paid_guests5,name='details_of_paid_guests5'),
     path('full_paid_guest5/',reports5.full_paid_guest5,name='full_paid_guest5'),

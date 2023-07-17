@@ -767,8 +767,21 @@ def monthly_details_due4(request):
 
     #total due amount end here
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
 
-    context={
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'grand_total_collection':t,
         'total_advance_amt':total_advance_amt,
         'total_dis_amount':total_dis_amount,
@@ -1144,8 +1157,21 @@ def monthly_collection_details4(request):
 
     #total due amount end here
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
 
-    context={
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'grand_total_collection':t,
         'total_advance_amt':total_advance_amt,
         'total_dis_amount':total_dis_amount,

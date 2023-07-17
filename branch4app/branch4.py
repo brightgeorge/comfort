@@ -27,7 +27,23 @@ def branch1_dashboard4(request):
         cm = cmm - 1
         gtc = a[cm]
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'name': us,
             'total_count_active_guests': admin_dashboard_calculations_br4.total_count_active_guests(),
             'total_count_vaccant_rooms': admin_dashboard_calculations_br4.total_count_vaccant_rooms(),
@@ -48,7 +64,37 @@ def branch1_dashboard4(request):
 
 
 def admit_guest4(request):
-    return render(request, 'branches/branch4/new_guest/admit_guest.html')
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+    }
+
+    return render(request, 'branches/branch4/new_guest/admit_guest.html',context)
 
 
 def br1_admit_guest4(request, id):
@@ -302,7 +348,23 @@ def br1_admit_guest4(request, id):
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest4(request)
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_beds.objects.get(id=id)
         }
         return render(request, 'branches/branch4/new_guest/new_guest_creation_page.html', context)
@@ -328,7 +390,23 @@ def view_all_new_guest4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -523,7 +601,21 @@ def update_br1_admit_guest4(request, id):
             messages.info(request, 'BRANCH4 guest updated sucessfully')
             return view_all_new_guest4(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_beds.objects.get(id=id)
     }
     return render(request, 'branches/branch4/new_guest/update_br1_admit_guest.html', context)
@@ -674,7 +766,23 @@ def vacate_br1_guest4(request, id):
             messages.info(request, 'BRANCH4 guest Vacated sucessfully')
             return view_all_new_guest4(request)
 
-    context = {
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
         'sd': pg1_new_beds.objects.get(id=id)
     }
     return render(request, 'branches/branch4/new_guest/vacate_br1_guest.html', context)
@@ -690,7 +798,21 @@ def vacate_br1_guest4(request, id):
 # **basic guest details start here
 
 def guest_basic_details(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'up': pg1_new_guest.objects.all().filter(april_rent_flag=100, flag=1).order_by('roon_no'),
         'name': request.session['username'],
         'month_name': 'APRIL',
@@ -742,7 +864,22 @@ def unpaid_rent(request):
     c = aa + p + bb
     print(c)
     z = pg1_new_guest.objects.all().filter(march_rent_flag=100, flag=1),
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'up': z,
         'name': request.session['username']
     }
@@ -750,7 +887,21 @@ def unpaid_rent(request):
 
 
 def paid_rent(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
         'name': request.session['username']
     }
@@ -761,12 +912,45 @@ def paid_rent(request):
 
 def unpaid_rent_choose_months4(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_rent_choose_months.html')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+        }
+
+        return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_rent_choose_months.html',context)
 
 
 def jan_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(jan_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JANUARY'
@@ -774,7 +958,23 @@ def jan_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/jan/jan_unpaid_rent.html', context)
 def table_jan_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(jan_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JANUARY'
@@ -784,7 +984,23 @@ def table_jan_unpaid_rent4(request):
 
 def feb_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(feb_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'FEB'
@@ -792,7 +1008,23 @@ def feb_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/feb/feb_unpaid_rent.html', context)
 def table_feb_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(feb_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'FEB'
@@ -802,7 +1034,23 @@ def table_feb_unpaid_rent4(request):
 
 def mar_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(march_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'MARCH'
@@ -810,7 +1058,23 @@ def mar_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/mar/mar_unpaid_rent.html', context)
 def table_mar_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(march_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'MARCH'
@@ -820,7 +1084,23 @@ def table_mar_unpaid_rent4(request):
 
 def april_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(april_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'APRIL'
@@ -828,7 +1108,23 @@ def april_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/apr/april_unpaid_rent.html', context)
 def table_april_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(april_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'APRIL'
@@ -838,7 +1134,23 @@ def table_april_unpaid_rent4(request):
 
 def may_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(may_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'MAY',
@@ -846,7 +1158,23 @@ def may_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/may/may_unpaid_rent.html', context)
 def table_may_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(may_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'MAY',
@@ -855,7 +1183,23 @@ def table_may_unpaid_rent4(request):
 
 def june_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(june_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JUNE'
@@ -863,7 +1207,23 @@ def june_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/jun/jun_unpaid_rent.html', context)
 def table_june_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(june_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JUNE'
@@ -872,7 +1232,23 @@ def table_june_unpaid_rent4(request):
 
 def july_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(july_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JULY'
@@ -880,7 +1256,23 @@ def july_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/jul/july_unpaid_rent.html', context)
 def table_july_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(july_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'JULY'
@@ -890,7 +1282,23 @@ def table_july_unpaid_rent4(request):
 
 def aug_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'AUGUST'
@@ -898,7 +1306,23 @@ def aug_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/aug/aug_unpaid_rent.html', context)
 def table_aug_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'AUGUST'
@@ -908,7 +1332,23 @@ def table_aug_unpaid_rent4(request):
 
 def sept_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(sept_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'SEPT'
@@ -916,7 +1356,23 @@ def sept_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/sep/sept_unpaid_rent.html', context)
 def table_sept_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(sept_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'SEPT'
@@ -926,7 +1382,23 @@ def table_sept_unpaid_rent4(request):
 
 def oct_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(october_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'OCTOBER'
@@ -934,7 +1406,23 @@ def oct_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(october_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'OCTOBER'
@@ -944,7 +1432,23 @@ def table_oct_unpaid_rent4(request):
 
 def nov_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(nov_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'NOVEMBER'
@@ -952,7 +1456,23 @@ def nov_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/nov/nov_unpaid_rent.html', context)
 def table_nov_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(nov_rent_flag=100, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'NOVEMBER'
@@ -962,7 +1482,23 @@ def table_nov_unpaid_rent4(request):
 
 def dec_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(dec_rent_flag=100, flag=2).order_by('roon_no').order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'DECEMBER'
@@ -970,7 +1506,23 @@ def dec_unpaid_rent4(request):
         return render(request, 'branches/branch4/reports/unpaid_rent/unpaid_monthly_reports/dec/dec_unpaid_rent.html', context)
 def table_dec_unpaid_rent4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'up': pg1_new_guest.objects.all().filter(dec_rent_flag=100, flag=2).order_by('roon_no').order_by('roon_no'),
             'name': request.session['username'],
             'month_name': 'DECEMBER'
@@ -987,9 +1539,24 @@ def details_of_unpaid_guests4(request, id):
     for i in rno:
         l.append(str(i.roon_no))
     s = ''.join(l)
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
-        'user_details': pg1_new_guest.objects.all().filter(id=id),
+        'user_details': pg1_new_guest.objects.all().filter(id=id).order_by('roon_no'),
     }
     return render(request, 'branches/branch4/reports/unpaid_rent/details_of_unpaid_guests.html', context)
 
@@ -1000,10 +1567,41 @@ def details_of_unpaid_guests4(request, id):
 
 # ************paid rent start here********
 
-
 def paid_rent_choose_months4(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch4/reports/paid_rent/paid_rent_choose_months.html')
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+        }
+
+        return render(request, 'branches/branch4/reports/paid_rent/paid_rent_choose_months.html',context)
 
 
 def jan_paid_rent4(request):
@@ -1014,13 +1612,56 @@ def jan_paid_rent4(request):
             l.append(str(i.jan_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/jan_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/jan/jan_paid_rent.html', context)
+def table_jan_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.jan_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(jan_rent_flag=200, flag=1).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'JAN'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/jan/table_jan_paid_rent.html', context)
 
 
 def feb_paid_rent4(request):
@@ -1031,12 +1672,54 @@ def feb_paid_rent4(request):
             l.append(str(i.feb_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1).order_by('roon_no'),
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/feb_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/feb/feb_paid_rent.html', context)
+def table_feb_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.feb_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(feb_rent_flag=200, flag=1).order_by('roon_no'),
+            'name': request.session['username'], 'amt': s,
+            'month_name': 'FEB'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/feb/table_feb_paid_rent.html', context)
 
 
 def mar_paid_rent4(request):
@@ -1047,13 +1730,56 @@ def mar_paid_rent4(request):
             l.append(str(i.march_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/mar_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/mar/mar_paid_rent.html', context)
+def table_mar_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1)
+        for i in unp:
+            l.append(str(i.march_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(march_rent_flag=200, flag=1).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'MARCH'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/mar/table_mar_paid_rent.html', context)
 
 
 def april_paid_rent4(request):
@@ -1066,13 +1792,58 @@ def april_paid_rent4(request):
         print(l)
         s = ''.join(l)
         print(s)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/april_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/apr/april_paid_rent.html', context)
+def table_april_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.april_rent))
+
+        print(l)
+        s = ''.join(l)
+        print(s)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(april_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'pamt': s,
+            'month_name': 'APRIL'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/apr/table_april_paid_rent.html', context)
 
 
 def may_paid_rent4(request):
@@ -1083,7 +1854,21 @@ def may_paid_rent4(request):
             l.append(str(i.may_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
@@ -1098,14 +1883,27 @@ def table_may_paid_rent4(request):
             l.append(str(i.may_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(may_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'MAY'
         }
         return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/may/table_may_paid_rent.html', context)
-
 
 def june_paid_rent4(request):
     if 'username' in request.session:
@@ -1115,8 +1913,22 @@ def june_paid_rent4(request):
             l.append(str(i.june_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JUNE'
@@ -1130,8 +1942,22 @@ def table_june_paid_rent4(request):
             l.append(str(i.june_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(june_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JUNE'
@@ -1147,8 +1973,22 @@ def july_paid_rent4(request):
             l.append(str(i.july_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JULY'
@@ -1162,8 +2002,22 @@ def table_july_paid_rent4(request):
             l.append(str(i.july_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(july_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'JULY'
@@ -1179,13 +2033,56 @@ def aug_paid_rent4(request):
             l.append(str(i.auguest_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/aug_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/aug/aug_paid_rent.html', context)
+def table_aug_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.auguest_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(auguest_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'AUGUST'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/aug/table_aug_paid_rent.html', context)
 
 
 def sept_paid_rent4(request):
@@ -1196,13 +2093,56 @@ def sept_paid_rent4(request):
             l.append(str(i.sept_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/sept_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/sep/sept_paid_rent.html', context)
+def table_sept_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.sept_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(sept_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'SEPT'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/sep/table_sept_paid_rent.html', context)
 
 
 def oct_paid_rent4(request):
@@ -1213,13 +2153,56 @@ def oct_paid_rent4(request):
             l.append(str(i.october_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/oct_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/oct/oct_paid_rent.html', context)
+def table_oct_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.october_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(october_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'OCTOBER'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/oct/table_oct_paid_rent.html', context)
 
 
 def nov_paid_rent4(request):
@@ -1230,13 +2213,56 @@ def nov_paid_rent4(request):
             l.append(str(i.nov_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/nov_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/nov/nov_paid_rent.html', context)
+def table_nov_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.nov_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(nov_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'NOVEMBER'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/nov/table_nov_paid_rent.html', context)
 
 
 def dec_paid_rent4(request):
@@ -1247,15 +2273,56 @@ def dec_paid_rent4(request):
             l.append(str(i.dec_rent))
             break
         s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
-            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2),
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2).order_by('roon_no'),
             'name': request.session['username'],
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/dec_paid_rent.html', context)
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/dec/dec_paid_rent.html', context)
+def table_dec_paid_rent4(request):
+    if 'username' in request.session:
+        l = []
+        unp = pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2)
+        for i in unp:
+            l.append(str(i.dec_rent))
+            break
+        s = ''.join(l)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
 
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
 
+            'up': pg1_new_guest.objects.all().filter(dec_rent_flag=200, flag=2).order_by('roon_no'),
+            'name': request.session['username'],
+            'amt': s,
+            'month_name': 'DECEMBER'
+        }
+        return render(request, 'branches/branch4/reports/paid_rent/paid_monthly_reports/dec/table_dec_paid_rent.html', context)
 
 # *********paid rent end here ************
 
@@ -1267,7 +2334,22 @@ def details_of_paid_guests4(request, id):
     for i in rno:
         l.append(str(i.roon_no))
     s = ''.join(l)
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
@@ -1291,17 +2373,50 @@ def details_of_paid_guests4(request, id):
 
 def choose_months4(request):
     if 'username' in request.session:
-        return render(request,'branches/branch4/payments/choose_months.html')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+        }
+
+        return render(request,'branches/branch4/payments/choose_months.html',context)
 
 #jan make payments start here
 def jan4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
             'roomno':rn,
             'room_name' : room_pg1.objects.all(),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/payments/details_of_months/jan/jan.html',context)
@@ -1350,7 +2465,7 @@ def jan_manke_payments4(request,id):
             context = {
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
@@ -1368,11 +2483,27 @@ def jan_manke_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1384,10 +2515,26 @@ def jan_manke_payments4(request,id):
 def feb4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/feb/feb.html',context)
 
@@ -1432,10 +2579,25 @@ def feb_manke_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
@@ -1453,11 +2615,27 @@ def feb_manke_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.feb_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1469,10 +2647,26 @@ def feb_manke_payments4(request,id):
 def march4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/march/march.html',context)
 
@@ -1517,10 +2711,25 @@ def march_manke_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
@@ -1538,11 +2747,27 @@ def march_manke_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.march_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1555,10 +2780,26 @@ def march_manke_payments4(request,id):
 def april4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,april_rent_flag__gt=99),
             'roomno':rn,
-            'room' : room_pg1.objects.all(),
+            'room' : room_pg1.objects.all().order_by('roon_no'),
             #'room_name': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch4/payments/details_of_months/april/april.html',context)
@@ -1604,10 +2845,25 @@ def april_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
@@ -1625,11 +2881,27 @@ def april_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.april_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1642,10 +2914,26 @@ def april_make_payments4(request,id):
 def may4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,may_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/payments/details_of_months/may/may.html',context)
@@ -1691,10 +2979,25 @@ def may_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
@@ -1712,11 +3015,27 @@ def may_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.may_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1728,10 +3047,26 @@ def may_make_payments4(request,id):
 def june4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,june_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/june/june.html',context)
 
@@ -1776,10 +3111,24 @@ def june_make_payments4(request,id):
                 l.append(str(i.roon_no))
             s=''.join(l)
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
 
             }
             return render(request, 'branches/branch4/payments/details_of_months/june/june.html',context)
@@ -1798,11 +3147,27 @@ def june_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.june_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1815,10 +3180,26 @@ def june_make_payments4(request,id):
 def july4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,july_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/july/july.html',context)
 
@@ -1864,10 +3245,24 @@ def july_make_payments4(request,id):
                 l.append(str(i.roon_no))
             s=''.join(l)
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
@@ -1885,11 +3280,27 @@ def july_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.july_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1902,10 +3313,26 @@ def july_make_payments4(request,id):
 def aug4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,auguest_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/aug/aug.html',context)
 
@@ -1950,10 +3377,25 @@ def aug_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
@@ -1971,11 +3413,27 @@ def aug_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.auguest_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -1987,10 +3445,26 @@ def aug_make_payments4(request,id):
 def sept4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,sept_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/sept/sept.html',context)
 
@@ -2035,10 +3509,25 @@ def sept_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
@@ -2056,11 +3545,27 @@ def sept_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.sept_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=1),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2072,10 +3577,26 @@ def sept_make_payments4(request,id):
 def oct4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,october_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/oct/oct.html',context)
 
@@ -2123,10 +3644,25 @@ def oct_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
@@ -2144,11 +3680,27 @@ def oct_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.october_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2160,10 +3712,26 @@ def oct_make_payments4(request,id):
 def nov4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,nov_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/nov/nov.html',context)
 
@@ -2208,10 +3776,25 @@ def nov_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
@@ -2229,11 +3812,27 @@ def nov_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.nov_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2245,10 +3844,26 @@ def nov_make_payments4(request,id):
 def dec4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,dec_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/payments/details_of_months/dec/dec.html',context)
 
@@ -2294,10 +3909,25 @@ def dec_make_payments4(request,id):
             for i in rno:
                 l.append(str(i.roon_no))
             s=''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
@@ -2315,11 +3945,27 @@ def dec_make_payments4(request,id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.dec_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2341,16 +3987,49 @@ def dec_make_payments4(request,id):
 
 def choose_months_advance4(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch4/advance/choose_months_advance.html')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+        }
+
+        return render(request, 'branches/branch4/advance/choose_months_advance.html',context)
 
 
 def jan_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, jan_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/jan/jan_advance.html', context)
@@ -2390,10 +4069,39 @@ def jan_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
@@ -2402,7 +4110,7 @@ def jan_make_payments_advance4(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/feb/feb_make_payments_advance.html', context)
@@ -2412,10 +4120,26 @@ def jan_make_payments_advance4(request, id):
 def feb_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, feb_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/advance/details_of_months/feb/feb_advance.html', context)
     return render(request, 'index.html')
@@ -2454,19 +4178,49 @@ def feb_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, feb_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/feb/feb_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/feb/feb_make_payments_advance.html', context)
@@ -2476,10 +4230,26 @@ def feb_make_payments_advance4(request, id):
 def march_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, march_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
         }
         return render(request, 'branches/branch4/advance/details_of_months/march/march_advance.html', context)
     return render(request, 'index.html')
@@ -2518,19 +4288,50 @@ def march_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, march_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/march/march_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/march/march_make_payments_advance.html',
@@ -2541,10 +4342,26 @@ def march_make_payments_advance4(request, id):
 def april_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, april_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/april/april_advance.html', context)
@@ -2588,19 +4405,50 @@ def april_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, april_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/april/april_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/april/april_make_payments_advance.html',
@@ -2611,10 +4459,25 @@ def april_make_payments_advance4(request, id):
 def may_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, may_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/may/may_advance.html', context)
@@ -2658,19 +4521,50 @@ def may_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/may/may_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/may/may_make_payments_advance.html', context)
@@ -2680,10 +4574,26 @@ def may_make_payments_advance4(request, id):
 def june_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, june_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/june/june_advance.html', context)
@@ -2727,19 +4637,50 @@ def june_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/june/june_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/june/june_make_payments_advance.html',
@@ -2750,10 +4691,26 @@ def june_make_payments_advance4(request, id):
 def july_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, july_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/july/july_advance.html', context)
@@ -2797,19 +4754,50 @@ def july_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/july/july_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/july/july_make_payments_advance.html',
@@ -2820,10 +4808,26 @@ def july_make_payments_advance4(request, id):
 def auguest_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, auguest_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/aug/aug_advance.html', context)
@@ -2867,19 +4871,50 @@ def auguest_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, auguest_rent_flag__gt=99),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/advance/details_of_months/aug/aug_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/aug/aug_make_payments_advance.html', context)
@@ -2889,10 +4924,26 @@ def auguest_make_payments_advance4(request, id):
 def sept_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, sept_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/sept/sept_advance.html', context)
@@ -2936,19 +4987,50 @@ def sept_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, sept_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/sept/sept_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/sept/sept_make_payments_advance.html',
@@ -2959,10 +5041,26 @@ def sept_make_payments_advance4(request, id):
 def october_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, october_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/oct/oct_advance.html', context)
@@ -3006,19 +5104,49 @@ def october_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, october_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/oct/oct_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/oct/oct_make_payments_advance.html', context)
@@ -3028,10 +5156,25 @@ def october_make_payments_advance4(request, id):
 def nov_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, nov_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/nov/nov_advance.html', context)
@@ -3075,19 +5218,50 @@ def nov_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, nov_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/nov/nov_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/nov/nov_make_payments_advance.html', context)
@@ -3097,10 +5271,26 @@ def nov_make_payments_advance4(request, id):
 def dec_advance4(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, dec_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
 
         }
         return render(request, 'branches/branch4/advance/details_of_months/dec/dec_advance.html', context)
@@ -3144,19 +5334,50 @@ def dec_make_payments_advance4(request, id):
             for i in rno:
                 l.append(str(i.roon_no))
             s = ''.join(l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, dec_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all(),
+                'room': room_pg1.objects.all().order_by('roon_no'),
             }
             return render(request, 'branches/branch4/advance/details_of_months/dec/dec_advance.html', context)
         rn = request.POST.get('rno')
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no'),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch4/advance/details_of_months/dec/dec_make_payments_advance.html', context)
@@ -3192,7 +5413,23 @@ def detail_guest_general4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -3338,7 +5575,23 @@ def jan_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -3515,7 +5768,23 @@ def feb_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -3692,7 +5961,23 @@ def march_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -3868,7 +6153,23 @@ def april_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4045,7 +6346,23 @@ def may_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4221,7 +6538,22 @@ def june_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4397,7 +6729,22 @@ def july_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4573,7 +6920,23 @@ def aug_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4749,7 +7112,23 @@ def sept_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -4925,7 +7304,23 @@ def oct_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -5101,7 +7496,23 @@ def nov_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -5277,7 +7688,23 @@ def dec_print4(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -5415,21 +7842,63 @@ def dec_print4(request):
 ################################
 
 def details_viewall_vacate_guest4(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id')
     }
     return render(request, 'branches/branch4/vacate_guest/viewall_vacate_guest.html', context)
 
 
 def viewall_vacate_guest4(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id')
     }
     return render(request, 'branches/branch4/vacate_guest/viewall_vacate_guest.html', context)
 
 
 def details_of_vacate_guest4(request, id):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
     return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5455,7 +7924,21 @@ def jan_manke_payments_vacate4(request, id):
             jp.jan_rent_flag = 200
             jp.save()
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5473,7 +7956,23 @@ def jan_manke_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5498,7 +7997,22 @@ def feb_manke_payments_vacate4(request, id):
             jp.feb_rent_rec_date = date
             jp.feb_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5516,7 +8030,23 @@ def feb_manke_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.feb_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5541,7 +8071,22 @@ def march_manke_payments_vacate4(request, id):
             jp.march_rent_rec_date = date
             jp.march_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5559,7 +8104,23 @@ def march_manke_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.march_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5585,7 +8146,21 @@ def april_make_payments_vacate4(request, id):
             jp.april_rent_flag = 200
             jp.save()
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5603,7 +8178,23 @@ def april_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.april_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5628,7 +8219,22 @@ def may_make_payments_vacate4(request, id):
             jp.may_rent_rec_date = date
             jp.may_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5646,7 +8252,23 @@ def may_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.may_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5671,7 +8293,22 @@ def june_make_payments_vacate4(request, id):
             jp.june_rent_rec_date = date
             jp.june_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5689,7 +8326,23 @@ def june_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.june_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5714,7 +8367,22 @@ def july_make_payments_vacate4(request, id):
             jp.july_rent_rec_date = date
             jp.july_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5730,7 +8398,23 @@ def july_make_payments_vacate4(request, id):
         pg1_new_beds = branch4app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.july_dis_amt))
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'sd': pg1_new_guest.objects.get(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5756,7 +8440,21 @@ def aug_make_payments_vacate4(request, id):
             jp.auguest_rent_flag = 200
             jp.save()
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5774,7 +8472,22 @@ def aug_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.auguest_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5800,7 +8513,21 @@ def sept_make_payments_vacate4(request, id):
             jp.sept_rent_flag = 200
             jp.save()
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5818,7 +8545,23 @@ def sept_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.sept_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5843,7 +8586,22 @@ def oct_make_payments_vacate4(request, id):
             jp.october_rent_rec_date = date
             jp.october_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5861,7 +8619,23 @@ def oct_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.october_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5886,7 +8660,22 @@ def nov_make_payments_vacate4(request, id):
             jp.nov_rent_rec_date = date
             jp.nov_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5904,7 +8693,23 @@ def nov_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.nov_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5929,7 +8734,22 @@ def dec_make_payments_vacate4(request, id):
             jp.dec_rent_rec_date = date
             jp.dec_rent_flag = 200
             jp.save()
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch4/vacate_guest/details_of_vacate_guest.html', context)
@@ -5947,7 +8767,23 @@ def dec_make_payments_vacate4(request, id):
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.dec_dis_amt))
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
@@ -5969,18 +8805,62 @@ def dec_make_payments_vacate4(request, id):
 ###########################
 
 def view_all_due_amt4(request):
-    context={
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'due_amt' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
     }
     return render(request, 'branches/branch4/due_amt_mgt/view_all_due_amt.html',context)
 
 def due_amt_mgt_choose_months4(request):
-    return render(request, 'branches/branch4/due_amt_mgt/due_amt_mgt_choose_months.html')
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+    }
+    return render(request, 'branches/branch4/due_amt_mgt/due_amt_mgt_choose_months.html',context)
 
 
 def view_may_account_details4(request):
     import branch4app
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'due_amt': branch4app.models.pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
     }
     return render(request, 'branches/branch4/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
@@ -6019,7 +8899,23 @@ def may_account_mgt4(request, id):
             return view_may_account_details4(request)
 
         import branch4app
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': branch4app.models.pg1_new_guest.objects.get(id=id),
             'user_details': branch4app.models.pg1_new_guest.objects.all().filter(id=id),
         }
@@ -6027,7 +8923,21 @@ def may_account_mgt4(request, id):
 
 
 def view_june_account_details4(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99).order_by('roon_no'),
     }
     return render(request,'branches/branch4/due_amt_mgt/monthly_detailes_due_amt/june/view_june_account_details.html',context)
@@ -6065,7 +8975,23 @@ def june_account_mgt4(request,id):
             ic.save()
             return view_june_account_details4(request)
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
@@ -6073,7 +8999,21 @@ def june_account_mgt4(request,id):
 
 
 def view_july_account_details4(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99).order_by('roon_no'),
     }
     return render(request,'branches/branch4/due_amt_mgt/monthly_detailes_due_amt/july/view_july_account_details.html',context)
@@ -6110,7 +9050,23 @@ def july_account_mgt4(request,id):
             ic.save()
             return view_july_account_details4(request)
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
@@ -6128,14 +9084,46 @@ def july_account_mgt4(request,id):
 
 def manage_bed4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'bed' : pg1_new_beds.objects.all(),
         }
         return render(request, 'branches/branch4/test/manage_bed.html',context)
 
 def manage_new_guest4(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'bed' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no'),
         }
         return render(request, 'branches/branch4/test/manage_new_guest.html',context)
@@ -6225,7 +9213,21 @@ def manage_update_new_guest4(request, id):
             messages.info(request, 'BRANCH4 guest updated sucessfully')
             return manage_new_guest4(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_guest.objects.get(id=id)
     }
     return render(request, 'branches/branch4/test/manage_update_new_guest.html', context)
@@ -6312,7 +9314,21 @@ def manage_update_new_guest4_test(request, id):
             messages.info(request, 'BRANCH4 guest updated sucessfully')
             return manage_new_guest4(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_guest.objects.get(id=id)
     }
     return render(request, 'branches/branch4/test/manage_update_new_guest.html', context)
@@ -6365,7 +9381,21 @@ def manage_update_beds4(request, id):
             messages.info(request, 'BRANCH4 guest updated sucessfully')
             return manage_bed4(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_beds.objects.get(id=id)
     }
     return render(request, 'branches/branch4/test/manage_update_beds.html', context)
@@ -6412,3 +9442,89 @@ def dynamic(request):
         }
         return render(request, 'branches/branch4/test.html',context)
     return branch1_dashboard4(request)
+
+######################################
+
+def background4(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a=[]
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+
+        context = {
+            'bg' : bgs,
+            'us' : us,
+            'th_us' : a[0]
+        }
+        return render(request, 'branches/branch4/test/background.html', context)
+    return render(request, 'index.html')
+
+def background_regi4(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        th = request.POST.get('theme')
+        uc=background_color.objects.all().filter(username=us).exists()
+        print(uc)
+
+        if uc==True:
+            b=background_color.objects.get(username=us)
+            b.theme_name = th
+            b.save()
+        else:
+            a=background_color()
+            a.theme_name = th
+            a.username = us
+            a.save()
+
+        bg = background_color.objects.all().filter(username=us)
+        l=[]
+        for i in bg:
+            l.append(i.username)
+
+        context = {
+            'bg' : bg,
+            'us' : us,
+            'th_us' : l[0]
+
+        }
+        return render(request, 'branches/branch4/test/background.html', context)
+    return render(request, 'index.html')
+
+
+def custom_background_regi4(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        th = request.POST.get('theme')
+        uc=background_color.objects.all().filter(username=us).exists()
+        print(uc)
+
+        if uc==True:
+            b=background_color.objects.get(username=us)
+            b.theme_name = th
+            b.save()
+        else:
+            a=background_color()
+            a.theme_name = th
+            a.username = us
+            a.save()
+
+        bg = background_color.objects.all().filter(username=us)
+        l=[]
+        for i in bg:
+            l.append(i.username)
+
+        context = {
+            'bg' : bg,
+            'us' : us,
+            'th_us' : l[0]
+
+        }
+        return render(request, 'branches/branch4/test/background.html', context)
+    return render(request, 'index.html')
+

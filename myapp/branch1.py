@@ -1375,7 +1375,7 @@ def details_of_paid_guests(request,id):
 
 def choose_months(request):
     if 'username' in request.session:
-        return render(request,'branches/branch/payments/choose_months.html')
+        return render(request,'branches/branch1/payments/choose_months.html')
 
 #jan make payments start here
 def jan(request):
@@ -1388,7 +1388,7 @@ def jan(request):
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch/payments/details_of_months/jan/jan.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
 
 def jan_manke_payments(request,id):
     if 'username' in request.session:
@@ -1436,7 +1436,7 @@ def jan_manke_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/jan/jan.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1460,7 +1460,7 @@ def jan_manke_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/jan/jan_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/jan/jan_manke_payments.html', context)
 
 #jan make payments start here
 
@@ -1473,7 +1473,7 @@ def feb(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/feb/feb.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
 
 def feb_manke_payments(request,id):
     if 'username' in request.session:
@@ -1521,7 +1521,7 @@ def feb_manke_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/feb/feb.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1545,7 +1545,7 @@ def feb_manke_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/feb/feb_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/feb/feb_manke_payments.html', context)
 
 #feb make payments start here
 
@@ -1558,7 +1558,7 @@ def march(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/march/march.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
 
 def march_manke_payments(request,id):
     if 'username' in request.session:
@@ -1606,7 +1606,7 @@ def march_manke_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/march/march.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1630,7 +1630,7 @@ def march_manke_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/march/march_manke_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/march/march_manke_payments.html', context)
 
 #march make payments start here
 
@@ -1645,7 +1645,7 @@ def april(request):
             'room' : room_pg1.objects.all(),
             #'room_name': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/april/april.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
 
 def april_make_payments(request,id):
     if 'username' in request.session:
@@ -1693,7 +1693,7 @@ def april_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/april/april.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1717,7 +1717,7 @@ def april_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/april/april_make_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/april/april_make_payments.html', context)
 
 #april make payments start here
 
@@ -1732,7 +1732,7 @@ def may(request):
             'room': room_pg1.objects.all(),
 
         }
-        return render(request, 'branches/branch/payments/details_of_months/may/may.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
 
 def may_make_payments(request,id):
     if 'username' in request.session:
@@ -1780,7 +1780,7 @@ def may_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/may/may.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1804,7 +1804,7 @@ def may_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/may/may_make_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/may/may_make_payments.html', context)
 
 #may make payments start here
 
@@ -1817,7 +1817,7 @@ def june(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/june/june.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
 
 def june_make_payments(request,id):
     if 'username' in request.session:
@@ -1866,7 +1866,7 @@ def june_make_payments(request,id):
                 'room': room_pg1.objects.all(),
 
             }
-            return render(request, 'branches/branch/payments/details_of_months/june/june.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/june/june.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1890,7 +1890,7 @@ def june_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch/payments/details_of_months/june/june_make_payments.html', context)
+        return render(request, 'branches/branch1/payments/details_of_months/june/june_make_payments.html', context)
 
 
 #june make payments start here
@@ -1904,7 +1904,7 @@ def july(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/july/july.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
 
 def july_make_payments(request,id):
     if 'username' in request.session:
@@ -1953,7 +1953,7 @@ def july_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/july/july.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -1977,7 +1977,7 @@ def july_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/july/july_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/july/july_make_payments.html', context)
 
 
 #july make payments start here
@@ -1991,7 +1991,7 @@ def aug(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/aug/aug.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
 
 def aug_make_payments(request,id):
     if 'username' in request.session:
@@ -2039,7 +2039,7 @@ def aug_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/aug/aug.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2063,7 +2063,7 @@ def aug_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/aug/aug_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/aug/aug_make_payments.html', context)
 
 #aug make payments start here
 
@@ -2076,7 +2076,7 @@ def sept(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/sept/sept.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
 
 def sept_make_payments(request,id):
     if 'username' in request.session:
@@ -2124,7 +2124,7 @@ def sept_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/sept/sept.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2148,7 +2148,7 @@ def sept_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/sept/sept_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/sept/sept_make_payments.html', context)
 
 #sept make payments start here
 
@@ -2161,7 +2161,7 @@ def oct(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/oct/oct.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
 
 def oct_make_payments(request,id):
     if 'username' in request.session:
@@ -2212,7 +2212,7 @@ def oct_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/oct/oct.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2236,7 +2236,7 @@ def oct_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/oct/oct_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/oct/oct_make_payments.html', context)
 
 #oct make payments start here
 
@@ -2249,7 +2249,7 @@ def nov(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/nov/nov.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
 
 def nov_make_payments(request,id):
     if 'username' in request.session:
@@ -2297,7 +2297,7 @@ def nov_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/nov/nov.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2321,7 +2321,7 @@ def nov_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/nov/nov_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/nov/nov_make_payments.html', context)
 
 #nov make payments start here
 
@@ -2334,7 +2334,7 @@ def dec(request):
             'roomno':rn,
             'room': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch/payments/details_of_months/dec/dec.html',context)
+        return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
 
 def dec_make_payments(request,id):
     if 'username' in request.session:
@@ -2383,7 +2383,7 @@ def dec_make_payments(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
             }
-            return render(request, 'branches/branch/payments/details_of_months/dec/dec.html',context)
+            return render(request, 'branches/branch1/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2407,7 +2407,7 @@ def dec_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch/payments/details_of_months/dec/dec_make_payments.html', context)
+        return render(request,'branches/branch1/payments/details_of_months/dec/dec_make_payments.html', context)
 
 #dec make payments start here
 

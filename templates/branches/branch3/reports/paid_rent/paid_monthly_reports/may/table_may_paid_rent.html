@@ -72,7 +72,22 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -88,9 +103,9 @@ function exportTableToExcel(tableID, filename = ''){
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR3</li>
 
-       <li>
+      <li>
         <a href="{% url 'branch1_dashboard3' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard3</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 3</span>
         </a>
       </li>
 
@@ -124,7 +139,7 @@ function exportTableToExcel(tableID, filename = ''){
       </li>
        <li>
         <a href="{% url 'detail_guest_general3' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 3</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs 3</span>
         </a>
       </li>
        <li>
@@ -145,6 +160,17 @@ function exportTableToExcel(tableID, filename = ''){
         </a>
       </li>
 
+        <li>
+        <a href="{% url 'may_print_live3' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report 3</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room3' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 3</span>
+        </a>
+      </li>
 
 
       <li>
@@ -295,7 +321,7 @@ function exportTableToExcel(tableID, filename = ''){
 	   <div class="card">
 	     <div class="card-header">View all Paid Rent of {{month_name}}
 		  <div class="card-action">
-              <a class="dropdown-item" href="{% url 'may_full_paid_guest3' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
+              <a class="dropdown-item" href="{% url 'may_full_paid_guest3' %}"><span style="background-color:red;color:white;">Full Paid Guest 3</span></a>
              <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
               <i class="icon-options1"></i>

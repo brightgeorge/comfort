@@ -270,10 +270,10 @@ function exportTableToExcel(tableID, filename = ''){
                      <th ><a href="{% url 'partially_paid_guest_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
                        <th ><a href="{% url 'july_partially_paid_guest5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of JUNE')">download</button></th>
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of JULY')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
                  </tr>
-			  <div class="table-responsive">
+           <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr>
@@ -293,15 +293,15 @@ function exportTableToExcel(tableID, filename = ''){
 
                 {% for i in ppr %}
 
-				   <tr>
+               <tr>
                     <td>{{forloop.counter}}</td>
-				   <td>{{i.room_name}}</td>
+               <td>{{i.room_name}}</td>
                     <td>{{i.name}}</td>
                        <td>{{i.monthly_rent}}</td>
-                        <td>{{i.june_rent}}</td>
-                        <td>{{i.june_advance}}</td>
-                        <td>{{i.june_dis_amt}}</td>
-                        <td>{{i.june_due_amt}}</td>
+                        <td>{{i.july_rent}}</td>
+                        <td>{{i.july_advance}}</td>
+                        <td>{{i.july_dis_amt}}</td>
+                        <td>{{i.july_due_amt}}</td>
                        <td>{{i.remark}}</td>
 
                        </a></td>
@@ -322,9 +322,9 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+     <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+      <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -334,17 +334,17 @@ function exportTableToExcel(tableID, filename = ''){
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 
-	<!--Start footer-->
-	<footer class="footer">
+   <!--Start footer-->
+   <footer class="footer">
       <div class="container">
         <div class="text-center">
           Copyright © 2018 Dashtreme Admin
         </div>
       </div>
     </footer>
-	<!--End footer-->
+   <!--End footer-->
 
-	<!--start color switcher-->
+   <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
@@ -362,15 +362,14 @@ function exportTableToExcel(tableID, filename = ''){
         <li style="margin-top:5px;"><a href="{% url 'april_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Unpaid 5</button> </a></li>
 
           <li style="margin-top:5px;"><a href="{% url 'may_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Unpaid 5</button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'june_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Unpaid 5</button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July Unpaid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July Unpaid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">October Unpaid 5</button> </a></li>
          <li style="margin-top:5px;"><a href="{% url 'aug_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest Unpaid 5</button> </a></li>
 
            <li style="margin-top:5px;"><a href="{% url 'sept_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept Unpaid 5</button> </a></li>
          <li style="margin-top:5px;"><a href="{% url 'oct_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Unpaid 5</button> </a></li>
           <li style="margin-top:5px;"><a href="{% url 'nov_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Unpaid 5</button> </a></li>
          <li style="margin-top:5px;"><a href="{% url 'dec_unpaid_rent5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Unpaid 5</button> </a></li>
-
 
 
           <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
@@ -402,7 +401,7 @@ function exportTableToExcel(tableID, filename = ''){
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-		<li id="theme13"></li>
+      <li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -429,3 +428,4 @@ function exportTableToExcel(tableID, filename = ''){
 
 </body>
 </html>
+

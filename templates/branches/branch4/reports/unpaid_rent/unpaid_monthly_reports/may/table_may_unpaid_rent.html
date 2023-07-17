@@ -74,7 +74,15 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -250,7 +258,7 @@ function exportTableToExcel(tableID, filename = ''){
               <h5 class="card-title">Unpaid Rent of {{month_name}}</h5>
                  <tr>
                      <th ><a href="{% url 'unpaid_rent_choose_months4' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
-                       <th ><a href="{% url '4' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
+                       <th ><a href="{% url 'may_unpaid_rent4' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of MAY')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
