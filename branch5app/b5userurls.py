@@ -166,6 +166,7 @@ urlpatterns = [
 #*********reports start here
 
 #unpaid rent start here
+
     path('unpaid_rent_choose_months5/',branch5.unpaid_rent_choose_months5,name='unpaid_rent_choose_months5'),
 
     path('jan_unpaid_rent5/', branch5.jan_unpaid_rent5, name='jan_unpaid_rent5'),

@@ -72,7 +72,23 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
+
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
+{% endif %}
  
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -88,28 +104,44 @@ function exportTableToExcel(tableID, filename = ''){
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION BR1</li>
 
-       <li>
+      <li>
         <a href="{% url 'branch1_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
-        </a>
-      </li>
 
-      <li>
-        <a href="{% url 'choose_months' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
-        </a>
-      </li>
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests </span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests </span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report </span></a>
+  </div>
+</div>
+       </li>
+
+
+
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment </span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance' %}">
@@ -118,15 +150,17 @@ function exportTableToExcel(tableID, filename = ''){
       </li>
 
        <li>
+        <a href="{% url 'due_amt_mgt_choose_months' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt </span>
+        </a>
+      </li>
+
+       <li>
         <a href="{% url 'view_all_new_guest' %}">
           <i class="zmdi zmdi-face"></i> <span>Guests</span>
         </a>
       </li>
-       <li>
-        <a href="{% url 'detail_guest_general' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs</span>
-        </a>
-      </li>
+
        <li>
         <a href="{% url 'viewall_vacate_guest' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
@@ -324,6 +358,8 @@ function exportTableToExcel(tableID, filename = ''){
                      <th>Roon No</th>
                      <th>Guest Name</th>
                      <th>Contact No</th>
+                       <th>Paid Amount</th>
+                       <th>Due Amount</th>
                         <th>Details</th>
                    </tr>
                    </thead>
@@ -335,6 +371,8 @@ function exportTableToExcel(tableID, filename = ''){
 				   <td>{{i.room_name}}</td>
                     <td>{{i.name|upper}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
+                       <td>{{i.june_rent}}</td>
+                       <td>{{i.june_due_amt}}</td>
                        <td>
                            <a href="{% url 'details_of_paid_guests' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
                        </td>
@@ -382,20 +420,20 @@ function exportTableToExcel(tableID, filename = ''){
       <hr>
 
       <ul>
-        <li><a href="{% url 'jan_paid_rent' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid </button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid </button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid </button> </a></li>
-        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid </button> </a></li>
+        <li><a href="{% url 'jan_paid_rent' %}"><button class="btn btn-primary" style="width:180px;">Jnuary paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'feb_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'mar_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March paid 5</button> </a></li>
+        <li style="margin-top:5px;"><a href="{% url 'april_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April paid 5</button> </a></li>
 
-          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid </button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid </button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid </button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid </button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'may_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'june_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'july_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">July paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'aug_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest paid 5</button> </a></li>
 
-           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid </button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid </button> </a></li>
-          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid </button> </a></li>
-         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid </button> </a></li>
+           <li style="margin-top:5px;"><a href="{% url 'sept_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'oct_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct paid 5</button> </a></li>
+          <li style="margin-top:5px;"><a href="{% url 'nov_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov paid 5</button> </a></li>
+         <li style="margin-top:5px;"><a href="{% url 'dec_paid_rent' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec paid 5</button> </a></li>
 
 
 

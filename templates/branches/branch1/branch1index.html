@@ -30,7 +30,16 @@
 
 </head>
 
+
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -555,6 +564,14 @@ new Chart("myCharts", {
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
+
+                <p class="mb-0">Settings</p>
+      <hr>
+
+      <ul class="switcher">
+      <a href="{% url 'backgrounds' %}"  <li style="background-color:red;">Change Theme</li></a>
+      </ul>
+  <hr>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>

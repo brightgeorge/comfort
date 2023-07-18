@@ -19,6 +19,10 @@ urlpatterns = [
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
     path('select_branch/',views.select_branch,name='select_branch'),
 
+    path('backgrounds', branch1.backgrounds, name='backgrounds'),
+    path('background_regis', branch1.background_regis, name='background_regis'),
+    path('custom_background_regis', branch1.custom_background_regis, name='custom_background_regis'),
+
     path('branchwise_total_guest/',admin_dahsboard_calculations.branchwise_total_guest,name='branchwise_total_guest'),
     path('total_vaccant_share_choose_branches/',admin_dahsboard_calculations.total_vaccant_share_choose_branches,name='total_vaccant_share_choose_branches'),
     path('details_branch1/',admin_dahsboard_calculations.details_branch1,name='details_branch1'),
@@ -71,64 +75,121 @@ urlpatterns = [
 #*********reports start here
 
 #unpaid rent start here
-    path('unpaid_rent_choose_months/',branch1.unpaid_rent_choose_months,name='unpaid_rent_choose_months'),
 
-    path('jan_unpaid_rent/', branch1.jan_unpaid_rent, name='jan_unpaid_rent'),
-    path('feb_unpaid_rent/', branch1.feb_unpaid_rent, name='feb_unpaid_rent'),
-    path('mar_unpaid_rent/', branch1.mar_unpaid_rent, name='mar_unpaid_rent'),
-    path('april_unpaid_rent/', branch1.april_unpaid_rent, name='april_unpaid_rent'),
+path('unpaid_rent_choose_months/',branch1.unpaid_rent_choose_months,name='unpaid_rent_choose_months'),
 
-    path('may_unpaid_rent/', branch1.may_unpaid_rent, name='may_unpaid_rent'),
-    path('june_unpaid_rent/', branch1.june_unpaid_rent, name='june_unpaid_rent'),
-    path('july_unpaid_rent/', branch1.july_unpaid_rent, name='july_unpaid_rent'),
-    path('aug_unpaid_rent/', branch1.aug_unpaid_rent, name='aug_unpaid_rent'),
+path('jan_unpaid_rent/', branch1.jan_unpaid_rent, name='jan_unpaid_rent'),
+path('table_jan_unpaid_rent/', branch1.table_jan_unpaid_rent, name='table_jan_unpaid_rent'),
+path('feb_unpaid_rent/', branch1.feb_unpaid_rent, name='feb_unpaid_rent'),
+path('table_feb_unpaid_rent/', branch1.table_feb_unpaid_rent, name='table_feb_unpaid_rent'),
+path('mar_unpaid_rent/', branch1.mar_unpaid_rent, name='mar_unpaid_rent'),
+path('table_mar_unpaid_rent/', branch1.table_mar_unpaid_rent, name='table_mar_unpaid_rent'),
+path('april_unpaid_rent/', branch1.april_unpaid_rent, name='april_unpaid_rent'),
+path('table_april_unpaid_rent/', branch1.table_april_unpaid_rent, name='table_april_unpaid_rent'),
 
-    path('sept_unpaid_rent/', branch1.sept_unpaid_rent, name='sept_unpaid_rent'),
-    path('oct_unpaid_rent/', branch1.oct_unpaid_rent, name='oct_unpaid_rent'),
-    path('nov_unpaid_rent/', branch1.nov_unpaid_rent, name='nov_unpaid_rent'),
-    path('dec_unpaid_rent/', branch1.dec_unpaid_rent, name='dec_unpaid_rent'),
+path('may_unpaid_rent/', branch1.may_unpaid_rent, name='may_unpaid_rent'),
+path('table_may_unpaid_rent/', branch1.table_may_unpaid_rent, name='table_may_unpaid_rent'),
+path('june_unpaid_rent/', branch1.june_unpaid_rent, name='june_unpaid_rent'),
+path('table_june_unpaid_rent/', branch1.table_june_unpaid_rent, name='table_june_unpaid_rent'),
+path('july_unpaid_rent/', branch1.july_unpaid_rent, name='july_unpaid_rent'),
+path('table_july_unpaid_rent',branch1.table_july_unpaid_rent,name='table_july_unpaid_rent'),
+path('aug_unpaid_rent/', branch1.aug_unpaid_rent, name='aug_unpaid_rent'),
+path('table_aug_unpaid_rent/',branch1.table_aug_unpaid_rent,name='table_aug_unpaid_rent'),
 
-    path('details_of_unpaid_guests/<id>',branch1.details_of_unpaid_guests,name='details_of_unpaid_guests'),
+path('sept_unpaid_rent/', branch1.sept_unpaid_rent, name='sept_unpaid_rent'),
+path('table_sept_unpaid_rent/', branch1.table_sept_unpaid_rent, name='table_sept_unpaid_rent'),
+path('oct_unpaid_rent/', branch1.oct_unpaid_rent, name='oct_unpaid_rent'),
+path('table_oct_unpaid_rent/', branch1.table_oct_unpaid_rent, name='table_oct_unpaid_rent'),
+path('nov_unpaid_rent/', branch1.nov_unpaid_rent, name='nov_unpaid_rent'),
+path('table_nov_unpaid_rent/', branch1.table_nov_unpaid_rent, name='table_nov_unpaid_rent'),
+path('dec_unpaid_rent/', branch1.dec_unpaid_rent, name='dec_unpaid_rent'),
+path('table_dec_unpaid_rent/', branch1.table_dec_unpaid_rent, name='table_dec_unpaid_rent'),
+
+path('details_of_unpaid_guests/<id>',branch1.details_of_unpaid_guests,name='details_of_unpaid_guests'),
 
 #unpaid rent end here
 
 #paid rent start here
 
 #paid rent start here
-    path('paid_rent_choose_months/',branch1.paid_rent_choose_months,name='paid_rent_choose_months'),
-    path('partially_paid_guest_choose_months/',reports1.partially_paid_guest_choose_months,name='partially_paid_guest_choose_months'),
 
-    path('jan_paid_rent/', branch1.jan_paid_rent, name='jan_paid_rent'),
-    path('feb_paid_rent/', branch1.feb_paid_rent, name='feb_paid_rent'),
-    path('mar_paid_rent/', branch1.mar_paid_rent, name='mar_paid_rent'),
+path('paid_rent_choose_months/',branch1.paid_rent_choose_months,name='paid_rent_choose_months'),
+path('partially_paid_guest_choose_months/',reports1.partially_paid_guest_choose_months,name='partially_paid_guest_choose_months'),
 
-    path('april_paid_rent/', branch1.april_paid_rent, name='april_paid_rent'),
-    path('may_paid_rent/', branch1.may_paid_rent, name='may_paid_rent'),
-    path('table_may_paid_rent/', branch1.table_may_paid_rent, name='table_may_paid_rent'),
-    path('may_full_paid_guest/', reports1.may_full_paid_guest, name='may_full_paid_guest'),
-    path('may_partially_paid_guest/', reports1.may_partially_paid_guest, name='may_partially_paid_guest'),
-    path('table_may_partially_paid_guest/', reports1.table_may_partially_paid_guest, name='table_may_partially_paid_guest'),
-    path('june_paid_rent/', branch1.june_paid_rent, name='june_paid_rent'),
-    path('table_june_paid_rent/', branch1.table_june_paid_rent, name='table_june_paid_rent'),
-    path('june_full_paid_guest/', reports1.june_full_paid_guest, name='june_full_paid_guest'),
-    path('june_partially_paid_guest/', reports1.june_partially_paid_guest, name='june_partially_paid_guest'),
-    path('table_june_partially_paid_guest/', reports1.table_june_partially_paid_guest, name='table_june_partially_paid_guest'),
+path('jan_paid_rent/', branch1.jan_paid_rent, name='jan_paid_rent'),
+path('table_jan_paid_rent/', branch1.table_jan_paid_rent, name='table_jan_paid_rent'),
+path('jan_full_paid_guest/', reports1.jan_full_paid_guest, name='jan_full_paid_guest'),
+path('jan_partially_paid_guest/', reports1.jan_partially_paid_guest, name='jan_partially_paid_guest'),
+path('table_jan_partially_paid_guest/', reports1.table_jan_partially_paid_guest,name='table_jan_partially_paid_guest'),
 
-    path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
-    path('table_july_paid_rent/', branch1.table_july_paid_rent, name='table_july_paid_rent'),
-    path('july_full_paid_guest/', reports1.july_full_paid_guest, name='july_full_paid_guest'),
-    path('july_partially_paid_guest/', reports1.july_partially_paid_guest, name='july_partially_paid_guest'),
-    path('table_july_partially_paid_guest/', reports1.table_july_partially_paid_guest, name='table_july_partially_paid_guest'),
+path('feb_paid_rent/', branch1.feb_paid_rent, name='feb_paid_rent'),
+path('table_feb_paid_rent/', branch1.table_feb_paid_rent, name='table_feb_paid_rent'),
+path('feb_full_paid_guest/', reports1.feb_full_paid_guest, name='feb_full_paid_guest'),
+path('feb_partially_paid_guest/', reports1.feb_partially_paid_guest, name='feb_partially_paid_guest'),
+path('table_feb_partially_paid_guest/', reports1.table_feb_partially_paid_guest,name='table_feb_partially_paid_guest'),
 
-    path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
-    path('sept_paid_rent/', branch1.sept_paid_rent, name='sept_paid_rent'),
+path('mar_paid_rent/', branch1.mar_paid_rent, name='mar_paid_rent'),
+path('table_mar_paid_rent/', branch1.table_mar_paid_rent, name='table_mar_paid_rent'),
+path('march_full_paid_guest/', reports1.march_full_paid_guest, name='march_full_paid_guest'),
+path('march_partially_paid_guest/', reports1.march_partially_paid_guest, name='march_partially_paid_guest'),
+path('table_march_partially_paid_guest/', reports1.table_march_partially_paid_guest,name='table_march_partially_paid_guest'),
 
-    path('oct_paid_rent/', branch1.oct_paid_rent, name='oct_paid_rent'),
-    path('nov_paid_rent/', branch1.nov_paid_rent, name='nov_paid_rent'),
-    path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
+path('april_paid_rent/', branch1.april_paid_rent, name='april_paid_rent'),
+path('table_april_paid_rent/', branch1.table_april_paid_rent, name='table_april_paid_rent'),
+path('april_full_paid_guest/', reports1.april_full_paid_guest, name='april_full_paid_guest'),
+path('april_partially_paid_guest/', reports1.april_partially_paid_guest, name='april_partially_paid_guest'),
+path('table_april_partially_paid_guest/', reports1.table_april_partially_paid_guest,name='table_april_partially_paid_guest'),
 
-    path('details_of_paid_guests/<id>',branch1.details_of_paid_guests,name='details_of_paid_guests'),
-    path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
+path('may_paid_rent/', branch1.may_paid_rent, name='may_paid_rent'),
+path('table_may_paid_rent/', branch1.table_may_paid_rent, name='table_may_paid_rent'),
+path('may_full_paid_guest/', reports1.may_full_paid_guest, name='may_full_paid_guest'),
+path('may_partially_paid_guest/', reports1.may_partially_paid_guest, name='may_partially_paid_guest'),
+path('table_may_partially_paid_guest/', reports1.table_may_partially_paid_guest, name='table_may_partially_paid_guest'),
+
+path('june_paid_rent/', branch1.june_paid_rent, name='june_paid_rent'),
+path('table_june_paid_rent/', branch1.table_june_paid_rent, name='table_june_paid_rent'),
+path('june_full_paid_guest/', reports1.june_full_paid_guest, name='june_full_paid_guest'),
+path('june_partially_paid_guest/', reports1.june_partially_paid_guest, name='june_partially_paid_guest'),
+path('table_june_partially_paid_guest/', reports1.table_june_partially_paid_guest, name='table_june_partially_paid_guest'),
+
+path('july_paid_rent/', branch1.july_paid_rent, name='july_paid_rent'),
+path('table_july_paid_rent/', branch1.table_july_paid_rent, name='table_july_paid_rent'),
+path('july_full_paid_guest/', reports1.july_full_paid_guest, name='july_full_paid_guest'),
+path('july_partially_paid_guest/', reports1.july_partially_paid_guest, name='july_partially_paid_guest'),
+path('table_july_partially_paid_guest/', reports1.table_july_partially_paid_guest, name='table_july_partially_paid_guest'),
+
+path('aug_paid_rent/', branch1.aug_paid_rent, name='aug_paid_rent'),
+path('table_aug_paid_rent/', branch1.table_aug_paid_rent, name='table_aug_paid_rent'),
+path('auguest_full_paid_guest/', reports1.auguest_full_paid_guest, name='auguest_full_paid_guest'),
+path('auguest_partially_paid_guest/', reports1.auguest_partially_paid_guest,name='auguest_partially_paid_guest'),
+path('table_auguest_partially_paid_guest/', reports1.table_auguest_partially_paid_guest,name='table_auguest_partially_paid_guest'),
+
+path('sept_paid_rent/', branch1.sept_paid_rent, name='sept_paid_rent'),
+path('table_sept_paid_rent/', branch1.table_sept_paid_rent, name='table_sept_paid_rent'),
+path('sept_full_paid_guest/', reports1.sept_full_paid_guest, name='sept_full_paid_guest'),
+path('sept_partially_paid_guest/', reports1.sept_partially_paid_guest, name='sept_partially_paid_guest'),
+path('table_sept_partially_paid_guest/', reports1.table_sept_partially_paid_guest,name='table_sept_partially_paid_guest'),
+
+path('oct_paid_rent/', branch1.oct_paid_rent, name='oct_paid_rent'),
+path('table_oct_paid_rent/', branch1.table_oct_paid_rent, name='table_oct_paid_rent'),
+path('october_full_paid_guest/', reports1.october_full_paid_guest, name='october_full_paid_guest'),
+path('october_partially_paid_guest/', reports1.october_partially_paid_guest,name='october_partially_paid_guest'),
+path('table_october_partially_paid_guest/', reports1.table_october_partially_paid_guest,name='table_october_partially_paid_guest'),
+
+path('nov_paid_rent/', branch1.nov_paid_rent, name='nov_paid_rent'),
+path('table_nov_paid_rent/', branch1.table_nov_paid_rent, name='table_nov_paid_rent'),
+path('nov_full_paid_guest/', reports1.nov_full_paid_guest, name='nov_full_paid_guest'),
+path('nov_partially_paid_guest/', reports1.nov_partially_paid_guest, name='nov_partially_paid_guest'),
+path('table_nov_partially_paid_guest/', reports1.table_nov_partially_paid_guest,name='table_nov_partially_paid_guest'),
+
+path('dec_paid_rent/', branch1.dec_paid_rent, name='dec_paid_rent'),
+path('table_dec_paid_rent/', branch1.table_dec_paid_rent, name='table_dec_paid_rent'),
+path('dec_full_paid_guest/', reports1.dec_full_paid_guest, name='dec_full_paid_guest'),
+path('dec_partially_paid_guest/', reports1.dec_partially_paid_guest, name='dec_partially_paid_guest'),
+path('table_dec_partially_paid_guest/', reports1.table_dec_partially_paid_guest,name='table_dec_partially_paid_guest'),
+
+path('details_of_paid_guests/<id>',branch1.details_of_paid_guests,name='details_of_paid_guests'),
+path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
 #paid rent end here
 
@@ -322,13 +383,46 @@ urlpatterns = [
 #VACATE GUEST DETAILS END HERE
 ################################
 
+
+########################################
+# DETAILED REPORT START HERE
+###########################
+
     path('detailed_report_choose_months/',reports1.detailed_report_choose_months,name='detailed_report_choose_months'),
+
+    path('jan_details_live/', reports1.jan_details_live, name='jan_details_live'),
+    path('jan_print_live/', reports1.jan_print_live, name='jan_print_live'),
+    path('feb_details_live/', reports1.feb_details_live, name='feb_details_live'),
+    path('feb_print_live/', reports1.feb_print_live, name='feb_print_live'),
+    path('march_details_live/', reports1.march_details_live, name='march_details_live'),
+    path('march_print_live/', reports1.march_print_live, name='march_print_live'),
+
+    path('april_details_live/', reports1.april_details_live, name='april_details_live'),
+    path('april_print_live/', reports1.april_print_live, name='april_print_live'),
     path('may_details_live/', reports1.may_details_live, name='may_details_live'),
     path('may_print_live/', reports1.may_print_live, name='may_print_live'),
     path('june_details_live/',reports1.june_details_live,name='june_details_live'),
     path('june_print_live/', reports1.june_print_live, name='june_print_live'),
+
     path('july_details_live/', reports1.july_details_live, name='july_details_live'),
     path('july_print_live/', reports1.july_print_live, name='july_print_live'),
+    path('auguest_details_live/', reports1.auguest_details_live, name='auguest_details_live'),
+    path('auguest_print_live/', reports1.auguest_print_live, name='auguest_print_live'),
+    path('sept_details_live/', reports1.sept_details_live, name='sept_details_live'),
+    path('sept_print_live/', reports1.sept_print_live, name='sept_print_live'),
+
+    path('october_details_live/', reports1.october_details_live, name='october_details_live'),
+    path('october_print_live/', reports1.october_print_live, name='october_print_live'),
+    path('nov_details_live/', reports1.nov_details_live, name='nov_details_live'),
+    path('nov_print_live/', reports1.nov_print_live, name='nov_print_live'),
+    path('dec_details_live/', reports1.dec_details_live, name='dec_details_live'),
+    path('dec_print_live/', reports1.dec_print_live, name='dec_print_live'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
+
+
 
     path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
 

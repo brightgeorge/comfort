@@ -16,7 +16,6 @@ urlpatterns = [
     path('custom_background_regi3', branch3.custom_background_regi3, name='custom_background_regi3'),
 
 
-
 #**room creation start here
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
     path('branch1_room_create_regi3/',admin_branch3.branch1_room_create_regi3,name='branch1_room_create_regi3'),

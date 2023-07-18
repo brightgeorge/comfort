@@ -30,7 +30,14 @@
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -44,52 +51,77 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR</li>
 
-       <li>
+ <li>
         <a href="{% url 'branch1_dashboard' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard </span>
         </a>
       </li>
 
       <li>
         <a href="{% url 'unpaid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests </span>
         </a>
       </li>
        <li>
         <a href="{% url 'paid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests </span>
         </a>
       </li>
 
       <li>
         <a href="{% url 'choose_months' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments </span>
         </a>
       </li>
 
         <li>
         <a href="{% url 'choose_months_advance' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance</span>
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance </span>
         </a>
       </li>
 
        <li>
         <a href="{% url 'view_all_new_guest' %}">
-          <i class="zmdi zmdi-face"></i> <span>Guests</span>
+          <i class="zmdi zmdi-face"></i> <span>Guests </span>
         </a>
       </li>
        <li>
         <a href="{% url 'detail_guest_general' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs</span>
+          <i class="zmdi zmdi-brush"></i> <span>Print outs </span>
         </a>
       </li>
        <li>
         <a href="{% url 'viewall_vacate_guest' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest </span>
         </a>
       </li>
+
+        <li>
+        <a href="{% url 'view_all_rooms' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms </span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'pg1_view_all_beds' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds </span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'may_print_live' %}">
+          <i class="zmdi zmdi-spinner"></i> <span>Live Report </span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms </span>
+        </a>
+      </li>
+
 
       <li>
         <a href="{% url 'logout' %}">

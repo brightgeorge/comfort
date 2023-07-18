@@ -58,7 +58,19 @@ def login_request(request):
             if role=='Branch1':
                 request.session['username'] = username
                 us = request.session['username']
+                import myapp
+                bgs = myapp.models.background_color.objects.all().filter(username=us)
+                bg = myapp.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }
