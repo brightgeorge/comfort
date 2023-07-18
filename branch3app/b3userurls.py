@@ -200,6 +200,7 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
     path('oct_unpaid_rent3/', branch3.oct_unpaid_rent3, name='oct_unpaid_rent3'),
     path('table_oct_unpaid_rent3/', branch3.table_oct_unpaid_rent3, name='table_oct_unpaid_rent3'),
     path('nov_unpaid_rent3/', branch3.nov_unpaid_rent3, name='nov_unpaid_rent3'),
+    path('table_nov_unpaid_rent3/', branch3.table_nov_unpaid_rent3, name='table_nov_unpaid_rent3'),
     path('dec_unpaid_rent3/', branch3.dec_unpaid_rent3, name='dec_unpaid_rent3'),
     path('table_dec_unpaid_rent3/', branch3.table_dec_unpaid_rent3, name='table_dec_unpaid_rent3'),
 
@@ -377,13 +378,45 @@ path('full_paid_guest3/',reports3.full_paid_guest3,name='full_paid_guest3'),
     path('nov_close3/', branch3.nov_close3, name='nov_close3'),
     path('nov_close_decision_page3/', branch3.nov_close_decision_page3, name='nov_close_decision_page3'),
 
-    path('detailed_report_choose_months3/', reports3.detailed_report_choose_months3,name='detailed_report_choose_months3'),
-    path('may_details_live3/',reports3.may_details_live3,name='may_details_live3'),
+
+########################################
+# DETAILED REPORT START HERE
+###########################
+
+    path('detailed_report_choose_months3/',reports3.detailed_report_choose_months3,name='detailed_report_choose_months3'),
+
+    path('jan_details_live3/', reports3.jan_details_live3, name='jan_details_live3'),
+    path('jan_print_live3/', reports3.jan_print_live3, name='jan_print_live3'),
+    path('feb_details_live3/', reports3.feb_details_live3, name='feb_details_live3'),
+    path('feb_print_live3/', reports3.feb_print_live3, name='feb_print_live3'),
+    path('march_details_live3/', reports3.march_details_live3, name='march_details_live3'),
+    path('march_print_live3/', reports3.march_print_live3, name='march_print_live3'),
+
+    path('april_details_live3/', reports3.april_details_live3, name='april_details_live3'),
+    path('april_print_live3/', reports3.april_print_live3, name='april_print_live3'),
+    path('may_details_live3/', reports3.may_details_live3, name='may_details_live3'),
     path('may_print_live3/', reports3.may_print_live3, name='may_print_live3'),
-    path('june_details_live3/', reports3.june_details_live3, name='june_details_live3'),
+    path('june_details_live3/',reports3.june_details_live3,name='june_details_live3'),
     path('june_print_live3/', reports3.june_print_live3, name='june_print_live3'),
+
     path('july_details_live3/', reports3.july_details_live3, name='july_details_live3'),
     path('july_print_live3/', reports3.july_print_live3, name='july_print_live3'),
+    path('auguest_details_live3/', reports3.auguest_details_live3, name='auguest_details_live3'),
+    path('auguest_print_live3/', reports3.auguest_print_live3, name='auguest_print_live3'),
+    path('sept_details_live3/', reports3.sept_details_live3, name='sept_details_live3'),
+    path('sept_print_live3/', reports3.sept_print_live3, name='sept_print_live3'),
+
+    path('october_details_live3/', reports3.october_details_live3, name='october_details_live3'),
+    path('october_print_live3/', reports3.october_print_live3, name='october_print_live3'),
+    path('nov_details_live3/', reports3.nov_details_live3, name='nov_details_live3'),
+    path('nov_print_live3/', reports3.nov_print_live3, name='nov_print_live3'),
+    path('dec_details_live3/', reports3.dec_details_live3, name='dec_details_live3'),
+    path('dec_print_live3/', reports3.dec_print_live3, name='dec_print_live3'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
+
 
 
     path('viewall_vaccant_room3/', reports3.viewall_vaccant_room3, name='viewall_vaccant_room3'),

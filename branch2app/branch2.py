@@ -1392,7 +1392,7 @@ def oct_unpaid_rent2(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch2/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent2.html', context)
+        return render(request, 'branches/branch2/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent2(request):
     if 'username' in request.session:
 

@@ -1362,7 +1362,7 @@ def table_sept_unpaid_rent3(request):
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch3/reports/unpaid_rent/unpaid_monthly_reports/sept/table_sept_unpaid_rent.html', context)
+        return render(request, 'branches/branch3/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html', context)
 
 
 def oct_unpaid_rent3(request):
@@ -1388,7 +1388,7 @@ def oct_unpaid_rent3(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch3/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent3.html', context)
+        return render(request, 'branches/branch3/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent3(request):
     if 'username' in request.session:
 
@@ -2121,7 +2121,7 @@ def sept_paid_rent3(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sept/sept_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sep/sept_paid_rent.html', context)
 def table_sept_paid_rent3(request):
     if 'username' in request.session:
         l = []
@@ -2152,7 +2152,7 @@ def table_sept_paid_rent3(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sept/table_sept_paid_rent.html', context)
+        return render(request, 'branches/branch3/reports/paid_rent/paid_monthly_reports/sep/table_sept_paid_rent.html', context)
 
 
 def oct_paid_rent3(request):
