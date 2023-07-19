@@ -6905,21 +6905,20 @@ def jul_close_decision_page2(request):
 
 def aug_print2(request):
     if 'username' in request.session:
-        l = []
-        data = pg1_new_beds.objects.all()
+        l=[]
+        data=pg1_new_beds.objects.all()
         for i in data:
             l.append(i.share_type)
 
-        ll = []
-        rsdata = room_pg1.objects.all().order_by('roon_no')
+        ll=[]
+        rsdata=room_pg1.objects.all().order_by('roon_no')
         for i in rsdata:
             ll.append(i.share_type)
 
-        g1_data = pg1_new_beds.objects.all().filter(roon_no=1),
-        print('room share type of branch22', ll)
+        g1_data=pg1_new_beds.objects.all().filter(roon_no=1),
+        print('room share type of branch22',ll)
         print('room share type of branchl0', ll[0])
-        print('room share type of branchl1', ll[1])
-
+        print('room share type of branchl7', ll[7])
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -6936,31 +6935,30 @@ def aug_print2(request):
             'th_us': a[0],
             'name': us,
 
-
             'brname': 'BRANCH 2 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
-            'rn1': l[0],
-            'table_height': '40px',
+            'rn1':l[0],
+            'table_height' : '40px',
 
-            'rs101': ll[0],
-            '101_data': pg1_new_beds.objects.all().filter(roon_no=101),
-            # 'g1_data':g1_data,
-            'rs102': ll[1],
+            'r101':ll[0],
+            '101_data':pg1_new_beds.objects.all().filter(roon_no=101),
+            #'g1_data':g1_data,
+            'r102': ll[1],
             '102_data': pg1_new_beds.objects.all().filter(roon_no=102),
-            'rs103': ll[2],
+            'r103': ll[2],
             '103_data': pg1_new_beds.objects.all().filter(roon_no=103),
             # 'g1_data':g1_data,
-            'rs104': ll[3],
+            'r104': ll[3],
             '104_data': pg1_new_beds.objects.all().filter(roon_no=104),
-            'rs106': ll[4],
+            'r106': ll[4],
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
             # 'g1_data':g1_data,
-            'rs107': ll[5],
+            'r107': ll[5],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs108': ll[6],
+            'r108': ll[6],
             '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
             # 'g1_data':g1_data,
-            'rs109': ll[7],
+            'r109': ll[7],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
 
             'rs201': ll[8],

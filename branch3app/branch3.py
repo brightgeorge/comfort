@@ -7023,7 +7023,6 @@ def aug_print3(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
-
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
         bg = background_color.objects.all().filter(username=us).exists()
@@ -7038,7 +7037,6 @@ def aug_print3(request):
             'us': us,
             'th_us': a[0],
             'name': us,
-
 
             'brname': 'BRANCH 3 Room Creation Form',
             'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
