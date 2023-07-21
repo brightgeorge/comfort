@@ -2911,7 +2911,7 @@ def may_make_payments2(request,id):
             jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = due_amt
-            jp.june_due_amt = due_amt
+            #jp.june_due_amt = due_amt
             jp.may_dis_amt = dis_amt
             # jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
@@ -2931,7 +2931,7 @@ def may_make_payments2(request,id):
             jp.may_rent = amt
             jp.remark = remark
             jp.may_due_amt = due_amt
-            jp.june_due_amt = due_amt
+            #jp.june_due_amt = due_amt
             jp.may_dis_amt = dis_amt
             # jp.may_rent_rec_date = datetime.date.today()
             jp.may_rent_rec_date = date
@@ -3047,7 +3047,7 @@ def june_make_payments2(request,id):
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
-            jp.july_due_amt = due_amt
+            #jp.july_due_amt = due_amt
             jp.june_dis_amt = dis_amt
             # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
@@ -3066,7 +3066,7 @@ def june_make_payments2(request,id):
             jp.june_rent = amt
             jp.remark = remark
             jp.june_due_amt = due_amt
-            jp.july_due_amt = due_amt
+            #jp.july_due_amt = due_amt
             jp.june_dis_amt = dis_amt
             # jp.june_rent_rec_date = datetime.date.today()
             jp.june_rent_rec_date = date
@@ -3183,7 +3183,7 @@ def july_make_payments2(request,id):
             jp.july_rent = amt
             jp.remark = remark
             jp.july_due_amt = due_amt
-            jp.auguest_due_amt = due_amt
+            #jp.auguest_due_amt = due_amt
             jp.july_dis_amt = dis_amt
             # jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
@@ -3203,7 +3203,7 @@ def july_make_payments2(request,id):
             jp.july_rent = dis_amt
             jp.remark = remark
             jp.july_due_amt = due_amt
-            jp.auguest_due_amt = due_amt
+            #jp.auguest_due_amt = due_amt
             jp.july_dis_amt = dis_amt
             # jp.july_rent_rec_date = datetime.date.today()
             jp.july_rent_rec_date = date
