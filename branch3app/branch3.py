@@ -676,72 +676,84 @@ def vacate_br1_guest3(request, id):
             ic.jan_rent = 0
             ic.jan_advance = ''
             ic.jan_due_amt = ''
+            ic.jan_dis_amt = ''
             ic.jan_rent_rec_date = ''
             ic.jan_rent_flag = 0
 
             ic.feb_rent = 0
             ic.feb_advance = ''
             ic.feb_due_amt = ''
+            ic.feb_dis_amt = ''
             ic.feb_rent_rec_date = ''
             ic.feb_rent_flag = 0
 
             ic.march_rent = 0
             ic.march_advance = ''
             ic.march_due_amt = ''
+            ic.march_dis_amt = ''
             ic.march_rent_rec_date = ''
             ic.march_rent_flag = 0
 
             ic.april_rent = 0
             ic.april_advance = ''
             ic.april_due_amt = ''
+            ic.april_dis_amt = ''
             ic.april_rent_rec_date = ''
             ic.april_rent_flag = 0
 
             ic.may_rent = 0
             ic.may_advance = ''
             ic.may_due_amt = ''
+            ic.may_dis_amt = ''
             ic.may_rent_rec_date = ''
             ic.may_rent_flag = 0
 
             ic.june_rent = 0
             ic.june_advance = ''
             ic.june_due_amt = ''
+            ic.june_dis_amt = ''
             ic.june_rent_rec_date = ''
             ic.june_rent_flag = 0
 
             ic.july_rent = 0
             ic.july_advance = ''
             ic.july_due_amt = ''
+            ic.july_dis_amt = ''
             ic.july_rent_rec_date = ''
             ic.july_rent_flag = 0
 
             ic.auguest_rent = 0
             ic.auguest_advance = ''
             ic.auguest_due_amt = ''
+            ic.auguest_dis_amt = ''
             ic.auguest_rent_rec_date = ''
             ic.auguest_rent_flag = 0
 
             ic.sept_rent = 0
             ic.sept_advance = ''
             ic.sept_due_amt = ''
+            ic.sept_dis_amt = ''
             ic.sept_rent_rec_date = ''
             ic.sept_rent_flag = 0
 
             ic.october_rent = 0
             ic.october_advance = ''
             ic.october_due_amt = ''
+            ic.october_dis_amt = ''
             ic.october_rent_rec_date = ''
             ic.october_rent_flag = 0
 
             ic.nov_rent = 0
             ic.nov_advance = ''
             ic.nov_due_amt = ''
+            ic.nov_dis_amt = ''
             ic.nov_rent_rec_date = ''
             ic.nov_rent_flag = 0
 
             ic.dec_rent = 0
             ic.dec_advance = ''
             ic.dec_due_amt = ''
+            ic.dec_dis_amt = ''
             ic.dec_rent_rec_date = ''
             ic.dec_rent_flag = 0
 
