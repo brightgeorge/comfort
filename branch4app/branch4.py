@@ -767,21 +767,20 @@ def vacate_br1_guest4(request, id):
             return view_all_new_guest4(request)
 
 
-        us = request.session['username']
-        bgs = background_color.objects.all().filter(username=us)
-        bg = background_color.objects.all().filter(username=us).exists()
-        a = []
-        if bg == True:
-            a.append(us)
-        else:
-            a.append('f')
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
 
-        context = {
-            'bg': bgs,
-            'us': us,
-            'th_us': a[0],
-            'name': us,
-
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
 
         'sd': pg1_new_beds.objects.get(id=id)
     }

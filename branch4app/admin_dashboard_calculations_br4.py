@@ -768,8 +768,8 @@ def monthly_details_due4(request):
     #total due amount end here
 
     us = request.session['username']
-    bgs = background_color.objects.all().filter(username=us)
-    bg = background_color.objects.all().filter(username=us).exists()
+    bgs = branch4app.models.background_color.objects.all().filter(username=us)
+    bg = branch4app.models.background_color.objects.all().filter(username=us).exists()
     a = []
     if bg == True:
         a.append(us)
@@ -1158,8 +1158,8 @@ def monthly_collection_details4(request):
     #total due amount end here
 
     us = request.session['username']
-    bgs = background_color.objects.all().filter(username=us)
-    bg = background_color.objects.all().filter(username=us).exists()
+    bgs = branch4app.models.background_color.objects.all().filter(username=us)
+    bg = branch4app.models.background_color.objects.all().filter(username=us).exists()
     a = []
     if bg == True:
         a.append(us)
