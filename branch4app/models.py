@@ -2160,8 +2160,9 @@ class pg1_new_guest(models.Model):
         return sum(ll)
 
 
+
     def vcated_guest(self):
-        rno = pg1_new_guest.objects.all().filter(guest_code=self.guest_code)
+        rno = pg1_new_guest.objects.all().filter(guest_code=self.guest_code,flag=3)
         lr = []
         for i in rno:
             lr.append(str(i.guest_code))
@@ -2365,15 +2366,6 @@ class pg1_new_guest(models.Model):
         print('my lll', l)
 
         return sum(ll)
-
-
-
-
-
-
-
-
-
 
 
 class branch_closing(models.Model):
