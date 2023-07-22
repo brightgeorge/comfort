@@ -254,6 +254,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="col">Sl No</th>
                       <th>Details</th>
                     <th scope="col">Room No</th>
+                      <th scope="col">Vcated Date</th>
                     <th scope="col">Name</th>
                     <th scope="col">Rent Amount</th>
                       <th scope="col">Remark</th>
@@ -263,7 +264,7 @@ function exportTableToExcel(tableID, filename = ''){
                 </thead>
                 <tbody>
 
-                {% for i in vg %}
+                {% for i in vcg %}
 				   <tr>
 
                     <td>{{forloop.counter}}</td>
@@ -282,6 +283,7 @@ function exportTableToExcel(tableID, filename = ''){
 
                        </td>
 				   <td>{{i.room_name}}</td>
+                       <td>{{i.guest_vacate_month}}</td>
                     <td>{{i.name}}</td>
                        <td>{{i.monthly_rent}}</td>
                        <td>{{i.remark}}</td>
