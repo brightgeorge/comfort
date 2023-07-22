@@ -8003,7 +8003,12 @@ def viewall_vacate_guest4(request):
                         x = a + b - c
                         l.append(x)
                     elif i.may_rent_flag == 200:
-                        l.append(int(i.may_due_amt))
+                        z=i.may_due_amt
+                        if z == '':
+                            z=0
+                        else:
+                            z=(int(i.may_due_amt))
+                        l.append(z)
 
             if i.june_rent_flag >= 99:
                 a= int(i.guest_vacate_month)
