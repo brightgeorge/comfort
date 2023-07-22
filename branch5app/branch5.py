@@ -6898,7 +6898,7 @@ def viewall_vacate_guest5(request):
                 ll.append(int(i))
         print('my lll', l)
 
-        return sum(ll)
+        return ll
 
     us = request.session['username']
     bgs = background_color.objects.all().filter(username=us)
