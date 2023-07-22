@@ -8003,22 +8003,8 @@ def viewall_vacate_guest4(request):
                         x = a + b - c
                         l.append(x)
                     elif i.may_rent_flag == 200:
-                        a = int(i.monthly_rent)
+                        l.append(int(i.may_due_amt))
 
-                        b = i.may_advance
-                        if b == '':
-                            b = 0
-                        else:
-                            b = int(i.may_advance)
-
-                        c = i.may_dis_amt
-                        if c == '':
-                            c = 0
-                        else:
-                            c = int(i.may_dis_amt)
-
-                        x = a + b - c
-                        l.append(x)
 
             if i.june_rent_flag >= 99:
                 a= int(i.guest_vacate_month)
@@ -8219,8 +8205,8 @@ def viewall_vacate_guest4(request):
         'name': us,
 
         'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id'),
-        'vsum': vcated_guest(),
-        'vcg': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+        'vgs':pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+        'vsum' : vcated_guest(),
 
     }
     return render(request, 'branches/branch4/vacate_guest/viewall_vacate_guest.html', context)
