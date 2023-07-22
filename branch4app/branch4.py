@@ -8192,7 +8192,6 @@ def viewall_vacate_guest4(request):
 
 
 
-
     def vcated_guest_list():
         rno = pg1_new_guest.objects.all().filter(flag=3).order_by('-id')
         lr = []
