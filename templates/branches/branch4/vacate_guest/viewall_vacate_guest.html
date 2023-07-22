@@ -258,14 +258,15 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="col">Name</th>
                     <th scope="col">Rent Amount</th>
                       <th scope="col">Remark</th>
+                      <th>may due</th>
                     <th scope="col">Mob</th>
                     <th scope="col">WhatsApp</th>
                   </tr>
                 </thead>
                 <tbody>
 
-                {% for i in vgs %}
-                {% if i.vcated_guest > 0 %}
+                {% for i in vcg %}
+
 
 				   <tr>
 
@@ -290,10 +291,11 @@ function exportTableToExcel(tableID, filename = ''){
                        <td>{{i.monthly_rent}}</td>
                        <td>{{i.vcated_guest}}</td>
                        <td>{{i.remark}}</td>
+                       <td>{{i.may_due_amt}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
                        <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent [ YOUR MONTHLY RENT IS RS:{{i.monthly_rent}} AND DUE AMOUNT IS RS:{{i.remark}} ], Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span class="zmdi zmdi-whatsapp"></span> <span style="background-color:green" > Send Msg</span> </a></td>
                    </tr>
-                {% endif %}
+
 
                 {% endfor %}
 

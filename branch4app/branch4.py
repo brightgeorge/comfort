@@ -8220,7 +8220,7 @@ def viewall_vacate_guest4(request):
 
         'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id'),
         'vsum': vcated_guest(),
-        #'vcg': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+        'vcg': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
 
     }
     return render(request, 'branches/branch4/vacate_guest/viewall_vacate_guest.html', context)
