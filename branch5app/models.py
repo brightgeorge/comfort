@@ -2164,7 +2164,7 @@ class pg1_new_guest(models.Model):
 
 
     def vcated_guest(self):
-        rno = pg1_new_guest.objects.all().filter(guest_code=self.guest_code)
+        rno = pg1_new_guest.objects.all().filter(flag=3).order_by('-id')
         lr = []
         for i in rno:
             lr.append(str(i.guest_code))
