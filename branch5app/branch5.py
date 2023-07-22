@@ -6600,13 +6600,13 @@ def viewall_vacate_guest5(request):
                     if i.jan_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.jan_advance)
+                        b = i.jan_advance
                         if b == '':
                             b=0
                         else:
                             b = int(i.jan_advance)
 
-                        c = int(i.jan_dis_amt)
+                        c = i.jan_dis_amt
                         if c == '':
                             c=0
                         else:
@@ -6625,13 +6625,13 @@ def viewall_vacate_guest5(request):
                     if i.feb_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.feb_advance)
+                        b = i.feb_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.feb_advance)
 
-                        c = int(i.feb_dis_amt)
+                        c = i.feb_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6650,13 +6650,13 @@ def viewall_vacate_guest5(request):
                     if i.march_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.march_advance)
+                        b = i.march_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.march_advance)
 
-                        c = int(i.march_dis_amt)
+                        c = i.march_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6675,13 +6675,13 @@ def viewall_vacate_guest5(request):
                     if i.april_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.april_advance)
+                        b = i.april_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.april_advance)
 
-                        c = int(i.april_dis_amt)
+                        c = i.april_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6700,13 +6700,13 @@ def viewall_vacate_guest5(request):
                     if i.may_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.may_advance)
+                        b = i.may_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.may_advance)
 
-                        c = int(i.may_dis_amt)
+                        c = i.may_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6725,13 +6725,13 @@ def viewall_vacate_guest5(request):
                     if i.june_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.june_advance)
+                        b = i.june_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.june_advance)
 
-                        c = int(i.june_dis_amt)
+                        c = i.june_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6750,13 +6750,13 @@ def viewall_vacate_guest5(request):
                     if i.july_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.july_advance)
+                        b = i.july_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.july_advance)
 
-                        c = int(i.july_dis_amt)
+                        c = i.july_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6775,13 +6775,13 @@ def viewall_vacate_guest5(request):
                     if i.auguest_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.auguest_advance)
+                        b = i.auguest_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.auguest_advance)
 
-                        c = int(i.auguest_dis_amt)
+                        c = i.auguest_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6800,13 +6800,13 @@ def viewall_vacate_guest5(request):
                     if i.sept_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.sept_advance)
+                        b = i.sept_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.sept_advance)
 
-                        c = int(i.sept_dis_amt)
+                        c = i.sept_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6825,13 +6825,13 @@ def viewall_vacate_guest5(request):
                     if i.october_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.october_advance)
+                        b = i.october_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.october_advance)
 
-                        c = int(i.october_dis_amt)
+                        c = i.october_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6850,13 +6850,13 @@ def viewall_vacate_guest5(request):
                     if i.nov_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.nov_advance)
+                        b = i.nov_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.nov_advance)
 
-                        c = int(i.nov_dis_amt)
+                        c = i.nov_dis_amt
                         if c == '':
                             c = 0
                         else:
@@ -6875,13 +6875,13 @@ def viewall_vacate_guest5(request):
                     if i.dec_rent_flag == 100:
                         a = int(i.monthly_rent)
 
-                        b = int(i.dec_advance)
+                        b = i.dec_advance
                         if b == '':
                             b = 0
                         else:
                             b = int(i.dec_advance)
 
-                        c = int(i.dec_dis_amt)
+                        c = i.dec_dis_amt
                         if c == '':
                             c = 0
                         else:
