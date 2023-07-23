@@ -9160,6 +9160,7 @@ def viewall_vacate_guest(request):
 
         'vg' : pg1_new_guest.objects.all().filter(flag=3,remark__gt='0').exclude(remark = '').order_by('-id'),
         'vsum': vcated_guest(),
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
 
     }
     return render(request,'branches/branch1/vacate_guest/viewall_vacate_guest.html',context)
@@ -9183,6 +9184,49 @@ def details_of_vacate_guest(request,id):
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
     return render(request,'branches/branch1/vacate_guest/details_of_vacate_guest.html',context)
+
+
+def full_vacated_guest_details(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch1/vacate_guest/full_vacated_guest_details.html', context)
+
+
+def full_vacated_guest_table(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch1/vacate_guest/full_vacated_guest_table.html', context)
+
 
 
 # ***********vacate guest payments start here*******

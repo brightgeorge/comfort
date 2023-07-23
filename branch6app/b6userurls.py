@@ -289,18 +289,37 @@ path('dec_make_payments_advance6/<id>', branch6.dec_make_payments_advance6, name
 # DUE AMT MANAGEMENT START HERE
 ###########################
 
-    path('view_all_due_amt6/', branch6.view_all_due_amt6, name='view_all_due_amt6'),
-    path('due_amt_mgt_choose_months6/', branch6.due_amt_mgt_choose_months6, name='due_amt_mgt_choose_months6'),
+path('view_all_due_amt6/', branch6.view_all_due_amt6, name='view_all_due_amt6'),
+path('due_amt_mgt_choose_months6/', branch6.due_amt_mgt_choose_months6, name='due_amt_mgt_choose_months6'),
 
-    path('view_may_account_details6/', branch6.view_may_account_details6, name='view_may_account_details6'),
-    path('may_account_mgt6/<id>', branch6.may_account_mgt6, name='may_account_mgt6'),
+path('view_jan_account_details6/', branch6.view_jan_account_details6, name='view_jan_account_details6'),
+path('jan_account_mgt6/<id>',branch6.jan_account_mgt6,name='jan_account_mgt6'),
+path('view_feb_account_details6/', branch6.view_feb_account_details6, name='view_feb_account_details6'),
+path('feb_account_mgt6/<id>',branch6.feb_account_mgt6,name='feb_account_mgt6'),
+path('view_march_account_details6/', branch6.view_march_account_details6, name='view_march_account_details6'),
+path('march_account_mgt6/<id>',branch6.march_account_mgt6,name='march_account_mgt6'),
+path('view_april_account_details6/', branch6.view_april_account_details6, name='view_april_account_details6'),
+path('april_account_mgt6/<id>',branch6.april_account_mgt6,name='april_account_mgt6'),
 
-    path('view_june_account_details6/', branch6.view_june_account_details6, name='view_june_account_details6'),
-    path('june_account_mgt6/<id>', branch6.june_account_mgt6, name='june_account_mgt6'),
-    path('view_july_account_details6/', branch6.view_july_account_details6, name='view_july_account_details6'),
-    path('july_account_mgt6/<id>', branch6.july_account_mgt6, name='july_account_mgt6'),
+path('view_may_account_details6/',branch6.view_may_account_details6,name='view_may_account_details6'),
+path('may_account_mgt6/<id>', branch6.may_account_mgt6, name='may_account_mgt6'),
+path('view_june_account_details6/', branch6.view_june_account_details6, name='view_june_account_details6'),
+path('june_account_mgt6/<id>',branch6.june_account_mgt6,name='june_account_mgt6'),
+path('view_july_account_details6/', branch6.view_july_account_details6, name='view_july_account_details6'),
+path('july_account_mgt6/<id>',branch6.july_account_mgt6,name='july_account_mgt6'),
+path('view_auguest_account_details6/', branch6.view_auguest_account_details6, name='view_auguest_account_details6'),
+path('auguest_account_mgt6/<id>',branch6.auguest_account_mgt6,name='auguest_account_mgt6'),
 
-    ########################################
+path('view_sept_account_details6/', branch6.view_sept_account_details6, name='view_sept_account_details6'),
+path('sept_account_mgt6/<id>',branch6.sept_account_mgt6,name='sept_account_mgt6'),
+path('view_october_account_details6/', branch6.view_october_account_details6, name='view_october_account_details6'),
+path('october_account_mgt6/<id>',branch6.october_account_mgt6,name='october_account_mgt6'),
+path('view_nov_account_details6/', branch6.view_nov_account_details6, name='view_nov_account_details6'),
+path('nov_account_mgt6/<id>',branch6.nov_account_mgt6,name='nov_account_mgt6'),
+path('view_dec_account_details6/', branch6.view_dec_account_details6, name='view_dec_account_details6'),
+path('dec_account_mgt6/<id>',branch6.dec_account_mgt6,name='dec_account_mgt6'),
+
+########################################
 # DUE AMT MANAGEMENT END HERE
 ###########################
 

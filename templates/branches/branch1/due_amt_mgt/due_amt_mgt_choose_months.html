@@ -31,7 +31,6 @@
 </head>
 
 
-
 {% if us == th_us %}
 {% for i in bg %}
 <body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
@@ -39,7 +38,6 @@
 {% else %}
 <body class="bg-theme bg-theme1">
 {% endif %}
-
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -61,22 +59,38 @@
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests</span>
-        </a>
-      </li>
 
-      <li>
-        <a href="{% url 'choose_months' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments</span>
-        </a>
-      </li>
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests </span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests </span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report </span></a>
+  </div>
+</div>
+       </li>
+
+
+
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment </span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance' %}">
@@ -85,15 +99,17 @@
       </li>
 
        <li>
+        <a href="{% url 'due_amt_mgt_choose_months' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt </span>
+        </a>
+      </li>
+
+       <li>
         <a href="{% url 'view_all_new_guest' %}">
           <i class="zmdi zmdi-face"></i> <span>Guests</span>
         </a>
       </li>
-       <li>
-        <a href="{% url 'detail_guest_general' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs</span>
-        </a>
-      </li>
+
        <li>
         <a href="{% url 'viewall_vacate_guest' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest</span>
@@ -214,7 +230,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'jan_paid_rent' %}">
+                <a href="{% url 'view_jan_account_details' %}">
                 <div class="card-body" style="background-color:red;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -225,7 +241,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'feb_paid_rent' %}">
+                <a href="{% url 'view_feb_account_details' %}">
                 <div class="card-body" style="background-color:purple;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -236,7 +252,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'mar_paid_rent' %}">
+                <a href="{% url 'view_march_account_details' %}">
                 <div class="card-body" style="background-color:green;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -255,7 +271,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'april_paid_rent' %}">
+                <a href="{% url 'view_april_account_details' %}">
                 <div class="card-body" style="background-color:yellow;">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -307,7 +323,7 @@
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'aug_paid_rent' %}">
+                <a href="{% url 'view_auguest_account_details' %}">
                 <div class="card-body" style="background-color:#9acd32">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -317,7 +333,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'sept_paid_rent' %}">
+                <a href="{% url 'view_sept_account_details' %}">
                 <div class="card-body" style="background-color:#00008b">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -336,7 +352,7 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'oct_paid_rent' %}">
+                <a href="{% url 'view_october_account_details' %}">
                 <div class="card-body" style="background-color:#2A52BE">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -346,7 +362,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'nov_paid_rent' %}">
+                <a href="{% url 'view_nov_account_details' %}">
                 <div class="card-body" style="background-color:#ffd700">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
@@ -356,7 +372,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'dec_paid_rent' %}">
+                <a href="{% url 'view_dec_account_details' %}">
                 <div class="card-body" style="background-color:#0D98BA">
                   <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">

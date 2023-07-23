@@ -359,6 +359,10 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('viewall_vacate_guest/',branch1.viewall_vacate_guest,name='viewall_vacate_guest'),
     path('details_of_vacate_guest/<id>',branch1.details_of_vacate_guest,name='details_of_vacate_guest'),
+    path('full_vacated_guest_details',branch1.full_vacated_guest_details,name='full_vacated_guest_details'),
+    path('full_vacated_guest_table',branch1.full_vacated_guest_table,name='full_vacated_guest_table'),
+
+
 
 #********vacate guest payments start here**********
 

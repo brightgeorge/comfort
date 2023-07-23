@@ -309,6 +309,8 @@ path('full_paid_guest2/',reports2.full_paid_guest2,name='full_paid_guest2'),
 
     path('viewall_vacate_guest2/',branch2.viewall_vacate_guest2,name='viewall_vacate_guest2'),
     path('details_of_vacate_guest2/<id>',branch2.details_of_vacate_guest2,name='details_of_vacate_guest2'),
+    path('full_vacated_guest_details2',branch2.full_vacated_guest_details2,name='full_vacated_guest_details2'),
+    path('full_vacated_guest_table2',branch2.full_vacated_guest_table2,name='full_vacated_guest_table2'),
 
 #********vacate guest payments start here**********
 
@@ -431,16 +433,35 @@ path('full_paid_guest2/',reports2.full_paid_guest2,name='full_paid_guest2'),
 # DUE AMT MANAGEMENT START HERE
 ###########################
 
-    path('view_all_due_amt2/', branch2.view_all_due_amt2, name='view_all_due_amt2'),
-    path('due_amt_mgt_choose_months2/', branch2.due_amt_mgt_choose_months2, name='due_amt_mgt_choose_months2'),
+path('view_all_due_amt2/', branch2.view_all_due_amt2, name='view_all_due_amt2'),
+path('due_amt_mgt_choose_months2/', branch2.due_amt_mgt_choose_months2, name='due_amt_mgt_choose_months2'),
 
-    path('view_may_account_details2/',branch2.view_may_account_details2,name='view_may_account_details2'),
-    path('may_account_mgt2/<id>', branch2.may_account_mgt2, name='may_account_mgt2'),
+path('view_jan_account_details2/', branch2.view_jan_account_details2, name='view_jan_account_details2'),
+path('jan_account_mgt2/<id>',branch2.jan_account_mgt2,name='jan_account_mgt2'),
+path('view_feb_account_details2/', branch2.view_feb_account_details2, name='view_feb_account_details2'),
+path('feb_account_mgt2/<id>',branch2.feb_account_mgt2,name='feb_account_mgt2'),
+path('view_march_account_details2/', branch2.view_march_account_details2, name='view_march_account_details2'),
+path('march_account_mgt2/<id>',branch2.march_account_mgt2,name='march_account_mgt2'),
+path('view_april_account_details2/', branch2.view_april_account_details2, name='view_april_account_details2'),
+path('april_account_mgt2/<id>',branch2.april_account_mgt2,name='april_account_mgt2'),
 
-    path('view_june_account_details2/', branch2.view_june_account_details2, name='view_june_account_details2'),
-    path('june_account_mgt2/<id>',branch2.june_account_mgt2,name='june_account_mgt2'),
-    path('view_july_account_details2/', branch2.view_july_account_details2, name='view_july_account_details2'),
-    path('july_account_mgt2/<id>',branch2.july_account_mgt2,name='july_account_mgt2'),
+path('view_may_account_details2/',branch2.view_may_account_details2,name='view_may_account_details2'),
+path('may_account_mgt2/<id>', branch2.may_account_mgt2, name='may_account_mgt2'),
+path('view_june_account_details2/', branch2.view_june_account_details2, name='view_june_account_details2'),
+path('june_account_mgt2/<id>',branch2.june_account_mgt2,name='june_account_mgt2'),
+path('view_july_account_details2/', branch2.view_july_account_details2, name='view_july_account_details2'),
+path('july_account_mgt2/<id>',branch2.july_account_mgt2,name='july_account_mgt2'),
+path('view_auguest_account_details2/', branch2.view_auguest_account_details2, name='view_auguest_account_details2'),
+path('auguest_account_mgt2/<id>',branch2.auguest_account_mgt2,name='auguest_account_mgt2'),
+
+path('view_sept_account_details2/', branch2.view_sept_account_details2, name='view_sept_account_details2'),
+path('sept_account_mgt2/<id>',branch2.sept_account_mgt2,name='sept_account_mgt2'),
+path('view_october_account_details2/', branch2.view_october_account_details2, name='view_october_account_details2'),
+path('october_account_mgt2/<id>',branch2.october_account_mgt2,name='october_account_mgt2'),
+path('view_nov_account_details2/', branch2.view_nov_account_details2, name='view_nov_account_details2'),
+path('nov_account_mgt2/<id>',branch2.nov_account_mgt2,name='nov_account_mgt2'),
+path('view_dec_account_details2/', branch2.view_dec_account_details2, name='view_dec_account_details2'),
+path('dec_account_mgt2/<id>',branch2.dec_account_mgt2,name='dec_account_mgt2'),
 
 ########################################
 # DUE AMT MANAGEMENT END HERE

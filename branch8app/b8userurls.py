@@ -318,18 +318,37 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
 # DUE AMT MANAGEMENT START HERE
 ###########################
 
-    path('view_all_due_amt8/', branch8.view_all_due_amt8, name='view_all_due_amt8'),
-    path('due_amt_mgt_choose_months8/', branch8.due_amt_mgt_choose_months8, name='due_amt_mgt_choose_months8'),
+path('view_all_due_amt8/', branch8.view_all_due_amt8, name='view_all_due_amt8'),
+path('due_amt_mgt_choose_months8/', branch8.due_amt_mgt_choose_months8, name='due_amt_mgt_choose_months8'),
 
-    path('view_may_account_details8/', branch8.view_may_account_details8, name='view_may_account_details8'),
-    path('may_account_mgt8/<id>', branch8.may_account_mgt8, name='may_account_mgt8'),
+path('view_jan_account_details8/', branch8.view_jan_account_details8, name='view_jan_account_details8'),
+path('jan_account_mgt8/<id>',branch8.jan_account_mgt8,name='jan_account_mgt8'),
+path('view_feb_account_details8/', branch8.view_feb_account_details8, name='view_feb_account_details8'),
+path('feb_account_mgt8/<id>',branch8.feb_account_mgt8,name='feb_account_mgt8'),
+path('view_march_account_details8/', branch8.view_march_account_details8, name='view_march_account_details8'),
+path('march_account_mgt8/<id>',branch8.march_account_mgt8,name='march_account_mgt8'),
+path('view_april_account_details8/', branch8.view_april_account_details8, name='view_april_account_details8'),
+path('april_account_mgt8/<id>',branch8.april_account_mgt8,name='april_account_mgt8'),
 
-    path('view_june_account_details8/', branch8.view_june_account_details8, name='view_june_account_details8'),
-    path('june_account_mgt8/<id>', branch8.june_account_mgt8, name='june_account_mgt8'),
-    path('view_july_account_details8/', branch8.view_july_account_details8, name='view_july_account_details8'),
-    path('july_account_mgt8/<id>', branch8.july_account_mgt8, name='july_account_mgt8'),
+path('view_may_account_details8/',branch8.view_may_account_details8,name='view_may_account_details8'),
+path('may_account_mgt8/<id>', branch8.may_account_mgt8, name='may_account_mgt8'),
+path('view_june_account_details8/', branch8.view_june_account_details8, name='view_june_account_details8'),
+path('june_account_mgt8/<id>',branch8.june_account_mgt8,name='june_account_mgt8'),
+path('view_july_account_details8/', branch8.view_july_account_details8, name='view_july_account_details8'),
+path('july_account_mgt8/<id>',branch8.july_account_mgt8,name='july_account_mgt8'),
+path('view_auguest_account_details8/', branch8.view_auguest_account_details8, name='view_auguest_account_details8'),
+path('auguest_account_mgt8/<id>',branch8.auguest_account_mgt8,name='auguest_account_mgt8'),
 
-    ########################################
+path('view_sept_account_details8/', branch8.view_sept_account_details8, name='view_sept_account_details8'),
+path('sept_account_mgt8/<id>',branch8.sept_account_mgt8,name='sept_account_mgt8'),
+path('view_october_account_details8/', branch8.view_october_account_details8, name='view_october_account_details8'),
+path('october_account_mgt8/<id>',branch8.october_account_mgt8,name='october_account_mgt8'),
+path('view_nov_account_details8/', branch8.view_nov_account_details8, name='view_nov_account_details8'),
+path('nov_account_mgt8/<id>',branch8.nov_account_mgt8,name='nov_account_mgt8'),
+path('view_dec_account_details8/', branch8.view_dec_account_details8, name='view_dec_account_details8'),
+path('dec_account_mgt8/<id>',branch8.dec_account_mgt8,name='dec_account_mgt8'),
+
+########################################
 # DUE AMT MANAGEMENT END HERE
 ###########################
 

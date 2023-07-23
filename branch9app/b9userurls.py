@@ -318,13 +318,32 @@ urlpatterns = [
     path('view_all_due_amt9/', branch9.view_all_due_amt9, name='view_all_due_amt9'),
     path('due_amt_mgt_choose_months9/', branch9.due_amt_mgt_choose_months9, name='due_amt_mgt_choose_months9'),
 
-    path('view_may_account_details9/', branch9.view_may_account_details9, name='view_may_account_details9'),
-    path('may_account_mgt9/<id>', branch9.may_account_mgt9, name='may_account_mgt9'),
+    path('view_jan_account_details9/', branch9.view_jan_account_details9, name='view_jan_account_details9'),
+    path('jan_account_mgt9/<id>',branch9.jan_account_mgt9,name='jan_account_mgt9'),
+    path('view_feb_account_details9/', branch9.view_feb_account_details9, name='view_feb_account_details9'),
+    path('feb_account_mgt9/<id>',branch9.feb_account_mgt9,name='feb_account_mgt9'),
+    path('view_march_account_details9/', branch9.view_march_account_details9, name='view_march_account_details9'),
+    path('march_account_mgt9/<id>',branch9.march_account_mgt9,name='march_account_mgt9'),
+    path('view_april_account_details9/', branch9.view_april_account_details9, name='view_april_account_details9'),
+    path('april_account_mgt9/<id>',branch9.april_account_mgt9,name='april_account_mgt9'),
 
+    path('view_may_account_details9/',branch9.view_may_account_details9,name='view_may_account_details9'),
+    path('may_account_mgt9/<id>', branch9.may_account_mgt9, name='may_account_mgt9'),
     path('view_june_account_details9/', branch9.view_june_account_details9, name='view_june_account_details9'),
-    path('june_account_mgt9/<id>', branch9.june_account_mgt9, name='june_account_mgt9'),
+    path('june_account_mgt9/<id>',branch9.june_account_mgt9,name='june_account_mgt9'),
     path('view_july_account_details9/', branch9.view_july_account_details9, name='view_july_account_details9'),
-    path('july_account_mgt9/<id>', branch9.july_account_mgt9, name='july_account_mgt9'),
+    path('july_account_mgt9/<id>',branch9.july_account_mgt9,name='july_account_mgt9'),
+    path('view_auguest_account_details9/', branch9.view_auguest_account_details9, name='view_auguest_account_details9'),
+    path('auguest_account_mgt9/<id>',branch9.auguest_account_mgt9,name='auguest_account_mgt9'),
+
+    path('view_sept_account_details9/', branch9.view_sept_account_details9, name='view_sept_account_details9'),
+    path('sept_account_mgt9/<id>',branch9.sept_account_mgt9,name='sept_account_mgt9'),
+    path('view_october_account_details9/', branch9.view_october_account_details9, name='view_october_account_details9'),
+    path('october_account_mgt9/<id>',branch9.october_account_mgt9,name='october_account_mgt9'),
+    path('view_nov_account_details9/', branch9.view_nov_account_details9, name='view_nov_account_details9'),
+    path('nov_account_mgt9/<id>',branch9.nov_account_mgt9,name='nov_account_mgt9'),
+    path('view_dec_account_details9/', branch9.view_dec_account_details9, name='view_dec_account_details9'),
+    path('dec_account_mgt9/<id>',branch9.dec_account_mgt9,name='dec_account_mgt9'),
 
     ########################################
     # DUE AMT MANAGEMENT END HERE

@@ -291,6 +291,8 @@ urlpatterns = [
 
     path('viewall_vacate_guest5/',branch5.viewall_vacate_guest5,name='viewall_vacate_guest5'),
     path('details_of_vacate_guest5/<id>',branch5.details_of_vacate_guest5,name='details_of_vacate_guest5'),
+    path('full_vacated_guest_details5',branch5.full_vacated_guest_details5,name='full_vacated_guest_details5'),
+    path('full_vacated_guest_table5',branch5.full_vacated_guest_table5,name='full_vacated_guest_table5'),
 
 #********vacate guest payments start here**********
 
@@ -424,13 +426,32 @@ urlpatterns = [
     path('view_all_due_amt5/', branch5.view_all_due_amt5, name='view_all_due_amt5'),
     path('due_amt_mgt_choose_months5/', branch5.due_amt_mgt_choose_months5, name='due_amt_mgt_choose_months5'),
 
+    path('view_jan_account_details5/', branch5.view_jan_account_details5, name='view_jan_account_details5'),
+    path('jan_account_mgt5/<id>',branch5.jan_account_mgt5,name='jan_account_mgt5'),
+    path('view_feb_account_details5/', branch5.view_feb_account_details5, name='view_feb_account_details5'),
+    path('feb_account_mgt5/<id>',branch5.feb_account_mgt5,name='feb_account_mgt5'),
+    path('view_march_account_details5/', branch5.view_march_account_details5, name='view_march_account_details5'),
+    path('march_account_mgt5/<id>',branch5.march_account_mgt5,name='march_account_mgt5'),
+    path('view_april_account_details5/', branch5.view_april_account_details5, name='view_april_account_details5'),
+    path('april_account_mgt5/<id>',branch5.april_account_mgt5,name='april_account_mgt5'),
+
     path('view_may_account_details5/',branch5.view_may_account_details5,name='view_may_account_details5'),
     path('may_account_mgt5/<id>', branch5.may_account_mgt5, name='may_account_mgt5'),
-
     path('view_june_account_details5/', branch5.view_june_account_details5, name='view_june_account_details5'),
     path('june_account_mgt5/<id>',branch5.june_account_mgt5,name='june_account_mgt5'),
     path('view_july_account_details5/', branch5.view_july_account_details5, name='view_july_account_details5'),
     path('july_account_mgt5/<id>',branch5.july_account_mgt5,name='july_account_mgt5'),
+    path('view_auguest_account_details5/', branch5.view_auguest_account_details5, name='view_auguest_account_details5'),
+    path('auguest_account_mgt5/<id>',branch5.auguest_account_mgt5,name='auguest_account_mgt5'),
+
+    path('view_sept_account_details5/', branch5.view_sept_account_details5, name='view_sept_account_details5'),
+    path('sept_account_mgt5/<id>',branch5.sept_account_mgt5,name='sept_account_mgt5'),
+    path('view_october_account_details5/', branch5.view_october_account_details5, name='view_october_account_details5'),
+    path('october_account_mgt5/<id>',branch5.october_account_mgt5,name='october_account_mgt5'),
+    path('view_nov_account_details5/', branch5.view_nov_account_details5, name='view_nov_account_details5'),
+    path('nov_account_mgt5/<id>',branch5.nov_account_mgt5,name='nov_account_mgt5'),
+    path('view_dec_account_details5/', branch5.view_dec_account_details5, name='view_dec_account_details5'),
+    path('dec_account_mgt5/<id>',branch5.dec_account_mgt5,name='dec_account_mgt5'),
 
 ########################################
 # DUE AMT MANAGEMENT END HERE

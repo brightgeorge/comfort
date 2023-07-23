@@ -8348,6 +8348,7 @@ def viewall_vacate_guest3(request):
 
         'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id'),
         'vsum': vcated_guest(),
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
     }
     return render(request, 'branches/branch3/vacate_guest/viewall_vacate_guest.html', context)
 
@@ -8371,6 +8372,49 @@ def details_of_vacate_guest3(request, id):
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
     return render(request, 'branches/branch3/vacate_guest/details_of_vacate_guest.html', context)
+
+
+def full_vacated_guest_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch3/vacate_guest/full_vacated_guest_details.html', context)
+
+
+def full_vacated_guest_table3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch3/vacate_guest/full_vacated_guest_table.html', context)
+
 
 
 # ***********vacate guest payments start here*******
@@ -9299,6 +9343,299 @@ def due_amt_mgt_choose_months3(request):
     return render(request, 'branches/branch3/due_amt_mgt/due_amt_mgt_choose_months.html',context)
 
 
+
+def view_jan_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,jan_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/jan/view_jan_account_details.html',context)
+def jan_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.jan_rent = paid_amt
+            ic.jan_advance = advance
+            ic.jan_dis_amt = discount
+            ic.jan_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.jan_rent = paid_amt
+            ic.jan_advance = advance
+            ic.jan_dis_amt = discount
+            ic.jan_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_jan_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/jan/jan_account_mgt.html',context)
+
+
+def view_feb_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,feb_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/feb/view_feb_account_details.html',context)
+def feb_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.feb_rent = paid_amt
+            ic.feb_advance = advance
+            ic.feb_dis_amt = discount
+            ic.feb_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.feb_rent = paid_amt
+            ic.feb_advance = advance
+            ic.feb_dis_amt = discount
+            ic.feb_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_feb_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/feb/feb_account_mgt.html',context)
+
+
+def view_march_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,march_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/march/view_march_account_details.html',context)
+def march_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.march_rent = paid_amt
+            ic.march_advance = advance
+            ic.march_dis_amt = discount
+            ic.march_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.march_rent = paid_amt
+            ic.march_advance = advance
+            ic.march_dis_amt = discount
+            ic.march_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_march_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/march/march_account_mgt.html',context)
+
+
+def view_april_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,april_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/april/view_april_account_details.html',context)
+def april_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.april_rent = paid_amt
+            ic.april_advance = advance
+            ic.april_dis_amt = discount
+            ic.april_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.april_rent = paid_amt
+            ic.april_advance = advance
+            ic.april_dis_amt = discount
+            ic.april_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_april_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/april/april_account_mgt.html',context)
+
+
 def view_may_account_details3(request):
     us = request.session['username']
     bgs = background_color.objects.all().filter(username=us)
@@ -9527,6 +9864,369 @@ def july_account_mgt3(request,id):
         return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/july/july_account_mgt.html',context)
 
 
+def view_auguest_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,auguest_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/auguest/view_auguest_account_details.html',context)
+def auguest_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.auguest_rent = paid_amt
+            ic.auguest_advance = advance
+            ic.auguest_dis_amt = discount
+            ic.auguest_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.auguest_rent = paid_amt
+            ic.auguest_advance = advance
+            ic.auguest_dis_amt = discount
+            ic.auguest_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_auguest_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/auguest/auguest_account_mgt.html',context)
+
+
+def view_sept_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,sept_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/sept/view_sept_account_details.html',context)
+def sept_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.sept_rent = paid_amt
+            ic.sept_advance = advance
+            ic.sept_dis_amt = discount
+            ic.sept_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.sept_rent = paid_amt
+            ic.sept_advance = advance
+            ic.sept_dis_amt = discount
+            ic.sept_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_sept_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/sept/sept_account_mgt.html',context)
+
+
+def view_october_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,october_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/october/view_october_account_details.html',context)
+def october_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.october_rent = paid_amt
+            ic.october_advance = advance
+            ic.october_dis_amt = discount
+            ic.october_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.october_rent = paid_amt
+            ic.october_advance = advance
+            ic.october_dis_amt = discount
+            ic.october_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_october_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/october/october_account_mgt.html',context)
+
+
+def view_nov_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,nov_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/nov/view_nov_account_details.html',context)
+def nov_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.nov_rent = paid_amt
+            ic.nov_advance = advance
+            ic.nov_dis_amt = discount
+            ic.nov_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.nov_rent = paid_amt
+            ic.nov_advance = advance
+            ic.nov_dis_amt = discount
+            ic.nov_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_nov_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/nov/nov_account_mgt.html',context)
+
+
+def view_dec_account_details3(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'due_amt': pg1_new_guest.objects.all().filter(flag=2,dec_rent_flag__gt=99).order_by('roon_no'),
+    }
+    return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/dec/view_dec_account_details.html',context)
+def dec_account_mgt3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            paid_amt = request.POST.get('pamt')
+            advance = request.POST.get('adv')
+            discount = request.POST.get('dis')
+            due_amt = request.POST.get('due')
+            remark = request.POST.get('rem')
+
+            import branch3app
+            rno = branch3app.models.pg1_new_guest.objects.all().filter(id=id)
+            l = []
+            for i in rno:
+                l.append(str(i.guest_code))
+
+            import branch3app
+            ic = branch3app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            ic.dec_rent = paid_amt
+            ic.dec_advance = advance
+            ic.dec_dis_amt = discount
+            ic.dec_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+
+            ic = pg1_new_beds.objects.get(guest_code=l[0])
+            ic.dec_rent = paid_amt
+            ic.dec_advance = advance
+            ic.dec_dis_amt = discount
+            ic.dec_due_amt = due_amt
+            ic.remark = remark
+            ic.save()
+            return view_dec_account_details3(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'sd' : pg1_new_guest.objects.get(id=id),
+            'user_details': pg1_new_guest.objects.all().filter(id=id),
+        }
+        return render(request,'branches/branch3/due_amt_mgt/monthly_detailes_due_amt/dec/dec_account_mgt.html',context)
 
 
 ########################################
