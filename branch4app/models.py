@@ -507,6 +507,7 @@ class pg1_new_beds(models.Model):
                         b=0
                     else:
                         b = int(i.jan_advance)
+                    c=i.jan_dis_amt
                     if c == '':
                         c=0
                     else:
@@ -525,6 +526,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.feb_advance)
+                    c=i.feb_dis_amt
                     if c == '':
                         c = 0
                     else:
@@ -543,6 +545,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.march_advance)
+                    c=i.march_dis_amt
                     if c == '':
                         c = 0
                     else:
@@ -561,6 +564,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.april_advance)
+                    c=i.april_dis_amt
                     if c == '':
                         c = 0
                     else:
@@ -579,6 +583,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.may_advance)
+                    c=i.may_dis_amt
                     if c == '':
                         c = 0
                     else:
@@ -597,6 +602,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.june_advance)
+                    c=i.june_dis_amt
                     if c == '':
                         c = 0
                     else:
@@ -615,6 +621,7 @@ class pg1_new_beds(models.Model):
                         b = 0
                     else:
                         b = int(i.july_advance)
+                    c=i.july_dis_amt
                     if c == '':
                         c = 0
                     else:
