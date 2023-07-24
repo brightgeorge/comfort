@@ -143,14 +143,21 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.jan_rent_flag == 200:
                     l.append(int(i.jan_due_amt))
-
         ll = []
         for i in l:
             if i != '':
@@ -175,8 +182,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -186,8 +201,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -218,8 +241,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -229,8 +260,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -240,8 +279,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -272,8 +319,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -283,8 +338,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -294,8 +357,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -305,8 +376,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -338,8 +417,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -349,8 +436,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -360,8 +455,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -371,8 +474,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -382,8 +493,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -415,8 +534,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -426,8 +553,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -437,8 +572,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -448,8 +591,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -459,8 +610,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -470,8 +629,16 @@ class pg1_new_beds(models.Model):
             if i.june_rent_flag >= 99:
                 if i.june_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.june_advance)
-                    c = int(i.june_dis_amt)
+                    b = i.june_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.june_advance)
+                    c=i.june_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.june_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -656,8 +823,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -667,8 +842,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -678,8 +861,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -689,8 +880,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -700,8 +899,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -711,8 +918,16 @@ class pg1_new_beds(models.Model):
             if i.june_rent_flag >= 99:
                 if i.june_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.june_advance)
-                    c = int(i.june_dis_amt)
+                    b = i.june_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.june_advance)
+                    c=i.june_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.june_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -722,19 +937,36 @@ class pg1_new_beds(models.Model):
             if i.july_rent_flag >= 99:
                 if i.july_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.july_advance)
-                    c = int(i.july_dis_amt)
+                    b = i.july_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.july_advance)
+                    c=i.july_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.july_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.july_rent_flag == 200:
                     l.append(int(i.july_due_amt))
 
+
             if i.auguest_rent_flag >= 99:
                 if i.auguest_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.auguest_advance)
-                    c = int(i.auguest_dis_amt)
+                    b = i.auguest_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.auguest_advance)
+                    c = i.auguest_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.auguest_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -764,8 +996,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -775,8 +1015,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -786,8 +1034,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -797,8 +1053,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -808,8 +1072,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -819,8 +1091,16 @@ class pg1_new_beds(models.Model):
             if i.june_rent_flag >= 99:
                 if i.june_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.june_advance)
-                    c = int(i.june_dis_amt)
+                    b = i.june_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.june_advance)
+                    c=i.june_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.june_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -830,30 +1110,56 @@ class pg1_new_beds(models.Model):
             if i.july_rent_flag >= 99:
                 if i.july_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.july_advance)
-                    c = int(i.july_dis_amt)
+                    b = i.july_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.july_advance)
+                    c=i.july_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.july_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.july_rent_flag == 200:
                     l.append(int(i.july_due_amt))
 
+
             if i.auguest_rent_flag >= 99:
                 if i.auguest_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.auguest_advance)
-                    c = int(i.auguest_dis_amt)
+                    b = i.auguest_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.auguest_advance)
+                    c = i.auguest_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.auguest_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.auguest_rent_flag == 200:
                     l.append(int(i.auguest_due_amt))
 
+
             if i.sept_rent_flag >= 99:
                 if i.sept_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.sept_advance)
-                    c = int(i.sept_dis_amt)
+                    b = i.sept_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.sept_advance)
+                    c = i.sept_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.sept_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -883,8 +1189,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -894,8 +1208,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -905,8 +1227,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -916,8 +1246,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -927,8 +1265,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -938,8 +1284,16 @@ class pg1_new_beds(models.Model):
             if i.june_rent_flag >= 99:
                 if i.june_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.june_advance)
-                    c = int(i.june_dis_amt)
+                    b = i.june_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.june_advance)
+                    c=i.june_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.june_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -949,30 +1303,56 @@ class pg1_new_beds(models.Model):
             if i.july_rent_flag >= 99:
                 if i.july_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.july_advance)
-                    c = int(i.july_dis_amt)
+                    b = i.july_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.july_advance)
+                    c=i.july_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.july_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.july_rent_flag == 200:
                     l.append(int(i.july_due_amt))
 
+
             if i.auguest_rent_flag >= 99:
                 if i.auguest_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.auguest_advance)
-                    c = int(i.auguest_dis_amt)
+                    b = i.auguest_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.auguest_advance)
+                    c = i.auguest_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.auguest_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.auguest_rent_flag == 200:
                     l.append(int(i.auguest_due_amt))
 
+
             if i.sept_rent_flag >= 99:
                 if i.sept_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.sept_advance)
-                    c = int(i.sept_dis_amt)
+                    b = i.sept_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.sept_advance)
+                    c = i.sept_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.sept_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -982,8 +1362,16 @@ class pg1_new_beds(models.Model):
             if i.october_rent_flag >= 99:
                 if i.october_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.october_advance)
-                    c = int(i.october_dis_amt)
+                    b = i.october_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.october_advance)
+                    c = i.october_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.october_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1015,8 +1403,16 @@ class pg1_new_beds(models.Model):
             if i.jan_rent_flag >= 99:
                 if i.jan_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.jan_advance)
-                    c = int(i.jan_dis_amt)
+                    b=i.jan_advance
+                    if b == '':
+                        b=0
+                    else:
+                        b = int(i.jan_advance)
+                    c=i.jan_dis_amt
+                    if c == '':
+                        c=0
+                    else:
+                        c = int(i.jan_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1026,8 +1422,16 @@ class pg1_new_beds(models.Model):
             if i.feb_rent_flag >= 99:
                 if i.feb_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.feb_advance)
-                    c = int(i.feb_dis_amt)
+                    b = i.feb_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.feb_advance)
+                    c=i.feb_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.feb_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1037,8 +1441,16 @@ class pg1_new_beds(models.Model):
             if i.march_rent_flag >= 99:
                 if i.march_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.march_advance)
-                    c = int(i.march_dis_amt)
+                    b = i.march_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.march_advance)
+                    c=i.march_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.march_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1048,8 +1460,16 @@ class pg1_new_beds(models.Model):
             if i.april_rent_flag >= 99:
                 if i.april_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.april_advance)
-                    c = int(i.april_dis_amt)
+                    b = i.april_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.april_advance)
+                    c=i.april_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.april_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1059,8 +1479,16 @@ class pg1_new_beds(models.Model):
             if i.may_rent_flag >= 99:
                 if i.may_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.may_advance)
-                    c = int(i.may_dis_amt)
+                    b = i.may_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.may_advance)
+                    c=i.may_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.may_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1070,8 +1498,16 @@ class pg1_new_beds(models.Model):
             if i.june_rent_flag >= 99:
                 if i.june_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.june_advance)
-                    c = int(i.june_dis_amt)
+                    b = i.june_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.june_advance)
+                    c=i.june_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.june_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1081,30 +1517,56 @@ class pg1_new_beds(models.Model):
             if i.july_rent_flag >= 99:
                 if i.july_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.july_advance)
-                    c = int(i.july_dis_amt)
+                    b = i.july_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.july_advance)
+                    c=i.july_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.july_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.july_rent_flag == 200:
                     l.append(int(i.july_due_amt))
 
+
             if i.auguest_rent_flag >= 99:
                 if i.auguest_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.auguest_advance)
-                    c = int(i.auguest_dis_amt)
+                    b = i.auguest_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.auguest_advance)
+                    c = i.auguest_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.auguest_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.auguest_rent_flag == 200:
                     l.append(int(i.auguest_due_amt))
 
+
             if i.sept_rent_flag >= 99:
                 if i.sept_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.sept_advance)
-                    c = int(i.sept_dis_amt)
+                    b = i.sept_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.sept_advance)
+                    c = i.sept_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.sept_dis_amt)
 
                     x = a + b - c
                     l.append(x)
@@ -1114,19 +1576,36 @@ class pg1_new_beds(models.Model):
             if i.october_rent_flag >= 99:
                 if i.october_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.october_advance)
-                    c = int(i.october_dis_amt)
+                    b = i.october_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.october_advance)
+                    c = i.october_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.october_dis_amt)
 
                     x = a + b - c
                     l.append(x)
                 elif i.october_rent_flag == 200:
                     l.append(int(i.october_due_amt))
 
+
             if i.nov_rent_flag >= 99:
                 if i.nov_rent_flag == 100:
                     a = int(i.monthly_rent)
-                    b = int(i.nov_advance)
-                    c = int(i.nov_dis_amt)
+                    b = i.nov_advance
+                    if b == '':
+                        b = 0
+                    else:
+                        b = int(i.nov_advance)
+                    c = i.nov_dis_amt
+                    if c == '':
+                        c = 0
+                    else:
+                        c = int(i.nov_dis_amt)
 
                     x = a + b - c
                     l.append(x)
