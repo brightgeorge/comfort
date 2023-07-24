@@ -231,6 +231,7 @@ def pg1_bed_create_regi4(request):
                     ic.share_type = room_type
 
                     ic.guest_code = 0
+                    ic.monthly_rent = 0
 
                     ic.jan_rent = 0
                     ic.jan_advance = 0
