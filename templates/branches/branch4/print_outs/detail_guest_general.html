@@ -353,6 +353,23 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
+
+                                     <tr>
+                    <th scope="row" rowspan="{{g7}}">G7</th>
+                      {% for i in g7_data %}
+
+                     <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};"></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
                  <tr>
                     <th scope="row" rowspan="{{rs101}}">101</th>
                       {% for i in 101_data %}
