@@ -72,7 +72,15 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -338,7 +346,7 @@ function exportTableToExcel(tableID, filename = ''){
                    </tr>
                    </thead>
                    <tbody>
-                   {% for i in up %}
+                   {% for i in fpr %}
 
 				   <tr>
                     <td>{{forloop.counter}}</td>

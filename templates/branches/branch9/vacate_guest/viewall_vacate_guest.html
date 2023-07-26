@@ -257,15 +257,26 @@ function exportTableToExcel(tableID, filename = ''){
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Unpaid Rent of {{month_name}}</h5>
+
+
+                                 <tr>
+                     <th ><a href="{% url 'full_vacated_guest_details9' %}"> <button class="mybutton button1" style="background-color:green;color:white;"> ALL VACATED GUEST </button></a></th>
+
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                 </tr>
+
 			  <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Sl No</th>
                       <th>Details</th>
+                      <th>Code</th>
                     <th scope="col">Room No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Rent Amount</th>
+                      <th scope="col">Due</th>
                       <th scope="col">Remark</th>
                     <th scope="col">Mob</th>
                     <th scope="col">WhatsApp</th>
@@ -273,7 +284,9 @@ function exportTableToExcel(tableID, filename = ''){
                 </thead>
                 <tbody>
 
-                {% for i in vg %}
+                {% for i in vgs %}
+                {% if i.vcated_guest > 0 %}
+
 				   <tr>
 
                     <td>{{forloop.counter}}</td>
@@ -291,14 +304,20 @@ function exportTableToExcel(tableID, filename = ''){
               </div>
 
                        </td>
+                       <td>{{i.guest_code}}</td>
 				   <td>{{i.room_name}}</td>
                     <td>{{i.name}}</td>
                        <td>{{i.monthly_rent}}</td>
+                       <td>{{i.vcated_guest}}</td>
                        <td>{{i.remark}}</td>
                     <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
                        <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent [ YOUR MONTHLY RENT IS RS:{{i.monthly_rent}} AND DUE AMOUNT IS RS:{{i.remark}} ], Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span class="zmdi zmdi-whatsapp"></span> <span style="background-color:green" > Send Msg</span> </a></td>
                    </tr>
+                {% endif %}
+
                 {% endfor %}
+
+
 
                 </tbody>
               </table>

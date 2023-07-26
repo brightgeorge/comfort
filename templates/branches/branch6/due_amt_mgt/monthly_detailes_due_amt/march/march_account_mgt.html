@@ -55,7 +55,15 @@
 <body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
 {% endfor %}
 {% else %}
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 {% endif %}
 
 <!-- start loader -->

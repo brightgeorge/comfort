@@ -49,7 +49,15 @@
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -410,10 +418,11 @@ function minus()
 				<input  type="number" class="form-control col-lg-2" id="minus_answer" style="display:inline;" name="dueamt" required>
 			</div>
 
+                <input type="hidden" id="minus_dremark" value="{{sd.remark}}">
 
                 <div class="form-group">
 				<label for="input-12" class="col-lg-4">Enter Remark</label>
-				<input type="text" id="minus_dremark" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
+				<input type="text" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
 			</div>
 
                   <div class="form-group">
@@ -479,10 +488,11 @@ function minus()
 				<input type="number" id="danswer" class="form-control col-lg-2" style="display:inline;" name="dueamt" required>
 			</div>
 
+<input type="hidden" id="dremark" value="{{sd.remark}}">
 
                 <div class="form-group">
 				<label for="input-12" class="col-lg-4">Enter Remark</label>
-				<input type="text" id="dremark" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
+				<input type="text" class="form-control col-lg-6" id="input-12" value="{{sd.remark}}" style="display:inline;" name="janremark" required>
 			</div>
 
                   <div class="form-group">

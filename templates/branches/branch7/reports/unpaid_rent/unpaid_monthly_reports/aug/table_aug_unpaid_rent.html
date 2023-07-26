@@ -268,7 +268,7 @@ function exportTableToExcel(tableID, filename = ''){
               <h5 class="card-title">Unpaid Rent of {{month_name}}</h5>
                  <tr>
                      <th ><a href="{% url 'unpaid_rent_choose_months7' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
-                       <th ><a href="{% url 'auguest_unpaid_rent7' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
+                       <th ><a href="{% url 'aug_unpaid_rent7' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Unpaid Rent of auguest')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>

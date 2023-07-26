@@ -79,44 +79,163 @@ urlpatterns = [
     # unpaid rent end here
 
     # paid rent start here
-    path('paid_rent_choose_months9/', branch9.paid_rent_choose_months9, name='paid_rent_choose_months9'),
-    path('partially_paid_guest_choose_months9/', reports9.partially_paid_guest_choose_months9,
-         name='partially_paid_guest_choose_months9'),
 
-    path('jan_paid_rent9/', branch9.jan_paid_rent9, name='jan_paid_rent9'),
-    path('feb_paid_rent9/', branch9.feb_paid_rent9, name='feb_paid_rent9'),
-    path('mar_paid_rent9/', branch9.mar_paid_rent9, name='mar_paid_rent9'),
 
-    path('april_paid_rent9/', branch9.april_paid_rent9, name='april_paid_rent9'),
-    path('may_paid_rent9/', branch9.may_paid_rent9, name='may_paid_rent9'),
-    path('table_may_paid_rent9/', branch9.table_may_paid_rent9, name='table_may_paid_rent9'),
-    path('may_full_paid_guest9/', reports9.may_full_paid_guest9, name='may_full_paid_guest9'),
-    path('may_partially_paid_guest9/', reports9.may_partially_paid_guest9, name='may_partially_paid_guest9'),
-    path('table_may_partially_paid_guest9/', reports9.table_may_partially_paid_guest9,
-         name='table_may_partially_paid_guest9'),
-    path('june_paid_rent9/', branch9.june_paid_rent9, name='june_paid_rent9'),
-    path('table_june_paid_rent9/', branch9.table_june_paid_rent9, name='table_june_paid_rent9'),
-    path('june_full_paid_guest9/', reports9.june_full_paid_guest9, name='june_full_paid_guest9'),
-    path('june_partially_paid_guest9/', reports9.june_partially_paid_guest9, name='june_partially_paid_guest9'),
-    path('table_june_partially_paid_guest9/', reports9.table_june_partially_paid_guest9,
-         name='table_june_partially_paid_guest9'),
+path('paid_rent_choose_months9/',branch9.paid_rent_choose_months9,name='paid_rent_choose_months9'),
+path('partially_paid_guest_choose_months9/',reports9.partially_paid_guest_choose_months9,name='partially_paid_guest_choose_months9'),
 
-    path('july_paid_rent9/', branch9.july_paid_rent9, name='july_paid_rent9'),
-    path('table_july_paid_rent9/', branch9.table_july_paid_rent9, name='table_july_paid_rent9'),
-    path('july_full_paid_guest9/', reports9.july_full_paid_guest9, name='july_full_paid_guest9'),
-    path('july_partially_paid_guest9/', reports9.july_partially_paid_guest9, name='july_partially_paid_guest9'),
-    path('table_july_partially_paid_guest9/', reports9.table_july_partially_paid_guest9,
-         name='table_july_partially_paid_guest9'),
+path('jan_paid_rent9/', branch9.jan_paid_rent9, name='jan_paid_rent9'),
+path('table_jan_paid_rent9/', branch9.table_jan_paid_rent9, name='table_jan_paid_rent9'),
+path('jan_full_paid_guest9/', reports9.jan_full_paid_guest9, name='jan_full_paid_guest9'),
+path('jan_partially_paid_guest9/', reports9.jan_partially_paid_guest9, name='jan_partially_paid_guest9'),
+path('table_jan_partially_paid_guest9/', reports9.table_jan_partially_paid_guest9,name='table_jan_partially_paid_guest9'),
 
-    path('aug_paid_rent9/', branch9.aug_paid_rent9, name='aug_paid_rent9'),
-    path('sept_paid_rent9/', branch9.sept_paid_rent9, name='sept_paid_rent9'),
+path('feb_paid_rent9/', branch9.feb_paid_rent9, name='feb_paid_rent9'),
+path('table_feb_paid_rent9/', branch9.table_feb_paid_rent9, name='table_feb_paid_rent9'),
+path('feb_full_paid_guest9/', reports9.feb_full_paid_guest9, name='feb_full_paid_guest9'),
+path('feb_partially_paid_guest9/', reports9.feb_partially_paid_guest9, name='feb_partially_paid_guest9'),
+path('table_feb_partially_paid_guest9/', reports9.table_feb_partially_paid_guest9,name='table_feb_partially_paid_guest9'),
 
-    path('oct_paid_rent9/', branch9.oct_paid_rent9, name='oct_paid_rent9'),
-    path('nov_paid_rent9/', branch9.nov_paid_rent9, name='nov_paid_rent9'),
-    path('dec_paid_rent9/', branch9.dec_paid_rent9, name='dec_paid_rent9'),
+path('mar_paid_rent9/', branch9.mar_paid_rent9, name='mar_paid_rent9'),
+path('table_mar_paid_rent9/', branch9.table_mar_paid_rent9, name='table_mar_paid_rent9'),
+path('march_full_paid_guest9/', reports9.march_full_paid_guest9, name='march_full_paid_guest9'),
+path('march_partially_paid_guest9/', reports9.march_partially_paid_guest9, name='march_partially_paid_guest9'),
+path('table_march_partially_paid_guest9/', reports9.table_march_partially_paid_guest9,name='table_march_partially_paid_guest9'),
 
-    path('details_of_paid_guests9/<id>', branch9.details_of_paid_guests9, name='details_of_paid_guests9'),
-    path('full_paid_guest9/', reports9.full_paid_guest9, name='full_paid_guest9'),
+path('april_paid_rent9/', branch9.april_paid_rent9, name='april_paid_rent9'),
+path('table_april_paid_rent9/', branch9.table_april_paid_rent9, name='table_april_paid_rent9'),
+path('april_full_paid_guest9/', reports9.april_full_paid_guest9, name='april_full_paid_guest9'),
+path('april_partially_paid_guest9/', reports9.april_partially_paid_guest9, name='april_partially_paid_guest9'),
+path('table_april_partially_paid_guest9/', reports9.table_april_partially_paid_guest9,name='table_april_partially_paid_guest9'),
+
+path('may_paid_rent9/', branch9.may_paid_rent9, name='may_paid_rent9'),
+path('table_may_paid_rent9/', branch9.table_may_paid_rent9, name='table_may_paid_rent9'),
+path('may_full_paid_guest9/', reports9.may_full_paid_guest9, name='may_full_paid_guest9'),
+path('may_partially_paid_guest9/', reports9.may_partially_paid_guest9, name='may_partially_paid_guest9'),
+path('table_may_partially_paid_guest9/', reports9.table_may_partially_paid_guest9, name='table_may_partially_paid_guest9'),
+
+path('june_paid_rent9/', branch9.june_paid_rent9, name='june_paid_rent9'),
+path('table_june_paid_rent9/', branch9.table_june_paid_rent9, name='table_june_paid_rent9'),
+path('june_full_paid_guest9/', reports9.june_full_paid_guest9, name='june_full_paid_guest9'),
+path('june_partially_paid_guest9/', reports9.june_partially_paid_guest9, name='june_partially_paid_guest9'),
+path('table_june_partially_paid_guest9/', reports9.table_june_partially_paid_guest9, name='table_june_partially_paid_guest9'),
+
+path('july_paid_rent9/', branch9.july_paid_rent9, name='july_paid_rent9'),
+path('table_july_paid_rent9/', branch9.table_july_paid_rent9, name='table_july_paid_rent9'),
+path('july_full_paid_guest9/', reports9.july_full_paid_guest9, name='july_full_paid_guest9'),
+path('july_partially_paid_guest9/', reports9.july_partially_paid_guest9, name='july_partially_paid_guest9'),
+path('table_july_partially_paid_guest9/', reports9.table_july_partially_paid_guest9, name='table_july_partially_paid_guest9'),
+
+path('aug_paid_rent9/', branch9.aug_paid_rent9, name='aug_paid_rent9'),
+path('table_aug_paid_rent9/', branch9.table_aug_paid_rent9, name='table_aug_paid_rent9'),
+path('auguest_full_paid_guest9/', reports9.auguest_full_paid_guest9, name='auguest_full_paid_guest9'),
+path('auguest_partially_paid_guest9/', reports9.auguest_partially_paid_guest9,name='auguest_partially_paid_guest9'),
+path('table_auguest_partially_paid_guest9/', reports9.table_auguest_partially_paid_guest9,name='table_auguest_partially_paid_guest9'),
+
+path('sept_paid_rent9/', branch9.sept_paid_rent9, name='sept_paid_rent9'),
+path('table_sept_paid_rent9/', branch9.table_sept_paid_rent9, name='table_sept_paid_rent9'),
+path('sept_full_paid_guest9/', reports9.sept_full_paid_guest9, name='sept_full_paid_guest9'),
+path('sept_partially_paid_guest9/', reports9.sept_partially_paid_guest9, name='sept_partially_paid_guest9'),
+path('table_sept_partially_paid_guest9/', reports9.table_sept_partially_paid_guest9,name='table_sept_partially_paid_guest9'),
+
+path('oct_paid_rent9/', branch9.oct_paid_rent9, name='oct_paid_rent9'),
+path('table_oct_paid_rent9/', branch9.table_oct_paid_rent9, name='table_oct_paid_rent9'),
+path('october_full_paid_guest9/', reports9.october_full_paid_guest9, name='october_full_paid_guest9'),
+path('october_partially_paid_guest9/', reports9.october_partially_paid_guest9,name='october_partially_paid_guest9'),
+path('table_october_partially_paid_guest9/', reports9.table_october_partially_paid_guest9,name='table_october_partially_paid_guest9'),
+
+path('nov_paid_rent9/', branch9.nov_paid_rent9, name='nov_paid_rent9'),
+path('table_nov_paid_rent9/', branch9.table_nov_paid_rent9, name='table_nov_paid_rent9'),
+path('nov_full_paid_guest9/', reports9.nov_full_paid_guest9, name='nov_full_paid_guest9'),
+path('nov_partially_paid_guest9/', reports9.nov_partially_paid_guest9, name='nov_partially_paid_guest9'),
+path('table_nov_partially_paid_guest9/', reports9.table_nov_partially_paid_guest9,name='table_nov_partially_paid_guest9'),
+
+path('dec_paid_rent9/', branch9.dec_paid_rent9, name='dec_paid_rent9'),
+path('table_dec_paid_rent9/', branch9.table_dec_paid_rent9, name='table_dec_paid_rent9'),
+path('dec_full_paid_guest9/', reports9.dec_full_paid_guest9, name='dec_full_paid_guest9'),
+path('dec_partially_paid_guest9/', reports9.dec_partially_paid_guest9, name='dec_partially_paid_guest9'),
+path('table_dec_partially_paid_guest9/', reports9.table_dec_partially_paid_guest9,name='table_dec_partially_paid_guest9'),
+
+path('details_of_paid_guests9/<id>',branch9.details_of_paid_guests9,name='details_of_paid_guests9'),
+path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
+
+path('paid_rent_choose_months9/',branch9.paid_rent_choose_months9,name='paid_rent_choose_months9'),
+path('partially_paid_guest_choose_months9/',reports9.partially_paid_guest_choose_months9,name='partially_paid_guest_choose_months9'),
+
+path('jan_paid_rent9/', branch9.jan_paid_rent9, name='jan_paid_rent9'),
+path('table_jan_paid_rent9/', branch9.table_jan_paid_rent9, name='table_jan_paid_rent9'),
+path('jan_full_paid_guest9/', reports9.jan_full_paid_guest9, name='jan_full_paid_guest9'),
+path('jan_partially_paid_guest9/', reports9.jan_partially_paid_guest9, name='jan_partially_paid_guest9'),
+path('table_jan_partially_paid_guest9/', reports9.table_jan_partially_paid_guest9,name='table_jan_partially_paid_guest9'),
+
+path('feb_paid_rent9/', branch9.feb_paid_rent9, name='feb_paid_rent9'),
+path('table_feb_paid_rent9/', branch9.table_feb_paid_rent9, name='table_feb_paid_rent9'),
+path('feb_full_paid_guest9/', reports9.feb_full_paid_guest9, name='feb_full_paid_guest9'),
+path('feb_partially_paid_guest9/', reports9.feb_partially_paid_guest9, name='feb_partially_paid_guest9'),
+path('table_feb_partially_paid_guest9/', reports9.table_feb_partially_paid_guest9,name='table_feb_partially_paid_guest9'),
+
+path('mar_paid_rent9/', branch9.mar_paid_rent9, name='mar_paid_rent9'),
+path('table_mar_paid_rent9/', branch9.table_mar_paid_rent9, name='table_mar_paid_rent9'),
+path('march_full_paid_guest9/', reports9.march_full_paid_guest9, name='march_full_paid_guest9'),
+path('march_partially_paid_guest9/', reports9.march_partially_paid_guest9, name='march_partially_paid_guest9'),
+path('table_march_partially_paid_guest9/', reports9.table_march_partially_paid_guest9,name='table_march_partially_paid_guest9'),
+
+path('april_paid_rent9/', branch9.april_paid_rent9, name='april_paid_rent9'),
+path('table_april_paid_rent9/', branch9.table_april_paid_rent9, name='table_april_paid_rent9'),
+path('april_full_paid_guest9/', reports9.april_full_paid_guest9, name='april_full_paid_guest9'),
+path('april_partially_paid_guest9/', reports9.april_partially_paid_guest9, name='april_partially_paid_guest9'),
+path('table_april_partially_paid_guest9/', reports9.table_april_partially_paid_guest9,name='table_april_partially_paid_guest9'),
+
+path('may_paid_rent9/', branch9.may_paid_rent9, name='may_paid_rent9'),
+path('table_may_paid_rent9/', branch9.table_may_paid_rent9, name='table_may_paid_rent9'),
+path('may_full_paid_guest9/', reports9.may_full_paid_guest9, name='may_full_paid_guest9'),
+path('may_partially_paid_guest9/', reports9.may_partially_paid_guest9, name='may_partially_paid_guest9'),
+path('table_may_partially_paid_guest9/', reports9.table_may_partially_paid_guest9, name='table_may_partially_paid_guest9'),
+
+path('june_paid_rent9/', branch9.june_paid_rent9, name='june_paid_rent9'),
+path('table_june_paid_rent9/', branch9.table_june_paid_rent9, name='table_june_paid_rent9'),
+path('june_full_paid_guest9/', reports9.june_full_paid_guest9, name='june_full_paid_guest9'),
+path('june_partially_paid_guest9/', reports9.june_partially_paid_guest9, name='june_partially_paid_guest9'),
+path('table_june_partially_paid_guest9/', reports9.table_june_partially_paid_guest9, name='table_june_partially_paid_guest9'),
+
+path('july_paid_rent9/', branch9.july_paid_rent9, name='july_paid_rent9'),
+path('table_july_paid_rent9/', branch9.table_july_paid_rent9, name='table_july_paid_rent9'),
+path('july_full_paid_guest9/', reports9.july_full_paid_guest9, name='july_full_paid_guest9'),
+path('july_partially_paid_guest9/', reports9.july_partially_paid_guest9, name='july_partially_paid_guest9'),
+path('table_july_partially_paid_guest9/', reports9.table_july_partially_paid_guest9, name='table_july_partially_paid_guest9'),
+
+path('aug_paid_rent9/', branch9.aug_paid_rent9, name='aug_paid_rent9'),
+path('table_aug_paid_rent9/', branch9.table_aug_paid_rent9, name='table_aug_paid_rent9'),
+path('auguest_full_paid_guest9/', reports9.auguest_full_paid_guest9, name='auguest_full_paid_guest9'),
+path('auguest_partially_paid_guest9/', reports9.auguest_partially_paid_guest9,name='auguest_partially_paid_guest9'),
+path('table_auguest_partially_paid_guest9/', reports9.table_auguest_partially_paid_guest9,name='table_auguest_partially_paid_guest9'),
+
+path('sept_paid_rent9/', branch9.sept_paid_rent9, name='sept_paid_rent9'),
+path('table_sept_paid_rent9/', branch9.table_sept_paid_rent9, name='table_sept_paid_rent9'),
+path('sept_full_paid_guest9/', reports9.sept_full_paid_guest9, name='sept_full_paid_guest9'),
+path('sept_partially_paid_guest9/', reports9.sept_partially_paid_guest9, name='sept_partially_paid_guest9'),
+path('table_sept_partially_paid_guest9/', reports9.table_sept_partially_paid_guest9,name='table_sept_partially_paid_guest9'),
+
+path('oct_paid_rent9/', branch9.oct_paid_rent9, name='oct_paid_rent9'),
+path('table_oct_paid_rent9/', branch9.table_oct_paid_rent9, name='table_oct_paid_rent9'),
+path('october_full_paid_guest9/', reports9.october_full_paid_guest9, name='october_full_paid_guest9'),
+path('october_partially_paid_guest9/', reports9.october_partially_paid_guest9,name='october_partially_paid_guest9'),
+path('table_october_partially_paid_guest9/', reports9.table_october_partially_paid_guest9,name='table_october_partially_paid_guest9'),
+
+path('nov_paid_rent9/', branch9.nov_paid_rent9, name='nov_paid_rent9'),
+path('table_nov_paid_rent9/', branch9.table_nov_paid_rent9, name='table_nov_paid_rent9'),
+path('nov_full_paid_guest9/', reports9.nov_full_paid_guest9, name='nov_full_paid_guest9'),
+path('nov_partially_paid_guest9/', reports9.nov_partially_paid_guest9, name='nov_partially_paid_guest9'),
+path('table_nov_partially_paid_guest9/', reports9.table_nov_partially_paid_guest9,name='table_nov_partially_paid_guest9'),
+
+path('dec_paid_rent9/', branch9.dec_paid_rent9, name='dec_paid_rent9'),
+path('table_dec_paid_rent9/', branch9.table_dec_paid_rent9, name='table_dec_paid_rent9'),
+path('dec_full_paid_guest9/', reports9.dec_full_paid_guest9, name='dec_full_paid_guest9'),
+path('dec_partially_paid_guest9/', reports9.dec_partially_paid_guest9, name='dec_partially_paid_guest9'),
+path('table_dec_partially_paid_guest9/', reports9.table_dec_partially_paid_guest9,name='table_dec_partially_paid_guest9'),
+
+path('details_of_paid_guests9/<id>',branch9.details_of_paid_guests9,name='details_of_paid_guests9'),
+path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
 
     # paid rent end here
 
@@ -208,6 +327,33 @@ urlpatterns = [
     ##################################
     # PAYMENTS END HERE
     ################################
+
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS START HERE
+################################
+
+    path('choose_user9/', payment9.choose_user9, name='choose_user9'),
+    path('payment_user_details9/<id>', payment9.payment_user_details9, name='payment_user_details9'),
+
+    path('monthly_jan_make_payments9/<id>', payment9.monthly_jan_make_payments9, name='monthly_jan_make_payments9'),
+    path('monthly_feb_make_payments9/<id>', payment9.monthly_feb_make_payments9, name='monthly_feb_make_payments9'),
+    path('monthly_march_make_payments9/<id>', payment9.monthly_march_make_payments9, name='monthly_march_make_payments9'),
+    path('monthly_april_make_payments9/<id>', payment9.monthly_april_make_payments9, name='monthly_april_make_payments9'),
+    path('monthly_may_make_payments9/<id>', payment9.monthly_may_make_payments9, name='monthly_may_make_payments9'),
+    path('monthly_june_make_payments9/<id>', payment9.monthly_june_make_payments9, name='monthly_june_make_payments9'),
+
+    path('monthly_july_make_payments9/<id>', payment9.monthly_july_make_payments9, name='monthly_july_make_payments9'),
+    path('monthly_aug_make_payments9/<id>', payment9.monthly_aug_make_payments9, name='monthly_aug_make_payments9'),
+    path('monthly_sept_make_payments9/<id>', payment9.monthly_sept_make_payments9, name='monthly_sept_make_payments9'),
+    path('monthly_oct_make_payments9/<id>', payment9.monthly_oct_make_payments9, name='monthly_oct_make_payments9'),
+    path('monthly_nov_make_payments9/<id>', payment9.monthly_nov_make_payments9, name='monthly_nov_make_payments9'),
+    path('monthly_dec_make_payments9/<id>', payment9.monthly_dec_make_payments9, name='monthly_dec_make_payments9'),
+
+##################################
+#MONTHLY MANAGEMENT PAYMENTS END HERE
+################################
+
 
     ##################################
     # MONTHLY MANAGEMENT PAYMENTS START HERE
@@ -355,13 +501,14 @@ urlpatterns = [
 
     path('viewall_vacate_guest9/', branch9.viewall_vacate_guest9, name='viewall_vacate_guest9'),
     path('details_of_vacate_guest9/<id>', branch9.details_of_vacate_guest9, name='details_of_vacate_guest9'),
+    path('full_vacated_guest_details9',branch9.full_vacated_guest_details9,name='full_vacated_guest_details9'),
+    path('full_vacated_guest_table9',branch9.full_vacated_guest_table9,name='full_vacated_guest_table9'),
 
     # ********vacate guest payments start here**********
 
     path('jan_manke_payments_vacate9/<id>', branch9.jan_manke_payments_vacate9, name='jan_manke_payments_vacate9'),
     path('feb_manke_payments_vacate9/<id>', branch9.feb_manke_payments_vacate9, name='feb_manke_payments_vacate9'),
-    path('march_manke_payments_vacate9/<id>', branch9.march_manke_payments_vacate9,
-         name='march_manke_payments_vacate9'),
+    path('march_manke_payments_vacate9/<id>', branch9.march_manke_payments_vacate9,name='march_manke_payments_vacate9'),
     path('april_make_payments_vacate9/<id>', branch9.april_make_payments_vacate9, name='april_make_payments_vacate9'),
 
     path('may_make_payments_vacate9/<id>', branch9.may_make_payments_vacate9, name='may_make_payments_vacate9'),

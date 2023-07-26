@@ -63,7 +63,22 @@ def branch1_dashboard6(request):
 
 
 def admit_guest6(request):
-    return render(request, 'branches/branch6/new_guest/admit_guest.html')
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+    }
+    return render(request, 'branches/branch6/new_guest/admit_guest.html',context)
 
 
 def br1_admit_guest6(request, id):
@@ -77,7 +92,22 @@ def br1_admit_guest6(request, id):
                 for i in data:
                     l.append(i.share_type)
                 print('l', l)
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH 6 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
@@ -308,7 +338,22 @@ def br1_admit_guest6(request, id):
                 for i in data:
                     l.append(i.share_type)
                 print('l', l)
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH 6 Room Creation Form',
                     'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                     'rn1': l[0]
@@ -317,7 +362,23 @@ def br1_admit_guest6(request, id):
                 # return render(request, 'branches/branch1/new_guest/view_all_new_guest.html', context)
                 return view_all_new_guest6(request)
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'sd': pg1_new_beds.objects.get(id=id)
         }
         return render(request, 'branches/branch6/new_guest/new_guest_creation_page.html', context)
@@ -343,7 +404,23 @@ def view_all_new_guest6(request):
         print('room share type of branchl0', ll[0])
         print('room share type of branchl1', ll[1])
 
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
@@ -412,7 +489,22 @@ def update_br1_admit_guest6(request, id):
             for i in data:
                 l.append(i.share_type)
             print('l', l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'brname': 'BRANCH 6 Room Creation Form',
                 'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                 'rn1': l[0]
@@ -467,7 +559,21 @@ def update_br1_admit_guest6(request, id):
             messages.info(request, 'BRANCH6 guest updated sucessfully')
             return view_all_new_guest6(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_beds.objects.get(id=id)
     }
     return render(request, 'branches/branch6/new_guest/update_br1_admit_guest.html', context)
@@ -484,7 +590,22 @@ def vacate_br1_guest6(request, id):
             for i in data:
                 l.append(i.share_type)
             print('l', l)
+
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'brname': 'BRANCH 6 Room Creation Form',
                 # 'br': pg1_new_beds.objects.all().filter(roon_no=1).order_by('roon_no'),
                 'rn1': l[0]
@@ -618,7 +739,21 @@ def vacate_br1_guest6(request, id):
             messages.info(request, 'BRANCH6 guest Vacated sucessfully')
             return view_all_new_guest6(request)
 
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
     context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
         'sd': pg1_new_beds.objects.get(id=id)
     }
     return render(request, 'branches/branch6/new_guest/vacate_br1_guest.html', context)
@@ -1180,7 +1315,7 @@ def table_sept_unpaid_rent6(request):
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch6/reports/unpaid_rent/unpaid_monthly_reports/sept/table_sept_unpaid_rent.html', context)
+        return render(request, 'branches/branch6/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html', context)
 
 
 def oct_unpaid_rent6(request):
@@ -1205,7 +1340,7 @@ def oct_unpaid_rent6(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch6/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent6.html', context)
+        return render(request, 'branches/branch6/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent6(request):
     if 'username' in request.session:
 
@@ -7732,7 +7867,8 @@ def viewall_vacate_guest6(request):
         'th_us': a[0],
         'name': us,
 
-        'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id')
+        'vg': pg1_new_guest.objects.all().filter(flag=3, remark__gt='0').exclude(remark='').order_by('-id'),
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
     }
     return render(request, 'branches/branch6/vacate_guest/viewall_vacate_guest.html', context)
 
@@ -7756,6 +7892,50 @@ def details_of_vacate_guest6(request, id):
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
     return render(request, 'branches/branch6/vacate_guest/details_of_vacate_guest.html', context)
+
+
+
+def full_vacated_guest_details6(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch6/vacate_guest/full_vacated_guest_details.html', context)
+
+
+def full_vacated_guest_table6(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
+    }
+    return render(request, 'branches/branch6/vacate_guest/full_vacated_guest_table.html', context)
+
 
 
 # ***********vacate guest payments start here*******
@@ -8629,4 +8809,88 @@ def dec_make_payments_vacate6(request, id):
 ##################################
 # VACATE GUEST DETAILS END HERE
 ################################
+
+
+def background6(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a=[]
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+
+        context = {
+            'bg' : bgs,
+            'us' : us,
+            'th_us' : a[0]
+        }
+        return render(request, 'branches/branch6/test/background.html', context)
+    return render(request, 'index.html')
+
+def background_regi6(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        th = request.POST.get('theme')
+        uc=background_color.objects.all().filter(username=us).exists()
+        print(uc)
+
+        if uc==True:
+            b=background_color.objects.get(username=us)
+            b.theme_name = th
+            b.save()
+        else:
+            a=background_color()
+            a.theme_name = th
+            a.username = us
+            a.save()
+
+        bg = background_color.objects.all().filter(username=us)
+        l=[]
+        for i in bg:
+            l.append(i.username)
+
+        context = {
+            'bg' : bg,
+            'us' : us,
+            'th_us' : l[0]
+
+        }
+        return render(request, 'branches/branch6/test/background.html', context)
+    return render(request, 'index.html')
+
+
+def custom_background_regi6(request):
+    if 'username' in request.session:
+        us = request.session['username']
+        th = request.POST.get('theme')
+        uc=background_color.objects.all().filter(username=us).exists()
+        print(uc)
+
+        if uc==True:
+            b=background_color.objects.get(username=us)
+            b.theme_name = th
+            b.save()
+        else:
+            a=background_color()
+            a.theme_name = th
+            a.username = us
+            a.save()
+
+        bg = background_color.objects.all().filter(username=us)
+        l=[]
+        for i in bg:
+            l.append(i.username)
+
+        context = {
+            'bg' : bg,
+            'us' : us,
+            'th_us' : l[0]
+
+        }
+        return render(request, 'branches/branch6/test/background.html', context)
+    return render(request, 'index.html')
 

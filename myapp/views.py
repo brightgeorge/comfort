@@ -159,7 +159,19 @@ def login_request(request):
             if role=='Branch6':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch6app
+                bgs = branch6app.models.background_color.objects.all().filter(username=us)
+                bg = branch6app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }

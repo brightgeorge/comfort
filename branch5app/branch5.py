@@ -9511,4 +9511,3 @@ def custom_background_regi(request):
         return render(request, 'branches/branch5/test/background.html', context)
     return render(request, 'index.html')
 
-#52b788

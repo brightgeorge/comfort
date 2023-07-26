@@ -73,14 +73,7 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
-
-{% if us == th_us %}
-{% for i in bg %}
-<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
-{% endfor %}
-{% else %}
 <body class="bg-theme bg-theme1">
-{% endif %}
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -98,74 +91,81 @@ function exportTableToExcel(tableID, filename = ''){
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION BR5</li>
+      <li class="sidebar-header">MAIN NAVIGATION BR7</li>
 
       <li>
-        <a href="{% url 'branch1_dashboard5' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 5</span>
+        <a href="{% url 'branch1_dashboard7' %}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 7</span>
         </a>
       </li>
+
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Reports 7</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months7' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 7</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months7' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 7</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months7' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 7</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months7' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 7</span></a>
+  </div>
+</div>
+       </li>
+
 
       <li>
-        <a href="{% url 'unpaid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="{% url 'choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 5</span>
+        <a href="{% url 'choose_months7' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 7</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'choose_months_advance5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 5</span>
-        </a>
-      </li>
-
-       <li>
-        <a href="{% url 'view_all_new_guest5' %}">
-          <i class="zmdi zmdi-face"></i> <span>Guests 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'detail_guest_general5' %}">
-          <i class="zmdi zmdi-brush"></i> <span>Print outs 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'viewall_vacate_guest5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 5</span>
+        <a href="{% url 'choose_months_advance7' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 7</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'view_all_room5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 5</span>
+        <a href="{% url 'due_amt_mgt_choose_months7' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 7</span>
         </a>
       </li>
 
        <li>
-        <a href="{% url 'pg1_view_all_beds5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 5</span>
+        <a href="{% url 'view_all_new_guest7' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests 7</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general7' %}">
+          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet 7</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest7' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 7</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'may_print_live5' %}">
-          <i class="zmdi zmdi-spinner"></i> <span>Live Report 5</span>
+        <a href="{% url 'view_all_room7' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 7</span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'pg1_view_all_beds7' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 7</span>
         </a>
       </li>
 
         <li>
-        <a href="{% url 'viewall_vaccant_room5' %}">
-          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 5</span>
+        <a href="{% url 'viewall_vaccant_room7' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms 7</span>
         </a>
       </li>
 
@@ -247,7 +247,6 @@ function exportTableToExcel(tableID, filename = ''){
 </header>
 <!--End topbar header-->
 
-
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
@@ -258,7 +257,7 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">DETAILED REPORT OF JAN BRANCH5</h5>
+              <h5 class="card-title">DETAILED REPORT OF JAN PRESTIGE</h5>
 
 
                 {% if messages %}
@@ -275,13 +274,9 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                     <th ><a href="{% url 'detailed_report_choose_months5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Main</span> </button></a></th>
-                       <th ><a href="{% url 'jan_details_live5' %}"> <button class="mybutton button1" style="background-color:green;color:white;"><= Back </button></a></th>
-
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
-                 <th><button onclick="window.print()">Print</button></th>
+                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
+                 <th><button onclick="window.print()">Print this page</button></th>
                  </tr>
-
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
@@ -303,10 +298,26 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
+                  <tr>
+                    <th scope="row" rowspan="{{g1}}">1</th>
+                      {% for i in g1_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
 
                   <tr>
-                    <th scope="row" rowspan="{{rs113}}">113</th>
-                      {% for i in 113_data %}
+                    <th scope="row" rowspan="{{g2}}">2</th>
+                      {% for i in g2_data %}
 
                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
@@ -321,26 +332,9 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                  <tr>
-                    <th scope="row" rowspan="{{rs114}}">114</th>
-                      {% for i in 114_data %}
-
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
-
-                  </tr>
-                {% endfor %}
-
-                    <tr>
-                    <th scope="row" rowspan="{{rs115}}">115</th>
-                      {% for i in 115_data %}
+                   <tr>
+                    <th scope="row" rowspan="{{g3}}">3</th>
+                      {% for i in g3_data %}
 
                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
@@ -355,9 +349,9 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                    <tr>
-                    <th scope="row" rowspan="{{rs116}}">116</th>
-                      {% for i in 116_data %}
+                   <tr>
+                    <th scope="row" rowspan="{{g4}}">4</th>
+                      {% for i in g4_data %}
 
                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
@@ -372,11 +366,11 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                    <tr>
-                    <th scope="row" rowspan="{{rs117}}">117</th>
-                      {% for i in 117_data %}
+                   <tr>
+                    <th scope="row" rowspan="{{g5}}">5</th>
+                      {% for i in g5_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -392,12 +386,11 @@ function exportTableToExcel(tableID, filename = ''){
                 <!-- ------------------------------------------------- -->
 
 
+                 <tr>
+                    <th scope="row" rowspan="{{rs101}}">101</th>
+                      {% for i in 101_data %}
 
-                   <tr>
-                    <th scope="row" rowspan="{{rs213}}">213</th>
-                      {% for i in 213_data %}
-
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -410,11 +403,11 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                   <tr>
-                    <th scope="row" rowspan="{{rs214}}">214</th>
-                      {% for i in 214_data %}
+                 <tr>
+                    <th scope="row" rowspan="{{rs102}}">102</th>
+                      {% for i in 102_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -427,11 +420,11 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                   <tr>
-                    <th scope="row" rowspan="{{rs215}}">215</th>
-                      {% for i in 215_data %}
+                  <tr>
+                    <th scope="row" rowspan="{{rs103}}">103</th>
+                      {% for i in 103_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -444,11 +437,11 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                   <tr>
-                    <th scope="row" rowspan="{{rs216}}">216</th>
-                      {% for i in 216_data %}
+                  <tr>
+                    <th scope="row" rowspan="{{rs105}}">105</th>
+                      {% for i in 105_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -461,11 +454,11 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                   <tr>
-                    <th scope="row" rowspan="{{rs217}}">217</th>
-                      {% for i in 217_data %}
+                  <tr>
+                    <th scope="row" rowspan="{{rs106}}">106</th>
+                      {% for i in 106_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -482,9 +475,9 @@ function exportTableToExcel(tableID, filename = ''){
                 <!- --------------------------------------------------------------------------- -->
 
 
-                    <tr>
-                    <th scope="row" rowspan="{{rs313}}">313</th>
-                      {% for i in 313_data %}
+                 <tr>
+                    <th scope="row" rowspan="{{rs201}}">201</th>
+                      {% for i in 201_data %}
 
                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
@@ -499,11 +492,62 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                    <tr>
-                    <th scope="row" rowspan="{{rs314}}">314</th>
-                      {% for i in 314_data %}
+                 <tr>
+                    <th scope="row" rowspan="{{rs202}}">202</th>
+                      {% for i in 202_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                   <tr>
+                    <th scope="row" rowspan="{{rs203}}">203</th>
+                      {% for i in 203_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                   <tr>
+                    <th scope="row" rowspan="{{rs204}}">204</th>
+                      {% for i in 204_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                   <tr>
+                    <th scope="row" rowspan="{{rs205}}">205</th>
+                      {% for i in 205_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -517,10 +561,30 @@ function exportTableToExcel(tableID, filename = ''){
                 {% endfor %}
 
                   <tr>
-                    <th scope="row" rowspan="{{rs315}}">315</th>
-                      {% for i in 315_data %}
+                    <th scope="row" rowspan="{{rs206}}">206</th>
+                      {% for i in 206_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs301}}">301</th>
+                      {% for i in 301_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -534,10 +598,10 @@ function exportTableToExcel(tableID, filename = ''){
                 {% endfor %}
 
                   <tr>
-                    <th scope="row" rowspan="{{rs316}}">316</th>
-                      {% for i in 316_data %}
+                    <th scope="row" rowspan="{{rs302}}">302</th>
+                      {% for i in 302_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -551,10 +615,10 @@ function exportTableToExcel(tableID, filename = ''){
                 {% endfor %}
 
                   <tr>
-                    <th scope="row" rowspan="{{rs317}}">317</th>
-                      {% for i in 317_data %}
+                    <th scope="row" rowspan="{{rs303}}">303</th>
+                      {% for i in 303_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -568,10 +632,44 @@ function exportTableToExcel(tableID, filename = ''){
                 {% endfor %}
 
                   <tr>
-                    <th scope="row" rowspan="{{rs318}}">318</th>
-                      {% for i in 318_data %}
+                    <th scope="row" rowspan="{{rs304}}">304</th>
+                      {% for i in 304_data %}
 
-                     <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs305}}">305</th>
+                      {% for i in 305_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs306}}">306</th>
+                      {% for i in 306_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
                        <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
@@ -587,6 +685,134 @@ function exportTableToExcel(tableID, filename = ''){
 
                 <!-- --------------------------------------------------------------- -->
 
+
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs401}}">401</th>
+                      {% for i in 401_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs402}}">402</th>
+                      {% for i in 402_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs404}}">404</th>
+                      {% for i in 404_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs405}}">405</th>
+                      {% for i in 405_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+                  <tr>
+                    <th scope="row" rowspan="{{rs406}}">406</th>
+                      {% for i in 406_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                <tr>
+                    <th scope="row" rowspan="{{rs601}}">601</th>
+                      {% for i in 601_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+                <tr>
+                    <th scope="row" rowspan="{{rs602}}">602</th>
+                      {% for i in 602_data %}
+
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent_rec_date}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.jan_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.jan_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.jan_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
+                {% endfor %}
+
+
+
+                <!-- --------------------------------------------------------------- -->
 
 
 
@@ -638,25 +864,11 @@ function exportTableToExcel(tableID, filename = ''){
       <ul>
 
 
-          <li><a href="{% url 'jan_print5' %}"><button class="btn btn-primary" style="width:180px;">Jnuary Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'jan_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Feb Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'feb_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">March Print5</button> </a></li>
-<li style="margin-top:5px;"><a href="{% url 'mar_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">April Print5</button> </a></li>
-
-  <li style="margin-top:5px;"><a href="{% url 'apr_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">May Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'may_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">June Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'jun_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Jan Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'jul_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Auguest Print5</button> </a></li>
-
-   <li style="margin-top:5px;"><a href="{% url 'aug_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Sept 5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'sep_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Oct Print5</button> </a></li>
-  <li style="margin-top:5px;"><a href="{% url 'oct_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Nov Print5</button> </a></li>
- <li style="margin-top:5px;"><a href="{% url 'nov_close_decision_page5' %}"><button class="btn btn-primary mt-1000px;" style="width:180px;">Dec Print5</button> </a></li>
 
 
 
+  <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
 
-          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
 
 
       </ul>

@@ -57,7 +57,15 @@ th.break {
 
 </head>
 
+
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -241,7 +249,7 @@ th.break {
          <div class="card">
            <div class="card-body">
 		  <a href="{% url 'unpaid_rent_choose_months6' %}"> <button class="mybutton button1"> <= Back</button></a>
-               <a href="{% url 'table_auguest_unpaid_rent6' %}"> <button class="mybutton button1"> View Table</button></a>
+               <a href="{% url 'table_aug_unpaid_rent6' %}"> <button class="mybutton button1"> View Table</button></a>
            <div class="card-title">Unpaid Guest Details of AUGUEST Branch6</div>
 
 

@@ -2374,9 +2374,6 @@ class pg1_new_guest(models.Model):
 
 
 
-
-
-
 class branch_closing(models.Model):
     branch_name = models.CharField(max_length=200)
 
