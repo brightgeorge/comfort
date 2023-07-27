@@ -332,7 +332,7 @@ def view_all_new_guest7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '40px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
