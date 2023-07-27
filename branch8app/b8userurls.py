@@ -74,6 +74,7 @@ urlpatterns = [
     path('oct_unpaid_rent8/', branch8.oct_unpaid_rent8, name='oct_unpaid_rent8'),
     path('table_oct_unpaid_rent8/', branch8.table_oct_unpaid_rent8, name='table_oct_unpaid_rent8'),
     path('nov_unpaid_rent8/', branch8.nov_unpaid_rent8, name='nov_unpaid_rent8'),
+    path('table_nov_unpaid_rent8/', branch8.table_nov_unpaid_rent8, name='table_nov_unpaid_rent8'),
     path('dec_unpaid_rent8/', branch8.dec_unpaid_rent8, name='dec_unpaid_rent8'),
     path('table_dec_unpaid_rent8/', branch8.table_dec_unpaid_rent8, name='table_dec_unpaid_rent8'),
 
@@ -445,13 +446,48 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
     path('nov_close8/', branch8.nov_close8, name='nov_close8'),
     path('nov_close_decision_page8/', branch8.nov_close_decision_page8, name='nov_close_decision_page8'),
 
+
+
+########################################
+# DETAILED REPORT START HERE
+###########################
+
     path('detailed_report_choose_months8/',reports8.detailed_report_choose_months8,name='detailed_report_choose_months8'),
+
+    path('jan_details_live8/', reports8.jan_details_live8, name='jan_details_live8'),
+    path('jan_print_live8/', reports8.jan_print_live8, name='jan_print_live8'),
+    path('feb_details_live8/', reports8.feb_details_live8, name='feb_details_live8'),
+    path('feb_print_live8/', reports8.feb_print_live8, name='feb_print_live8'),
+    path('march_details_live8/', reports8.march_details_live8, name='march_details_live8'),
+    path('march_print_live8/', reports8.march_print_live8, name='march_print_live8'),
+
+    path('april_details_live8/', reports8.april_details_live8, name='april_details_live8'),
+    path('april_print_live8/', reports8.april_print_live8, name='april_print_live8'),
     path('may_details_live8/', reports8.may_details_live8, name='may_details_live8'),
     path('may_print_live8/', reports8.may_print_live8, name='may_print_live8'),
     path('june_details_live8/',reports8.june_details_live8,name='june_details_live8'),
     path('june_print_live8/', reports8.june_print_live8, name='june_print_live8'),
+
     path('july_details_live8/', reports8.july_details_live8, name='july_details_live8'),
     path('july_print_live8/', reports8.july_print_live8, name='july_print_live8'),
+    path('auguest_details_live8/', reports8.auguest_details_live8, name='auguest_details_live8'),
+    path('auguest_print_live8/', reports8.auguest_print_live8, name='auguest_print_live8'),
+    path('sept_details_live8/', reports8.sept_details_live8, name='sept_details_live8'),
+    path('sept_print_live8/', reports8.sept_print_live8, name='sept_print_live8'),
+
+    path('october_details_live8/', reports8.october_details_live8, name='october_details_live8'),
+    path('october_print_live8/', reports8.october_print_live8, name='october_print_live8'),
+    path('nov_details_live8/', reports8.nov_details_live8, name='nov_details_live8'),
+    path('nov_print_live8/', reports8.nov_print_live8, name='nov_print_live8'),
+    path('dec_details_live8/', reports8.dec_details_live8, name='dec_details_live8'),
+    path('dec_print_live8/', reports8.dec_print_live8, name='dec_print_live8'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
+
+
+
 
     path('viewall_vaccant_room8/', reports8.viewall_vaccant_room8, name='viewall_vaccant_room8'),
 

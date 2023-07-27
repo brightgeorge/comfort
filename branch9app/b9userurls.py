@@ -71,6 +71,7 @@ urlpatterns = [
     path('oct_unpaid_rent9/', branch9.oct_unpaid_rent9, name='oct_unpaid_rent9'),
     path('table_oct_unpaid_rent9/', branch9.table_oct_unpaid_rent9, name='table_oct_unpaid_rent9'),
     path('nov_unpaid_rent9/', branch9.nov_unpaid_rent9, name='nov_unpaid_rent9'),
+    path('table_nov_unpaid_rent9/', branch9.table_nov_unpaid_rent9, name='table_nov_unpaid_rent9'),
     path('dec_unpaid_rent9/', branch9.dec_unpaid_rent9, name='dec_unpaid_rent9'),
     path('table_dec_unpaid_rent9/', branch9.table_dec_unpaid_rent9, name='table_dec_unpaid_rent9'),
 
@@ -436,13 +437,43 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
     path('nov_close9/', branch9.nov_close9, name='nov_close9'),
     path('nov_close_decision_page9/', branch9.nov_close_decision_page9, name='nov_close_decision_page9'),
 
-    path('detailed_report_choose_months9/', reports9.detailed_report_choose_months9,name='detailed_report_choose_months9'),
+########################################
+# DETAILED REPORT START HERE
+###########################
+
+    path('detailed_report_choose_months9/',reports9.detailed_report_choose_months9,name='detailed_report_choose_months9'),
+
+    path('jan_details_live9/', reports9.jan_details_live9, name='jan_details_live9'),
+    path('jan_print_live9/', reports9.jan_print_live9, name='jan_print_live9'),
+    path('feb_details_live9/', reports9.feb_details_live9, name='feb_details_live9'),
+    path('feb_print_live9/', reports9.feb_print_live9, name='feb_print_live9'),
+    path('march_details_live9/', reports9.march_details_live9, name='march_details_live9'),
+    path('march_print_live9/', reports9.march_print_live9, name='march_print_live9'),
+
+    path('april_details_live9/', reports9.april_details_live9, name='april_details_live9'),
+    path('april_print_live9/', reports9.april_print_live9, name='april_print_live9'),
     path('may_details_live9/', reports9.may_details_live9, name='may_details_live9'),
     path('may_print_live9/', reports9.may_print_live9, name='may_print_live9'),
-    path('june_details_live9/', reports9.june_details_live9, name='june_details_live9'),
+    path('june_details_live9/',reports9.june_details_live9,name='june_details_live9'),
     path('june_print_live9/', reports9.june_print_live9, name='june_print_live9'),
+
     path('july_details_live9/', reports9.july_details_live9, name='july_details_live9'),
     path('july_print_live9/', reports9.july_print_live9, name='july_print_live9'),
+    path('auguest_details_live9/', reports9.auguest_details_live9, name='auguest_details_live9'),
+    path('auguest_print_live9/', reports9.auguest_print_live9, name='auguest_print_live9'),
+    path('sept_details_live9/', reports9.sept_details_live9, name='sept_details_live9'),
+    path('sept_print_live9/', reports9.sept_print_live9, name='sept_print_live9'),
+
+    path('october_details_live9/', reports9.october_details_live9, name='october_details_live9'),
+    path('october_print_live9/', reports9.october_print_live9, name='october_print_live9'),
+    path('nov_details_live9/', reports9.nov_details_live9, name='nov_details_live9'),
+    path('nov_print_live9/', reports9.nov_print_live9, name='nov_print_live9'),
+    path('dec_details_live9/', reports9.dec_details_live9, name='dec_details_live9'),
+    path('dec_print_live9/', reports9.dec_print_live9, name='dec_print_live9'),
+
+########################################
+#  DETAILED REPORT END HERE
+###########################
 
     path('viewall_vaccant_room9/', reports9.viewall_vaccant_room9, name='viewall_vaccant_room9'),
 

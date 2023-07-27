@@ -7917,6 +7917,7 @@ def full_vacated_guest_details6(request):
 
 
 def full_vacated_guest_table6(request):
+
     us = request.session['username']
     bgs = background_color.objects.all().filter(username=us)
     bg = background_color.objects.all().filter(username=us).exists()

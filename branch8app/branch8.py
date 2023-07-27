@@ -940,7 +940,7 @@ def table_sept_unpaid_rent8(request):
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch8/reports/unpaid_rent/unpaid_monthly_reports/sept/table_sept_unpaid_rent.html', context)
+        return render(request, 'branches/branch8/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html', context)
 
 
 def oct_unpaid_rent8(request):
@@ -950,7 +950,7 @@ def oct_unpaid_rent8(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch8/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent8.html', context)
+        return render(request, 'branches/branch8/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent8(request):
     if 'username' in request.session:
         context = {

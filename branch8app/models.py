@@ -2397,3 +2397,8 @@ class branch_closing(models.Model):
     flag = models.CharField(max_length=200)
 
 
+
+class background_color(models.Model):
+    theme_name = models.CharField(max_length=200)
+    username = models.CharField(max_length=200)
+    flag = models.CharField(max_length=200)

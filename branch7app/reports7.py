@@ -16,13 +16,44 @@ import pymysql.cursors
 
 def detailed_report_choose_months7(request):
     if 'username' in request.session:
-        return render(request, 'branches/branch7/live_print_report/detailed_report_choose_months.html')
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+        }
+        return render(request, 'branches/branch7/live_print_report/detailed_report_choose_months.html',context)
     return render(request, 'index.html')
 
 
 def jan_details_live7(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'details' : pg1_new_beds.objects.all(),
         }
         return render(request, 'branches/branch7/live_print_report/live_monthly_details/jan/jan_details_live.html', context)

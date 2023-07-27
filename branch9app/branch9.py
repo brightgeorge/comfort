@@ -995,7 +995,7 @@ def table_sept_unpaid_rent9(request):
             'month_name': 'SEPT'
         }
         return render(request,
-                      'branches/branch9/reports/unpaid_rent/unpaid_monthly_reports/sept/table_sept_unpaid_rent.html',
+                      'branches/branch9/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html',
                       context)
 
 
@@ -1006,7 +1006,7 @@ def oct_unpaid_rent9(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch9/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent9.html',
+        return render(request, 'branches/branch9/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html',
                       context)
 
 
@@ -3488,8 +3488,9 @@ def detail_guest_general9(request):
             '106_data': pg1_new_beds.objects.all().filter(roon_no=106),
             'rs107': ll[7],
             '107_data': pg1_new_beds.objects.all().filter(roon_no=107),
-            'rs109': ll[8],
-            '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
+
+            'rs108': ll[8],
+            '108_data': pg1_new_beds.objects.all().filter(roon_no=108),
             'rs109': ll[9],
             '109_data': pg1_new_beds.objects.all().filter(roon_no=109),
             'rs110': ll[10],

@@ -7276,6 +7276,7 @@ def details_of_vacate_guest5(request, id):
     return render(request, 'branches/branch5/vacate_guest/details_of_vacate_guest.html', context)
 
 def full_vacated_guest_details5(request):
+
     us = request.session['username']
     bgs = background_color.objects.all().filter(username=us)
     bg = background_color.objects.all().filter(username=us).exists()
