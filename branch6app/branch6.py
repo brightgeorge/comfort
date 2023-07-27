@@ -6264,14 +6264,13 @@ def aug_print6(request):
             'name': us,
 
             'brname': 'BRANCH 6 Room Creation Form',
-            #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
+            # 'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
             'table_height': '60px',
 
-
-            'rs1':ll[0],
-            'rm1_data':pg1_new_beds.objects.all().filter(roon_no=1),
-            #'g1_data':g1_data,
+            'rs1': ll[0],
+            'rm1_data': pg1_new_beds.objects.all().filter(roon_no=1),
+            # 'g1_data':g1_data,
             'rs2': ll[1],
             'rm2_data': pg1_new_beds.objects.all().filter(roon_no=2),
             'rs3': ll[2],
