@@ -2452,7 +2452,7 @@ def jan3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
             'roomno':rn,
-            'room_name' : room_pg1.objects.all().order_by('roon_no'),
+            'room_name' : room_pg1.objects.all().order_by('roon_no').values(),
             'room': room_pg1.objects.all(),
 
         }
@@ -2517,7 +2517,7 @@ def jan_manke_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,jan_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
@@ -2555,7 +2555,7 @@ def jan_manke_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2586,7 +2586,7 @@ def feb3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,feb_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/feb/feb.html',context)
 
@@ -2649,7 +2649,7 @@ def feb_manke_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,feb_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
@@ -2687,7 +2687,7 @@ def feb_manke_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2702,7 +2702,7 @@ def march3(request):
         context={
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,march_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/march/march.html',context)
 
@@ -2765,7 +2765,7 @@ def march_manke_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,march_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
@@ -2803,7 +2803,7 @@ def march_manke_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2835,7 +2835,7 @@ def april3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,april_rent_flag__gt=99),
             'roomno':rn,
-            'room' : room_pg1.objects.all().order_by('roon_no'),
+            'room' : room_pg1.objects.all().order_by('roon_no').values(),
             #'room_name': room_pg1.objects.all(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/april/april.html',context)
@@ -2899,7 +2899,7 @@ def april_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,april_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
@@ -2937,7 +2937,7 @@ def april_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -2969,7 +2969,7 @@ def may3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,may_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/payments/details_of_months/may/may.html',context)
@@ -3033,7 +3033,7 @@ def may_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
@@ -3071,7 +3071,7 @@ def may_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3102,7 +3102,7 @@ def june3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,june_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/june/june.html',context)
 
@@ -3164,7 +3164,7 @@ def june_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
 
             }
             return render(request, 'branches/branch3/payments/details_of_months/june/june.html',context)
@@ -3203,7 +3203,7 @@ def june_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3235,7 +3235,7 @@ def july3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,july_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/july/july.html',context)
 
@@ -3298,7 +3298,7 @@ def july_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
@@ -3336,7 +3336,7 @@ def july_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3368,7 +3368,7 @@ def aug3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,auguest_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/aug/aug.html',context)
 
@@ -3431,7 +3431,7 @@ def aug_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,auguest_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
@@ -3469,7 +3469,7 @@ def aug_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3500,7 +3500,7 @@ def sept3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,sept_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/sept/sept.html',context)
 
@@ -3563,7 +3563,7 @@ def sept_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,sept_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
@@ -3601,7 +3601,7 @@ def sept_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=1),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3632,7 +3632,7 @@ def oct3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,october_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/oct/oct.html',context)
 
@@ -3698,7 +3698,7 @@ def oct_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,october_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
@@ -3736,7 +3736,7 @@ def oct_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3767,7 +3767,7 @@ def nov3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,nov_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/nov/nov.html',context)
 
@@ -3830,7 +3830,7 @@ def nov_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,nov_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
@@ -3868,7 +3868,7 @@ def nov_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -3899,7 +3899,7 @@ def dec3(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,dec_rent_flag__gt=99),
             'roomno':rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/payments/details_of_months/dec/dec.html',context)
 
@@ -3963,7 +3963,7 @@ def dec_make_payments3(request,id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,dec_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
@@ -4001,7 +4001,7 @@ def dec_make_payments3(request,id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd' : pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
@@ -4065,7 +4065,7 @@ def jan_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, jan_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/jan/jan_advance.html', context)
@@ -4123,7 +4123,7 @@ def jan_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
@@ -4148,7 +4148,7 @@ def jan_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/feb/feb_make_payments_advance.html', context)
@@ -4177,7 +4177,7 @@ def feb_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, feb_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/advance/details_of_months/feb/feb_advance.html', context)
     return render(request, 'index.html')
@@ -4234,7 +4234,7 @@ def feb_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, feb_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/feb/feb_advance.html', context)
         rn = request.POST.get('rno')
@@ -4259,7 +4259,7 @@ def feb_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/feb/feb_make_payments_advance.html', context)
@@ -4288,7 +4288,7 @@ def march_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, march_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch3/advance/details_of_months/march/march_advance.html', context)
     return render(request, 'index.html')
@@ -4345,7 +4345,7 @@ def march_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, march_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/march/march_advance.html', context)
         rn = request.POST.get('rno')
@@ -4370,7 +4370,7 @@ def march_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/march/march_make_payments_advance.html',
@@ -4400,7 +4400,7 @@ def april_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, april_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/april/april_advance.html', context)
@@ -4462,7 +4462,7 @@ def april_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, april_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/april/april_advance.html', context)
         rn = request.POST.get('rno')
@@ -4487,7 +4487,7 @@ def april_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/april/april_make_payments_advance.html',
@@ -4517,7 +4517,7 @@ def may_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, may_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/may/may_advance.html', context)
@@ -4579,7 +4579,7 @@ def may_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/may/may_advance.html', context)
         rn = request.POST.get('rno')
@@ -4604,7 +4604,7 @@ def may_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/may/may_make_payments_advance.html', context)
@@ -4633,7 +4633,7 @@ def june_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, june_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/june/june_advance.html', context)
@@ -4695,7 +4695,7 @@ def june_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, june_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/june/june_advance.html', context)
         rn = request.POST.get('rno')
@@ -4720,7 +4720,7 @@ def june_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/june/june_make_payments_advance.html',
@@ -4750,7 +4750,7 @@ def july_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, july_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/july/july_advance.html', context)
@@ -4812,7 +4812,7 @@ def july_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, july_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/july/july_advance.html', context)
         rn = request.POST.get('rno')
@@ -4837,7 +4837,7 @@ def july_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/july/july_make_payments_advance.html',
@@ -4867,7 +4867,7 @@ def auguest_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, auguest_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/aug/aug_advance.html', context)
@@ -4928,7 +4928,7 @@ def auguest_make_payments_advance3(request, id):
                 'name': us,
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, auguest_rent_flag__gt=99),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
             return render(request, 'branches/branch3/advance/details_of_months/aug/aug_advance.html', context)
@@ -4954,7 +4954,7 @@ def auguest_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/aug/aug_make_payments_advance.html', context)
@@ -4983,7 +4983,7 @@ def sept_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, sept_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/sept/sept_advance.html', context)
@@ -5045,7 +5045,7 @@ def sept_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, sept_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/sept/sept_advance.html', context)
         rn = request.POST.get('rno')
@@ -5070,7 +5070,7 @@ def sept_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/sept/sept_make_payments_advance.html',
@@ -5100,7 +5100,7 @@ def october_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, october_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/oct/oct_advance.html', context)
@@ -5162,7 +5162,7 @@ def october_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, october_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/oct/oct_advance.html', context)
         rn = request.POST.get('rno')
@@ -5187,7 +5187,7 @@ def october_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/oct/oct_make_payments_advance.html', context)
@@ -5216,7 +5216,7 @@ def nov_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, nov_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/nov/nov_advance.html', context)
@@ -5278,7 +5278,7 @@ def nov_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, nov_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/nov/nov_advance.html', context)
         rn = request.POST.get('rno')
@@ -5303,7 +5303,7 @@ def nov_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/nov/nov_make_payments_advance.html', context)
@@ -5332,7 +5332,7 @@ def dec_advance3(request):
 
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2, dec_rent_flag__gt=99),
             'roomno': rn,
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
         return render(request, 'branches/branch3/advance/details_of_months/dec/dec_advance.html', context)
@@ -5394,7 +5394,7 @@ def dec_make_payments_advance3(request, id):
 
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, dec_rent_flag__gt=99),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
-                'room': room_pg1.objects.all().order_by('roon_no'),
+                'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
             return render(request, 'branches/branch3/advance/details_of_months/dec/dec_advance.html', context)
         rn = request.POST.get('rno')
@@ -5419,7 +5419,7 @@ def dec_make_payments_advance3(request, id):
             'pd': pg1_new_guest.objects.all().filter(roon_no=rn, flag=2),
             'roomno': rn,
             'sd': pg1_new_guest.objects.get(id=id),
-            'room': room_pg1.objects.all().order_by('roon_no'),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
         return render(request, 'branches/branch3/advance/details_of_months/dec/dec_make_payments_advance.html', context)

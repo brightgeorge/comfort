@@ -30,6 +30,10 @@ urlpatterns = [
     path('details_branch3/',admin_dahsboard_calculations.details_branch3,name='details_branch3'),
     path('details_branch4/',admin_dahsboard_calculations.details_branch4,name='details_branch4'),
     path('details_branch5/',admin_dahsboard_calculations.details_branch5,name='details_branch5'),
+    path('details_branch6/', admin_dahsboard_calculations.details_branch6, name='details_branch6'),
+    path('details_branch7/', admin_dahsboard_calculations.details_branch7, name='details_branch7'),
+    path('details_branch8/', admin_dahsboard_calculations.details_branch8, name='details_branch8'),
+    path('details_branch9/', admin_dahsboard_calculations.details_branch9, name='details_branch9'),
 
     # ****user start here *****
     path('view_all_users/', views.view_all_users, name='view_all_users'),

@@ -55,7 +55,7 @@ def branch1_room_create_regi6(request):
                     'name': us,
 
                     'brname': 'BRANCH 6 Room Creation Form',
-                    'br': room_pg1.objects.all().order_by('roon_no'),
+                    'br': room_pg1.objects.all().order_by('roon_no').values(),
                     'brname': 'BRANCH 6'
                 }
                 messages.info(request, 'BRANCH6 roon no already exists')
@@ -87,7 +87,7 @@ def branch1_room_create_regi6(request):
                     'name': us,
 
                     'brname': 'BRANCH 6 Room Creation Form',
-                    'br' : room_pg1.objects.all().order_by('roon_no'),
+                    'br' : room_pg1.objects.all().order_by('roon_no').values(),
                     'brname': 'BRANCH 6'
                 }
                 messages.info(request, 'BRANCH6 room created sucessfully')
@@ -139,7 +139,7 @@ def delete_room6(request,id):
             'name': us,
 
             'brname': 'BRANCH 6 Room Creation Form',
-            'br': room_pg1.objects.all().order_by('roon_no')
+            'br': room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch6/rooms/view_all_rooms.html', context)
     return render(request, 'index.html')
@@ -168,7 +168,7 @@ def pg1_bed_create6(request):
 
             'brname':'BRANCH 6 Room Creation Form',
             'brname': 'BRANCH 6',
-            'roomno' : room_pg1.objects.all()
+            'roomno' : room_pg1.objects.all().order_by('roon_no').values(),
         }
         return render(request,'branches/branch6/beds/create_beds.html',context)
     return render(request, 'index.html')
@@ -204,7 +204,7 @@ def pg1_bed_create_regi6(request):
                     'name': us,
 
                     'brname': 'BRANCH THREE Room Creation Form',
-                    'br': pg1_new_beds.objects.all().order_by('roon_no'),
+                    'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
                     'brname': 'BRANCH 6'
                 }
                 messages.info(request, 'BRANCH6 bed no already exists')
@@ -309,7 +309,7 @@ def pg1_bed_create_regi6(request):
                     'name': us,
 
                     'brname': 'BRANCH 6 Room Creation Form',
-                    'br': pg1_new_beds.objects.all().order_by('roon_no'),
+                    'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
                     'brname': 'BRANCH 6'
                 }
                 messages.info(request, 'BRANCH6 room created sucessfully')
@@ -350,7 +350,7 @@ def single_pg1_bed_create_regi6(request):
                     'name': us,
 
                     'brname': 'BRANCH THREE Room Creation Form',
-                    'br': pg1_new_beds.objects.all().order_by('roon_no'),
+                    'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
                     'brname': 'BRANCH 6'
                 }
                 messages.info(request, 'BRANCH6 bed no already exists')
@@ -452,7 +452,7 @@ def single_pg1_bed_create_regi6(request):
                 'name': us,
 
                 'brname': 'BRANCH 6 Room Creation Form',
-                'br': pg1_new_beds.objects.all().order_by('roon_no'),
+                'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
                 'brname': 'BRANCH 6'
             }
             messages.info(request, 'BRANCH6 room created sucessfully')
@@ -481,7 +481,7 @@ def pg1_view_all_beds6(request):
             'name': us,
 
             'brname': 'BRANCH 6 Room',
-            'br': pg1_new_beds.objects.all().order_by('roon_no')
+            'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
         }
         return render(request,'branches/branch6/beds/view_all_beds.html',context)
     return render(request,'index.html')
@@ -507,7 +507,7 @@ def delete_bed6(request,id):
             'name': us,
 
             'brname': 'BRANCH 6 Room',
-            'br': pg1_new_beds.objects.all().order_by('roon_no')
+            'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
         }
         return render(request, 'branches/branch6/beds/view_all_beds.html', context)
     return render(request, 'index.html')
@@ -549,7 +549,7 @@ def update_bed_basic_details6(request,id):
             'name': us,
 
             'brname': 'BRANCH 6 Room Creation Form',
-            'br': pg1_new_beds.objects.all().order_by('roon_no'),
+            'br': pg1_new_beds.objects.all().order_by('roon_no').values(),
             'brname': 'BRANCH 6',
             'sd': pg1_new_beds.objects.get(id=id),
             'roomno': room_pg1.objects.all().values('share_type').distinct(),

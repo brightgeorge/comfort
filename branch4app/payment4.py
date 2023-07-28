@@ -51,7 +51,7 @@ def choose_user4(request):
 
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2),
             'roomno':rn,
-            'room': room_pg1.objects.all(),
+            'room': room_pg1.objects.all().order_by('roon_no').values(),
             'res' : res,
             'a' : 1
         }
