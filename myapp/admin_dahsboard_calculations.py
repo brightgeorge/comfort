@@ -390,67 +390,372 @@ def total_vaccant_share_choose_branches(request):
     }
     return render(request,'admindashboard/admin_dashboard_reports/total_vaccant_share_choose_branches.html',context)
 
+######TOTAL COLLECTION START HERE
+def total_gtc():
+    a1 = admin_dashboard_calculations_br1.grand_total_collection()
+    a2 = branch2app.admin_dashboard_calculations_br2.grand_total_collection()
+    a3 = branch3app.admin_dashboard_calculations_br3.grand_total_collection()
+    a4 = branch4app.admin_dashboard_calculations_br4.grand_total_collection()
+    a5 = branch5app.admin_dashboard_calculations_br5.grand_total_collection()
+    a6 = branch6app.admin_dashboard_calculations_br6.grand_total_collection()
+    a7 = branch7app.admin_dashboard_calculations_br7.grand_total_collection()
+    a8 = branch8app.admin_dashboard_calculations_br8.grand_total_collection()
+    a9 = branch9app.admin_dashboard_calculations_br9.grand_total_collection()
+
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    l=[]
+    l.append(a1[cm])
+    l.append(a2[cm])
+    l.append(a3[cm])
+    l.append(a4[cm])
+    l.append(a5[cm])
+    l.append(a6[cm])
+    l.append(a7[cm])
+    l.append(a8[cm])
+    l.append(a9[cm])
+
+    gtc=sum(l)
+    print('this is total branch gtc sum',gtc)
+    return gtc
+
+def total_advance():
+    a1 = admin_dashboard_calculations_br1.total_collection_advance()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_collection_advance()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_collection_advance()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_collection_advance()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_collection_advance()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_collection_advance()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_collection_advance()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_collection_advance()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_collection_advance()
+
+    l = []
+    l.append(a1)
+    l.append(a2)
+    l.append(a3)
+    l.append(a4)
+    l.append(a5)
+    l.append(a6)
+    l.append(a7)
+    l.append(a8)
+    l.append(a9)
+
+    gtc = sum(l)
+    print('this is total branch gtc sum', gtc)
+    return gtc
+
+def total_discount():
+    a1 = admin_dashboard_calculations_br1.total_discount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_discount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_discount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_discount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_discount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_discount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_discount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_discount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_discount()
+
+    l = []
+    l.append(a1)
+    l.append(a2)
+    l.append(a3)
+    l.append(a4)
+    l.append(a5)
+    l.append(a6)
+    l.append(a7)
+    l.append(a8)
+    l.append(a9)
+
+    gtc = sum(l)
+    print('this is total branch gtc sum', gtc)
+    return gtc
+
+def all_total_collatable_amount():
+    a1 = admin_dashboard_calculations_br1.total_colatable_amount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_colatable_amount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_colatable_amount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_colatable_amount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_colatable_amount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_colatable_amount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_colatable_amount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_colatable_amount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_colatable_amount()
+
+    l = []
+    l.append(a1)
+    l.append(a2)
+    l.append(a3)
+    l.append(a4)
+    l.append(a5)
+    l.append(a6)
+    l.append(a7)
+    l.append(a8)
+    l.append(a9)
+
+    gtc = sum(l)
+    print('this is total branch gtc sum', gtc)
+    return gtc
+
+def all_total_collected_amount():
+    a1 = admin_dashboard_calculations_br1.total_collected_amount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_collected_amount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_collected_amount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_collected_amount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_collected_amount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_collected_amount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_collected_amount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_collected_amount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_collected_amount()
+
+    l = []
+    l.append(a1)
+    l.append(a2)
+    l.append(a3)
+    l.append(a4)
+    l.append(a5)
+    l.append(a6)
+    l.append(a7)
+    l.append(a8)
+    l.append(a9)
+
+    gtc = sum(l)
+    print('this is total branch gtc sum', gtc)
+    return gtc
+
+def all_total_due():
+    a1 = admin_dashboard_calculations_br1.total_due()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_due()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_due()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_due()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_due()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_due()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_due()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_due()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_due()
+
+    l = []
+    l.append(a1)
+    l.append(a2)
+    l.append(a3)
+    l.append(a4)
+    l.append(a5)
+    l.append(a6)
+    l.append(a7)
+    l.append(a8)
+    l.append(a9)
+
+    gtc = sum(l)
+    print('this is total branch gtc sum', gtc)
+    return gtc
+
+
+######TOTAL COLLECTION END HERE
+from . import admin_dashboard_calculations_br1
 def details_branch1(request):
+    a = admin_dashboard_calculations_br1.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
     context = {
         'tc': pg1_new_beds.objects.all().filter(flag=2),
-        'vr': pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': admin_dashboard_calculations_br1.total_collection_advance(),
+        'total_discount': admin_dashboard_calculations_br1.total_discount(),
+
+        'total_colatable_amount': admin_dashboard_calculations_br1.total_colatable_amount(),
+        'total_collected_amount': admin_dashboard_calculations_br1.total_collected_amount(),
+        'total_due': admin_dashboard_calculations_br1.total_due(),
+        'l': admin_dashboard_calculations_br1.grand_total(),
     }
     return render(request, 'admindashboard/admin_dashboard_reports/branch_details/details_branch.html', context)
 
+
+
 def details_branch2(request):
+    a = branch2app.admin_dashboard_calculations_br2.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
     context = {
         'tc' : branch2app.models.pg1_new_beds.objects.all().filter(flag=2),
         'vr': branch2app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch2app.admin_dashboard_calculations_br2.total_collection_advance(),
+        'total_discount': branch2app.admin_dashboard_calculations_br2.total_discount(),
+
+        'total_colatable_amount': branch2app.admin_dashboard_calculations_br2.total_colatable_amount(),
+        'total_collected_amount': branch2app.admin_dashboard_calculations_br2.total_collected_amount(),
+        'total_due': branch2app.admin_dashboard_calculations_br2.total_due(),
+        'l': branch2app.admin_dashboard_calculations_br2.grand_total(),
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch3(request):
+    a = branch3app.admin_dashboard_calculations_br3.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch3app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch3app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch3app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch3app.admin_dashboard_calculations_br3.total_collection_advance(),
+        'total_discount': branch3app.admin_dashboard_calculations_br3.total_discount(),
+
+        'total_colatable_amount': branch3app.admin_dashboard_calculations_br3.total_colatable_amount(),
+        'total_collected_amount': branch3app.admin_dashboard_calculations_br3.total_collected_amount(),
+        'total_due': branch3app.admin_dashboard_calculations_br3.total_due(),
+        'l': branch3app.admin_dashboard_calculations_br3.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch4(request):
+    a = branch4app.admin_dashboard_calculations_br4.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch4app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch4app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch4app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch4app.admin_dashboard_calculations_br4.total_collection_advance(),
+        'total_discount': branch4app.admin_dashboard_calculations_br4.total_discount(),
+
+        'total_colatable_amount': branch4app.admin_dashboard_calculations_br4.total_colatable_amount(),
+        'total_collected_amount': branch4app.admin_dashboard_calculations_br4.total_collected_amount(),
+        'total_due': branch4app.admin_dashboard_calculations_br4.total_due(),
+        'l': branch4app.admin_dashboard_calculations_br4.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch5(request):
+    a = branch5app.admin_dashboard_calculations_br5.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch5app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch5app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch5app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch5app.admin_dashboard_calculations_br5.total_collection_advance(),
+        'total_discount': branch5app.admin_dashboard_calculations_br5.total_discount(),
+
+        'total_colatable_amount': branch5app.admin_dashboard_calculations_br5.total_colatable_amount(),
+        'total_collected_amount': branch5app.admin_dashboard_calculations_br5.total_collected_amount(),
+        'total_due': branch5app.admin_dashboard_calculations_br5.total_due(),
+        'l': branch5app.admin_dashboard_calculations_br5.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 #PRESTIGE START HERE
 #################################
 def details_branch6(request):
+    a = branch6app.admin_dashboard_calculations_br6.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch6app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch6app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch6app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch6app.admin_dashboard_calculations_br6.total_collection_advance(),
+        'total_discount': branch6app.admin_dashboard_calculations_br6.total_discount(),
+
+        'total_colatable_amount': branch6app.admin_dashboard_calculations_br6.total_colatable_amount(),
+        'total_collected_amount': branch6app.admin_dashboard_calculations_br6.total_collected_amount(),
+        'total_due': branch6app.admin_dashboard_calculations_br6.total_due(),
+        'l': branch6app.admin_dashboard_calculations_br6.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch7(request):
+    a = branch7app.admin_dashboard_calculations_br7.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch7app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch7app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch7app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch7app.admin_dashboard_calculations_br7.total_collection_advance(),
+        'total_discount': branch7app.admin_dashboard_calculations_br7.total_discount(),
+
+        'total_colatable_amount': branch7app.admin_dashboard_calculations_br7.total_colatable_amount(),
+        'total_collected_amount': branch7app.admin_dashboard_calculations_br7.total_collected_amount(),
+        'total_due': branch7app.admin_dashboard_calculations_br7.total_due(),
+        'l': branch7app.admin_dashboard_calculations_br7.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch8(request):
+    a = branch8app.admin_dashboard_calculations_br8.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch8app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch8app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch8app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch8app.admin_dashboard_calculations_br8.total_collection_advance(),
+        'total_discount': branch8app.admin_dashboard_calculations_br8.total_discount(),
+
+        'total_colatable_amount': branch8app.admin_dashboard_calculations_br8.total_colatable_amount(),
+        'total_collected_amount': branch8app.admin_dashboard_calculations_br8.total_collected_amount(),
+        'total_due': branch8app.admin_dashboard_calculations_br8.total_due(),
+        'l': branch8app.admin_dashboard_calculations_br8.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 
 def details_branch9(request):
+    a = branch9app.admin_dashboard_calculations_br9.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
     context = {
         'tc': branch9app.models.pg1_new_beds.objects.all().filter(flag=2),
-        'vr': branch9app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+        'vr': branch9app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch9app.admin_dashboard_calculations_br9.total_collection_advance(),
+        'total_discount': branch9app.admin_dashboard_calculations_br9.total_discount(),
+
+        'total_colatable_amount': branch9app.admin_dashboard_calculations_br9.total_colatable_amount(),
+        'total_collected_amount': branch9app.admin_dashboard_calculations_br9.total_collected_amount(),
+        'total_due': branch9app.admin_dashboard_calculations_br9.total_due(),
+        'l': branch9app.admin_dashboard_calculations_br9.grand_total(),
+
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
 

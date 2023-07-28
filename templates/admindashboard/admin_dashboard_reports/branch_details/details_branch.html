@@ -426,45 +426,48 @@ function exportTableToExcel(tableID, filename = ''){
 
 
 
- <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Vacant Room Deails</h5>
-			  <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Sl No</th>
+	<div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
-                    <th scope="col">Villa No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Rent Amount</th>
-                      <th scope="col">Remark</th>
-                    <th scope="col">Mob</th>
-                    <th scope="col">WhatsApp</th>
-                  </tr>
-                </thead>
-                <tbody>
- {% for i in up %}
-				   <tr>
-
-                    <td>{{forloop.counter}}</td>
-
-				   <td>{{i.home_name}} </td>
-                    <td>{{i.name}}</td>
-                       <td>{{i.monthly_rent}}</td>
-                       <td>{{i.remark}}</td>
-                    <td><a href="tel:{{i.self_mob_no}}">Call {{i.self_mob}}</a></td>
-                       <td><a class="cta-btn" <a href="https://api.whatsapp.com/send?phone=91{{i.self_mob_no}}&text=hi {{i.name}} Good day to you, how do you do, I hope you are  well, You may forget to pay this month's PG Rent, Could you please try to pay the amount near the dates, Thanks and best regards, {{name}}, The Comfort PG "><span style="background-color:green">Send Msg</span> </a></td>
-                   </tr>
-                {% endfor %}
-                </tbody>
-              </table>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{total_count_active_guests}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Guests <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
             </div>
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'viewall_vaccant_room' %}">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{total_count_vaccant_rooms}} <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Vaccant Rooms <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
-          </div>
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="{% url 'monthly_details_due' %}"
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{total_colatable_amount}} - {{total_collected_amount}} = {{total_due}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection}}+{{total_collection_advance}}-{{total_discount}}
+
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
         </div>
-
+    </div>
+ </div>
 
 
 
