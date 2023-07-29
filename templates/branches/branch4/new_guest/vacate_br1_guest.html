@@ -244,10 +244,17 @@
                 {% csrf_token %}
 
 
-                <h4 style="color:orange;">{{sd.name}} vacating from room no {{sd.room_name}} and bed no {{sd.bed_no}}</h4>
+                <h4 style="color:orange;">{{sd.name}} vacating from room no {{sd.room_name}} and bed no {{sd.bed_no}}</h4> <br>
+
+                <div class="form-group">
+				<label for="input-12" class="col-lg-4">Enter Date &nbsp &nbsp &nbsp</label>
+				<input type="date" class="form-control col-lg-2" id="input-12"  style="display:inline;" name="vdate" required>
+			</div>
+
                 <br>
-                <h6 style="color:red;">Are You Okay </h6>
-                <br><br>
+                <h6 style="color:red;">Are You Okay </h6><br>
+
+                <br>
 
            <div class="form-group">
             <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Vaccate</button>

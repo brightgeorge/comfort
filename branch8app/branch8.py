@@ -574,13 +574,21 @@ def vacate_br1_guest8(request, id):
             for i in gud:
                 gd.append(i.guest_code)
 
+            vcated_date = request.POST.get('vdate')
+            dl = []
+            for i in vcated_date:
+                dl.append(i)
+            dll = []
+            dll.append(dl[5])
+            dll.append(dl[6])
+            month = ''.join(dll)
+
             gc = pg1_new_guest.objects.get(guest_code=gd[0])
             gc.created_by = request.session['username']
             # gc.roon_no = gd[1]
             import datetime
-            gc.guest_vacated_date = datetime.date.today()
-            d = datetime.datetime.now()
-            gc.guest_vacate_month = d.strftime("%m")
+            gc.guest_vacated_date = vcated_date
+            gc.guest_vacate_month = month
             gc.flag = 3
             gc.save()
 
