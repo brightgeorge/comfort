@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('branchwise_total_guest/',admin_dahsboard_calculations.branchwise_total_guest,name='branchwise_total_guest'),
     path('total_vaccant_share_choose_branches/',admin_dahsboard_calculations.total_vaccant_share_choose_branches,name='total_vaccant_share_choose_branches'),
+    path('branchwise_total_collection',admin_dahsboard_calculations.branchwise_total_collection,name='branchwise_total_collection'),
     path('details_branch1/',admin_dahsboard_calculations.details_branch1,name='details_branch1'),
     path('details_branch2/',admin_dahsboard_calculations.details_branch2,name='details_branch2'),
     path('details_branch3/',admin_dahsboard_calculations.details_branch3,name='details_branch3'),

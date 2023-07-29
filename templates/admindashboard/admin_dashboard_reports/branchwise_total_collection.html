@@ -38,6 +38,7 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
+
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Open Bright</h5>
@@ -45,13 +46,14 @@
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
+
       <li>
-        <a href="#">
+        <a href="{% url 'admin_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
       </li>
 
-        <li>
+       <li>
         <a href="{% url 'select_branch' %}">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Branches</span>
         </a>
@@ -153,39 +155,46 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branchwise_total_guest' %}">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{tg}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Guests <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'total_vaccant_share_choose_branches' %}">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">1S={{tsv1}} 2S={{tsv2}} 3S={{tsv3}} 4S={{tsv4}} 5S={{tsv5}} 6S={{tsv6}} <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Vaccant Beds {{total_vaccant_room}} <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-                </a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branchwise_total_collection' %}">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">{{total_colatable_amount}} - {{total_collected_amount}} = {{total_due}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.0}} - {{total_collected_amount.0}} = {{total_due.0}}
+                      <span class="float-right"><i>COMFORT 1</i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">Total Collection
-                      {{grand_total_collection}}+{{total_collection_advance}}-{{total_discount}}
+                      {{grand_total_collection.0}}+{{total_collection_advance.0}}-{{total_discount.0}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.1}} - {{total_collected_amount.1}} = {{total_due.1}}
+                      <span class="float-right"><i>COMFORT 2</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.1}}+{{total_collection_advance.1}}-{{total_discount.1}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.2}} - {{total_collected_amount.2}} = {{total_due.2}}
+                      <span class="float-right"><i>COMFORT 3</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.2}}+{{total_collection_advance.2}}-{{total_discount.2}}
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
@@ -194,191 +203,152 @@
     </div>
  </div>
 
-	<div class="row">
-     <div class="col-12 col-lg-8 col-xl-8">
-	    <div class="card">
-		 <div class="card-header">Total Category Wise Task
-		   <div class="card-action">
-			 <div class="dropdown">
-			 <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-			  <i class="icon-options"></i>
-			 </a>
-				<div class="dropdown-menu dropdown-menu-right">
-                    <p>Total Order 00</p>
-                <p>Total Profit 00</p>
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
-			   </div>
-			  </div>
-		   </div>
-		 </div>
-		 <div class="card-body">
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.3}} - {{total_collected_amount.3}} = {{total_due.3}}
+                      <span class="float-right"><i>COMFORT 4</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.3}}+{{total_collection_advance.3}}-{{total_discount.3}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.4}} - {{total_collected_amount.4}} = {{total_due.4}}
+                      <span class="float-right"><i>COMFORT 5</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.4}}+{{total_collection_advance.4}}-{{total_discount.4}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.8}} - {{total_collected_amount.8}} = {{total_due.8}}
+                      <span class="float-right"><i>PRESTIGE 1</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.8}}+{{total_collection_advance.8}}-{{total_discount.8}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-			<div class="chart-container-1">
-			  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myChart" style="width:100%;"></canvas>
+        </div>
+    </div>
+ </div>
 
-<script>
-var xValues = ["plus", "minus", "times",'divided by',""];
-//var yValues = {{y}};
-var yValues =[10,10,8,5,0]
-var barColors = ["red", "green","blue","yellow",""];
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
-new Chart("myChart", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 1,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.7}} - {{total_collected_amount.7}} = {{total_due.7}}
+                      <span class="float-right"><i>PRESTIGE 2</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.7}}+{{total_collection_advance.7}}-{{total_discount.7}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-			</div>
-		 </div><br/><br/><br/><br/><br/>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.5}} - {{total_collected_amount.5}} = {{total_due.5}}
+                      <span class="float-right"><i>PRESTIGE 3</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.5}}+{{total_collection_advance.5}}-{{total_discount.5}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-            <script>
-        var array = [{% for i in z %}{{i.get_total_f}} {% endfor %}];
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">
+                      {{total_colatable_amount.6}} - {{total_collected_amount.6}} = {{total_due.6}}
+                      <span class="float-right"><i>PRESTIGE 4</i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection.6}}+{{total_collection_advance.6}}-{{total_discount.6}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-        // Getting sum of numbers
-        var sum = array.reduce(function(a, b){
-            return a + b;
-        }, 0);
+        </div>
+    </div>
+ </div>
 
-        document.write(sum); // Prints: 15
-    </script>
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#2A52BE">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">COMFORT BRANCH 10 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#ffd700">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">COMFORT BRANCH 11<span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-4 border-light">
+                <a href="">
+                <div class="card-body" style="background-color:#0D98BA">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">COMFORT BRANCH 12 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
 
-		 <div class="row m-0 row-group text-center border-top border-light-3">
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.0}}</h5>
-			   <small class="mb-0">plus <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.1}}</h5>
-			   <small class="mb-0">minus<span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-		   <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.2}}</h5>
-			   <small class="mb-0">times <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
+        </div>
+    </div>
+ </div>
 
-             <div class="col-12 col-lg-3">
-		     <div class="p-3">
-		       <h5 class="mb-0">{{y.3}}</h5>
-			   <small class="mb-0">divided by <span> <i class="fa fa-arrow-up"></i> </span></small>
-		     </div>
-		   </div>
-
-		 </div>
-
-
-		</div>
-	 </div>
-
-     <div class="col-12 col-lg-4 col-xl-4">
-        <div class="card">
-           <div class="card-header">User Details
-             <div class="card-action">
-             <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options"></i>
-             </a>
-              <div class="dropdown-menu1 dropdown-menu-right">
-
-               </div>
-              </div>
-             </div>
-           </div>
-           <div class="card-body">
-		     <div class="chart-container-2">
-               <!--<canvas id="chart2"></canvas>-->
-
-                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-                <canvas id="myCharts" style="margin-top:-35px;"></canvas>
-
-<script>
-var xValues = ["Branch1", "Branch2", "Branch3",""];
-var yValues = {{yy}};
-//var yValues = [8,6];
-var barColors = ["red","blue"];
-
-new Chart("myCharts", {
-  type: "doughnut",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      barPercentage: 100,
-      barThickness: 2,
-        maxBarThickness: 2,
-      data: yValues
-    }]
-  },
-  options: {
-    legend: {display: false},
-    title: {
-      display: true,
-      text: ""
-    }
-  }
-});
-</script>
-
-
-
-			  </div>
-           </div>
-            <br/><br/><br/><br/><br/><br/><br/>
-           <div class="table-responsive">
-             <table class="table align-items-center">
-               <tbody>
-               <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-white mr-2"></i> Active Users</td>
-                   <td>{{active_user}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td><i class="fa fa-circle text-light-1 mr-2"></i>Deactive Users</td>
-                   <td>{{total_disableusers}}</td>
-                   <td>+00%</td>
-                 </tr>
-                 <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                 </tr>
-
-               </tbody>
-             </table>
-           </div>
-         </div>
-     </div>
-	</div><!--End Row-->
+	<!--End Row-->
 
 	<div class="row">
 	 <div class="col-12 col-lg-12">

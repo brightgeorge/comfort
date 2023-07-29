@@ -391,6 +391,7 @@ def total_vaccant_share_choose_branches(request):
     return render(request,'admindashboard/admin_dashboard_reports/total_vaccant_share_choose_branches.html',context)
 
 ######TOTAL COLLECTION START HERE
+
 def total_gtc():
     a1 = admin_dashboard_calculations_br1.grand_total_collection()
     a2 = branch2app.admin_dashboard_calculations_br2.grand_total_collection()
@@ -549,6 +550,161 @@ def all_total_due():
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
     return gtc
+
+#*************************************
+#####LIST OF TOTAL COLLECTION
+#*************************************
+
+def branchwise_total_collection(request):
+    a1 = admin_dashboard_calculations_br1.grand_total_collection()
+    a2 = branch2app.admin_dashboard_calculations_br2.grand_total_collection()
+    a3 = branch3app.admin_dashboard_calculations_br3.grand_total_collection()
+    a4 = branch4app.admin_dashboard_calculations_br4.grand_total_collection()
+    a5 = branch5app.admin_dashboard_calculations_br5.grand_total_collection()
+    a6 = branch6app.admin_dashboard_calculations_br6.grand_total_collection()
+    a7 = branch7app.admin_dashboard_calculations_br7.grand_total_collection()
+    a8 = branch8app.admin_dashboard_calculations_br8.grand_total_collection()
+    a9 = branch9app.admin_dashboard_calculations_br9.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    list_total_gtc = []
+    list_total_gtc.append(a1[cm])
+    list_total_gtc.append(a2[cm])
+    list_total_gtc.append(a3[cm])
+    list_total_gtc.append(a4[cm])
+    list_total_gtc.append(a5[cm])
+    list_total_gtc.append(a6[cm])
+    list_total_gtc.append(a7[cm])
+    list_total_gtc.append(a8[cm])
+    list_total_gtc.append(a9[cm])
+
+#******list_total_advance
+
+    a1 = admin_dashboard_calculations_br1.total_collection_advance()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_collection_advance()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_collection_advance()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_collection_advance()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_collection_advance()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_collection_advance()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_collection_advance()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_collection_advance()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_collection_advance()
+    list_total_advance = []
+    list_total_advance.append(a1)
+    list_total_advance.append(a2)
+    list_total_advance.append(a3)
+    list_total_advance.append(a4)
+    list_total_advance.append(a5)
+    list_total_advance.append(a6)
+    list_total_advance.append(a7)
+    list_total_advance.append(a8)
+    list_total_advance.append(a9)
+
+#***********list_total_discount
+
+    a1 = admin_dashboard_calculations_br1.total_discount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_discount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_discount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_discount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_discount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_discount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_discount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_discount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_discount()
+    total_discount = []
+    total_discount.append(a1)
+    total_discount.append(a2)
+    total_discount.append(a3)
+    total_discount.append(a4)
+    total_discount.append(a5)
+    total_discount.append(a6)
+    total_discount.append(a7)
+    total_discount.append(a8)
+    total_discount.append(a9)
+
+
+#******list_all_total_collatable_amount
+
+    a1 = admin_dashboard_calculations_br1.total_colatable_amount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_colatable_amount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_colatable_amount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_colatable_amount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_colatable_amount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_colatable_amount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_colatable_amount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_colatable_amount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_colatable_amount()
+    total_colatable_amount = []
+    total_colatable_amount.append(a1)
+    total_colatable_amount.append(a2)
+    total_colatable_amount.append(a3)
+    total_colatable_amount.append(a4)
+    total_colatable_amount.append(a5)
+    total_colatable_amount.append(a6)
+    total_colatable_amount.append(a7)
+    total_colatable_amount.append(a8)
+    total_colatable_amount.append(a9)
+
+#*******list_all_total_collected_amount
+
+    a1 = admin_dashboard_calculations_br1.total_collected_amount()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_collected_amount()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_collected_amount()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_collected_amount()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_collected_amount()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_collected_amount()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_collected_amount()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_collected_amount()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_collected_amount()
+    total_collected_amount = []
+    total_collected_amount.append(a1)
+    total_collected_amount.append(a2)
+    total_collected_amount.append(a3)
+    total_collected_amount.append(a4)
+    total_collected_amount.append(a5)
+    total_collected_amount.append(a6)
+    total_collected_amount.append(a7)
+    total_collected_amount.append(a8)
+    total_collected_amount.append(a9)
+
+
+#*****list_all_total_due
+
+    a1 = admin_dashboard_calculations_br1.total_due()
+    a2 = branch2app.admin_dashboard_calculations_br2.total_due()
+    a3 = branch3app.admin_dashboard_calculations_br3.total_due()
+    a4 = branch4app.admin_dashboard_calculations_br4.total_due()
+    a5 = branch5app.admin_dashboard_calculations_br5.total_due()
+    a6 = branch6app.admin_dashboard_calculations_br6.total_due()
+    a7 = branch7app.admin_dashboard_calculations_br7.total_due()
+    a8 = branch8app.admin_dashboard_calculations_br8.total_due()
+    a9 = branch9app.admin_dashboard_calculations_br9.total_due()
+    total_due = []
+    total_due.append(a1)
+    total_due.append(a2)
+    total_due.append(a3)
+    total_due.append(a4)
+    total_due.append(a5)
+    total_due.append(a6)
+    total_due.append(a7)
+    total_due.append(a8)
+    total_due.append(a9)
+
+
+    context={
+        'grand_total_collection':list_total_gtc,
+        'total_collection_advance': list_total_advance,
+        'total_discount': total_discount,
+
+        'total_colatable_amount': total_colatable_amount,
+        'total_collected_amount': total_collected_amount,
+        'total_due': total_due
+    }
+    return render(request,'admindashboard/admin_dashboard_reports/branchwise_total_collection.html', context)
+
+
+
 
 
 ######TOTAL COLLECTION END HERE

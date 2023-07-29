@@ -52,7 +52,14 @@ def login_request(request):
                     'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
                     'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
                     'total_vaccant_room' : admin_dahsboard_calculations.total_vaccant_room(),
-                    'grand_total_collection' : admin_dahsboard_calculations.total_gtc(),
+
+                    'grand_total_collection': admin_dahsboard_calculations.total_gtc(),
+                    'total_collection_advance': admin_dahsboard_calculations.total_advance(),
+                    'total_discount': admin_dahsboard_calculations.total_discount(),
+
+                    'total_colatable_amount': admin_dahsboard_calculations.all_total_collatable_amount(),
+                    'total_collected_amount': admin_dahsboard_calculations.all_total_collected_amount(),
+                    'total_due': admin_dahsboard_calculations.all_total_due(),
                 }
                 return render(request,'admindashboard/adminindex.html',context)
 
