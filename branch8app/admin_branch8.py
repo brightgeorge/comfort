@@ -10,7 +10,23 @@ import datetime
 
 def branch1_room_create8(request):
     if 'username' in request.session:
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname':'BRANCH 8 Room Creation Form',
             'brname': 'BRANCH 8'
         }
@@ -23,7 +39,22 @@ def branch1_room_create_regi8(request):
             chk_room_no = request.POST.get('roonno')
             chk_room = room_pg1.objects.all().filter(roon_no=chk_room_no).exists()
             if chk_room == True:
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH 8 Room Creation Form',
                     'br': room_pg1.objects.all().order_by('roon_no'),
                     'brname': 'BRANCH 8'
@@ -41,7 +72,21 @@ def branch1_room_create_regi8(request):
                 ic.created_by = request.session['username']
                 ic.save()
 
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH 8 Room Creation Form',
                     'br' : room_pg1.objects.all().order_by('roon_no'),
                     'brname': 'BRANCH 8'
@@ -52,7 +97,23 @@ def branch1_room_create_regi8(request):
 
 def view_all_room8(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 8 Room Creation Form',
             'br': room_pg1.objects.all().order_by('roon_no').values(),
         }
@@ -63,7 +124,23 @@ def delete_room8(request,id):
     if 'username' in request.session:
         dr = room_pg1.objects.get(id=id)
         dr.delete()
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 8 Room Creation Form',
             'br': room_pg1.objects.all().order_by('roon_no')
         }
@@ -76,7 +153,23 @@ def delete_room8(request,id):
 
 def pg1_bed_create8(request):
     if 'username' in request.session:
-        context={
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname':'BRANCH 8 Room Creation Form',
             'brname': 'BRANCH 8',
             'roomno' : room_pg1.objects.all().order_by('roon_no')
@@ -98,7 +191,22 @@ def pg1_bed_create_regi8(request):
             chk_bd_code = pg1_new_beds.objects.all().filter(bed_code=int_bd_code).exists()
 
             if chk_bd_code == True:
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH THREE Room Creation Form',
                     'br': pg1_new_beds.objects.all().order_by('roon_no'),
                     'brname': 'BRANCH 8'
@@ -189,7 +297,21 @@ def pg1_bed_create_regi8(request):
 
                     ic.save()
 
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH 8 Room Creation Form',
                     'br': pg1_new_beds.objects.all().order_by('roon_no'),
                     'brname': 'BRANCH 8'
@@ -215,7 +337,22 @@ def single_pg1_bed_create_regi8(request):
             chk_bd_code = pg1_new_beds.objects.all().filter(bed_code=int_bd_code).exists()
 
             if chk_bd_code == True:
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
                     'brname': 'BRANCH THREE Room Creation Form',
                     'br': pg1_new_beds.objects.all().order_by('roon_no'),
                     'brname': 'BRANCH 8'
@@ -303,7 +440,21 @@ def single_pg1_bed_create_regi8(request):
 
                 ic.save()
 
+            us = request.session['username']
+            bgs = background_color.objects.all().filter(username=us)
+            bg = background_color.objects.all().filter(username=us).exists()
+            a = []
+            if bg == True:
+                a.append(us)
+            else:
+                a.append('f')
+
             context = {
+                'bg': bgs,
+                'us': us,
+                'th_us': a[0],
+                'name': us,
+
                 'brname': 'BRANCH 8 Room Creation Form',
                 'br': pg1_new_beds.objects.all().order_by('roon_no'),
                 'brname': 'BRANCH 8'
@@ -317,7 +468,23 @@ def single_pg1_bed_create_regi8(request):
 
 def pg1_view_all_beds8(request):
     if 'username' in request.session:
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 8 Room',
             'br': pg1_new_beds.objects.all().order_by('roon_no')
         }
@@ -328,7 +495,22 @@ def delete_bed8(request,id):
     if 'username' in request.session:
         dr = pg1_new_beds.objects.get(id=id)
         dr.delete()
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
             'brname': 'BRANCH 8 Room',
             'br': pg1_new_beds.objects.all().order_by('roon_no')
         }
@@ -355,7 +537,23 @@ def update_bed_basic_details8(request,id):
             nc.save()
 
             return pg1_view_all_beds8(request)
+
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+
             'brname': 'BRANCH 8 Room Creation Form',
             'br': pg1_new_beds.objects.all().order_by('roon_no'),
             'brname': 'BRANCH 8',

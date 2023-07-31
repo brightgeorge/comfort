@@ -117,6 +117,7 @@ urlpatterns = [
 
     path('choose_user2/', payment2.choose_user2, name='choose_user2'),
     path('payment_user_details2/<id>', payment2.payment_user_details2, name='payment_user_details2'),
+    path('close_choose_user2/<id>', payment2.close_choose_user2, name='close_choose_user2'),
 
     path('monthly_jan_make_payments2/<id>', payment2.monthly_jan_make_payments2, name='monthly_jan_make_payments2'),
     path('monthly_feb_make_payments2/<id>', payment2.monthly_feb_make_payments2, name='monthly_feb_make_payments2'),

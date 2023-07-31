@@ -5333,7 +5333,7 @@ def detail_guest_general6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -5424,7 +5424,7 @@ def jan_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -5546,7 +5546,7 @@ def feb_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -5668,7 +5668,7 @@ def march_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -5789,7 +5789,7 @@ def april_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -5911,7 +5911,7 @@ def may_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6032,7 +6032,7 @@ def june_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6153,7 +6153,7 @@ def july_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6274,7 +6274,7 @@ def aug_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             # 'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
             'rs1': ll[0],
             'rm1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6394,7 +6394,7 @@ def sept_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6515,7 +6515,7 @@ def oct_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6636,7 +6636,7 @@ def nov_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],
@@ -6757,7 +6757,7 @@ def dec_print6(request):
             'brname': 'BRANCH 6 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '60px',
+            'table_height': '50px',
 
 
             'rs1':ll[0],

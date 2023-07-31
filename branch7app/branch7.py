@@ -5211,7 +5211,7 @@ def detail_guest_general7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -5333,7 +5333,7 @@ def jan_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -5486,7 +5486,7 @@ def feb_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -5639,7 +5639,7 @@ def march_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -5791,7 +5791,7 @@ def april_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -5944,7 +5944,7 @@ def may_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6096,7 +6096,7 @@ def june_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6248,7 +6248,7 @@ def july_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6400,7 +6400,7 @@ def aug_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6552,7 +6552,7 @@ def sept_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6704,7 +6704,7 @@ def oct_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -6856,7 +6856,7 @@ def nov_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),
@@ -7008,7 +7008,7 @@ def dec_print7(request):
             'brname': 'BRANCH 7 Room Creation Form',
             #'br': pg1_new_beds.objects.all().filter(roon_no=101).order_by('roon_no'),
             'rn1': l[0],
-            'table_height': '70px',
+            'table_height': '50px',
 
             'g1': ll[0],
             'g1_data': pg1_new_beds.objects.all().filter(roon_no=1),

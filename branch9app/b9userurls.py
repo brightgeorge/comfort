@@ -336,6 +336,7 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
 
     path('choose_user9/', payment9.choose_user9, name='choose_user9'),
     path('payment_user_details9/<id>', payment9.payment_user_details9, name='payment_user_details9'),
+    path('close_choose_user9/<id>', payment9.close_choose_user9, name='close_choose_user9'),
 
     path('monthly_jan_make_payments9/<id>', payment9.monthly_jan_make_payments9, name='monthly_jan_make_payments9'),
     path('monthly_feb_make_payments9/<id>', payment9.monthly_feb_make_payments9, name='monthly_feb_make_payments9'),

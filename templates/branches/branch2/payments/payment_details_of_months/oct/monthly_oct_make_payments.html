@@ -249,8 +249,8 @@
       <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
          <div class="card">
            <div class="card-body">
-		  <a href="{% url 'choose_user2' %}"> <button class="mybutton button1">X Close</button></a>
-           <div class="card-title">OCTOBER RENT PAYING FORM 5</div>
+		  <a href="{% url 'close_choose_user2' id=sd.roon_no %}"> <button class="mybutton button1">X Close</button></a>
+           <div class="card-title">OCTOBER RENT PAYING FORM 2</div>
 
 
                {% if messages %}
@@ -418,7 +418,7 @@ function minus()
 
                  <div class="form-group">
 				<label for="input-11" class="col-lg-4">Discount Amount</label>
-				<input id="minus_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" name="disamt">
+				<input id="minus_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" name="disamt" required>
 			</div>
 
 
@@ -463,7 +463,7 @@ function minus()
 
                    <div class="form-group">
 				<label for="input-11" class="col-lg-4">Current Discount Amount</label>
-				<input id="pos_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" >
+				<input id="pos_dis" type="text" class="form-control col-lg-2" style="display:inline;" value="0" required>
 			</div>
 
 
@@ -480,7 +480,7 @@ function minus()
 
                 <div class="form-group">
 				<label for="input-11" class="col-lg-4">Total Received Amount</label>
-				<input  type="text" class="form-control col-lg-2" id="answer"  style="display:inline;" name="janamt">
+				<input  type="text" class="form-control col-lg-2" id="answer"  style="display:inline;" name="janamt" required>
 			</div>
                    <hr>
 

@@ -343,6 +343,7 @@ path('dec_make_payments_advance7/<id>', branch7.dec_make_payments_advance7, name
 
     path('choose_user7/', payment7.choose_user7, name='choose_user7'),
     path('payment_user_details7/<id>', payment7.payment_user_details7, name='payment_user_details7'),
+    path('close_choose_user7/<id>', payment7.close_choose_user7, name='close_choose_user7'),
 
     path('monthly_jan_make_payments7/<id>', payment7.monthly_jan_make_payments7, name='monthly_jan_make_payments7'),
     path('monthly_feb_make_payments7/<id>', payment7.monthly_feb_make_payments7, name='monthly_feb_make_payments7'),

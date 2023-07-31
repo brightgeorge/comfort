@@ -147,6 +147,7 @@ path('dec_make_payments_advance3/<id>', branch3.dec_make_payments_advance3, name
 
     path('choose_user3/', payment3.choose_user3, name='choose_user3'),
     path('payment_user_details3/<id>', payment3.payment_user_details3, name='payment_user_details3'),
+    path('close_choose_user3/<id>', payment3.close_choose_user3, name='close_choose_user3'),
 
     path('monthly_jan_make_payments3/<id>', payment3.monthly_jan_make_payments3, name='monthly_jan_make_payments3'),
     path('monthly_feb_make_payments3/<id>', payment3.monthly_feb_make_payments3, name='monthly_feb_make_payments3'),

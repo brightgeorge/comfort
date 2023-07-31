@@ -257,6 +257,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('choose_user/', payment1.choose_user, name='choose_user'),
     path('payment_user_details/<id>', payment1.payment_user_details, name='payment_user_details'),
+    path('close_choose_user/<id>', payment1.close_choose_user, name='close_choose_user'),
 
     path('monthly_jan_make_payments/<id>', payment1.monthly_jan_make_payments, name='monthly_jan_make_payments'),
     path('monthly_feb_make_payments/<id>', payment1.monthly_feb_make_payments, name='monthly_feb_make_payments'),

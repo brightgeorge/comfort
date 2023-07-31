@@ -296,41 +296,76 @@
             {% endif %}
 
 
-	<div class="row">
-	 <div class="col-12 col-lg-12">
-	   <div class="card">
-	     <div class="card-header">View all Guest from room no : {{roomno}}
-		  <div class="card-action">
-             <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options"></i>
-             </a>
-              <div class="dropdown-menu dropdown-menu-right">
-             <!-- <a class="dropdown-item" href=""></a>-->
 
-              </div>
+
+<div class="row">
+ <div class="col-12 col-lg-12">
+   <div class="card">
+     <div class="card-header">VIEW ALL GUEST FROM ROOM NO : {{roomno}}<hr>
+     <div class="card-action">
+            <div class="dropdown">
+            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+             <i class="icon-options1"></i>
+            </a>
+             <div class="dropdown-menu dropdown-menu-right">
+            <!-- <a class="dropdown-item" href=""></a>-->
+
              </div>
-		 </div>
-	       <div class="table-responsive">
-                 <table class="table align-items-center table-flush table-borderless">
-                  <thead>
-                   <tr>
-                       <th>Manage</th>
-                     <th>Name</th>
-                     <th>Monthly Rent</th>
+            </div>
+    </div>
+       <div class="table-responsive">
+                <table class="table align-items-center table-flush table-borderless">
 
-                   </tr>
-                   </thead>
-                   <tbody>
-                   {% for i in pd %}
+                  <tbody>
+                  {% for i in pd %}
+                  {% if i.total_due_guest == 0 %}
 
-                   <tr>
-                       <td><a href="{% url 'payment_user_details' id=i.id %}"> <button style="background-color:blue;border:1px solid white;border-radius:10px;" id="hov">Pay Now</button> </a></td>
-                    <td>{{i.name}}</td>
-                    <td>{{i.monthly_rent}}</td>
+           <a href="{% url 'payment_user_details' id=i.id %}">
 
-                   </tr>
-                   {% endfor %}
+               <div class="card-title">Room No : {{i.room_name}}
+                    Name  : {{i.name|upper}}
+               </div>
+
+             <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: white;">
+                <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
+                     Monthly Rent : {{i.monthly_rent}} Total Due  : {{i.total_due_guest}}
+                 </label></br>
+             </div></a>
+
+                  {% elif i.total_due_guest != 0 and i.total_due_guest_flag == 100 %}
+
+                  <a href="{% url 'payment_user_details' id=i.id %}">
+
+                  <div class="card-title">Room No : {{i.room_name}}
+                    Name  : {{i.name|upper}}
+               </div>
+
+
+             <div class="form-group" style="background-color:red;border:1px white;border-style: groove;border-width: 7px;border-color: white;">
+                <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
+                     Monthly Rent : {{i.monthly_rent}} Total Due  : {{i.total_due_guest}}
+                 </label></br>
+             </div></a>
+
+                  {% elif i.total_due_guest != 0 %}
+
+                   <a href="{% url 'payment_user_details' id=i.id %}">
+
+                  <div class="card-title">Room No : {{i.room_name}}
+                    Name  : {{i.name|upper}}
+               </div>
+
+
+             <div class="form-group" style="background-color:#FFD300;border:1px white;border-style: groove;border-width: 7px;border-color: white;">
+                <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
+                     Monthly Rent : {{i.monthly_rent}} Total Due  : {{i.total_due_guest}}
+                 </label></br>
+             </div></a>
+
+                   {% endif %}
+                  {% endfor %}
+
+
 
 
                  </tbody></table>
