@@ -5,9 +5,10 @@ import locale
 from django.shortcuts import render
 from django.contrib import messages
 import branch5app
+from . import vacate_guest_calculations
 
 def total_count_active_guests():
-    tvr = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tvr = branch5app.models.pg1_new_beds.objects.all().filter(flag=3)
     l=[]
     for i in tvr:
         l.append(i.roon_no)
@@ -15,7 +16,7 @@ def total_count_active_guests():
     return len(l)
 
 def total_count_vaccant_rooms():
-    tvr = branch5app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no')
+    tvr = branch5app.models.pg1_new_beds.objects.all().exclude(flag=3).order_by('roon_no')
     l=[]
     for i in tvr:
         l.append(i.roon_no)
@@ -24,73 +25,73 @@ def total_count_vaccant_rooms():
 
 def grand_total_collection():
     jan_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,jan_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,jan_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             jan_tc.append(int(i.monthly_rent))
 
     feb_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,feb_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,feb_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             feb_tc.append(int(i.monthly_rent))
 
     mar_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,march_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,march_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             mar_tc.append(int(i.monthly_rent))
 
     apr_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,april_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,april_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             apr_tc.append(int(i.monthly_rent))
 
     may_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,may_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,may_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             may_tc.append(int(i.monthly_rent))
 
     jun_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,june_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             jun_tc.append(int(i.monthly_rent))
 
     jul_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,july_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             jul_tc.append(int(i.monthly_rent))
 
     aug_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,auguest_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,auguest_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             aug_tc.append(int(i.monthly_rent))
 
     sep_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,sept_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,sept_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             sep_tc.append(int(i.monthly_rent))
 
     oct_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,october_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,october_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             oct_tc.append(int(i.monthly_rent))
 
     nov_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,nov_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,nov_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             nov_tc.append(int(i.monthly_rent))
 
     dec_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,dec_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,dec_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             dec_tc.append(int(i.monthly_rent))
@@ -114,7 +115,7 @@ def grand_total_collection():
 
 def grand_total():
     jul_tc=[]
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3,july_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent !='':
             jul_tc.append(int(i.monthly_rent))
@@ -122,7 +123,7 @@ def grand_total():
 
 
 def total_collection_advance():
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_advance = []
     for i in total_guest_br5:
         if i.jan_advance != '':
@@ -210,7 +211,7 @@ def total_collection_advance():
 
 
 def total_discount():
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_dis_amt = []
     for i in total_guest_br5:
         if i.jan_dis_amt != '':
@@ -306,7 +307,7 @@ def total_colatable_amount():
 
 
 def total_collected_amount():
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_rent = []
     for i in total_guest_br5:
         if i.jan_rent != '':
@@ -412,73 +413,73 @@ def bar_chart():
 
 def monthly_details_due5(request):
     jan_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, jan_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, jan_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jan_tc.append(int(i.monthly_rent))
 
     feb_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, feb_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, feb_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             feb_tc.append(int(i.monthly_rent))
 
     mar_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, march_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, march_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             mar_tc.append(int(i.monthly_rent))
 
     apr_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, april_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, april_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             apr_tc.append(int(i.monthly_rent))
 
     may_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, may_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, may_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             may_tc.append(int(i.monthly_rent))
 
     jun_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, june_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, june_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jun_tc.append(int(i.monthly_rent))
 
     jul_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, july_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, july_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jul_tc.append(int(i.monthly_rent))
 
     aug_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, auguest_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, auguest_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             aug_tc.append(int(i.monthly_rent))
 
     sep_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, sept_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, sept_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             sep_tc.append(int(i.monthly_rent))
 
     oct_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, october_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, october_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             oct_tc.append(int(i.monthly_rent))
 
     nov_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, nov_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, nov_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             nov_tc.append(int(i.monthly_rent))
 
     dec_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, dec_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, dec_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             dec_tc.append(int(i.monthly_rent))
@@ -501,7 +502,7 @@ def monthly_details_due5(request):
 
     #advance start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
 
     jan_advance = []
     for i in total_guest_br5:
@@ -581,7 +582,7 @@ def monthly_details_due5(request):
     #advance end here
     #discount start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_dis_amt = []
     for i in total_guest_br5:
         if i.jan_dis_amt != '':
@@ -661,7 +662,7 @@ def monthly_details_due5(request):
 
     #total collected amount start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_rent = []
     for i in total_guest_br5:
         if i.jan_rent != '':
@@ -789,73 +790,73 @@ def monthly_details_due5(request):
 
 def monthly_collection_details5(request):
     jan_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, jan_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, jan_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jan_tc.append(int(i.monthly_rent))
 
     feb_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, feb_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, feb_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             feb_tc.append(int(i.monthly_rent))
 
     mar_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, march_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, march_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             mar_tc.append(int(i.monthly_rent))
 
     apr_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, april_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, april_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             apr_tc.append(int(i.monthly_rent))
 
     may_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, may_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, may_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             may_tc.append(int(i.monthly_rent))
 
     jun_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, june_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, june_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jun_tc.append(int(i.monthly_rent))
 
     jul_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, july_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, july_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             jul_tc.append(int(i.monthly_rent))
 
     aug_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, auguest_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, auguest_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             aug_tc.append(int(i.monthly_rent))
 
     sep_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, sept_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, sept_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             sep_tc.append(int(i.monthly_rent))
 
     oct_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, october_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, october_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             oct_tc.append(int(i.monthly_rent))
 
     nov_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, nov_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, nov_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             nov_tc.append(int(i.monthly_rent))
 
     dec_tc = []
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2, dec_rent_flag__gt=99)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3, dec_rent_flag__gt=99)
     for i in total_guest_br5:
         if i.monthly_rent != '':
             dec_tc.append(int(i.monthly_rent))
@@ -878,7 +879,7 @@ def monthly_collection_details5(request):
 
     #advance start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
 
     jan_advance = []
     for i in total_guest_br5:
@@ -958,7 +959,7 @@ def monthly_collection_details5(request):
     #advance end here
     #discount start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_dis_amt = []
     for i in total_guest_br5:
         if i.jan_dis_amt != '':
@@ -1038,7 +1039,7 @@ def monthly_collection_details5(request):
 
     #total collected amount start here
 
-    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_guest.objects.all().filter(flag=3)
     jan_rent = []
     for i in total_guest_br5:
         if i.jan_rent != '':
@@ -1153,28 +1154,13 @@ def monthly_collection_details5(request):
     #total due amount end here
 
 
-    us = request.session['username']
-    bgs = branch5app.models.background_color.objects.all().filter(username=us)
-    bg = branch5app.models.background_color.objects.all().filter(username=us).exists()
-    a = []
-    if bg == True:
-        a.append(us)
-    else:
-        a.append('f')
-
-    context = {
-        'bg': bgs,
-        'us': us,
-        'th_us': a[0],
-        'name': us,
-
+    context={
         'grand_total_collection':t,
         'total_advance_amt':total_advance_amt,
         'total_dis_amount':total_dis_amount,
         'total_collection_monthly':total_collection_monthly,
         'total_collatable_amount':total_collatable_amount,
         'total_due_amt':total_due_amt,
-
     }
 
     return render(request,'branches/branch5/reports/dashboard_reports/due_amount/monthly_collection_details.html',context)
@@ -1191,3 +1177,4 @@ def bar_chart():
     t.append(c)
     t.append(d)
     return t
+

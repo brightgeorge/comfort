@@ -436,6 +436,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('viewall_vaccant_room/', reports1.viewall_vaccant_room, name='viewall_vaccant_room'),
 
+
 ########################################
 # DUE AMT MANAGEMENT START HERE
 ###########################
@@ -443,17 +444,38 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('view_all_due_amt/', branch1.view_all_due_amt, name='view_all_due_amt'),
     path('due_amt_mgt_choose_months/', branch1.due_amt_mgt_choose_months, name='due_amt_mgt_choose_months'),
 
+    path('view_jan_account_details/', branch1.view_jan_account_details, name='view_jan_account_details'),
+    path('jan_account_mgt/<id>',branch1.jan_account_mgt,name='jan_account_mgt'),
+    path('view_feb_account_details/', branch1.view_feb_account_details, name='view_feb_account_details'),
+    path('feb_account_mgt/<id>',branch1.feb_account_mgt,name='feb_account_mgt'),
+    path('view_march_account_details/', branch1.view_march_account_details, name='view_march_account_details'),
+    path('march_account_mgt/<id>',branch1.march_account_mgt,name='march_account_mgt'),
+    path('view_april_account_details/', branch1.view_april_account_details, name='view_april_account_details'),
+    path('april_account_mgt/<id>',branch1.april_account_mgt,name='april_account_mgt'),
+
     path('view_may_account_details/',branch1.view_may_account_details,name='view_may_account_details'),
     path('may_account_mgt/<id>', branch1.may_account_mgt, name='may_account_mgt'),
-
     path('view_june_account_details/', branch1.view_june_account_details, name='view_june_account_details'),
     path('june_account_mgt/<id>',branch1.june_account_mgt,name='june_account_mgt'),
     path('view_july_account_details/', branch1.view_july_account_details, name='view_july_account_details'),
     path('july_account_mgt/<id>',branch1.july_account_mgt,name='july_account_mgt'),
+    path('view_auguest_account_details/', branch1.view_auguest_account_details, name='view_auguest_account_details'),
+    path('auguest_account_mgt/<id>',branch1.auguest_account_mgt,name='auguest_account_mgt'),
+
+    path('view_sept_account_details/', branch1.view_sept_account_details, name='view_sept_account_details'),
+    path('sept_account_mgt/<id>',branch1.sept_account_mgt,name='sept_account_mgt'),
+    path('view_october_account_details/', branch1.view_october_account_details, name='view_october_account_details'),
+    path('october_account_mgt/<id>',branch1.october_account_mgt,name='october_account_mgt'),
+    path('view_nov_account_details/', branch1.view_nov_account_details, name='view_nov_account_details'),
+    path('nov_account_mgt/<id>',branch1.nov_account_mgt,name='nov_account_mgt'),
+    path('view_dec_account_details/', branch1.view_dec_account_details, name='view_dec_account_details'),
+    path('dec_account_mgt/<id>',branch1.dec_account_mgt,name='dec_account_mgt'),
 
 ########################################
 # DUE AMT MANAGEMENT END HERE
 ###########################
+
+
 
 ########################################
 # DASHBOARD REPORTS START HERE
