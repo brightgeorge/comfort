@@ -204,6 +204,12 @@ def monthly_jan_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join()
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -222,6 +228,7 @@ def monthly_jan_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, jan_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -318,6 +325,12 @@ def monthly_feb_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -336,6 +349,7 @@ def monthly_feb_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, feb_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -432,6 +446,12 @@ def monthly_march_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -450,6 +470,7 @@ def monthly_march_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, march_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -547,6 +568,12 @@ def monthly_april_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -565,6 +592,7 @@ def monthly_april_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, april_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -662,6 +690,12 @@ def monthly_may_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -680,6 +714,7 @@ def monthly_may_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -774,6 +809,12 @@ def monthly_june_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -792,6 +833,7 @@ def monthly_june_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, june_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -889,6 +931,12 @@ def monthly_july_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -907,6 +955,7 @@ def monthly_july_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, july_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1003,6 +1052,12 @@ def monthly_aug_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -1021,6 +1076,7 @@ def monthly_aug_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, auguest_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1116,6 +1172,12 @@ def monthly_sept_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -1134,6 +1196,7 @@ def monthly_sept_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, sept_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1251,6 +1314,7 @@ def monthly_oct_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, october_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1346,6 +1410,12 @@ def monthly_nov_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -1364,6 +1434,7 @@ def monthly_nov_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, nov_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1459,6 +1530,12 @@ def monthly_dec_make_payments9(request, id):
             s = ''.join(l)
             gc = ''.join(ll)
 
+            r = pg1_new_guest.objects.all().filter(id=id, flag=2)
+            rl = []
+            for i in r:
+                rl.append(i.roon_no)
+                break
+
             us = request.session['username']
             bgs = background_color.objects.all().filter(username=us)
             bg = background_color.objects.all().filter(username=us).exists()
@@ -1477,6 +1554,7 @@ def monthly_dec_make_payments9(request, id):
                 'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, dec_rent_flag__gt=99, guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
+                'rll' : rl,
             }
             return render(request, 'branches/branch9/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
@@ -1518,10 +1596,10 @@ def monthly_dec_make_payments9(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch9/payments/payment_details_of_months/dec/monthly_dec_make_payments.html',
-                      context)
+        return render(request, 'branches/branch9/payments/payment_details_of_months/dec/monthly_dec_make_payments.html',context)
 
 # dec make payments start here
+
 
 
 
