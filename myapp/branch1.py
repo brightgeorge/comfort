@@ -5451,6 +5451,7 @@ def detail_guest_general(request):
         l = []
         data = pg1_new_beds.objects.all()
         for i in data:
+
             l.append(i.share_type)
 
         ll = []
@@ -10191,20 +10192,27 @@ def jan_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.jan_rent = paid_amt
             ic.jan_advance = advance
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10213,6 +10221,7 @@ def jan_account_mgt(request,id):
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_flag = chk
             ic.save()
             return view_jan_account_details(request)
 
@@ -10264,20 +10273,27 @@ def feb_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.feb_rent = paid_amt
             ic.feb_advance = advance
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10286,6 +10302,7 @@ def feb_account_mgt(request,id):
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_flag = chk
             ic.save()
             return view_feb_account_details(request)
 
@@ -10337,20 +10354,27 @@ def march_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.march_rent = paid_amt
             ic.march_advance = advance
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10359,6 +10383,7 @@ def march_account_mgt(request,id):
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_flag = chk
             ic.save()
             return view_march_account_details(request)
 
@@ -10410,20 +10435,27 @@ def april_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.april_rent = paid_amt
             ic.april_advance = advance
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10432,6 +10464,7 @@ def april_account_mgt(request,id):
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_flag = chk
             ic.save()
             return view_april_account_details(request)
 
@@ -10483,6 +10516,12 @@ def may_account_mgt(request, id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import myapp
             rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
@@ -10497,6 +10536,7 @@ def may_account_mgt(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10505,6 +10545,7 @@ def may_account_mgt(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_flag = chk
             ic.save()
             return view_may_account_details(request)
 
@@ -10558,6 +10599,12 @@ def june_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import myapp
             rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
@@ -10572,6 +10619,7 @@ def june_account_mgt(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_flag = chk
             ic.save()
 
             import myapp
@@ -10581,6 +10629,7 @@ def june_account_mgt(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_flag = chk
             ic.save()
             return view_june_account_details(request)
 
@@ -10634,6 +10683,12 @@ def july_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import myapp
             rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
@@ -10648,6 +10703,7 @@ def july_account_mgt(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10656,6 +10712,7 @@ def july_account_mgt(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_flag = chk
             ic.save()
             return view_july_account_details(request)
 
@@ -10710,20 +10767,27 @@ def auguest_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.auguest_rent = paid_amt
             ic.auguest_advance = advance
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10732,8 +10796,9 @@ def auguest_account_mgt(request,id):
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_flag = chk
             ic.save()
-            return view_auguest_account_details1(request)
+            return view_auguest_account_details(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -10783,20 +10848,27 @@ def sept_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.sept_rent = paid_amt
             ic.sept_advance = advance
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10805,8 +10877,9 @@ def sept_account_mgt(request,id):
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_flag = chk
             ic.save()
-            return view_sept_account_details1(request)
+            return view_sept_account_details(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -10856,20 +10929,27 @@ def october_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.october_rent = paid_amt
             ic.october_advance = advance
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10878,8 +10958,9 @@ def october_account_mgt(request,id):
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_flag = chk
             ic.save()
-            return view_october_account_details1(request)
+            return view_october_account_details(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -10929,20 +11010,27 @@ def nov_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.nov_rent = paid_amt
             ic.nov_advance = advance
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -10951,8 +11039,9 @@ def nov_account_mgt(request,id):
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_flag = chk
             ic.save()
-            return view_nov_account_details1(request)
+            return view_nov_account_details(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
@@ -11002,20 +11091,27 @@ def dec_account_mgt(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
-            import branch1app
-            rno = branch1app.models.pg1_new_guest.objects.all().filter(id=id)
+            import myapp
+            rno = myapp.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch1app
-            ic = branch1app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import myapp
+            ic = myapp.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.dec_rent = paid_amt
             ic.dec_advance = advance
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -11024,8 +11120,9 @@ def dec_account_mgt(request,id):
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_flag = chk
             ic.save()
-            return view_dec_account_details1(request)
+            return view_dec_account_details(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)

@@ -276,6 +276,21 @@
             <input type="text" class="form-control col-lg-8" id="input-12" value="{{sd.remark}}" style="display:inline;" name="rem">
          </div>
 
+                 {% if sd.jan_rent_flag == 200 %}
+
+                <div>
+                            PAID  &nbsp; &nbsp;  &nbsp;
+                            <input type="checkbox" checked data-toggle="toggle" name="eanable_disable">
+                        </div></br>
+                {% elif sd.jan_rent_flag == 100 %}
+
+                <div>
+                            UNPAID  &nbsp; &nbsp;  &nbsp;
+                            <input type="checkbox" data-toggle="toggle" name="eanable_disable">
+                        </div></br>
+
+                {% endif %}
+
            <div class="form-group">
             <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
           </div>

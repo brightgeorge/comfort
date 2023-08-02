@@ -7153,6 +7153,12 @@ def jan_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7167,6 +7173,7 @@ def jan_account_mgt7(request,id):
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7175,6 +7182,7 @@ def jan_account_mgt7(request,id):
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_flag = chk
             ic.save()
             return view_jan_account_details7(request)
 
@@ -7226,6 +7234,12 @@ def feb_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7240,6 +7254,7 @@ def feb_account_mgt7(request,id):
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7248,6 +7263,7 @@ def feb_account_mgt7(request,id):
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_flag = chk
             ic.save()
             return view_feb_account_details7(request)
 
@@ -7299,6 +7315,12 @@ def march_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7313,6 +7335,7 @@ def march_account_mgt7(request,id):
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7321,6 +7344,7 @@ def march_account_mgt7(request,id):
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_flag = chk
             ic.save()
             return view_march_account_details7(request)
 
@@ -7372,6 +7396,12 @@ def april_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7386,6 +7416,7 @@ def april_account_mgt7(request,id):
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7394,6 +7425,7 @@ def april_account_mgt7(request,id):
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_flag = chk
             ic.save()
             return view_april_account_details7(request)
 
@@ -7430,6 +7462,12 @@ def may_account_mgt7(request, id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7444,6 +7482,7 @@ def may_account_mgt7(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7452,6 +7491,7 @@ def may_account_mgt7(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_flag = chk
             ic.save()
             return view_may_account_details7(request)
 
@@ -7503,6 +7543,12 @@ def june_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7517,6 +7563,7 @@ def june_account_mgt7(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_flag = chk
             ic.save()
 
             import branch7app
@@ -7526,6 +7573,7 @@ def june_account_mgt7(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_flag = chk
             ic.save()
             return view_june_account_details7(request)
 
@@ -7563,6 +7611,12 @@ def july_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7577,6 +7631,7 @@ def july_account_mgt7(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7585,6 +7640,7 @@ def july_account_mgt7(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_flag = chk
             ic.save()
             return view_july_account_details7(request)
 
@@ -7651,6 +7707,12 @@ def auguest_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7665,6 +7727,7 @@ def auguest_account_mgt7(request,id):
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7673,6 +7736,7 @@ def auguest_account_mgt7(request,id):
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_flag = chk
             ic.save()
             return view_auguest_account_details7(request)
 
@@ -7724,6 +7788,12 @@ def sept_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7738,6 +7808,7 @@ def sept_account_mgt7(request,id):
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7746,6 +7817,7 @@ def sept_account_mgt7(request,id):
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_flag = chk
             ic.save()
             return view_sept_account_details7(request)
 
@@ -7797,6 +7869,12 @@ def october_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7811,6 +7889,7 @@ def october_account_mgt7(request,id):
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7819,6 +7898,7 @@ def october_account_mgt7(request,id):
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_flag = chk
             ic.save()
             return view_october_account_details7(request)
 
@@ -7870,6 +7950,12 @@ def nov_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7884,6 +7970,7 @@ def nov_account_mgt7(request,id):
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7892,6 +7979,7 @@ def nov_account_mgt7(request,id):
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_flag = chk
             ic.save()
             return view_nov_account_details7(request)
 
@@ -7943,6 +8031,12 @@ def dec_account_mgt7(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            fl = request.POST.get('eanable_disable')
+            chk = 11
+            if fl == None:
+                chk = 100
+            else:
+                chk = 200
 
             import branch7app
             rno = branch7app.models.pg1_new_guest.objects.all().filter(id=id)
@@ -7957,6 +8051,7 @@ def dec_account_mgt7(request,id):
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_flag = chk
             ic.save()
 
             ic = pg1_new_beds.objects.get(guest_code=l[0])
@@ -7965,6 +8060,7 @@ def dec_account_mgt7(request,id):
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_flag = chk
             ic.save()
             return view_dec_account_details7(request)
 
