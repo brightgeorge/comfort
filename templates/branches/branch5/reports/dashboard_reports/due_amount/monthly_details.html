@@ -293,13 +293,17 @@
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <a href="{% url 'july5' %}">
                 <div class="card-body" style="background-color:#CF9FFF">
-                  <h5 class="text-white mb-0">{{total_collatable_amount.5}}-{{total_collection_monthly.5}}={{total_due_amt.5}}
+                  <h5 class="text-white mb-0">
+                      {{total_collatable_amount.5}}-{{total_collection_monthly.5}}={{total_due_amt.5}}<hr>
+                      {{grand_total_collection.5}}+{{total_advance_amt.5}}-{{total_dis_amount.5}}
                       <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">JUNE
-                      {{grand_total_collection.5}}+{{total_advance_amt.5}}-{{total_dis_amount.5}}
+
+
+
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
@@ -315,13 +319,17 @@
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <a href="{% url 'monthly_collection_details5' %}">
                 <div class="card-body" style="background-color:#880808">
-                  <h5 class="text-white mb-0">{{total_collatable_amount.6}}-{{total_collection_monthly.6}}={{total_due_amt.6}}
+                  <h5 class="text-white mb-0">
+                      {{total_collatable_amount.6}}-{{total_collection_monthly.6}}={{total_due_amt.6}}<hr>
+                      {{grand_total_collection.6}}+{{total_advance_amt.6}}-{{total_dis_amount.6}}
                       <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">JULY
-                      {{grand_total_collection.6}}+{{total_advance_amt.6}}-{{total_dis_amount.6}}
+
+
+
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
@@ -329,27 +337,44 @@
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <a href="{% url 'july5' %}">
                 <div class="card-body" style="background-color:#9acd32">
-                  <h5 class="text-white mb-0">{{total_collatable_amount.7}}-{{total_collection_monthly.7}}={{total_due_amt.7}}
+                  <h5 class="text-white mb-0">
+                      {{total_collatable_amount.7}}-{{total_collection_monthly.7}}={{total_due_amt.7}}<hr>
+                      {{grand_total_collection.7}}+{{total_advance_amt.7}}-{{total_dis_amount.7}}
                       <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">AUG
-                      {{grand_total_collection.7}}+{{total_advance_amt.7}}-{{total_dis_amount.7}}
+                     {{v_total_collatable_amount.7}}-{{v_total_collection_monthly.7}}={{v_total_due_amt.7}}<hr>
+                      {{v_grand_total_collection.7}}+{{v_total_advance_amt.7}}-{{v_total_dis_amount.7}}
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%;background-color:red"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">AUG
+                     {{gct_grand_total_collection.7}}-{{v_total_collection_monthly.7}}={{v_total_due_amt.7}}<hr>
+                      {{v_grand_total_collection.7}}+{{v_total_advance_amt.7}}-{{v_total_dis_amount.7}}
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+
                 </div></a>
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <a href="{% url 'july5' %}">
                 <div class="card-body" style="background-color:#00008b">
-                  <h5 class="text-white mb-0">{{total_collatable_amount.8}}-{{total_collection_monthly.8}}={{total_due_amt.8}}
+                  <h5 class="text-white mb-0">
+                      {{total_collatable_amount.8}}-{{total_collection_monthly.8}}={{total_due_amt.8}}<hr>
+                      {{grand_total_collection.8}}+{{total_advance_amt.8}}-{{total_dis_amount.8}}
                       <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
                   <p class="mb-0 text-white small-font">SEPT
-                      {{grand_total_collection.8}}+{{total_advance_amt.8}}-{{total_dis_amount.8}}
+                      {{v_total_collatable_amount.8}}-{{v_total_collection_monthly.8}}={{v_total_due_amt.8}}<hr>
+                        {{v_grand_total_collection.8}}+{{v_total_advance_amt.8}}-{{v_total_dis_amount.8}}
+
+
                       <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>

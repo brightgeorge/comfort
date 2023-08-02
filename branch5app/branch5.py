@@ -4201,8 +4201,6 @@ def april_make_payments_advance5(request, id):
             jp.remark = remark
             jp.april_due_amt = amt
             jp.april_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4217,8 +4215,6 @@ def april_make_payments_advance5(request, id):
             jp.remark = remark
             jp.april_due_amt = amt
             jp.april_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4315,8 +4311,6 @@ def may_make_payments_advance5(request, id):
             jp.remark = remark
             jp.may_due_amt = amt
             jp.may_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4331,8 +4325,6 @@ def may_make_payments_advance5(request, id):
             jp.remark = remark
             jp.may_due_amt = amt
             jp.may_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4428,8 +4420,6 @@ def june_make_payments_advance5(request, id):
             jp.remark = remark
             jp.june_due_amt = amt
             jp.june_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4444,8 +4434,6 @@ def june_make_payments_advance5(request, id):
             jp.remark = remark
             jp.june_due_amt = amt
             jp.june_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4542,8 +4530,6 @@ def july_make_payments_advance5(request, id):
             jp.july_dis_amt = dis
             jp.remark = remark
             jp.july_due_amt = amt
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4555,11 +4541,9 @@ def july_make_payments_advance5(request, id):
 
             jp = pg1_new_beds.objects.get(guest_code=l[0])
             jp.july_advance = amt
-            jp.remark = remark
             jp.july_dis_amt = dis
+            jp.remark = remark
             jp.july_due_amt = amt
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4656,8 +4640,6 @@ def auguest_make_payments_advance5(request, id):
             jp.remark = remark
             jp.auguest_due_amt = amt
             jp.auguest_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4672,8 +4654,6 @@ def auguest_make_payments_advance5(request, id):
             jp.remark = remark
             jp.auguest_due_amt = amt
             jp.auguest_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4769,8 +4749,6 @@ def sept_make_payments_advance5(request, id):
             jp.remark = remark
             jp.sept_due_amt = amt
             jp.sept_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4785,8 +4763,6 @@ def sept_make_payments_advance5(request, id):
             jp.remark = remark
             jp.sept_due_amt = amt
             jp.sept_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4883,8 +4859,6 @@ def october_make_payments_advance5(request, id):
             jp.remark = remark
             jp.october_due_amt = amt
             jp.october_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4899,8 +4873,6 @@ def october_make_payments_advance5(request, id):
             jp.remark = remark
             jp.october_due_amt = amt
             jp.october_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4996,8 +4968,6 @@ def nov_make_payments_advance5(request, id):
             jp.remark = remark
             jp.nov_due_amt = amt
             jp.nov_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -5012,8 +4982,6 @@ def nov_make_payments_advance5(request, id):
             jp.remark = remark
             jp.nov_due_amt = amt
             jp.nov_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -5109,8 +5077,6 @@ def dec_make_payments_advance5(request, id):
             jp.remark = remark
             jp.dec_due_amt = amt
             jp.dec_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)
@@ -5125,8 +5091,6 @@ def dec_make_payments_advance5(request, id):
             jp.remark = remark
             jp.dec_due_amt = amt
             jp.dec_dis_amt = dis
-            # jp.may_rent_rec_date = datetime.date.today()
-
             jp.save()
 
             rno = pg1_new_guest.objects.all().filter(id=id)

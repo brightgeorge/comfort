@@ -5,6 +5,7 @@ import locale
 from django.shortcuts import render
 from django.contrib import messages
 import branch5app
+from . import vacate_guest_calculations
 
 def total_count_active_guests():
     tvr = branch5app.models.pg1_new_beds.objects.all().filter(flag=2)
@@ -774,15 +775,58 @@ def monthly_details_due5(request):
     total_due_amt.append(total_collatable_amount[11]-total_collection_monthly[11])
 
     #total due amount end here
+    aa=vacate_guest_calculations.monthly_collection_details_vcated()
 
+#****grand_total_collection start here
+
+    x=t
+    y=aa[0]
+    z1=int(x[0])+int(y[0])
+    z2=int(x[1])+int(y[1])
+    z3=int(x[2])+int(y[2])
+    z4=int(x[3])+int(y[3])
+    z5=int(x[4])+int(y[4])
+    z6=int(x[5])+int(y[5])
+    z7=int(x[6])+int(y[6])
+    z8=int(x[7])+int(y[7])
+
+    lgtc=[]
+    lgtc.append(z1)
+    lgtc.append(z2)
+    lgtc.append(z3)
+    lgtc.append(z4)
+    lgtc.append(z5)
+    lgtc.append(z6)
+    lgtc.append(z7)
+    lgtc.append(z8)
+
+
+# ****grand_total_collection start here
 
     context={
+
         'grand_total_collection':t,
         'total_advance_amt':total_advance_amt,
         'total_dis_amount':total_dis_amount,
         'total_collection_monthly':total_collection_monthly,
         'total_collatable_amount':total_collatable_amount,
         'total_due_amt':total_due_amt,
+
+        'v_grand_total_collection': aa[0],
+        'v_total_advance_amt': aa[1],
+        'v_total_dis_amount': aa[2],
+        'v_total_collatable_amount': aa[3],
+        'v_total_collection_monthly': aa[4],
+        'v_total_due_amt': aa[5],
+
+        'gct_grand_total_collection': lgtc,
+        'gct_total_advance_amt': aa[1],
+        'gct_total_dis_amount': aa[2],
+        'gct_total_collatable_amount': aa[3],
+        'gct_total_collection_monthly': aa[4],
+        'gct_total_due_amt': aa[5],
+
+        'vcated_guest_all_details': vacate_guest_calculations.monthly_collection_details_vcated(),
     }
 
     return render(request,'branches/branch5/reports/dashboard_reports/due_amount/monthly_details.html',context)
@@ -1153,6 +1197,7 @@ def monthly_collection_details5(request):
     #total due amount end here
 
 
+
     us = request.session['username']
     bgs = branch5app.models.background_color.objects.all().filter(username=us)
     bg = branch5app.models.background_color.objects.all().filter(username=us).exists()
@@ -1174,6 +1219,8 @@ def monthly_collection_details5(request):
         'total_collection_monthly':total_collection_monthly,
         'total_collatable_amount':total_collatable_amount,
         'total_due_amt':total_due_amt,
+
+        'vcated_guest_all_details' : vacate_guest_calculations.monthly_collection_details_vcated(),
 
     }
 
