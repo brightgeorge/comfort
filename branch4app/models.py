@@ -2928,146 +2928,301 @@ class pg1_new_guest(models.Model):
                 if 1 <= cm:
                     if i.jan_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.jan_advance)
-                        c = int(i.jan_dis_amt)
+                        b=i.jan_advance
+                        if b == '':
+                            b=0
+                        else:
+                            b = int(i.jan_advance)
+                        c=i.jan_dis_amt
+                        if c == '':
+                            c=0
+                        else:
+                            c = int(i.jan_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.jan_rent_flag == 200:
-                        l.append(int(i.jan_due_amt))
+                        m=i.jan_due_amt
+                        if m == '':
+                            m=0
+                        else:
+                            m=i.jan_due_amt
+                    l.append(int(m))
 
             if i.feb_rent_flag >= 99:
                 if 2 <= cm:
                     if i.feb_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.feb_advance)
-                        c = int(i.feb_dis_amt)
+                        b = i.feb_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.feb_advance)
+                        c = i.feb_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.feb_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.feb_rent_flag == 200:
-                        l.append(int(i.feb_due_amt))
+                        m = i.feb_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.feb_due_amt
+                    l.append(int(m))
 
             if i.march_rent_flag >= 99:
                 if 3 <= cm:
                     if i.march_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.march_advance)
-                        c = int(i.march_dis_amt)
+                        b = i.march_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.march_advance)
+                        c = i.march_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.march_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.march_rent_flag == 200:
-                        l.append(int(i.march_due_amt))
+                        m = i.march_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.march_due_amt
+                    l.append(int(m))
 
             if i.april_rent_flag >= 99:
                 if 4 <= cm:
                     if i.april_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.april_advance)
-                        c = int(i.april_dis_amt)
+                        b = i.april_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.april_advance)
+                        c = i.april_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.april_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.april_rent_flag == 200:
-                        l.append(int(i.april_due_amt))
+                        m = i.april_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.april_due_amt
+                    l.append(int(m))
 
             if i.may_rent_flag >= 99:
                 if 5 <= cm:
                     if i.may_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.may_advance)
-                        c = int(i.may_dis_amt)
+                        b = i.may_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.may_advance)
+                        c = i.may_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.may_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.may_rent_flag == 200:
-                        l.append(int(i.may_due_amt))
+                        m = i.may_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.may_due_amt
+                    l.append(int(m))
 
             if i.june_rent_flag >= 99:
                 if 6 <= cm:
                     if i.june_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.june_advance)
-                        c = int(i.june_dis_amt)
+                        b = i.june_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.june_advance)
+                        c = i.june_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.june_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.june_rent_flag == 200:
-                        l.append(int(i.june_due_amt))
+                        m = i.june_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.june_due_amt
+                    l.append(int(m))
 
             if i.july_rent_flag >= 99:
                 if 7 <= cm:
                     if i.july_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.july_advance)
-                        c = int(i.july_dis_amt)
+                        b = i.july_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.july_advance)
+                        c = i.july_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.july_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.july_rent_flag == 200:
-                        l.append(int(i.july_due_amt))
+                        m = i.july_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.july_due_amt
+                    l.append(int(m))
 
             if i.auguest_rent_flag >= 99:
                 if 8 <= cm:
                     if i.auguest_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.auguest_advance)
-                        c = int(i.auguest_dis_amt)
+                        b = i.auguest_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.auguest_advance)
+                        c = i.auguest_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.auguest_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.auguest_rent_flag == 200:
-                        l.append(int(i.auguest_due_amt))
+                        m = i.auguest_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.auguest_due_amt
+                    l.append(int(m))
 
             if i.sept_rent_flag >= 99:
                 if 9 <= cm:
                     if i.sept_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.sept_advance)
-                        c = int(i.sept_dis_amt)
+                        b = i.sept_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.sept_advance)
+                        c = i.sept_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.sept_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.sept_rent_flag == 200:
-                        l.append(int(i.sept_due_amt))
+                        m = i.sept_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.sept_due_amt
+                    l.append(int(m))
 
             if i.october_rent_flag >= 99:
                 if 10 <= cm:
                     if i.october_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.october_advance)
-                        c = int(i.october_dis_amt)
+                        b = i.october_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.october_advance)
+                        c = i.october_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.october_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.october_rent_flag == 200:
-                        l.append(int(i.october_due_amt))
+                        m = i.october_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.october_due_amt
+                    l.append(int(m))
 
             if i.nov_rent_flag >= 99:
                 if 11 <= cm:
                     if i.nov_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.nov_advance)
-                        c = int(i.nov_dis_amt)
+                        b = i.nov_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.nov_advance)
+                        c = i.nov_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.nov_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.nov_rent_flag == 200:
-                        l.append(int(i.nov_due_amt))
+                        m = i.nov_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.nov_due_amt
+                    l.append(int(m))
 
             if i.dec_rent_flag >= 99:
                 if 12 <= cm:
                     if i.dec_rent_flag == 100:
                         a = int(i.monthly_rent)
-                        b = int(i.dec_advance)
-                        c = int(i.dec_dis_amt)
+                        b = i.dec_advance
+                        if b == '':
+                            b = 0
+                        else:
+                            b = int(i.dec_advance)
+                        c = i.dec_dis_amt
+                        if c == '':
+                            c = 0
+                        else:
+                            c = int(i.dec_dis_amt)
 
                         x = a + b - c
                         l.append(x)
                     elif i.dec_rent_flag == 200:
-                        l.append(int(i.dec_due_amt))
-
+                        m = i.dec_due_amt
+                        if m == '':
+                            m = 0
+                        else:
+                            m = i.dec_due_amt
+                    l.append(int(m))
 
         ll = []
         for i in l:
