@@ -2947,7 +2947,7 @@ class pg1_new_guest(models.Model):
                             m=0
                         else:
                             m=i.jan_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.feb_rent_flag >= 99:
                 if 2 <= cm:
@@ -2972,7 +2972,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.feb_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.march_rent_flag >= 99:
                 if 3 <= cm:
@@ -2997,7 +2997,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.march_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.april_rent_flag >= 99:
                 if 4 <= cm:
@@ -3022,7 +3022,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.april_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.may_rent_flag >= 99:
                 if 5 <= cm:
@@ -3047,7 +3047,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.may_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.june_rent_flag >= 99:
                 if 6 <= cm:
@@ -3097,7 +3097,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.july_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.auguest_rent_flag >= 99:
                 if 8 <= cm:
@@ -3122,7 +3122,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.auguest_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.sept_rent_flag >= 99:
                 if 9 <= cm:
@@ -3147,7 +3147,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.sept_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.october_rent_flag >= 99:
                 if 10 <= cm:
@@ -3172,7 +3172,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.october_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.nov_rent_flag >= 99:
                 if 11 <= cm:
@@ -3197,7 +3197,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.nov_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.dec_rent_flag >= 99:
                 if 12 <= cm:
@@ -3222,7 +3222,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.dec_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
         ll = []
         for i in l:
