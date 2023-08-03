@@ -780,10 +780,12 @@ def monthly_june_make_payments4(request,id):
 
             rno= pg1_new_guest.objects.all().filter(id=id)
             l=[]
+            ll=[]
             for i in rno:
                 l.append(str(i.roon_no))
-                l.append(i.guest_code)
+                ll.append(str(i.guest_code))
             s=''.join(l)
+            gc=''.join(ll)
 
             r = pg1_new_guest.objects.all().filter(id=id, flag=2)
             rl = []
@@ -806,7 +808,7 @@ def monthly_june_make_payments4(request,id):
                 'th_us': a[0],
                 'name': us,
 
-                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99,guest_code=l[1]),
+                'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2,june_rent_flag__gt=99,guest_code=gc),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all(),
                 'rll' : rl,
