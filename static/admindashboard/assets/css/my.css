@@ -7,7 +7,6 @@
 
     .hidden {
       position: relative;
-      background: gray;
 
       display: none;  /* hide text */
     }
