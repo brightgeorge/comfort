@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8"/>
@@ -72,20 +73,17 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
-
-{% if us == th_us %}
-{% for i in bg %}
-<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
-{% endfor %}
-{% else %}
 <body class="bg-theme bg-theme1">
-{% endif %}
+
+<!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
 
 <!-- Start wrapper-->
  <div id="wrapper">
 
   <!--Start sidebar-wrapper-->
-<div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+   <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
@@ -101,26 +99,47 @@ function exportTableToExcel(tableID, filename = ''){
         </a>
       </li>
 
-      <li>
-        <a href="{% url 'unpaid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span>
-        </a>
-      </li>
-       <li>
-        <a href="{% url 'paid_rent_choose_months5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span>
-        </a>
-      </li>
 
-      <li>
-        <a href="{% url 'choose_months5' %}">
-          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Payments 5</span>
-        </a>
-      </li>
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Reports 5</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 5</span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests 5</span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months5' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report 5</span></a>
+  </div>
+</div>
+       </li>
+
+
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Payments 5</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months5' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+
+  </div>
+</div>
+       </li>
 
         <li>
         <a href="{% url 'choose_months_advance5' %}">
           <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 5</span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'due_amt_mgt_choose_months5' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt 5</span>
         </a>
       </li>
 
@@ -131,12 +150,12 @@ function exportTableToExcel(tableID, filename = ''){
       </li>
        <li>
         <a href="{% url 'detail_guest_general5' %}">
-          <i class="zmdi zmdi-brush"></i> <span>Print outs 5</span>
+          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet 5</span>
         </a>
       </li>
        <li>
         <a href="{% url 'viewall_vacate_guest5' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 5</span>
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest 5</span>
         </a>
       </li>
 
@@ -149,12 +168,6 @@ function exportTableToExcel(tableID, filename = ''){
        <li>
         <a href="{% url 'pg1_view_all_beds5' %}">
           <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 5</span>
-        </a>
-      </li>
-
-        <li>
-        <a href="{% url 'may_print_live5' %}">
-          <i class="zmdi zmdi-spinner"></i> <span>Live Report 5</span>
         </a>
       </li>
 
@@ -242,60 +255,21 @@ function exportTableToExcel(tableID, filename = ''){
 </header>
 <!--End topbar header-->
 
+
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
     <div class="container-fluid">
 
-  <!--Start Dashboard Content-->
+      <div class="row mt-3">
 
-   <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Total Items <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Enable Items <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Disable Items <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-            </div>
-           <!-- <div class="col-12 col-lg-6 col-xl-3 border-light">
-                <div class="card-body">
-                  <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:55%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
-            </div>-->
-        </div>
-    </div>
- </div>
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">DETAILED REPORT OF AUGUEST PRESTIGE</h5>
 
 
-
-
-{% if messages %}
+                {% if messages %}
                 {% for message in messages %}
         <div class="alert alert-success" style="width:95%;">
          <a href="#" class="close" data-dismiss="alert">
@@ -308,61 +282,76 @@ function exportTableToExcel(tableID, filename = ''){
             {% endif %}
 
 
-   <div class="row">
-    <div class="col-12 col-lg-12">
-      <div class="card">
-        <div class="card-header">View all Paid Rent of {{month_name}}
-        <div class="card-action">
-              <a class="dropdown-item" href="{% url 'auguest_full_paid_guest5' %}"><span style="background-color:red;color:white;">Full Paid Guest 5</span></a>
-             <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
-              <i class="icon-options1"></i>
-             </a>
-              <div class="dropdown-menu1 dropdown-menu-right1">
+                 <tr>
+                     <th ><a href="{% url 'aug_paid_rent5' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
+                       <th ><a href="{% url 'auguest_full_paid_guest5' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Full Paid Guest </button></a></th>
 
-              </div>
-             </div>
-       </div>
-          <div class="table-responsive">
-                 <table class="table align-items-center table-flush table-borderless">
-                  <thead>
-                   <tr>
-                  <th>Sl No</th>
-                       <th>Details</th>
-                     <th>Roon No</th>
-                       <th>Date</th>
-                     <th>Guest Name</th>
-                       <th>Paid Amount</th>
-                       <th>Remark</th>
-                     <th>Contact No</th>
-                   </tr>
-                   </thead>
-                   <tbody>
-                   {% for i in up %}
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                 </tr>
 
-               <tr>
-                    <td>{{forloop.counter}}</td>
-                       <td>
-                           <a href="{% url 'details_of_paid_guests5' id=i.id %}"> <button class="btn btn-primary"> Details</button> </a>
-                       </td>
-               <td>{{i.room_name}}</td>
-                       <td>{{ i.auguest_rent_rec_date }}</td>
-                    <td>{{i.name|upper}}</td>
-                       <td>{{i.auguest_rent}}</td>
-                       <td>{{i.remark}}</td>
-                    <td><a href="tel:{{i.self_mob}}">Call {{i.self_mob}}</a></td>
-                   </tr>
+           <div class="table-responsive">
+              <table class="table table-bordered" id="tbldata" border="1">
+                <thead>
+                  <tr>
+                    <th scope="col" >Room</th>
+
+                    <th scope="col" style="width:140px">Rent Paid Date</th>
+                    <th scope="col" style="width:250px">Name</th>
+                    <th scope="col" style="width:170px">Number</th>
+                    <th scope="col" style="width:130px">Mthly Rent</th>
+                      <th scope="col" style="width:130px">Advance</th>
+                      <th scope="col" style="width:130px">Discount</th>
+                    <th scope="col" style="width:130px">Paid Amt</th>
+                      <th scope="col" style="width:130px">Due Amt</th>
+                    <th scope="col" style="width:300px;height:60px;">Remark</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+
+ {% for i in up %}
+
+                  <tr>
+
+                    <th scope="row">{{i.room_name}}</th>
+
+                    <th scope="row" style="height:{{table_height}};">{{i.auguest_rent_rec_date}}</th>
+
+                    <th scope="row" style="height:{{table_height}};"><a href="{% url 'details_of_paid_guests5' id=i.id %}">{{i.name}}</a></th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.auguest_advance}}</th>
+                      <th scope="row" style="height:{{table_height}};">{{i.auguest_dis_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.auguest_rent}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.auguest_due_amt}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
+
+                  </tr>
                 {% endfor %}
 
-                 </tbody></table>
-               </div>
-      </div>
-    </div>
-   </div><!--End Row-->
 
-      <!--End Dashboard Content-->
 
-   <!--start overlay-->
+                <!-- --------------------------------------------------------------- -->
+
+
+
+
+                </tbody>
+              </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div><!--End Row-->
+
+
+
+
+
+
+     <!--start overlay-->
         <div class="overlay toggle-menu"></div>
       <!--end overlay-->
 
@@ -378,18 +367,32 @@ function exportTableToExcel(tableID, filename = ''){
    <footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © 2018 Open Bright Admin
+          Copyright © 2018 Dashtreme Admin
         </div>
       </div>
     </footer>
    <!--End footer-->
 
-  <!--start color switcher-->
+   <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
+
+        <p class="mb-0">Settings</p>
+      <hr>
+
+      <ul>
+
+
+
+
+          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
+
+
+      </ul>
+
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
@@ -424,25 +427,19 @@ function exportTableToExcel(tableID, filename = ''){
 
   </div><!--End wrapper-->
 
+
   <!-- Bootstrap core JavaScript-->
-  <script src="{% static 'admindashboard//assets/js/jquery.min.js' %}"></script>
-  <script src="{% static 'admindashboard//assets/js/popper.min.js' %}"></script>
-  <script src="{% static 'admindashboard//assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/jquery.min.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/bootstrap.min.js' %}"></script>
 
  <!-- simplebar js -->
-  <script src="{% static 'admindashboard//assets/plugins/simplebar/js/simplebar.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/plugins/simplebar/js/simplebar.js' %}"></script>
   <!-- sidebar-menu js -->
-  <script src="{% static 'admindashboard//assets/js/sidebar-menu.js' %}"></script>
-  <!-- loader scripts -->
-  <script src="{% static 'admindashboard//assets/js/jquery.loading-indicator.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/sidebar-menu.js' %}"></script>
+
   <!-- Custom scripts -->
-  <script src="{% static 'admindashboard//assets/js/app-script.js' %}"></script>
-  <!-- Chart js -->
-
-  <script src="{% static 'admindashboard//assets/plugins/Chart.js/Chart.min.js' %}"></script>
-
-  <!-- Index js -->
-  <script src="{% static 'admindashboard//assets/js/index.js' %}"></script>
+  <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
 
 
 </body>
