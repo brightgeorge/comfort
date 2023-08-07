@@ -3072,7 +3072,7 @@ class pg1_new_guest(models.Model):
                             m = 0
                         else:
                             m = i.june_due_amt
-                    l.append(int(m))
+                        l.append(int(m))
 
             if i.july_rent_flag >= 99:
                 if 7 <= cm:

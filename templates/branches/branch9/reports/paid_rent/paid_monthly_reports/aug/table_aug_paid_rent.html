@@ -288,17 +288,17 @@ function exportTableToExcel(tableID, filename = ''){
               <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr>
-                    <th scope="col" >Room</th>
+                    <th scope="colm" >Room</th>
 
-                    <th scope="col" style="width:140px">Rent Paid Date</th>
-                    <th scope="col" style="width:250px">Name</th>
-                    <th scope="col" style="width:170px">Number</th>
-                    <th scope="col" style="width:130px">Mthly Rent</th>
-                      <th scope="col" style="width:130px">Advance</th>
-                      <th scope="col" style="width:130px">Discount</th>
-                    <th scope="col" style="width:130px">Paid Amt</th>
-                      <th scope="col" style="width:130px">Due Amt</th>
-                    <th scope="col" style="width:300px;height:60px;">Remark</th>
+                      <th scope="colm" style="width:100px;" ><span >Rent Paid Date</span></th>
+                    <th scope="colm" style="width:250px;" ><span >Name</span></th>
+                    <th scope="colm" style="width:170px;" ><span >Number</span></th>
+                    <th scope="col" style="width:130px;" >Mthly Rent</th>
+                      <th scope="col" style="width:130px" >Advance</th>
+                      <th scope="col" style="width:130px" >Discount</th>
+                    <th scope="col" style="width:130px" >Paid Amt</th>
+                      <th scope="col" style="width:130px" >Due Amt</th>
+                    <th scope="col" style="width:300px;" >Remark</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -307,7 +307,7 @@ function exportTableToExcel(tableID, filename = ''){
 
  {% for i in up %}
 
-                  <tr>
+                 <tr>
 
                     <th id="hroomno" scope="row">{{i.room_name}} </th>
 
@@ -322,7 +322,7 @@ function exportTableToExcel(tableID, filename = ''){
                        <th id="hdue" scope="row" style="height:{{table_height}};"><div class="myDIV">{{i.auguest_due_amt}}</div><div class="hide">DUE</div></th>
                     <th id="hremark" scope="row" style="height:{{table_height}};">{{i.remark}}</th>
 
-                  </tr>
+             </tr>
                 {% endfor %}
 
 
