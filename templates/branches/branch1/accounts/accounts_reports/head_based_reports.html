@@ -308,10 +308,9 @@ function exportTableToExcel(tableID, filename = ''){
                      <th>
                          <select id="cars" class="col-lg-2 form-control" style="display:inline;" name="accounts_book_name" required>
 					<option style="background-color:white;">Head</option>
-                    <option value="Purchase" >Purchase</option>
-                    <option value="Payments" >Payments</option>
-                    <option value="Receipts" >Receipts</option>
-					<option value="Salaries" >Salaries</option>
+                    {% for i in accounts_book %}
+                    <option value="{{i.accounts_book_name}}" >{{i.accounts_book_name}}</option>
+                             {% endfor %}
 
 				</select>
              <input type="submit" value="Search">

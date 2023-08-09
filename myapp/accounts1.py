@@ -516,6 +516,7 @@ def ledger_based_reports(request):
         'sel': sel,
         'd_bal': d_bal,
         'dates': r_dates,
+        'ledger': in_exp_items_daily.objects.all(),
 
     }
     return render(request,'branches/branch1/accounts/accounts_reports/ledger/ledger_based_reports.html',context)
@@ -540,6 +541,7 @@ def accounts_book_based_reports(request):
         'hb' : in_exp_items_daily.objects.all().filter(accounts_book_name=accounts_book_name),
         'hname' : accounts_book_name,
         'total' : r,
+        'accounts_book' : in_exp_items_daily.objects.all(),
 
     }
     return render(request,'branches/branch1/accounts/accounts_reports/accounts_book_name_based_reports.html',context)

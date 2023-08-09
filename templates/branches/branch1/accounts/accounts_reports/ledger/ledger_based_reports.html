@@ -308,12 +308,9 @@ function exportTableToExcel(tableID, filename = ''){
                      <th>
                          <select id="ledg" class="col-lg-2 form-control" style="display:inline;" name="ledger" required>
 					<option style="background-color:white;">Ledgers</option>
-                    <option value="PG 06 ROOM RENT" >PG 06 ROOM RENT</option>
-					<option value="Bright" >Bright</option>
-                    <option value="Ramu" >Ramu</option>
-                    <option value="CK Chickens" >CK Chickens</option>
-                    <option value="Software" >Software</option>
-                    <option value="ABC VEGETABLES" >ABC VEGETABLES</option>
+                    {% for i in ledger %}
+                    <option value="{{i.ledger_name}}" >{{i.ledger_name}}</option>
+                             {% endfor %}
 
 				</select>
              <input type="submit" value="Search">
