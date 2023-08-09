@@ -544,7 +544,7 @@ def accounts_book_based_reports(request):
         'accounts_book' : accounts_book.objects.all(),
 
     }
-    return render(request,'branches/branch1/accounts/accounts_reports/accounts_book_name_based_reports.html',context)
+    return render(request,'branches/branch1/accounts/accounts_reports/accounts_book/accounts_book_name_based_reports.html',context)
 
 
 ###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
