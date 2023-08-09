@@ -10,6 +10,7 @@ from . import reports1
 from . import admin_dahsboard_calculations
 from . import payment1
 from . import admin_dashboard_calculations_br1
+from . import accounts1
 
 d='test'
 
@@ -495,5 +496,115 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('pysql/',branch1.pysql,name='pysql'+d),
     #logout
     path('logout/',views.logout,name='logout'),
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category/', accounts1.view_all_category, name='view_all_category'),
+    path('create_new_category/', accounts1.create_new_category, name='create_new_category'),
+    path('regi_new_category/', accounts1.regi_new_category, name='regi_new_category'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items/', accounts1.view_all_items, name='view_all_items'),
+    path('create_new_item/', accounts1.create_new_item, name='create_new_item'),
+    path('regi_new_item/', accounts1.regi_new_item, name='regi_new_item'),
+    path('delete_item/<id>',accounts1.delete_item,name='delete_item'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger/', accounts1.view_all_ledger, name='view_all_ledger'),
+    path('create_new_ledger/', accounts1.create_new_ledger, name='create_new_ledger'),
+    path('regi_new_ledger/', accounts1.regi_new_ledger, name='regi_new_ledger'),
+    path('delete_ledger/<id>',accounts1.delete_ledger,name='delete_ledger'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book/', accounts1.view_all_accounts_book, name='view_all_accounts_book'),
+    path('create_new_accounts_book/', accounts1.create_new_accounts_book, name='create_new_accounts_book'),
+    path('regi_new_accounts_book/', accounts1.regi_new_accounts_book, name='regi_new_accounts_book'),
+
+    ##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries/', accounts1.get_countries, name='get_countries'),
+
+    path('in_exp_items_entry/', accounts1.in_exp_items_entry, name='in_exp_items_entry'),
+    path('reg_in_exp_items_entry/', accounts1.reg_in_exp_items_entry, name='reg_in_exp_items_entry'),
+    path('delete_journal/<id>',accounts1.delete_journal,name='delete_journal'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed/', accounts1.daily_detailed, name='daily_detailed'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports/', accounts1.item_based_reports, name='item_based_reports'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports/', accounts1.ledger_based_reports, name='ledger_based_reports'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports/', accounts1.accounts_book_based_reports, name='accounts_book_based_reports'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months/', accounts1.monthly_reports_choose_months, name='monthly_reports_choose_months'),
+    path('monthly_daily_in_exp_items_report', accounts1.monthly_daily_in_exp_items_report,name='monthly_daily_in_exp_items_report'),
+    path('single_monthly_daily_in_exp_items_report', accounts1.single_monthly_daily_in_exp_items_report,name='single_monthly_daily_in_exp_items_report'),
+
+
+
+
 
 ]
