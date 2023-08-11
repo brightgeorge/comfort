@@ -309,7 +309,6 @@ def update_ledger(request,id):
             ic.contact_person_mob = contact_person_number
             ic.address = addres
             #ic.created_by = request.session['username']
-            ic.created_by = ''
             ic.flag = 1
             ic.save()
             context = {
