@@ -34,18 +34,65 @@ def create_new_category(request):
 
 def regi_new_category(request):
     category_names = request.POST.get('category')
+    ir = table1.objects.all().filter(category_name=category_names).exists()
 
-    ic = category()
-    ic.category_name = category_names
-    ic.created_by = request.session['username']
-    ic.flag = 1
-    ic.save()
+    if ir == True:
+        context = {
+            'item': category.objects.all().filter(flag=1).order_by('-id'),
+            'msg': 'danger',
+            'category': category.objects.all().order_by('-id'),
+        }
+        messages.info(request, 'ITEM ALREADY EXISTS')
+        return render(request, 'branches/branch1/accounts/creater_master/items/view_all_items.html', context)
+    else:
+
+        ic = category()
+        ic.category_name = category_names
+        ic.created_by = request.session['username']
+        ic.flag = 1
+        ic.save()
+
+        context = {
+            'category' : category.objects.all().order_by('-id'),
+
+        }
+        messages.info(request, 'ITEM CREATED SUCCESSFULLY')
+        return render(request,'branches/branch1/accounts/creater_master/category/view_all_category.html',context)
+
+
+def update_category(request,id):
+    if request.method == 'POST':
+        category_names = request.POST.get('category')
+        ir = category.objects.all().filter(category_name=category_names).exclude(id=id).exists()
+
+        if ir == True:
+            context = {
+                'msg' : 'danger',
+                'category': category.objects.all().order_by('-id'),
+            }
+            messages.info(request,'CATEGORY ALREADY EXISTS')
+            return render(request, 'branches/branch1/accounts/creater_master/category/view_all_category.html', context)
+        else:
+            ic = category.objects.get(id=id)
+            ic.category_name = category_names
+            #ic.created_by = request.session['username']
+            ic.flag = 1
+            ic.save()
+            context = {
+                'msg': 'info',
+                'category': category.objects.all().order_by('-id'),
+            }
+            messages.info(request, 'CATEGORY UPDATED SUCCESSFULLY')
+            return render(request, 'branches/branch1/accounts/creater_master/category/view_all_category.html', context)
 
     context = {
-        'category' : category.objects.all().order_by('-id'),
-
+        'item' : table1.objects.all().order_by('-id'),
+        'msg' : 'success',
+        'sd' : category.objects.get(id=id),
+        'category': category.objects.all().order_by('-id'),
     }
-    return render(request,'branches/branch1/accounts/creater_master/category/view_all_category.html',context)
+
+    return render(request,'branches/branch1/accounts/creater_master/category/update_category.html',context)
 
 
 ##*****************CATERY CREATER END HERE
@@ -55,7 +102,7 @@ def regi_new_category(request):
 
 def view_all_items(request):
     context = {
-        'item' : table1.objects.all().order_by('-id'),
+        'item' : table1.objects.all().filter(flag=1).order_by('-id'),
 
     }
     return render(request,'branches/branch1/accounts/creater_master/items/view_all_items.html',context)
@@ -75,7 +122,7 @@ def regi_new_item(request):
 
     if ir == True:
         context = {
-            'item': table1.objects.all().order_by('-id'),
+            'item': table1.objects.all().filter(flag=1).order_by('-id'),
             'msg' : 'danger',
             'category': category.objects.all().order_by('-id'),
         }
@@ -92,7 +139,7 @@ def regi_new_item(request):
         ic.save()
 
         context = {
-            'item' : table1.objects.all().order_by('-id'),
+            'item' : table1.objects.all().filter(flag=1).order_by('-id'),
             'msg' : 'success',
             'category': category.objects.all().order_by('-id'),
         }

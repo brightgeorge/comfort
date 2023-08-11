@@ -514,6 +514,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('view_all_category/', accounts1.view_all_category, name='view_all_category'),
     path('create_new_category/', accounts1.create_new_category, name='create_new_category'),
     path('regi_new_category/', accounts1.regi_new_category, name='regi_new_category'),
+    path(''
+         '/<id>',accounts1.update_category,name='update_category'),
 
     ##*****************CATERY CREATER END HERE
 
