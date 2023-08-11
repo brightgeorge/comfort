@@ -143,9 +143,11 @@ def update_item(request,id):
             ic = table1.objects.get(id=id)
             ic.name = item_name
             ic.item_category = item_category
-            ic.updated_bys = 'UB '+ request.session['username']
+            #ic.updated_bys = 'UB '+ request.session['username']
+            ic.updated_bys = ''
             import datetime
-            ic.ub_date = datetime.datetime.now()
+            #ic.ub_date = datetime.datetime.now()
+            ic.ub_date = ''
             ic.flag = 1
             ic.save()
             context = {
@@ -318,7 +320,7 @@ def delete_accounts_book(request,id):
 def get_countries(request):
 
     countries = []
-    t1 = table1.objects.all()
+    t1 = table1.objects.all().filter(flag=1)
     for i in t1:
         countries.append(i.name)
 
@@ -334,7 +336,7 @@ def in_exp_items_entry(request):
     l.append(b)
     context={
         "countries" : ["Afghanistan", "Albania", "a", 'aaaa', 'aa', "Algeria", "Andorra", "Angola", "Anguilla"],
-        'items': in_exp_items_daily.objects.all().order_by('-id'),
+        'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
         'ledger' : ledger.objects.all(),
         'accounts_book': accounts_book.objects.all(),
     }
@@ -381,12 +383,12 @@ def reg_in_exp_items_entry(request):
     year = ''.join(yl)
     print('year', year)
 
-    res = in_exp_items_daily.objects.all().filter(particulars=particulars,amount=amounts,accounts_book_name=accounts_book_name,type=types,date=dates,description=descriptions).exists()
+    res = in_exp_items_daily.objects.all().filter(particulars=particulars,amount=amounts,accounts_book_name=accounts_book_name,type=types,date=dates,description=descriptions,flag=1).exists()
     print('res',res)
 
     if res == True:
         context = {
-            'items': in_exp_items_daily.objects.all().order_by('-id'),
+            'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
             'message_bg' : 'alert-danger',
 
             'ledger': ledger.objects.all(),
@@ -396,10 +398,10 @@ def reg_in_exp_items_entry(request):
         return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
 
     else:
-        dup = table1.objects.all().filter(name=particulars).exists()
+        dup = table1.objects.all().filter(name=particulars,flag=1).exists()
         if dup == False:
             context = {
-                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
                 'message_bg': 'alert-danger',
 
                 'ledger': ledger.objects.all(),
@@ -435,7 +437,7 @@ def reg_in_exp_items_entry(request):
             ic.save()
 
             context = {
-                'items' : in_exp_items_daily.objects.all().order_by('-id'),
+                'items' : in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
                 'message_bg': 'alert-success',
 
                 'ledger': ledger.objects.all(),
@@ -446,12 +448,12 @@ def reg_in_exp_items_entry(request):
     return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
 
 def delete_journal(request,id):
-    r=in_exp_items_daily.objects.all().filter(id=id).exists()
+    r=in_exp_items_daily.objects.all().filter(id=id,flag=1).exists()
     if r == True:
         d=in_exp_items_daily.objects.get(id=id)
         d.delete()
         context = {
-            'items': in_exp_items_daily.objects.all().order_by('-id'),
+            'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
             'message_bg': 'alert-success',
 
             'ledger': ledger.objects.all(),
@@ -461,7 +463,7 @@ def delete_journal(request,id):
         return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
     else:
         context = {
-            'items': in_exp_items_daily.objects.all().order_by('-id'),
+            'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
             'message_bg': 'alert-warning',
 
             'ledger': ledger.objects.all(),
@@ -483,10 +485,10 @@ def update_in_exp_items_entry(request,id):
         dates = request.POST.get('date')
         descriptions = request.POST.get('description')
 
-        dup = table1.objects.all().filter(name=particulars).exists()
+        dup = table1.objects.all().filter(name=particulars,flag=1).exists()
         if dup == False:
             context = {
-                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
                 'message_bg': 'alert-danger'
             }
             messages.info(request, 'ITEM NOT FOUND')
@@ -546,14 +548,14 @@ def update_in_exp_items_entry(request,id):
             ic.save()
 
             context = {
-                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
                 'message_bg': 'alert-info'
             }
             messages.info(request, 'ITEM Updated Successfully')
             return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
 
     context = {
-        'items': in_exp_items_daily.objects.all().order_by('-id'),
+        'items': in_exp_items_daily.objects.all().filter(flag=1).order_by('-id'),
         'message_bg': 'alert-success',
 
         'ledger': ledger.objects.all(),
