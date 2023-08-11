@@ -311,6 +311,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="col" >SL NO</th>
                     <th scope="col" >NAME</th>
                     <th scope="col" >CATEGORY</th>
+                      <th scope="col" >FLAG</th>
                     <th scope="col" >ENTERED BY</th>
 
                   </tr>
@@ -336,6 +337,7 @@ function exportTableToExcel(tableID, filename = ''){
 
                         </th>
                         <th scope="row">{{i.item_category}}</th>
+                        <th scope="row">{{i.flag}}</th>
                         <th scope="row">{{i.created_by}} {{i.cb_date}} || {{i.updated_bys}} {{i.ub_date}} || {{i.deleted_by}} {{i.db_date}}</th>
                     </tr>
 
