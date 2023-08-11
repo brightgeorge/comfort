@@ -524,6 +524,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('create_new_item/', accounts1.create_new_item, name='create_new_item'),
     path('regi_new_item/', accounts1.regi_new_item, name='regi_new_item'),
     path('delete_item/<id>',accounts1.delete_item,name='delete_item'),
+    path('update_item/<id>', accounts1.update_item, name='update_item'),
 
     ##*****************ITEM CREATER END HERE
 
@@ -560,6 +561,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('in_exp_items_entry/', accounts1.in_exp_items_entry, name='in_exp_items_entry'),
     path('reg_in_exp_items_entry/', accounts1.reg_in_exp_items_entry, name='reg_in_exp_items_entry'),
     path('delete_journal/<id>',accounts1.delete_journal,name='delete_journal'),
+    path('update_in_exp_items_entry/<id>',accounts1.update_in_exp_items_entry,name='update_in_exp_items_entry'),
 
 #########################################################
 ###******INCOME EXPENSE ENTRY FORM MASTER END HERE
@@ -584,6 +586,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 ###*************LEDGER BASED REPORTS  START HERE
 
     path('ledger_based_reports/', accounts1.ledger_based_reports, name='ledger_based_reports'),
+    path('monthly_ledger_based_reports/', accounts1.monthly_ledger_based_reports, name='monthly_ledger_based_reports'),
+    path('daily_ledger_based_reports/',accounts1.daily_ledger_based_reports,name='daily_ledger_based_reports'),
 
 ###*************LEDGER BASED REPORTS  START HERE
 

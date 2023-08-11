@@ -298,7 +298,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <th ><a href="{% url 'monthly_reports_choose_months' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back 5</span> </button></a></th>
                 <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
-                <th> <h5 class="card-title">HEAD BASED REPORTS OF {{hname}} </h5></th>
+                <th> <h5 class="card-title">YEARLY LEDGER BASED REPORTS OF {{hname}} </h5></th>
 </tr>
 
                 <form action="{% url 'ledger_based_reports' %}" method="post">

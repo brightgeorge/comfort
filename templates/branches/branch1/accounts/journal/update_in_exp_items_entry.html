@@ -247,7 +247,7 @@
          <div class="card">
            <div class="card-body">
 		  <!--<a href=""> <button class="mybutton button1">X Close</button></a>-->
-           <div class="card-title">Daily Income & Expence Form (Journal) </div>
+           <div class="card-title">Update Daily Income & Expence Form (Journal) </div>
 
 
                 {% if messages %}
@@ -265,21 +265,21 @@
 
 
            <hr>
-            <form autocomplete="off" action="{% url 'reg_in_exp_items_entry' %}" method="post" enctype="multipart/form-data">
+            <form autocomplete="off" action="{% url 'update_in_exp_items_entry' id=sd.id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
 			<div class="form-group">
 
-                <input type="text" class="autocomplete form-control col-lg-2" id="myInput" placeholder="Enter Particulars" style="display:inline;" name="particular" required>
+                <input type="text" class="autocomplete form-control col-lg-2" id="myInput" value="{{sd.particulars}}" style="display:inline;" name="particular" required>
 
 
 
                 <label></label>
-                <input type="text" class="autocomplete form-control col-lg-1" id="input-12" placeholder="Enter Amount" style="display:inline;" name="amount" required>
+                <input type="text" class="autocomplete form-control col-lg-1" id="input-12" value="{{sd.amount}}" style="display:inline;" name="amount" required>
 <label></label>
 
 
                 <select id="ledg" class="col-lg-2 form-control" style="display:inline;" name="ledger" required>
-					<option style="background-color:white;">Ledgers</option>
+					<option style="background-color:white;" value="{{sd.ledger}}">{{sd.ledger}}</option>
                     {% for i in ledger %}
                     <option value="{{i.ledger_name}}" >{{i.ledger_name}}</option>
 
@@ -291,7 +291,7 @@
 
 
 				<select id="hea" class="col-lg-2 form-control" style="display:inline;" name="accounts_book_name" required>
-					<option style="background-color:white;">Accounts Book</option>
+					<option style="background-color:white;" value="{{sd.accounts_book_name}}">{{sd.accounts_book_name}}</option>
                     {% for i in accounts_book %}
                     <option value="{{i.accounts_book_name}}" >{{i.accounts_book_name}}</option>
 
@@ -303,12 +303,12 @@
 				</select>
 <label></label>
                 <select id="role" class="col-lg-2 form-control" style="display:inline;" name="type" required>
-					<option style="background-color:white;">Inc/Exp</option>
+					<option style="background-color:white;" value="{{sd.type}}">{{sd.type}}</option>
                     <option value="expense" >Expense</option>
                     <option value="income" >Income</option>
 				</select>
 <label></label>
-                <input type="date" class="form-control col-lg-2" id="input-11" placeholder="Enter Particulars" style="display:inline;" name="date" required>
+                <input type="text" class="form-control col-lg-2" id="input-11" value="{{sd.date}}" style="display:inline;" name="date" required>
 
 
 			</div>

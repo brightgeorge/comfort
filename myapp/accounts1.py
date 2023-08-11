@@ -37,7 +37,8 @@ def regi_new_category(request):
 
     ic = category()
     ic.category_name = category_names
-    ic.created_by = 'bri'
+    ic.created_by = request.session['username']
+    ic.flag = 1
     ic.save()
 
     context = {
@@ -75,7 +76,8 @@ def regi_new_item(request):
     if ir == True:
         context = {
             'item': table1.objects.all().order_by('-id'),
-            'msg' : 'danger'
+            'msg' : 'danger',
+            'category': category.objects.all().order_by('-id'),
         }
         messages.info(request,'ITEM ALREADY EXISTS')
         return render(request, 'branches/branch1/accounts/creater_master/items/view_all_items.html', context)
@@ -83,12 +85,16 @@ def regi_new_item(request):
         ic = table1()
         ic.name = item_name
         ic.item_category = item_category
-        ic.created_by = 'bri'
+        ic.created_by = 'CB '+ request.session['username']
+        import datetime
+        ic.cb_date = datetime.datetime.now()
+        ic.flag = 1
         ic.save()
 
         context = {
             'item' : table1.objects.all().order_by('-id'),
-            'msg' : 'success'
+            'msg' : 'success',
+            'category': category.objects.all().order_by('-id'),
         }
         messages.info(request, 'ITEM CREATED SUCCESSFULLY !!!')
         return render(request,'branches/branch1/accounts/creater_master/items/view_all_items.html',context)
@@ -97,20 +103,67 @@ def delete_item(request,id):
     r=table1.objects.all().filter(id=id).exists()
     if r == True:
         d=table1.objects.get(id=id)
-        d.delete()
+        d.deleted_by = 'DB ' + request.session['username']
+        import datetime
+        d.db_date = datetime.datetime.now()
+        d.flag = 2
+        d.save()
         context = {
-            'item': table1.objects.all().order_by('-id'),
-            'msg': 'success'
+            'item': table1.objects.all().filter(flag=1).order_by('-id'),
+            'msg': 'success',
+            'category': category.objects.all().order_by('-id'),
         }
         messages.info(request, 'ITEM Deleted Successfully')
         return render(request, 'branches/branch1/accounts/creater_master/items/view_all_items.html', context)
     else:
         context = {
-            'item': table1.objects.all().order_by('-id'),
-            'msg': 'warning'
+            'item': table1.objects.all().filter(flag=1).order_by('-id'),
+            'msg': 'warning',
+            'category': category.objects.all().order_by('-id'),
         }
         messages.info(request, 'ITEM already  Deleted')
         return render(request,'branches/branch1/accounts/creater_master/items/view_all_items.html',context)
+
+
+def update_item(request,id):
+    if request.method == 'POST':
+        item_name = request.POST.get('name')
+        item_category = request.POST.get('category')
+        ir = table1.objects.all().filter(name=item_name).exclude(id=id).exists()
+
+        if ir == True:
+            context = {
+                'item': table1.objects.all().order_by('-id'),
+                'msg' : 'danger',
+                'category': category.objects.all().order_by('-id'),
+            }
+            messages.info(request,'ITEM ALREADY EXISTS')
+            return render(request, 'branches/branch1/accounts/creater_master/items/view_all_items.html', context)
+        else:
+            ic = table1.objects.get(id=id)
+            ic.name = item_name
+            ic.item_category = item_category
+            ic.updated_bys = 'UB '+ request.session['username']
+            import datetime
+            ic.ub_date = datetime.datetime.now()
+            ic.flag = 1
+            ic.save()
+            context = {
+                'item': table1.objects.all().order_by('-id'),
+                'msg': 'info',
+                'category': category.objects.all().order_by('-id'),
+            }
+            messages.info(request, 'ITEM UPDATED SUCCESSFULLY')
+            return render(request, 'branches/branch1/accounts/creater_master/items/view_all_items.html', context)
+
+    context = {
+        'item' : table1.objects.all().order_by('-id'),
+        'msg' : 'success',
+        'sd' : table1.objects.get(id=id),
+        'category': category.objects.all().order_by('-id'),
+    }
+
+    return render(request,'branches/branch1/accounts/creater_master/items/update_item.html',context)
 
 ##*****************ITEM CREATER END HERE
 
@@ -144,7 +197,8 @@ def regi_new_ledger(request):
         ic.contact_person_name = contact_person_name
         ic.contact_person_mob = contact_person_number
         ic.address = addres
-        ic.created_by = 'bri'
+        ic.created_by = request.session['username']
+        ic.flag = 1
         ic.save()
 
         context = {
@@ -216,7 +270,8 @@ def regi_new_accounts_book(request):
     else:
         ic = accounts_book()
         ic.accounts_book_name = accounts_book_name
-        ic.created_by = 'bri'
+        ic.created_by = request.session['username']
+        ic.flag = 1
         ic.save()
 
         context = {
@@ -261,21 +316,7 @@ def delete_accounts_book(request,id):
 ###################################################################################
 
 def get_countries(request):
-    #countries = ['Australia', 'Canada', 'France', 'Germany', 'Italy', 'Japan', 'Russia', 'Spain', 'United Kingdom', 'United States',"Venezuela", "Vietnam", "Virgin Islands (US)", "Yemen", "Zambia", "Zimbabwe",'BRI','GIF']
-    # if request.method=='POST':
-    #     q = request.GET.get('term', '')
-    #     countries = [country for country in countries if country.startswith(q)]
-    #     results = []
-    #     for country in countries:
-    #         country_json = {}
-    #         country_json['id'] = country
-    #         country_json['label'] = country
-    #         country_json['value'] = country
-    #         results.append(country_json)
-    #     data = json.dumps(results)
-    # else:
-    #     data = 'fail'
-    #countries = []
+
     countries = []
     t1 = table1.objects.all()
     for i in t1:
@@ -340,38 +381,68 @@ def reg_in_exp_items_entry(request):
     year = ''.join(yl)
     print('year', year)
 
-    res = in_exp_items_daily.objects.all().filter(particulars=particulars,accounts_book_name=accounts_book_name,type=types,date=dates,description=descriptions).exists()
+    res = in_exp_items_daily.objects.all().filter(particulars=particulars,amount=amounts,accounts_book_name=accounts_book_name,type=types,date=dates,description=descriptions).exists()
     print('res',res)
 
     if res == True:
         context = {
             'items': in_exp_items_daily.objects.all().order_by('-id'),
-            'message_bg' : 'alert-danger'
+            'message_bg' : 'alert-danger',
+
+            'ledger': ledger.objects.all(),
+            'accounts_book': accounts_book.objects.all(),
         }
         messages.info(request, 'ITEM already exists')
         return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
-    else:
-        ic = in_exp_items_daily()
-        ic.particulars = particulars
-        ic.amount = float(amounts)
-        ic.ledger = ledgers
-        ic.accounts_book_name = accounts_book_name
-        ic.type = types
-        ic.date = dates
-        ic.description = descriptions
-        ic.day = day
-        ic.month = month
-        ic.year = year
-        ic.enter_by = 'bri'
-        ic.flag = 1
-        ic.save()
 
-        context = {
-            'items' : in_exp_items_daily.objects.all().order_by('-id'),
-            'message_bg': 'alert-success'
-        }
-        messages.info(request, 'ITEM Created Successfully')
-        return render(request,'branches/branch1/accounts/journal/in_exp_items_entry.html',context)
+    else:
+        dup = table1.objects.all().filter(name=particulars).exists()
+        if dup == False:
+            context = {
+                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'message_bg': 'alert-danger',
+
+                'ledger': ledger.objects.all(),
+                'accounts_book': accounts_book.objects.all(),
+            }
+            messages.info(request, 'ITEM NOT FOUND')
+            return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
+
+        else:
+            cat = table1.objects.all()
+            lnam = []
+            lcat = []
+            for i in cat:
+                if i.name == particulars:
+                    lnam.append(i.name)
+                    lcat.append(i.item_category)
+            print('lll nam',lnam)
+            print('ljljl ca',lcat)
+
+            ic = in_exp_items_daily()
+            ic.particulars = particulars
+            ic.amount = float(amounts)
+            ic.ledger = ledgers
+            ic.accounts_book_name = accounts_book_name
+            ic.type = types
+            ic.date = dates
+            ic.description = descriptions
+            ic.day = day
+            ic.month = month
+            ic.year = year
+            ic.enter_by = 'bri'
+            ic.flag = 1
+            ic.save()
+
+            context = {
+                'items' : in_exp_items_daily.objects.all().order_by('-id'),
+                'message_bg': 'alert-success',
+
+                'ledger': ledger.objects.all(),
+                'accounts_book': accounts_book.objects.all(),
+            }
+            messages.info(request, 'ITEM Created Successfully')
+            return render(request,'branches/branch1/accounts/journal/in_exp_items_entry.html',context)
     return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
 
 def delete_journal(request,id):
@@ -381,17 +452,116 @@ def delete_journal(request,id):
         d.delete()
         context = {
             'items': in_exp_items_daily.objects.all().order_by('-id'),
-            'message_bg': 'alert-success'
+            'message_bg': 'alert-success',
+
+            'ledger': ledger.objects.all(),
+            'accounts_book': accounts_book.objects.all(),
         }
         messages.info(request, 'ITEM Deleted Successfully')
         return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
     else:
         context = {
             'items': in_exp_items_daily.objects.all().order_by('-id'),
-            'message_bg': 'alert-warning'
+            'message_bg': 'alert-warning',
+
+            'ledger': ledger.objects.all(),
+            'accounts_book': accounts_book.objects.all(),
         }
         messages.info(request, 'ITEM already  Deleted')
         return render(request,'branches/branch1/accounts/journal/in_exp_items_entry.html',context)
+
+
+
+
+def update_in_exp_items_entry(request,id):
+    if request.method == 'POST':
+        particulars = request.POST.get('particular')
+        amounts = request.POST.get('amount')
+        ledgers = request.POST.get('ledger')
+        accounts_book_name = request.POST.get('accounts_book_name')
+        types = request.POST.get('type')
+        dates = request.POST.get('date')
+        descriptions = request.POST.get('description')
+
+        dup = table1.objects.all().filter(name=particulars).exists()
+        if dup == False:
+            context = {
+                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'message_bg': 'alert-danger'
+            }
+            messages.info(request, 'ITEM NOT FOUND')
+            return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
+        else:
+
+            dl = []
+            for i in dates:
+                dl.append(i)
+
+            dll = []
+            dll.append(dl[5])
+            dll.append(dl[6])
+
+            print(dll)
+
+            month = ''.join(dll)
+            print(month)
+
+            dal = []
+            dal.append(dl[8])
+            dal.append(dl[9])
+            print(dal)
+            day = ''.join(dal)
+            print('date', day)
+
+            yl = []
+            yl.append(dl[0])
+            yl.append(dl[1])
+            yl.append(dl[2])
+            yl.append(dl[3])
+            print(yl)
+            year = ''.join(yl)
+            print('year', year)
+
+            cat = table1.objects.all()
+            lnam = []
+            lcat = []
+            for i in cat:
+                if i.name == particulars:
+                    lnam.append(i.name)
+                    lcat.append(i.item_category)
+
+            ic = in_exp_items_daily()
+            ic.particulars = particulars
+            ic.amount = float(amounts)
+            ic.ledger = ledgers
+            ic.accounts_book_name = accounts_book_name
+            ic.type = types
+            ic.date = dates
+            ic.description = descriptions
+            ic.day = day
+            ic.month = month
+            ic.year = year
+            ic.enter_by = request.session['username']
+            ic.flag = 1
+            ic.save()
+
+            context = {
+                'items': in_exp_items_daily.objects.all().order_by('-id'),
+                'message_bg': 'alert-info'
+            }
+            messages.info(request, 'ITEM Updated Successfully')
+            return render(request, 'branches/branch1/accounts/journal/in_exp_items_entry.html', context)
+
+    context = {
+        'items': in_exp_items_daily.objects.all().order_by('-id'),
+        'message_bg': 'alert-success',
+
+        'ledger': ledger.objects.all(),
+        'accounts_book': accounts_book.objects.all(),
+        'sd': in_exp_items_daily.objects.get(id=id)
+    }
+    return render(request, 'branches/branch1/accounts/journal/update_in_exp_items_entry.html', context)
+
 
 #########################################################
 ###******INCOME EXPENSE ENTRY FORM MASTER END HERE
@@ -480,6 +650,59 @@ def item_based_reports(request):
 
 ###*************LEDGER BASED REPORTS  START HERE
 
+
+def daily_ledger_based_reports(request):
+    dates = request.POST.get('day')
+    ledgers = request.POST.get('ledger')
+    import datetime
+    if dates == None:
+        d = datetime.datetime.now()
+        month = d.strftime("%m")
+        day=d.strftime(("%d"))
+        r_dates = d
+    else:
+        dl = []
+        for i in dates:
+            dl.append(i)
+
+        dll = []
+        dll.append(dl[5])
+        dll.append(dl[6])
+        month = ''.join(dll)
+
+        dal = []
+        dal.append(dl[8])
+        dal.append(dl[9])
+        day = ''.join(dal)
+
+        r_dates = dates
+
+    a = in_exp_items_daily.objects.all().filter(day=day,month=month,ledger=ledgers)
+    il=[]
+    el=[]
+    for i in a:
+        if i.type == 'income':
+            il.append(float(i.amount))
+        if i.type == 'expense':
+            el.append(float(i.amount))
+    print('ill',il)
+    sil=sum(il)
+    sel=sum(el)
+
+    d_bal = sil - sel
+
+    context={
+        'hb' : in_exp_items_daily.objects.all().filter(day=day,month=month,ledger=ledgers),
+        'sil' : sil,
+        'sel' : sel,
+        'd_bal' : d_bal,
+        'dates' : r_dates,
+        'ledger': ledger.objects.all(),
+        'lname': ledgers,
+    }
+    return render(request,'branches/branch1/accounts/accounts_reports/ledger/daily_ledger_based_reports.html',context)
+
+
 def ledger_based_reports(request):
     ledgers = request.POST.get('ledger')
 
@@ -520,6 +743,50 @@ def ledger_based_reports(request):
 
     }
     return render(request,'branches/branch1/accounts/accounts_reports/ledger/ledger_based_reports.html',context)
+
+
+
+def monthly_ledger_based_reports(request):
+    ledgers = request.POST.get('ledger')
+    month = request.POST.get('month')
+
+    a =  in_exp_items_daily.objects.all().filter(ledger=ledgers,month=month)
+    l=[]
+    for i in a:
+        if i.amount > 0:
+            l.append(float(i.amount))
+    r=sum(l)
+
+    a = in_exp_items_daily.objects.all().filter(ledger=ledgers,month=month)
+    il = []
+    el = []
+    for i in a:
+        if i.type == 'income':
+            il.append(float(i.amount))
+        if i.type == 'expense':
+            el.append(float(i.amount))
+    print('ill', il)
+    sil = sum(il)
+    sel = sum(el)
+
+    d_bal = sil - sel
+
+    import datetime
+    r_dates = datetime.datetime.now()
+
+    context={
+        'hb' : in_exp_items_daily.objects.all().filter(ledger=ledgers,month=month),
+        'hname' : ledgers,
+        'total' : r,
+
+        'sil': sil,
+        'sel': sel,
+        'd_bal': d_bal,
+        'dates': r_dates,
+        'ledger': ledger.objects.all(),
+
+    }
+    return render(request,'branches/branch1/accounts/accounts_reports/ledger/monthly_ledger_based_reports.html',context)
 
 
 ###*************LEDGER BASED REPORTS  START HERE

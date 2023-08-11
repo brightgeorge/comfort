@@ -469,5 +469,7 @@ urlpatterns = [
 # DASHBOARD REPORTS END HERE
 ###########################
 
+    path('guest_all/',branch5.guest_all,name='guest_all'),
+
 
 ]
