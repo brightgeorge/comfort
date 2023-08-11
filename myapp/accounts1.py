@@ -285,6 +285,50 @@ def delete_ledger(request,id):
         return render(request,'branches/branch1/accounts/creater_master/ledger/view_all_ledger.html',context)
 
 
+
+def update_ledger(request,id):
+    if request.method == 'POST':
+        ledger_name = request.POST.get('ledger_name')
+        contact_person_name = request.POST.get('contact_person_name')
+        contact_person_number = request.POST.get('contact_person_number')
+        addres = request.POST.get('address')
+
+        ir = ledger.objects.all().filter(ledger_name=ledger_name).exclude(id=id).exists()
+
+        if ir == True:
+            context = {
+                'msg' : 'danger',
+                'ledger': ledger.objects.all().order_by('-id'),
+            }
+            messages.info(request,'CATEGORY ALREADY EXISTS')
+            return render(request, 'branches/branch1/accounts/creater_master/ledger/view_all_ledger.html', context)
+        else:
+            ic = ledger.objects.get(id=id)
+            ic.ledger_name = ledger_name
+            ic.contact_person_name = contact_person_name
+            ic.contact_person_mob = contact_person_number
+            ic.address = addres
+            #ic.created_by = request.session['username']
+            ic.created_by = ''
+            ic.flag = 1
+            ic.save()
+            context = {
+                'msg': 'info',
+                'ledger': ledger.objects.all().order_by('-id'),
+            }
+            messages.info(request, 'CATEGORY UPDATED SUCCESSFULLY')
+            return render(request, 'branches/branch1/accounts/creater_master/ledger/view_all_ledger.html', context)
+
+    context = {
+        'item' : table1.objects.all().order_by('-id'),
+        'msg' : 'success',
+        'sd' : ledger.objects.get(id=id),
+        'ledger': ledger.objects.all().order_by('-id'),
+    }
+
+    return render(request,'branches/branch1/accounts/creater_master/ledger/update_ledger.html',context)
+
+
 ##*****************LEDGER CREATER END HERE
 
 
@@ -338,18 +382,53 @@ def delete_accounts_book(request,id):
         d=accounts_book.objects.get(id=id)
         d.delete()
         context = {
-            'ledger': accounts_book.objects.all().order_by('-id'),
+            'accounts_book': accounts_book.objects.all().order_by('-id'),
             'msg': 'success'
         }
         messages.info(request, 'ACCOUNTS BOOK Deleted Successfully')
         return render(request, 'branches/branch1/accounts/creater_master/accounts_book/view_all_accounts_book.html', context)
     else:
         context = {
-            'ledger': accounts_book.objects.all().order_by('-id'),
+            'accounts_book': accounts_book.objects.all().order_by('-id'),
             'msg': 'warning'
         }
         messages.info(request, 'ACCOUNTS BOOK already  Deleted')
         return render(request,'branches/branch1/accounts/creater_master/accounts_book/view_all_accounts_book.html',context)
+
+
+def update_accounts_book(request,id):
+    if request.method == 'POST':
+        accounts_book_name = request.POST.get('accounts_book_name')
+        ir = accounts_book.objects.all().filter(accounts_book_name=accounts_book_name).exclude(id=id).exists()
+
+        if ir == True:
+            context = {
+                'msg' : 'danger',
+                'accounts_book': accounts_book.objects.all().order_by('-id'),
+            }
+            messages.info(request,'ACCOUNTS BOOK ALREADY EXISTS')
+            return render(request, 'branches/branch1/accounts/creater_master/accounts_book/view_all_accounts_book.html', context)
+        else:
+            ic = accounts_book.objects.get(id=id)
+            ic.accounts_book_name = accounts_book_name
+            #ic.created_by = request.session['username']
+            ic.flag = 1
+            ic.save()
+            context = {
+                'msg': 'info',
+                'accounts_book': accounts_book.objects.all().order_by('-id'),
+            }
+            messages.info(request, 'ACCOUNTS BOOK UPDATED SUCCESSFULLY')
+            return render(request, 'branches/branch1/accounts/creater_master/accounts_book/view_all_accounts_book.html', context)
+
+    context = {
+        'item' : table1.objects.all().order_by('-id'),
+        'msg' : 'success',
+        'sd' : accounts_book.objects.get(id=id),
+        'accounts_book': accounts_book.objects.all().order_by('-id'),
+    }
+
+    return render(request,'branches/branch1/accounts/creater_master/accounts_book/update_accounts_book.html',context)
 
 
 

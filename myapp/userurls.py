@@ -514,8 +514,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('view_all_category/', accounts1.view_all_category, name='view_all_category'),
     path('create_new_category/', accounts1.create_new_category, name='create_new_category'),
     path('regi_new_category/', accounts1.regi_new_category, name='regi_new_category'),
-    path(''
-         '/<id>',accounts1.update_category,name='update_category'),
+    path('update_category/<id>',accounts1.update_category,name='update_category'),
 
     ##*****************CATERY CREATER END HERE
 
@@ -537,6 +536,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('create_new_ledger/', accounts1.create_new_ledger, name='create_new_ledger'),
     path('regi_new_ledger/', accounts1.regi_new_ledger, name='regi_new_ledger'),
     path('delete_ledger/<id>',accounts1.delete_ledger,name='delete_ledger'),
+    path('update_ledger/<id>',accounts1.update_ledger,name='update_ledger'),
 
 ##*****************LEDGER CREATER END HERE
 
@@ -546,6 +546,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('view_all_accounts_book/', accounts1.view_all_accounts_book, name='view_all_accounts_book'),
     path('create_new_accounts_book/', accounts1.create_new_accounts_book, name='create_new_accounts_book'),
     path('regi_new_accounts_book/', accounts1.regi_new_accounts_book, name='regi_new_accounts_book'),
+    path('update_accounts_book/<id>',accounts1.update_accounts_book,name='update_accounts_book'),
 
     ##*****************ACCOUNTS_BOOK CREATER END HERE
 

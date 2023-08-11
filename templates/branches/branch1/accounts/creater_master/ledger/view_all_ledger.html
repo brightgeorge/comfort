@@ -313,6 +313,7 @@ function exportTableToExcel(tableID, filename = ''){
                     <th scope="col" >CONTACT PERSON NAME</th>
                       <th scope="col" >CONTACT PERSON NUMBER</th>
                       <th scope="col" >ADDRESS</th>
+                      <th scope="col">flag</th>
                     <th scope="col" >ENTERED BY</th>
 
                   </tr>
@@ -329,6 +330,7 @@ function exportTableToExcel(tableID, filename = ''){
               <i class="icon-options1" >{{ i.ledger_name }}</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_ledger' id=i.id %}">Update Selected Entry</a>
                 <a class="dropdown-item" href="{% url 'delete_ledger' id=i.id %}">Delete Selected Entry</a>
 
                </div>
@@ -338,6 +340,8 @@ function exportTableToExcel(tableID, filename = ''){
                         <th scope="row">{{i.contact_person_name}}</th>
                          <th scope="row">{{i.contact_person_mob}}</th>
                         <th scope="row">{{i.address}}</th>
+                        <th scope="row">{{i.flag}}</th>
+
                         <th scope="row">{{i.created_by}}</th>
                     </tr>
 
