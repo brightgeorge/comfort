@@ -516,6 +516,9 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('regi_new_category/', accounts1.regi_new_category, name='regi_new_category'),
     path('update_category/<id>',accounts1.update_category,name='update_category'),
 
+    path('delete_category/<id>', accounts1.delete_category, name='delete_category'),
+    path('view_all_category_delete/', accounts1.view_all_category_delete, name='view_all_category_delete'),
+
     ##*****************CATERY CREATER END HERE
 
 
@@ -526,6 +529,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('regi_new_item/', accounts1.regi_new_item, name='regi_new_item'),
     path('delete_item/<id>',accounts1.delete_item,name='delete_item'),
     path('update_item/<id>', accounts1.update_item, name='update_item'),
+    path('view_all_items_delete/',accounts1.view_all_items_delete,name='view_all_items_delete'),
 
     ##*****************ITEM CREATER END HERE
 
@@ -537,6 +541,7 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('regi_new_ledger/', accounts1.regi_new_ledger, name='regi_new_ledger'),
     path('delete_ledger/<id>',accounts1.delete_ledger,name='delete_ledger'),
     path('update_ledger/<id>',accounts1.update_ledger,name='update_ledger'),
+    path('view_all_ledger_delete/',accounts1.view_all_ledger_delete,name='view_all_ledger_delete'),
 
 ##*****************LEDGER CREATER END HERE
 
@@ -547,8 +552,10 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('create_new_accounts_book/', accounts1.create_new_accounts_book, name='create_new_accounts_book'),
     path('regi_new_accounts_book/', accounts1.regi_new_accounts_book, name='regi_new_accounts_book'),
     path('update_accounts_book/<id>',accounts1.update_accounts_book,name='update_accounts_book'),
+    path('delete_accounts_book/<id>',accounts1.delete_accounts_book,name='delete_accounts_book'),
+    path('view_all_accounts_book_delete/',accounts1.view_all_accounts_book_delete,name='view_all_accounts_book_delete'),
 
-    ##*****************ACCOUNTS_BOOK CREATER END HERE
+##*****************ACCOUNTS_BOOK CREATER END HERE
 
 
 #########################################################
@@ -565,6 +572,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('reg_in_exp_items_entry/', accounts1.reg_in_exp_items_entry, name='reg_in_exp_items_entry'),
     path('delete_journal/<id>',accounts1.delete_journal,name='delete_journal'),
     path('update_in_exp_items_entry/<id>',accounts1.update_in_exp_items_entry,name='update_in_exp_items_entry'),
+    path('detailed_journal_report/',accounts1.detailed_journal_report,name='detailed_journal_report'),
+    path('journal_report_deleted/',accounts1.journal_report_deleted,name='journal_report_deleted'),
 
 #########################################################
 ###******INCOME EXPENSE ENTRY FORM MASTER END HERE

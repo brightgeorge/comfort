@@ -247,7 +247,15 @@
          <div class="card">
            <div class="card-body">
 		  <!--<a href=""> <button class="mybutton button1">X Close</button></a>-->
-           <div class="card-title">Update Daily Income & Expence Form (Journal) </div>
+           <div class="card-title">Update Daily Income & Expence Form (Journal)
+
+               <a href="{% url 'in_exp_items_entry' %}">
+               <span style="background-color:red;align:right;">
+                   <button class="btn btn-light px-5" id="a"><i class="icon-lock">
+
+                   </i><span style="background-color:red;">Cancel</span> </button>
+               </span></a>
+           </div>
 
 
                 {% if messages %}
@@ -326,9 +334,10 @@
 
            <div class="form-group">
             <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Save</button>
+
           </div>
           </form>
-         </div>
+
          </div>
       </div>
 
@@ -337,28 +346,6 @@
 
 
 
-      {% for i in items %}
-
-    <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
-             </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="{% url 'update_in_exp_items_entry' id=i.id %}">Update Selected Entry</a>
-                <a class="dropdown-item" href="{% url 'delete_journal' id=i.id %}">Delete Selected Entry</a>
-
-               </div>
-              </div>
-
-              <div class="form-group" style="background-color:green;border:1px white;border-style: groove;border-width: 7px;border-color: white;">
-                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
-                      Particulars : {{i.particulars}} || Amount  : {{i.amount}} || Ledger : {{i.ledger}} || Accounts Book : {{i.accounts_book_name}} || Type : {{i.type}} ||
-                      Date : {{i.date}} || Description : {{i.description}}
-                  </label></br>
-              </div>
-
-
-{% endfor %}
 
 
 

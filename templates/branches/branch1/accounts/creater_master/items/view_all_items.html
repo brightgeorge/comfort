@@ -296,11 +296,12 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                     <th ><a href=""> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
-                     <th ><a href="{% url 'create_new_item' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create New Item </button></a></th>
+                     <th ><a href="{% url 'create_new_item' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create Item </button></a></th>
+                      <th ><a href="{% url 'view_all_items_delete' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;">DELETED ITEMS</span> </button></a></th>
+
 
                  </tr>
 

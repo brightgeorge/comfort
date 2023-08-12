@@ -296,13 +296,14 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-                     <th ><a href=""> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
-                     <th ><a href="{% url 'create_new_category' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create New Category </button></a></th>
+                     <th ><a href="{% url 'create_new_category' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create Category </button></a></th>
 
+                      <th ><a href="{% url 'view_all_category_delete' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"> DELETED CATEGORY </span> </button></a></th>
                  </tr>
+                <br><br>
 
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
@@ -328,14 +329,14 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="{% url 'update_category' id=i.id %}">Update Selected Entry</a>
-                  <a class="dropdown-item" href="">Delete Selected Entry</a>
+                  <a class="dropdown-item" href="{% url 'delete_category' id=i.id %}">Delete Selected Entry</a>
 
                </div>
               </div>
 
                             </th>
                         <th scope="row">{{i.flag}}</th>
-                        <th scope="row">{{i.created_by}}</th>
+                        <th scope="row">{{i.enter_by}} {{i.cb_date}} || {{i.updated_by}} {{i.ub_date}} </th>
                     </tr>
 
 {% endfor %}

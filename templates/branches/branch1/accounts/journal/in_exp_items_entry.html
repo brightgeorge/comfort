@@ -370,6 +370,18 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Daily Income & Expence</h5>
+
+
+                 <tr>
+
+
+                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                     <th ><a href="{% url 'detailed_journal_report' %}"> <button class="mybutton button1" style="background-color:green;color:white;">DETAILED REPORT </button></a></th>
+
+                     <th ><a href="{% url 'journal_report_deleted' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;">DELETED ENTRYS</span> </button></a></th>
+                 </tr>
+
 			  <div class="table-responsive">
               <table class="table table-sm" border="1">
                 <thead>

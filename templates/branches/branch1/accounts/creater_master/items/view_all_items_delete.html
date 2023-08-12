@@ -279,7 +279,7 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">VIEW ALL LEDGER</h5>
+              <h5 class="card-title">VIEW ALL DELETED ITEMS</h5>
 
 
                 {% if messages %}
@@ -296,59 +296,49 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-
+                     <th ><a href="{% url 'view_all_items' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
 
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
-                     <th ><a href="{% url 'create_new_ledger' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create Ledger </button></a></th>
-                      <th ><a href="{% url 'view_all_ledger_delete' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;">DELETED LEDGER</span> </button></a></th>
-
+                     <th ><a href="{% url 'create_new_item' %}"> <button class="mybutton button1" style="background-color:green;color:white;">Create New Item </button></a></th>
 
                  </tr>
 
            <div class="table-responsive">
-              <table class="table table-sm" id="tbldata" border="1">
+              <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr >
                     <th scope="col" >SL NO</th>
-                    <th scope="col" >LEDGER NAME</th>
-                    <th scope="col" >CONTACT NAME</th>
-                      <th scope="col" >CONTACT NUMBER</th>
-                      <th scope="col" >ADDRESS</th>
-                      <th scope="col">flag</th>
+                    <th scope="col" >NAME</th>
+                    <th scope="col" >CATEGORY</th>
+                      <th scope="col" >FLAG</th>
                     <th scope="col" >ENTERED BY</th>
 
                   </tr>
                 </thead>
                 <tbody>
 
-{% for i in ledger %}
+{% for i in item %}
                     <tr>
                         <th scope="row">{{ forloop.counter }}</th>
                         <th scope="row">
 
-                              <div class="dropdown">
+                                <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options1" >{{ i.ledger_name }}</i>
+              <i class="icon-options1" >{{ i.name }}</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="{% url 'update_ledger' id=i.id %}">Update Selected Entry</a>
-                <a class="dropdown-item" href="{% url 'delete_ledger' id=i.id %}">Delete Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_item' id=i.id %}">Delete Selected Entry</a>
+                  <a class="dropdown-item" href="{% url 'update_item' id=i.id %}">Update Selected Entry</a>
 
                </div>
               </div>
 
+
                         </th>
-                        <th scope="row">{{i.contact_person_name}}</th>
-                         <th scope="row">{{i.contact_person_mob}}</th>
-                        <th scope="row">{{i.address}}</th>
+                        <th scope="row">{{i.item_category}}</th>
                         <th scope="row">{{i.flag}}</th>
-
-                        <th scope="row">
-                            <span style="background-color:green;"> {{i.created_by}} {{i.cb_date}} ||
-
-                           <span style="background-color:orange;"> {{i.updated_by}} {{i.ub_date}} || </span>
-                        </th>
+                        <th scope="row"> {{i.created_by}} {{i.cb_date}} || {{i.updated_bys}} {{i.ub_date}} || {{i.deleted_by}} {{i.db_date}} </th>
                     </tr>
 
 {% endfor %}
