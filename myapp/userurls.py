@@ -586,12 +586,16 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 ###*************DAILY DETAILED REPORTS  START HERE
 
     path('daily_detailed/', accounts1.daily_detailed, name='daily_detailed'),
+    path('monthly_detailed/',accounts1.monthly_detailed,name='monthly_detailed'),
+    path('yearly_detailed/',accounts1.yearly_detailed,name='yearly_detailed'),
 
 ###*************DAILY DETAILED REPORTS  START HERE
 
 ###*************ITEM BASED REPORTS  START HERE
 
     path('item_based_reports/', accounts1.item_based_reports, name='item_based_reports'),
+    path('daily_item_based_reports/',accounts1.daily_item_based_reports,name='daily_item_based_reports'),
+    path('monthly_item_based_reports/',accounts1.monthly_item_based_reports,name='monthly_item_based_reports'),
 
 ###*************ITEM BASED REPORTS  START HERE
 
@@ -606,6 +610,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 ###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
 
     path('accounts_book_based_reports/', accounts1.accounts_book_based_reports, name='accounts_book_based_reports'),
+    path('daily_accounts_book_based_reports/',accounts1.daily_accounts_book_based_reports,name='daily_accounts_book_based_reports'),
+    path('monthly_accounts_book_based_reports/',accounts1.monthly_accounts_book_based_reports,name='monthly_accounts_book_based_reports'),
 
 ###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
 
@@ -618,6 +624,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('monthly_reports_choose_months/', accounts1.monthly_reports_choose_months, name='monthly_reports_choose_months'),
     path('monthly_daily_in_exp_items_report', accounts1.monthly_daily_in_exp_items_report,name='monthly_daily_in_exp_items_report'),
     path('single_monthly_daily_in_exp_items_report', accounts1.single_monthly_daily_in_exp_items_report,name='single_monthly_daily_in_exp_items_report'),
+
+    path('monthly_detailed_daily_in_exp_items_report/<mo>',accounts1.monthly_detailed_daily_in_exp_items_report,name='monthly_detailed_daily_in_exp_items_report'),
 
 
 

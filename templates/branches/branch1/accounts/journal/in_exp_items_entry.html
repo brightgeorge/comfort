@@ -54,7 +54,7 @@
      <div class="brand-logo">
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Open Bright</h5>
+       <h5 class="logo-text">Open Bright A/C S</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
@@ -92,8 +92,9 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'daily_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Detailed</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'daily_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Detailed</span></a>
+    <a class="dropdown-item btn-warning" href="{% url 'monthly_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Detailed</span></a>
+       <a class="dropdown-item btn-info" href="{% url 'yearly_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Detailed</span></a>
 
   </div>
 </div>
@@ -106,9 +107,11 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Total Ledger Reports</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'monthly_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly ledger report </span></a>
-      <a class="dropdown-item btn-success" href="{% url 'daily_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily ledger report </span></a>
+     <a class="dropdown-item btn-success" href="{% url 'daily_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily ledger report </span></a>
+<a class="dropdown-item btn-warning" href="{% url 'monthly_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly ledger report </span></a>
+
+      <a class="dropdown-item btn-info" href="{% url 'ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Ledger Reports</span></a>
+
 
   </div>
 </div>
@@ -117,12 +120,16 @@
                      <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Accounts Book Reports</span>
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">A/C S Book Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Total Accounts Book Based</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+      <a class="dropdown-item btn-success" href="{% url 'daily_accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily A/C S Book Based</span></a>
+
+     <a class="dropdown-item btn-warning" href="{% url 'monthly_accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly A/C S Book Based</span></a>
+
+      <a class="dropdown-item btn-info" href="{% url 'accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly A/C S Book Based</span></a>
+
 
   </div>
 </div>
@@ -135,8 +142,11 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Based</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+
+      <a class="dropdown-item btn-success" href="{% url 'daily_item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Item Based</span></a>
+
+      <a class="dropdown-item btn-warning" href="{% url 'monthly_item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Item Based</span></a>
+ <a class="dropdown-item btn-info" href="{% url 'item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Item Based</span></a>
 
   </div>
 </div>
@@ -150,10 +160,10 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-          <a class="dropdown-item btn-warning" href="{% url 'view_all_category' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Category Creater</span></a>
-    <a class="dropdown-item btn-warning" href="{% url 'view_all_items' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Creater</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'view_all_ledger' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Ledger Creater</span></a>
-      <a class="dropdown-item btn-success" href="{% url 'view_all_accounts_book' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Accounts Book </span></a>
+          <a class="dropdown-item btn-danger" href="{% url 'view_all_category' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Category Creater</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'view_all_items' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Creater</span></a>
+    <a class="dropdown-item btn-warning" href="{% url 'view_all_ledger' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Ledger Creater</span></a>
+      <a class="dropdown-item btn-info" href="{% url 'view_all_accounts_book' %}"><i class="zmdi zmdi-invert-colors"></i> <span>A/C S Book Creater</span></a>
 
   </div>
 </div>
@@ -338,8 +348,29 @@
 
 
       {% for i in items %}
+      {% if i.ub_flag == 1 %}
 
     <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_in_exp_items_entry' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_journal' id=i.id %}">Delete Selected Entry</a>
+
+               </div>
+              </div>
+
+              <div class="form-group" style="background-color:orange;border:1px white;border-style: groove;border-width: 7px;border-color: white;">
+                 <label for="input-4" class="col0-lg-1" style="margin-left:20px;">
+                      Particulars : {{i.particulars}} || Amount  : {{i.amount}} || Ledger : {{i.ledger}} || Accounts Book : {{i.accounts_book_name}} || Type : {{i.type}} ||
+                      Date : {{i.date}} || Description : {{i.description}}
+                  </label></br>
+              </div>
+
+      {% else %}
+
+          <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
               <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
              </a>
@@ -356,6 +387,8 @@
                       Date : {{i.date}} || Description : {{i.description}}
                   </label></br>
               </div>
+
+      {% endif %}
 
 
 {% endfor %}
@@ -400,7 +433,9 @@
                 <tbody>
                 {% for i in items %}
 
-                  <tr>
+                {% if i.ub_flag == 1 %}
+
+                  <tr style="background-color:orange;">
                     <td>{{forloop.counter}}</td>
                     <td>{{i.particulars}}</td>
                       <td>{{i.amount}}</td>
@@ -411,6 +446,22 @@
                       <td>{{i.flag}}</td>
                     <td>{{i.description}}</td>
                   </tr>
+
+                {% else %}
+
+                 <tr >
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.particulars}}</td>
+                      <td>{{i.amount}}</td>
+                      <td>{{i.ledger}}</td>
+                    <td>{{i.accounts_book_name}}</td>
+                    <td>{{i.type}}</td>
+                      <td>{{i.date}}</td>
+                      <td>{{i.flag}}</td>
+                    <td>{{i.description}}</td>
+                  </tr>
+
+                {% endif %}
 
                 {% endfor %}
 
