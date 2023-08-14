@@ -906,6 +906,7 @@ def vacate_br1_guest(request, id):
     return render(request, 'branches/branch1/new_guest/vacate_br1_guest.html', context)
 
 
+
 #new guest end here
 ################################
 

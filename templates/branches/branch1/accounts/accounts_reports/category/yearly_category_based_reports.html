@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright</title>
+  <title>Open Bright A/C S</title>
   <!-- loader-->
   <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
@@ -73,7 +73,14 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+{% if us == th_us %}
+{% for i in bg %}
+<body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
+{% endfor %}
+{% else %}
 <body class="bg-theme bg-theme1">
+{% endif %}
+
 
 <!-- start loader -->
    <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
@@ -87,32 +94,39 @@ function exportTableToExcel(tableID, filename = ''){
      <div class="brand-logo">
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Open Bright</h5>
+       <h5 class="logo-text">Open Bright A/C S</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION</li>
+      <li class="sidebar-header"><h6 style="text-decoration:underline;">.........* COMFORT PG1 *.........</h6></li>
+
+             <li>
+        <a href="{% url 'accounts_dash_board' %}">
+          <i class="zmdi zmdi-book"></i> <span>A/C S DASHBOARD</span>
+        </a>
+      </li>
+
       <li>
         <a href="{% url 'branch1_dashboard' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+          <i class="zmdi zmdi-view-dashboard"></i> <span>PG MANAGEMENT</span>
         </a>
       </li>
 
        <li>
         <a href="{% url 'in_exp_items_entry' %}">
-          <i class="zmdi zmdi-invert-colors"></i> <span>Daily Inc Exp Form</span>
+          <i class="zmdi zmdi-case-check"></i> <span>Daily Inc Exp Form</span>
         </a>
       </li>
 
                      <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">Monthly Reports</span>
+     <i class="zmdi zmdi-balance-wallet" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">INCOME EXPENCE Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
     <a class="dropdown-item btn-warning" href="{% url 'monthly_reports_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Detailed</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'single_monthly_reports_choose_months' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Monthly Detailed</span></a>
 
   </div>
 </div>
@@ -121,12 +135,13 @@ function exportTableToExcel(tableID, filename = ''){
               <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Detailed Reports</span>
+     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Detailed Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
     <a class="dropdown-item btn-danger" href="{% url 'daily_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Detailed</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'monthly_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Detailed</span></a>
+       <a class="dropdown-item btn-warning" href="{% url 'yearly_detailed' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Detailed</span></a>
 
   </div>
 </div>
@@ -135,12 +150,15 @@ function exportTableToExcel(tableID, filename = ''){
                      <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Ledger Reports</span>
+     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Ledger Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Total Ledger Reports</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+     <a class="dropdown-item btn-danger" href="{% url 'daily_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily ledger report </span></a>
+<a class="dropdown-item btn-success" href="{% url 'monthly_ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly ledger report </span></a>
+
+      <a class="dropdown-item btn-warning" href="{% url 'ledger_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Ledger Reports</span></a>
+
 
   </div>
 </div>
@@ -149,12 +167,16 @@ function exportTableToExcel(tableID, filename = ''){
                      <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Accounts Book Reports</span>
+     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">A/C S Book Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Total Accounts Book Based</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+      <a class="dropdown-item btn-danger" href="{% url 'daily_accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily A/C S Book Based</span></a>
+
+     <a class="dropdown-item btn-success" href="{% url 'monthly_accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly A/C S Book Based</span></a>
+
+      <a class="dropdown-item btn-warning" href="{% url 'accounts_book_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly A/C S Book Based</span></a>
+
 
   </div>
 </div>
@@ -163,12 +185,15 @@ function exportTableToExcel(tableID, filename = ''){
                      <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Item Wise Reports</span>
+     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Item Wise Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Based</span></a>
-    <a class="dropdown-item btn-success" href=""><i class="zmdi zmdi-invert-colors"></i> <span>Payment 5</span></a>
+
+      <a class="dropdown-item btn-danger" href="{% url 'daily_item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Item Based</span></a>
+
+      <a class="dropdown-item btn-success" href="{% url 'monthly_item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Item Based</span></a>
+ <a class="dropdown-item btn-warning" href="{% url 'item_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Item Based</span></a>
 
   </div>
 </div>
@@ -178,14 +203,32 @@ function exportTableToExcel(tableID, filename = ''){
                             <li id="mycolor">
        <div class="dropdown show" id="mycolor">
   <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">Creater Master</span>
+     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Category Wise Reports</span>
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-          <a class="dropdown-item btn-warning" href="{% url 'view_all_category' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Category Creater</span></a>
-    <a class="dropdown-item btn-warning" href="{% url 'view_all_items' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Creater</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'view_all_ledger' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Ledger Creater</span></a>
-      <a class="dropdown-item btn-success" href="{% url 'view_all_accounts_book' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Accounts Book </span></a>
+
+      <a class="dropdown-item btn-danger" href="{% url 'daily_category_wise' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Category Based</span></a>
+
+      <a class="dropdown-item btn-success" href="{% url 'monthly_category_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Category Based</span></a>
+ <a class="dropdown-item btn-warning" href="{% url 'yearly_category_based_reports' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Category Based</span></a>
+
+  </div>
+</div>
+       </li>
+
+
+                            <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-brush" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">Creater Master</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+          <a class="dropdown-item btn-danger" href="{% url 'view_all_category' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Category Creater</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'view_all_items' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Creater</span></a>
+    <a class="dropdown-item btn-warning" href="{% url 'view_all_ledger' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Ledger Creater</span></a>
+      <a class="dropdown-item btn-info" href="{% url 'view_all_accounts_book' %}"><i class="zmdi zmdi-invert-colors"></i> <span>A/C S Book Creater</span></a>
 
   </div>
 </div>
@@ -274,15 +317,12 @@ function exportTableToExcel(tableID, filename = ''){
   <div class="content-wrapper">
     <div class="container-fluid">
 
-      <div class="row mt-0">
+      <div class="row mt-3">
 
-          <div class="col-lg-1"></div>
-
-
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">DETAILED REPORT OF AUGUEST PRESTIGE</h5>
+             <!-- <h5 class="card-title">DETAILED REPORT OF AUGUEST PRESTIGE</h5>-->
 
 
                 {% if messages %}
@@ -297,267 +337,78 @@ function exportTableToExcel(tableID, filename = ''){
        {% endfor %}
             {% endif %}
 
+<tr>
+                 <th ><a href="{% url 'monthly_reports_choose_months' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back 5</span> </button></a></th>
+                <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
+                 <th><button onclick="window.print()">Print</button></th>
+                <th> <h5 class="card-title">YEARLY CATEGORY BASED REPORTS OF {{hname}} </h5></th>
+</tr>
+
+                <form action="{% url 'yearly_category_based_reports' %}" method="post">
+                         {% csrf_token %}
 
                  <tr>
-                     <th ><a href="{% url 'monthly_reports_choose_months' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;"><= Back</span> </button></a></th>
-                       <th ><a href="{% url 'daily_detailed' %}"> <button class="mybutton button1" style="background-color:green;color:white;">DAILY REPORTS </button></a></th>
-                     <th ><a href="{% url 'single_monthly_daily_in_exp_items_report' %}"> <button class="mybutton button1" style="background-color:green;color:white;">SINGLE VIEW </button></a></th>
+                     <th>
+                       <select id="ledg" class="col-lg-2 form-control" style="display:inline;" name="item_catergory" required>
+					<option style="background-color:white;">Category Name</option>
+                    {% for i in category %}
+                    <option value="{{i.category_name}}" >{{i.category_name}}</option>
+                             {% endfor %}
 
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Detailed Report of JUNE')">download</button></th>
-                 <th><button onclick="window.print()">Print</button></th>
+				</select>
+             <input type="submit" value="Search">
+                                              </th>
                  </tr>
-
+                    </form>
+                    <br>
 
            <div class="table-responsive">
               <table class="table table-sm" id="tbldata" border="1">
                 <thead>
                   <tr >
-                    <th scope="col" style="background-color:purple;color:white;">SL NO</th>
+                    <th scope="col" >SL NO</th>
 
-                    <th scope="row" style="background-color:purple;color:white;">DATE</th>
-                    <th scope="col" style="background-color:purple;color:white;" >INCOME</th>
-                    <th scope="col" style="background-color:purple;color:white;">EXPENSE</th>
-                    <th scope="col" style="background-color:purple;color:white;">BALANCE</th>
+                    <th scope="col" >Name</th>
+                      <th scope="col" >Income</th>
+                    <th scope="col" >Expense</th>
 
+                    <th scope="col" >LEDGER</th>
+                    <th scope="col" > A/C BOOK</th>
+                       <th scope="col" >CATEGORY</th>
+                      <th scope="col" >TYPE</th>
+                      <th scope="col" >DATE</th>
+                      <th scope="col" > DESCRIPTION</th>
 
                   </tr>
                 </thead>
                 <tbody>
 
-
-
+{% for i in hb %}
                     <tr>
-                        <th scope="row"  style="text-align:right;background-color:{{color}};color:white;text-decoration:none;" colspan="4">
-                            <a href="">
-                            OPENING BALANCE</a></th>
-                        <th scope="row" style="background-color:{{color}};color:white">{{aug_opening_balance}}</th>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <th scope="row">{{ i.particulars }}</th>
+
+                        {% if i.type == 'income' %}
+                        <th scope="row">{{i.amount}}</th>
+                        {% else %}
+                        <th scope="row">0</th>
+                        {% endif %}
+                        {% if i.type == 'expense' %}
+                        <th scope="row">{{i.amount}}</th>
+                        {% else %}
+                        <th scope="row">0</th>
+                        {% endif %}
+
+                        <th scope="row">{{i.ledger}}</th>
+                        <th scope="row">{{i.accounts_book_name}}</th>
+                        <th scope="row">{{i.item_catergory}}
+                        <th scope="row">{{i.type}}
+                        <th scope="row">{{i.date}}</th>
+                        <th scope="row">{{i.description}}</th>
                     </tr>
 
 
-                    <tr>
-                        <th scope="row">1</th>
-                        <th scope="row">01/08/2023</th>
-                        <th scope="row">{{income_1}}</th>
-                        <th scope="row">{{expense_1}}</th>
-                        <th scope="row">{{balance_1}}</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <th scope="row">02/08/2023</th>
-                        <th scope="row">{{income_2}}</th>
-                        <th scope="row">{{expense_2}}</th>
-                        <th scope="row">{{balance_2}}</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <th scope="row">03/08/2023</th>
-                        <th scope="row">{{income_3}}</th>
-                        <th scope="row">{{expense_3}}</th>
-                        <th scope="row">{{balance_3}}</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <th scope="row">04/08/2023</th>
-                        <th scope="row">{{income_4}}</th>
-                        <th scope="row">{{expense_4}}</th>
-                        <th scope="row">{{balance_4}}</th>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <th scope="row">05/08/2023</th>
-                        <th scope="row">{{income_5}}</th>
-                        <th scope="row">{{expense_5}}</th>
-                        <th scope="row">{{balance_5}}</th>
-                    </tr>
-                  <tr>
-                      <th scope="row">6</th>
-                      <th scope="row">06/08/2023</th>
-                      <th scope="row">{{income_6}}</th>
-                      <th scope="row">{{expense_6}}</th>
-                      <th scope="row">{{balance_6}}</th>
-                  </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <th scope="row">07/08/2023</th>
-                        <th scope="row">{{income_7}}</th>
-                        <th scope="row">{{expense_7}}</th>
-                        <th scope="row">{{balance_7}}</th>
-                    </tr>
-
-                    <tr>
-                    <th scope="row">8</th>
-                    <th scope="row">08/08/2023</th>
-                    <th scope="row">{{income_8}}</th>
-                    <th scope="row">{{expense_8}}</th>
-                    <th scope="row">{{balance_8}}</th>
-                </tr>
-                    <tr>
-    <th scope="row">9</th>
-    <th scope="row">09/08/2023</th>
-    <th scope="row">{{income_9}}</th>
-    <th scope="row">{{expense_9}}</th>
-    <th scope="row">{{balance_9}}</th>
-</tr>
-                    <tr>
-    <th scope="row">10</th>
-    <th scope="row">10/08/2023</th>
-    <th scope="row">{{income_10}}</th>
-    <th scope="row">{{expense_10}}</th>
-    <th scope="row">{{balance_10}}</th>
-</tr>
-                    <tr>
-    <th scope="row">11</th>
-    <th scope="row">11/08/2023</th>
-    <th scope="row">{{income_11}}</th>
-    <th scope="row">{{expense_11}}</th>
-    <th scope="row">{{balance_11}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">12</th>
-    <th scope="row">12/08/2023</th>
-    <th scope="row">{{income_12}}</th>
-    <th scope="row">{{expense_12}}</th>
-    <th scope="row">{{balance_12}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">13</th>
-    <th scope="row">13/08/2023</th>
-    <th scope="row">{{income_13}}</th>
-    <th scope="row">{{expense_13}}</th>
-    <th scope="row">{{balance_13}}</th>
-</tr>
-                    <tr>
-    <th scope="row">14</th>
-    <th scope="row">14/08/2023</th>
-    <th scope="row">{{income_14}}</th>
-    <th scope="row">{{expense_14}}</th>
-    <th scope="row">{{balance_14}}</th>
-</tr>
-
-
-
-                                        <tr>
-    <th scope="row">15</th>
-    <th scope="row">15/08/2023</th>
-    <th scope="row">{{income_15}}</th>
-    <th scope="row">{{expense_15}}</th>
-    <th scope="row">{{balance_15}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">16</th>
-    <th scope="row">16/08/2023</th>
-    <th scope="row">{{income_16}}</th>
-    <th scope="row">{{expense_16}}</th>
-    <th scope="row">{{balance_16}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">17</th>
-    <th scope="row">17/08/2023</th>
-    <th scope="row">{{income_17}}</th>
-    <th scope="row">{{expense_17}}</th>
-    <th scope="row">{{balance_17}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">18</th>
-    <th scope="row">18/08/2023</th>
-    <th scope="row">{{income_18}}</th>
-    <th scope="row">{{expense_18}}</th>
-    <th scope="row">{{balance_18}}</th>
-</tr>
-                                                            <tr>
-    <th scope="row">19</th>
-    <th scope="row">19/08/2023</th>
-    <th scope="row">{{income_19}}</th>
-    <th scope="row">{{expense_19}}</th>
-    <th scope="row">{{balance_19}}</th>
-</tr>
-                                        <tr>
-    <th scope="row">20</th>
-    <th scope="row">20/08/2023</th>
-    <th scope="row">{{income_20}}</th>
-    <th scope="row">{{expense_20}}</th>
-    <th scope="row">{{balance_20}}</th>
-</tr>
-                                                            <tr>
-    <th scope="row">21</th>
-    <th scope="row">21/08/2023</th>
-    <th scope="row">{{income_21}}</th>
-    <th scope="row">{{expense_21}}</th>
-    <th scope="row">{{balance_21}}</th>
-</tr>
-                        <th scope="row">22</th>
-    <th scope="row">22/08/2023</th>
-    <th scope="row">{{income_22}}</th>
-    <th scope="row">{{expense_22}}</th>
-    <th scope="row">{{balance_22}}</th>
-</tr>
-
-
-
-
-
-                        <th scope="row">23</th>
-    <th scope="row">23/08/2023</th>
-    <th scope="row">{{income_23}}</th>
-    <th scope="row">{{expense_23}}</th>
-    <th scope="row">{{balance_23}}</th>
-</tr>
-                        <th scope="row">24</th>
-    <th scope="row">24/08/2023</th>
-    <th scope="row">{{income_24}}</th>
-    <th scope="row">{{expense_24}}</th>
-    <th scope="row">{{balance_24}}</th>
-</tr>
-                        <th scope="row">25</th>
-    <th scope="row">25/08/2023</th>
-    <th scope="row">{{income_25}}</th>
-    <th scope="row">{{expense_25}}</th>
-    <th scope="row">{{balance_25}}</th>
-</tr>
-                        <th scope="row">26</th>
-    <th scope="row">26/08/2023</th>
-    <th scope="row">{{income_26}}</th>
-    <th scope="row">{{expense_26}}</th>
-    <th scope="row">{{balance_26}}</th>
-</tr>
-
-                        <th scope="row">27</th>
-    <th scope="row">27/08/2023</th>
-    <th scope="row">{{income_27}}</th>
-    <th scope="row">{{expense_27}}</th>
-    <th scope="row">{{balance_27}}</th>
-</tr>
-
-                        <th scope="row">28</th>
-    <th scope="row">28/08/2023</th>
-    <th scope="row">{{income_28}}</th>
-    <th scope="row">{{expense_28}}</th>
-    <th scope="row">{{balance_28}}</th>
-</tr>
-
-
-
-
-                                            <th scope="row">29</th>
-    <th scope="row">29/08/2023</th>
-    <th scope="row">{{income_29}}</th>
-    <th scope="row">{{expense_29}}</th>
-    <th scope="row">{{balance_29}}</th>
-</tr>
-
-                        <th scope="row">30</th>
-    <th scope="row">30/08/2023</th>
-    <th scope="row">{{income_30}}</th>
-    <th scope="row">{{expense_30}}</th>
-    <th scope="row">{{balance_30}}</th>
-</tr>
-
-                        <th scope="row">31</th>
-    <th scope="row">31/08/2023</th>
-    <th scope="row">{{income_31}}</th>
-    <th scope="row">{{expense_31}}</th>
-    <th scope="row">{{balance_31}}</th>
-</tr>
+{% endfor %}
 
 <tr>
     <th colspan="2" style="background-color:orange;text-align:right;">TOTAL</th>
@@ -565,7 +416,6 @@ function exportTableToExcel(tableID, filename = ''){
     <th style="background-color:red;">{{sel}}</th>
         <th style="background-color:blue;">{{d_bal}}</th>
 </tr>
-
 
 
 
@@ -605,7 +455,7 @@ function exportTableToExcel(tableID, filename = ''){
    <footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © 2018 Dashtreme Admin
+          <a href="http://hbct.in/">Powred © HBCT.IN</a>
         </div>
       </div>
     </footer>

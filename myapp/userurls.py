@@ -583,6 +583,16 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 ###******ALL REPORTS  START HERE
 ###################################################################################
 
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise/', accounts1.daily_category_wise, name='daily_category_wise'),
+    path('monthly_category_based_reports/',accounts1.monthly_category_based_reports,name='monthly_category_based_reports'),
+    path('yearly_category_based_reports/', accounts1.yearly_category_based_reports,name='yearly_category_based_reports'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
 ###*************DAILY DETAILED REPORTS  START HERE
 
     path('daily_detailed/', accounts1.daily_detailed, name='daily_detailed'),
@@ -622,11 +632,12 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 ###################################################################################
 
     path('monthly_reports_choose_months/', accounts1.monthly_reports_choose_months, name='monthly_reports_choose_months'),
-    path('monthly_daily_in_exp_items_report', accounts1.monthly_daily_in_exp_items_report,name='monthly_daily_in_exp_items_report'),
-    path('single_monthly_daily_in_exp_items_report', accounts1.single_monthly_daily_in_exp_items_report,name='single_monthly_daily_in_exp_items_report'),
-
     path('monthly_detailed_daily_in_exp_items_report/<mo>',accounts1.monthly_detailed_daily_in_exp_items_report,name='monthly_detailed_daily_in_exp_items_report'),
 
+    path('single_monthly_reports_choose_months/', accounts1.single_monthly_reports_choose_months,name='single_monthly_reports_choose_months'),
+    path('single_monthly_daily_in_exp_items_report/<mo>',accounts1.single_monthly_daily_in_exp_items_report,name='single_monthly_daily_in_exp_items_report'),
+
+    path('accounts_dash_board/',accounts1.accounts_dash_board,name='accounts_dash_board'),
 
 
 
