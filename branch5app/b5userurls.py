@@ -7,6 +7,7 @@ from . import branch5
 from . import reports5
 from . import payment5
 from . import admin_dashboard_calculations_br5
+from . import accounts5
 
 urlpatterns = [
     path('branch1_dashboard5/', branch5.branch1_dashboard5, name='branch1_dashboard5'),
@@ -470,6 +471,153 @@ urlpatterns = [
 ###########################
 
     path('guest_all/',branch5.guest_all,name='guest_all'),
+
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category5/', accounts5.view_all_category5, name='view_all_category5'),
+    path('create_new_category5/', accounts5.create_new_category5, name='create_new_category5'),
+    path('regi_new_category5/', accounts5.regi_new_category5, name='regi_new_category5'),
+    path('update_category5/<id>',accounts5.update_category5,name='update_category5'),
+
+    path('delete_category5/<id>', accounts5.delete_category5, name='delete_category5'),
+    path('view_all_category_delete5/', accounts5.view_all_category_delete5, name='view_all_category_delete5'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items5/', accounts5.view_all_items5, name='view_all_items5'),
+    path('create_new_item5/', accounts5.create_new_item5, name='create_new_item5'),
+    path('regi_new_item5/', accounts5.regi_new_item5, name='regi_new_item5'),
+    path('delete_item5/<id>',accounts5.delete_item5,name='delete_item5'),
+    path('update_item5/<id>', accounts5.update_item5, name='update_item5'),
+    path('view_all_items_delete5/',accounts5.view_all_items_delete5,name='view_all_items_delete5'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger5/', accounts5.view_all_ledger5, name='view_all_ledger5'),
+    path('create_new_ledger5/', accounts5.create_new_ledger5, name='create_new_ledger5'),
+    path('regi_new_ledger5/', accounts5.regi_new_ledger5, name='regi_new_ledger5'),
+    path('delete_ledger5/<id>',accounts5.delete_ledger5,name='delete_ledger5'),
+    path('update_ledger5/<id>',accounts5.update_ledger5,name='update_ledger5'),
+    path('view_all_ledger_delete5/',accounts5.view_all_ledger_delete5,name='view_all_ledger_delete5'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book5/', accounts5.view_all_accounts_book5, name='view_all_accounts_book5'),
+    path('create_new_accounts_book5/', accounts5.create_new_accounts_book5, name='create_new_accounts_book5'),
+    path('regi_new_accounts_book5/', accounts5.regi_new_accounts_book5, name='regi_new_accounts_book5'),
+    path('update_accounts_book5/<id>',accounts5.update_accounts_book5,name='update_accounts_book5'),
+    path('delete_accounts_book5/<id>',accounts5.delete_accounts_book5,name='delete_accounts_book5'),
+    path('view_all_accounts_book_delete5/',accounts5.view_all_accounts_book_delete5,name='view_all_accounts_book_delete5'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries5/', accounts5.get_countries5, name='get_countries5'),
+
+    path('in_exp_items_entry5/', accounts5.in_exp_items_entry5, name='in_exp_items_entry5'),
+    path('reg_in_exp_items_entry5/', accounts5.reg_in_exp_items_entry5, name='reg_in_exp_items_entry5'),
+    path('delete_journal5/<id>',accounts5.delete_journal5,name='delete_journal5'),
+    path('update_in_exp_items_entry5/<id>',accounts5.update_in_exp_items_entry5,name='update_in_exp_items_entry5'),
+    path('detailed_journal_report5/',accounts5.detailed_journal_report5,name='detailed_journal_report5'),
+    path('journal_report_deleted5/',accounts5.journal_report_deleted5,name='journal_report_deleted5'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise5/', accounts5.daily_category_wise5, name='daily_category_wise5'),
+    path('monthly_category_based_reports5/',accounts5.monthly_category_based_reports5,name='monthly_category_based_reports5'),
+    path('yearly_category_based_reports5/', accounts5.yearly_category_based_reports5,name='yearly_category_based_reports5'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed5/', accounts5.daily_detailed5, name='daily_detailed5'),
+    path('monthly_detailed5/',accounts5.monthly_detailed5,name='monthly_detailed5'),
+    path('yearly_detailed5/',accounts5.yearly_detailed5,name='yearly_detailed5'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports5/', accounts5.item_based_reports5, name='item_based_reports5'),
+    path('daily_item_based_reports5/',accounts5.daily_item_based_reports5,name='daily_item_based_reports5'),
+    path('monthly_item_based_reports5/',accounts5.monthly_item_based_reports5,name='monthly_item_based_reports5'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports5/', accounts5.ledger_based_reports5, name='ledger_based_reports5'),
+    path('monthly_ledger_based_reports5/', accounts5.monthly_ledger_based_reports5, name='monthly_ledger_based_reports5'),
+    path('daily_ledger_based_reports5/',accounts5.daily_ledger_based_reports5,name='daily_ledger_based_reports5'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports5/', accounts5.accounts_book_based_reports5, name='accounts_book_based_reports5'),
+    path('daily_accounts_book_based_reports5/',accounts5.daily_accounts_book_based_reports5,name='daily_accounts_book_based_reports5'),
+    path('monthly_accounts_book_based_reports5/',accounts5.monthly_accounts_book_based_reports5,name='monthly_accounts_book_based_reports5'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months5/', accounts5.monthly_reports_choose_months5, name='monthly_reports_choose_months5'),
+    path('monthly_detailed_daily_in_exp_items_report5/<mo>',accounts5.monthly_detailed_daily_in_exp_items_report5,name='monthly_detailed_daily_in_exp_items_report5'),
+
+    path('single_monthly_reports_choose_months5/', accounts5.single_monthly_reports_choose_months5,name='single_monthly_reports_choose_months5'),
+    path('single_monthly_daily_in_exp_items_report5/<mo>',accounts5.single_monthly_daily_in_exp_items_report5,name='single_monthly_daily_in_exp_items_report5'),
+
+    path('accounts_dash_board5/',accounts5.accounts_dash_board5,name='accounts_dash_board5'),
+
+
+
 
 
 ]

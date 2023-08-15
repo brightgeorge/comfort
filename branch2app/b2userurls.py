@@ -10,6 +10,7 @@ from . import branch2
 from . import reports2
 from . import payment2
 from . import admin_dashboard_calculations_br2
+from . import accounts2
 
 
 d='test'
@@ -478,6 +479,153 @@ path('dec_account_mgt2/<id>',branch2.dec_account_mgt2,name='dec_account_mgt2'),
 ########################################
 # DASHBOARD REPORTS END HERE
 ###########################
+
+
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category2/', accounts2.view_all_category2, name='view_all_category2'),
+    path('create_new_category2/', accounts2.create_new_category2, name='create_new_category2'),
+    path('regi_new_category2/', accounts2.regi_new_category2, name='regi_new_category2'),
+    path('update_category2/<id>',accounts2.update_category2,name='update_category2'),
+
+    path('delete_category2/<id>', accounts2.delete_category2, name='delete_category2'),
+    path('view_all_category_delete2/', accounts2.view_all_category_delete2, name='view_all_category_delete2'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items2/', accounts2.view_all_items2, name='view_all_items2'),
+    path('create_new_item2/', accounts2.create_new_item2, name='create_new_item2'),
+    path('regi_new_item2/', accounts2.regi_new_item2, name='regi_new_item2'),
+    path('delete_item2/<id>',accounts2.delete_item2,name='delete_item2'),
+    path('update_item2/<id>', accounts2.update_item2, name='update_item2'),
+    path('view_all_items_delete2/',accounts2.view_all_items_delete2,name='view_all_items_delete2'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger2/', accounts2.view_all_ledger2, name='view_all_ledger2'),
+    path('create_new_ledger2/', accounts2.create_new_ledger2, name='create_new_ledger2'),
+    path('regi_new_ledger2/', accounts2.regi_new_ledger2, name='regi_new_ledger2'),
+    path('delete_ledger2/<id>',accounts2.delete_ledger2,name='delete_ledger2'),
+    path('update_ledger2/<id>',accounts2.update_ledger2,name='update_ledger2'),
+    path('view_all_ledger_delete2/',accounts2.view_all_ledger_delete2,name='view_all_ledger_delete2'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book2/', accounts2.view_all_accounts_book2, name='view_all_accounts_book2'),
+    path('create_new_accounts_book2/', accounts2.create_new_accounts_book2, name='create_new_accounts_book2'),
+    path('regi_new_accounts_book2/', accounts2.regi_new_accounts_book2, name='regi_new_accounts_book2'),
+    path('update_accounts_book2/<id>',accounts2.update_accounts_book2,name='update_accounts_book2'),
+    path('delete_accounts_book2/<id>',accounts2.delete_accounts_book2,name='delete_accounts_book2'),
+    path('view_all_accounts_book_delete2/',accounts2.view_all_accounts_book_delete2,name='view_all_accounts_book_delete2'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries2/', accounts2.get_countries2, name='get_countries2'),
+
+    path('in_exp_items_entry2/', accounts2.in_exp_items_entry2, name='in_exp_items_entry2'),
+    path('reg_in_exp_items_entry2/', accounts2.reg_in_exp_items_entry2, name='reg_in_exp_items_entry2'),
+    path('delete_journal2/<id>',accounts2.delete_journal2,name='delete_journal2'),
+    path('update_in_exp_items_entry2/<id>',accounts2.update_in_exp_items_entry2,name='update_in_exp_items_entry2'),
+    path('detailed_journal_report2/',accounts2.detailed_journal_report2,name='detailed_journal_report2'),
+    path('journal_report_deleted2/',accounts2.journal_report_deleted2,name='journal_report_deleted2'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise2/', accounts2.daily_category_wise2, name='daily_category_wise2'),
+    path('monthly_category_based_reports2/',accounts2.monthly_category_based_reports2,name='monthly_category_based_reports2'),
+    path('yearly_category_based_reports2/', accounts2.yearly_category_based_reports2,name='yearly_category_based_reports2'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed2/', accounts2.daily_detailed2, name='daily_detailed2'),
+    path('monthly_detailed2/',accounts2.monthly_detailed2,name='monthly_detailed2'),
+    path('yearly_detailed2/',accounts2.yearly_detailed2,name='yearly_detailed2'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports2/', accounts2.item_based_reports2, name='item_based_reports2'),
+    path('daily_item_based_reports2/',accounts2.daily_item_based_reports2,name='daily_item_based_reports2'),
+    path('monthly_item_based_reports2/',accounts2.monthly_item_based_reports2,name='monthly_item_based_reports2'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports2/', accounts2.ledger_based_reports2, name='ledger_based_reports2'),
+    path('monthly_ledger_based_reports2/', accounts2.monthly_ledger_based_reports2, name='monthly_ledger_based_reports2'),
+    path('daily_ledger_based_reports2/',accounts2.daily_ledger_based_reports2,name='daily_ledger_based_reports2'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports2/', accounts2.accounts_book_based_reports2, name='accounts_book_based_reports2'),
+    path('daily_accounts_book_based_reports2/',accounts2.daily_accounts_book_based_reports2,name='daily_accounts_book_based_reports2'),
+    path('monthly_accounts_book_based_reports2/',accounts2.monthly_accounts_book_based_reports2,name='monthly_accounts_book_based_reports2'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months2/', accounts2.monthly_reports_choose_months2, name='monthly_reports_choose_months2'),
+    path('monthly_detailed_daily_in_exp_items_report2/<mo>',accounts2.monthly_detailed_daily_in_exp_items_report2,name='monthly_detailed_daily_in_exp_items_report2'),
+
+    path('single_monthly_reports_choose_months2/', accounts2.single_monthly_reports_choose_months2,name='single_monthly_reports_choose_months2'),
+    path('single_monthly_daily_in_exp_items_report2/<mo>',accounts2.single_monthly_daily_in_exp_items_report2,name='single_monthly_daily_in_exp_items_report2'),
+
+    path('accounts_dash_board2/',accounts2.accounts_dash_board2,name='accounts_dash_board2'),
+
+
 
 
 
