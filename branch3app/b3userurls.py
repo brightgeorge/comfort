@@ -5,6 +5,7 @@ from . import branch3
 from . import reports3
 from . import payment3
 from . import admin_dashboard_calculations_br3
+from . import accounts3
 
 
 urlpatterns = [
@@ -474,6 +475,150 @@ path('dec_account_mgt3/<id>',branch3.dec_account_mgt3,name='dec_account_mgt3'),
 ########################################
 # DASHBOARD REPORTS END HERE
 ###########################
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category3/', accounts3.view_all_category3, name='view_all_category3'),
+    path('create_new_category3/', accounts3.create_new_category3, name='create_new_category3'),
+    path('regi_new_category3/', accounts3.regi_new_category3, name='regi_new_category3'),
+    path('update_category3/<id>',accounts3.update_category3,name='update_category3'),
+
+    path('delete_category3/<id>', accounts3.delete_category3, name='delete_category3'),
+    path('view_all_category_delete3/', accounts3.view_all_category_delete3, name='view_all_category_delete3'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items3/', accounts3.view_all_items3, name='view_all_items3'),
+    path('create_new_item3/', accounts3.create_new_item3, name='create_new_item3'),
+    path('regi_new_item3/', accounts3.regi_new_item3, name='regi_new_item3'),
+    path('delete_item3/<id>',accounts3.delete_item3,name='delete_item3'),
+    path('update_item3/<id>', accounts3.update_item3, name='update_item3'),
+    path('view_all_items_delete3/',accounts3.view_all_items_delete3,name='view_all_items_delete3'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger3/', accounts3.view_all_ledger3, name='view_all_ledger3'),
+    path('create_new_ledger3/', accounts3.create_new_ledger3, name='create_new_ledger3'),
+    path('regi_new_ledger3/', accounts3.regi_new_ledger3, name='regi_new_ledger3'),
+    path('delete_ledger3/<id>',accounts3.delete_ledger3,name='delete_ledger3'),
+    path('update_ledger3/<id>',accounts3.update_ledger3,name='update_ledger3'),
+    path('view_all_ledger_delete3/',accounts3.view_all_ledger_delete3,name='view_all_ledger_delete3'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book3/', accounts3.view_all_accounts_book3, name='view_all_accounts_book3'),
+    path('create_new_accounts_book3/', accounts3.create_new_accounts_book3, name='create_new_accounts_book3'),
+    path('regi_new_accounts_book3/', accounts3.regi_new_accounts_book3, name='regi_new_accounts_book3'),
+    path('update_accounts_book3/<id>',accounts3.update_accounts_book3,name='update_accounts_book3'),
+    path('delete_accounts_book3/<id>',accounts3.delete_accounts_book3,name='delete_accounts_book3'),
+    path('view_all_accounts_book_delete3/',accounts3.view_all_accounts_book_delete3,name='view_all_accounts_book_delete3'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries3/', accounts3.get_countries3, name='get_countries3'),
+
+    path('in_exp_items_entry3/', accounts3.in_exp_items_entry3, name='in_exp_items_entry3'),
+    path('reg_in_exp_items_entry3/', accounts3.reg_in_exp_items_entry3, name='reg_in_exp_items_entry3'),
+    path('delete_journal3/<id>',accounts3.delete_journal3,name='delete_journal3'),
+    path('update_in_exp_items_entry3/<id>',accounts3.update_in_exp_items_entry3,name='update_in_exp_items_entry3'),
+    path('detailed_journal_report3/',accounts3.detailed_journal_report3,name='detailed_journal_report3'),
+    path('journal_report_deleted3/',accounts3.journal_report_deleted3,name='journal_report_deleted3'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise3/', accounts3.daily_category_wise3, name='daily_category_wise3'),
+    path('monthly_category_based_reports3/',accounts3.monthly_category_based_reports3,name='monthly_category_based_reports3'),
+    path('yearly_category_based_reports3/', accounts3.yearly_category_based_reports3,name='yearly_category_based_reports3'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed3/', accounts3.daily_detailed3, name='daily_detailed3'),
+    path('monthly_detailed3/',accounts3.monthly_detailed3,name='monthly_detailed3'),
+    path('yearly_detailed3/',accounts3.yearly_detailed3,name='yearly_detailed3'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports3/', accounts3.item_based_reports3, name='item_based_reports3'),
+    path('daily_item_based_reports3/',accounts3.daily_item_based_reports3,name='daily_item_based_reports3'),
+    path('monthly_item_based_reports3/',accounts3.monthly_item_based_reports3,name='monthly_item_based_reports3'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports3/', accounts3.ledger_based_reports3, name='ledger_based_reports3'),
+    path('monthly_ledger_based_reports3/', accounts3.monthly_ledger_based_reports3, name='monthly_ledger_based_reports3'),
+    path('daily_ledger_based_reports3/',accounts3.daily_ledger_based_reports3,name='daily_ledger_based_reports3'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports3/', accounts3.accounts_book_based_reports3, name='accounts_book_based_reports3'),
+    path('daily_accounts_book_based_reports3/',accounts3.daily_accounts_book_based_reports3,name='daily_accounts_book_based_reports3'),
+    path('monthly_accounts_book_based_reports3/',accounts3.monthly_accounts_book_based_reports3,name='monthly_accounts_book_based_reports3'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months3/', accounts3.monthly_reports_choose_months3, name='monthly_reports_choose_months3'),
+    path('monthly_detailed_daily_in_exp_items_report3/<mo>',accounts3.monthly_detailed_daily_in_exp_items_report3,name='monthly_detailed_daily_in_exp_items_report3'),
+
+    path('single_monthly_reports_choose_months3/', accounts3.single_monthly_reports_choose_months3,name='single_monthly_reports_choose_months3'),
+    path('single_monthly_daily_in_exp_items_report3/<mo>',accounts3.single_monthly_daily_in_exp_items_report3,name='single_monthly_daily_in_exp_items_report3'),
+
+    path('accounts_dash_board3/',accounts3.accounts_dash_board3,name='accounts_dash_board3'),
+
 
 
 

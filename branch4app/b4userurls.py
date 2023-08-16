@@ -6,6 +6,7 @@ from . import branch4
 from . import reports4
 from . import payment4
 from . import admin_dashboard_calculations_br4
+from . import accounts4
 
 urlpatterns = [
 
@@ -473,6 +474,155 @@ path('dec_account_mgt4/<id>',branch4.dec_account_mgt4,name='dec_account_mgt4'),
 ########################################
 # DASHBOARD REPORTS END HERE
 ###########################
+
+
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category4/', accounts4.view_all_category4, name='view_all_category4'),
+    path('create_new_category4/', accounts4.create_new_category4, name='create_new_category4'),
+    path('regi_new_category4/', accounts4.regi_new_category4, name='regi_new_category4'),
+    path('update_category4/<id>',accounts4.update_category4,name='update_category4'),
+
+    path('delete_category4/<id>', accounts4.delete_category4, name='delete_category4'),
+    path('view_all_category_delete4/', accounts4.view_all_category_delete4, name='view_all_category_delete4'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items4/', accounts4.view_all_items4, name='view_all_items4'),
+    path('create_new_item4/', accounts4.create_new_item4, name='create_new_item4'),
+    path('regi_new_item4/', accounts4.regi_new_item4, name='regi_new_item4'),
+    path('delete_item4/<id>',accounts4.delete_item4,name='delete_item4'),
+    path('update_item4/<id>', accounts4.update_item4, name='update_item4'),
+    path('view_all_items_delete4/',accounts4.view_all_items_delete4,name='view_all_items_delete4'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger4/', accounts4.view_all_ledger4, name='view_all_ledger4'),
+    path('create_new_ledger4/', accounts4.create_new_ledger4, name='create_new_ledger4'),
+    path('regi_new_ledger4/', accounts4.regi_new_ledger4, name='regi_new_ledger4'),
+    path('delete_ledger4/<id>',accounts4.delete_ledger4,name='delete_ledger4'),
+    path('update_ledger4/<id>',accounts4.update_ledger4,name='update_ledger4'),
+    path('view_all_ledger_delete4/',accounts4.view_all_ledger_delete4,name='view_all_ledger_delete4'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book4/', accounts4.view_all_accounts_book4, name='view_all_accounts_book4'),
+    path('create_new_accounts_book4/', accounts4.create_new_accounts_book4, name='create_new_accounts_book4'),
+    path('regi_new_accounts_book4/', accounts4.regi_new_accounts_book4, name='regi_new_accounts_book4'),
+    path('update_accounts_book4/<id>',accounts4.update_accounts_book4,name='update_accounts_book4'),
+    path('delete_accounts_book4/<id>',accounts4.delete_accounts_book4,name='delete_accounts_book4'),
+    path('view_all_accounts_book_delete4/',accounts4.view_all_accounts_book_delete4,name='view_all_accounts_book_delete4'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries4/', accounts4.get_countries4, name='get_countries4'),
+
+    path('in_exp_items_entry4/', accounts4.in_exp_items_entry4, name='in_exp_items_entry4'),
+    path('reg_in_exp_items_entry4/', accounts4.reg_in_exp_items_entry4, name='reg_in_exp_items_entry4'),
+    path('delete_journal4/<id>',accounts4.delete_journal4,name='delete_journal4'),
+    path('update_in_exp_items_entry4/<id>',accounts4.update_in_exp_items_entry4,name='update_in_exp_items_entry4'),
+    path('detailed_journal_report4/',accounts4.detailed_journal_report4,name='detailed_journal_report4'),
+    path('journal_report_deleted4/',accounts4.journal_report_deleted4,name='journal_report_deleted4'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise4/', accounts4.daily_category_wise4, name='daily_category_wise4'),
+    path('monthly_category_based_reports4/',accounts4.monthly_category_based_reports4,name='monthly_category_based_reports4'),
+    path('yearly_category_based_reports4/', accounts4.yearly_category_based_reports4,name='yearly_category_based_reports4'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed4/', accounts4.daily_detailed4, name='daily_detailed4'),
+    path('monthly_detailed4/',accounts4.monthly_detailed4,name='monthly_detailed4'),
+    path('yearly_detailed4/',accounts4.yearly_detailed4,name='yearly_detailed4'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports4/', accounts4.item_based_reports4, name='item_based_reports4'),
+    path('daily_item_based_reports4/',accounts4.daily_item_based_reports4,name='daily_item_based_reports4'),
+    path('monthly_item_based_reports4/',accounts4.monthly_item_based_reports4,name='monthly_item_based_reports4'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports4/', accounts4.ledger_based_reports4, name='ledger_based_reports4'),
+    path('monthly_ledger_based_reports4/', accounts4.monthly_ledger_based_reports4, name='monthly_ledger_based_reports4'),
+    path('daily_ledger_based_reports4/',accounts4.daily_ledger_based_reports4,name='daily_ledger_based_reports4'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports4/', accounts4.accounts_book_based_reports4, name='accounts_book_based_reports4'),
+    path('daily_accounts_book_based_reports4/',accounts4.daily_accounts_book_based_reports4,name='daily_accounts_book_based_reports4'),
+    path('monthly_accounts_book_based_reports4/',accounts4.monthly_accounts_book_based_reports4,name='monthly_accounts_book_based_reports4'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months4/', accounts4.monthly_reports_choose_months4, name='monthly_reports_choose_months4'),
+    path('monthly_detailed_daily_in_exp_items_report4/<mo>',accounts4.monthly_detailed_daily_in_exp_items_report4,name='monthly_detailed_daily_in_exp_items_report4'),
+
+    path('single_monthly_reports_choose_months4/', accounts4.single_monthly_reports_choose_months4,name='single_monthly_reports_choose_months4'),
+    path('single_monthly_daily_in_exp_items_report4/<mo>',accounts4.single_monthly_daily_in_exp_items_report4,name='single_monthly_daily_in_exp_items_report4'),
+
+    path('accounts_dash_board4/',accounts4.accounts_dash_board4,name='accounts_dash_board4'),
+
+
+
+
 
 
 ]

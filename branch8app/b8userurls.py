@@ -6,6 +6,7 @@ from . import branch8
 from . import reports8
 from . import payment8
 from . import admin_dashboard_calculations_br8
+from . import accounts8
 
 
 urlpatterns = [
@@ -586,6 +587,154 @@ path('dec_account_mgt8/<id>',branch8.dec_account_mgt8,name='dec_account_mgt8'),
 ########################################
 # DASHBOARD REPORTS END HERE
 ###########################
+
+
+
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category8/', accounts8.view_all_category8, name='view_all_category8'),
+    path('create_new_category8/', accounts8.create_new_category8, name='create_new_category8'),
+    path('regi_new_category8/', accounts8.regi_new_category8, name='regi_new_category8'),
+    path('update_category8/<id>',accounts8.update_category8,name='update_category8'),
+
+    path('delete_category8/<id>', accounts8.delete_category8, name='delete_category8'),
+    path('view_all_category_delete8/', accounts8.view_all_category_delete8, name='view_all_category_delete8'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items8/', accounts8.view_all_items8, name='view_all_items8'),
+    path('create_new_item8/', accounts8.create_new_item8, name='create_new_item8'),
+    path('regi_new_item8/', accounts8.regi_new_item8, name='regi_new_item8'),
+    path('delete_item8/<id>',accounts8.delete_item8,name='delete_item8'),
+    path('update_item8/<id>', accounts8.update_item8, name='update_item8'),
+    path('view_all_items_delete8/',accounts8.view_all_items_delete8,name='view_all_items_delete8'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger8/', accounts8.view_all_ledger8, name='view_all_ledger8'),
+    path('create_new_ledger8/', accounts8.create_new_ledger8, name='create_new_ledger8'),
+    path('regi_new_ledger8/', accounts8.regi_new_ledger8, name='regi_new_ledger8'),
+    path('delete_ledger8/<id>',accounts8.delete_ledger8,name='delete_ledger8'),
+    path('update_ledger8/<id>',accounts8.update_ledger8,name='update_ledger8'),
+    path('view_all_ledger_delete8/',accounts8.view_all_ledger_delete8,name='view_all_ledger_delete8'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book8/', accounts8.view_all_accounts_book8, name='view_all_accounts_book8'),
+    path('create_new_accounts_book8/', accounts8.create_new_accounts_book8, name='create_new_accounts_book8'),
+    path('regi_new_accounts_book8/', accounts8.regi_new_accounts_book8, name='regi_new_accounts_book8'),
+    path('update_accounts_book8/<id>',accounts8.update_accounts_book8,name='update_accounts_book8'),
+    path('delete_accounts_book8/<id>',accounts8.delete_accounts_book8,name='delete_accounts_book8'),
+    path('view_all_accounts_book_delete8/',accounts8.view_all_accounts_book_delete8,name='view_all_accounts_book_delete8'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries8/', accounts8.get_countries8, name='get_countries8'),
+
+    path('in_exp_items_entry8/', accounts8.in_exp_items_entry8, name='in_exp_items_entry8'),
+    path('reg_in_exp_items_entry8/', accounts8.reg_in_exp_items_entry8, name='reg_in_exp_items_entry8'),
+    path('delete_journal8/<id>',accounts8.delete_journal8,name='delete_journal8'),
+    path('update_in_exp_items_entry8/<id>',accounts8.update_in_exp_items_entry8,name='update_in_exp_items_entry8'),
+    path('detailed_journal_report8/',accounts8.detailed_journal_report8,name='detailed_journal_report8'),
+    path('journal_report_deleted8/',accounts8.journal_report_deleted8,name='journal_report_deleted8'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise8/', accounts8.daily_category_wise8, name='daily_category_wise8'),
+    path('monthly_category_based_reports8/',accounts8.monthly_category_based_reports8,name='monthly_category_based_reports8'),
+    path('yearly_category_based_reports8/', accounts8.yearly_category_based_reports8,name='yearly_category_based_reports8'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed8/', accounts8.daily_detailed8, name='daily_detailed8'),
+    path('monthly_detailed8/',accounts8.monthly_detailed8,name='monthly_detailed8'),
+    path('yearly_detailed8/',accounts8.yearly_detailed8,name='yearly_detailed8'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports8/', accounts8.item_based_reports8, name='item_based_reports8'),
+    path('daily_item_based_reports8/',accounts8.daily_item_based_reports8,name='daily_item_based_reports8'),
+    path('monthly_item_based_reports8/',accounts8.monthly_item_based_reports8,name='monthly_item_based_reports8'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports8/', accounts8.ledger_based_reports8, name='ledger_based_reports8'),
+    path('monthly_ledger_based_reports8/', accounts8.monthly_ledger_based_reports8, name='monthly_ledger_based_reports8'),
+    path('daily_ledger_based_reports8/',accounts8.daily_ledger_based_reports8,name='daily_ledger_based_reports8'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports8/', accounts8.accounts_book_based_reports8, name='accounts_book_based_reports8'),
+    path('daily_accounts_book_based_reports8/',accounts8.daily_accounts_book_based_reports8,name='daily_accounts_book_based_reports8'),
+    path('monthly_accounts_book_based_reports8/',accounts8.monthly_accounts_book_based_reports8,name='monthly_accounts_book_based_reports8'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months8/', accounts8.monthly_reports_choose_months8, name='monthly_reports_choose_months8'),
+    path('monthly_detailed_daily_in_exp_items_report8/<mo>',accounts8.monthly_detailed_daily_in_exp_items_report8,name='monthly_detailed_daily_in_exp_items_report8'),
+
+    path('single_monthly_reports_choose_months8/', accounts8.single_monthly_reports_choose_months8,name='single_monthly_reports_choose_months8'),
+    path('single_monthly_daily_in_exp_items_report8/<mo>',accounts8.single_monthly_daily_in_exp_items_report8,name='single_monthly_daily_in_exp_items_report8'),
+
+    path('accounts_dash_board8/',accounts8.accounts_dash_board8,name='accounts_dash_board8'),
+
+
 
 
 

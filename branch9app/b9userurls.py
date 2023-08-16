@@ -6,6 +6,7 @@ from . import branch9
 from . import reports9
 from . import payment9
 from . import admin_dashboard_calculations_br9
+from . import accounts9
 
 urlpatterns = [
     path('branch1_dashboard9/', branch9.branch1_dashboard9, name='branch1_dashboard9'),
@@ -569,6 +570,154 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
 ########################################
 # DASHBOARD REPORTS END HERE
 ###########################
+
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category9/', accounts9.view_all_category9, name='view_all_category9'),
+    path('create_new_category9/', accounts9.create_new_category9, name='create_new_category9'),
+    path('regi_new_category9/', accounts9.regi_new_category9, name='regi_new_category9'),
+    path('update_category9/<id>',accounts9.update_category9,name='update_category9'),
+
+    path('delete_category9/<id>', accounts9.delete_category9, name='delete_category9'),
+    path('view_all_category_delete9/', accounts9.view_all_category_delete9, name='view_all_category_delete9'),
+
+    ##*****************CATERY CREATER END HERE
+
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items9/', accounts9.view_all_items9, name='view_all_items9'),
+    path('create_new_item9/', accounts9.create_new_item9, name='create_new_item9'),
+    path('regi_new_item9/', accounts9.regi_new_item9, name='regi_new_item9'),
+    path('delete_item9/<id>',accounts9.delete_item9,name='delete_item9'),
+    path('update_item9/<id>', accounts9.update_item9, name='update_item9'),
+    path('view_all_items_delete9/',accounts9.view_all_items_delete9,name='view_all_items_delete9'),
+
+    ##*****************ITEM CREATER END HERE
+
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger9/', accounts9.view_all_ledger9, name='view_all_ledger9'),
+    path('create_new_ledger9/', accounts9.create_new_ledger9, name='create_new_ledger9'),
+    path('regi_new_ledger9/', accounts9.regi_new_ledger9, name='regi_new_ledger9'),
+    path('delete_ledger9/<id>',accounts9.delete_ledger9,name='delete_ledger9'),
+    path('update_ledger9/<id>',accounts9.update_ledger9,name='update_ledger9'),
+    path('view_all_ledger_delete9/',accounts9.view_all_ledger_delete9,name='view_all_ledger_delete9'),
+
+##*****************LEDGER CREATER END HERE
+
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book9/', accounts9.view_all_accounts_book9, name='view_all_accounts_book9'),
+    path('create_new_accounts_book9/', accounts9.create_new_accounts_book9, name='create_new_accounts_book9'),
+    path('regi_new_accounts_book9/', accounts9.regi_new_accounts_book9, name='regi_new_accounts_book9'),
+    path('update_accounts_book9/<id>',accounts9.update_accounts_book9,name='update_accounts_book9'),
+    path('delete_accounts_book9/<id>',accounts9.delete_accounts_book9,name='delete_accounts_book9'),
+    path('view_all_accounts_book_delete9/',accounts9.view_all_accounts_book_delete9,name='view_all_accounts_book_delete9'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries9/', accounts9.get_countries9, name='get_countries9'),
+
+    path('in_exp_items_entry9/', accounts9.in_exp_items_entry9, name='in_exp_items_entry9'),
+    path('reg_in_exp_items_entry9/', accounts9.reg_in_exp_items_entry9, name='reg_in_exp_items_entry9'),
+    path('delete_journal9/<id>',accounts9.delete_journal9,name='delete_journal9'),
+    path('update_in_exp_items_entry9/<id>',accounts9.update_in_exp_items_entry9,name='update_in_exp_items_entry9'),
+    path('detailed_journal_report9/',accounts9.detailed_journal_report9,name='detailed_journal_report9'),
+    path('journal_report_deleted9/',accounts9.journal_report_deleted9,name='journal_report_deleted9'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise9/', accounts9.daily_category_wise9, name='daily_category_wise9'),
+    path('monthly_category_based_reports9/',accounts9.monthly_category_based_reports9,name='monthly_category_based_reports9'),
+    path('yearly_category_based_reports9/', accounts9.yearly_category_based_reports9,name='yearly_category_based_reports9'),
+
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed9/', accounts9.daily_detailed9, name='daily_detailed9'),
+    path('monthly_detailed9/',accounts9.monthly_detailed9,name='monthly_detailed9'),
+    path('yearly_detailed9/',accounts9.yearly_detailed9,name='yearly_detailed9'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports9/', accounts9.item_based_reports9, name='item_based_reports9'),
+    path('daily_item_based_reports9/',accounts9.daily_item_based_reports9,name='daily_item_based_reports9'),
+    path('monthly_item_based_reports9/',accounts9.monthly_item_based_reports9,name='monthly_item_based_reports9'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports9/', accounts9.ledger_based_reports9, name='ledger_based_reports9'),
+    path('monthly_ledger_based_reports9/', accounts9.monthly_ledger_based_reports9, name='monthly_ledger_based_reports9'),
+    path('daily_ledger_based_reports9/',accounts9.daily_ledger_based_reports9,name='daily_ledger_based_reports9'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports9/', accounts9.accounts_book_based_reports9, name='accounts_book_based_reports9'),
+    path('daily_accounts_book_based_reports9/',accounts9.daily_accounts_book_based_reports9,name='daily_accounts_book_based_reports9'),
+    path('monthly_accounts_book_based_reports9/',accounts9.monthly_accounts_book_based_reports9,name='monthly_accounts_book_based_reports9'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months9/', accounts9.monthly_reports_choose_months9, name='monthly_reports_choose_months9'),
+    path('monthly_detailed_daily_in_exp_items_report9/<mo>',accounts9.monthly_detailed_daily_in_exp_items_report9,name='monthly_detailed_daily_in_exp_items_report9'),
+
+    path('single_monthly_reports_choose_months9/', accounts9.single_monthly_reports_choose_months9,name='single_monthly_reports_choose_months9'),
+    path('single_monthly_daily_in_exp_items_report9/<mo>',accounts9.single_monthly_daily_in_exp_items_report9,name='single_monthly_daily_in_exp_items_report9'),
+
+    path('accounts_dash_board9/',accounts9.accounts_dash_board9,name='accounts_dash_board9'),
+
+
+
+
 
 
 
