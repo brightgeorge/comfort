@@ -917,7 +917,7 @@ def active_guest_details(request,guest_code):
     else:
         a.append('f')
 
-    agd=myapp.objects.all().filter(flag=2,guest_code=guest_code)
+    agd=pg1_new_guest.objects.all().filter(flag=2,guest_code=guest_code)
     l=[]
     for i in agd:
         l.append(i.name)
@@ -929,7 +929,7 @@ def active_guest_details(request,guest_code):
         'th_us': a[0],
         'name': us,
 
-        'agd' : myapp.objects.all().filter(flag=2,guest_code=guest_code),
+        'agd' : pg1_new_guest.objects.all().filter(flag=2,guest_code=guest_code),
     }
     return render(request, 'branches/branch1/new_guest/active_guest_details.html', context)
 
