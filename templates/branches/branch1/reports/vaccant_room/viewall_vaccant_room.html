@@ -311,15 +311,10 @@ function exportTableToExcel(tableID, filename = ''){
               <table class="table table-sm" id="tbldata" border="1">
 
                  <thead>
-                 <tr >
-                     <th colspan="3" style="height:40px;font-size:20px;font-weight:50px;width:140px;background-color:olive;text-align:center;color:white;">
-                         <b>COMFORT PG 1</b>
-                     </th>
-                  </tr>
                   <tr>
-                    <th id="ts" style="height:40px;font-size:18px;font-weight:50px;width:140px;background-color:darkcyan;text-align:center;color:white;">Sl No</th>
-                    <th id="ts" style="height:40px;font-size:18px;font-weight:50px;width:140px;background-color:darkcyan;text-align:center;color:white;">Room No</th>
-                      <th id="ts" style="height:40px;font-size:18px;font-weight:50px;width:140px;background-color:darkcyan;text-align:center;color:white;">Share Type</th>
+                    <th id="ts">Sl No</th>
+                    <th id="ts">Room No</th>
+                      <th id="ts">Share Type</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -327,15 +322,16 @@ function exportTableToExcel(tableID, filename = ''){
                 {% for i in vr %}
 				   <tr>
 
-                    <td id="ts" style="height:40px;font-size:20px;font-weight:50px;width:140px"><b>{{forloop.counter}}</b></td>
+                    <td id="ts" style="height:40px;">{{forloop.counter}}</td>
 
-				   <td id="ts" style="height:40px;font-size:20px;font-weight:50px;width:140px"><b>{{i.room_name}}</b></td>
-                       <td id="ts" style="height:40px;font-size:20px;font-weight:50px;width:140px"><b>{{i.share_type}} Share</b></td>
+				   <td id="ts" style="height:40px;">{{i.room_name}}</td>
+                       <td id="ts" style="height:40px;">{{i.share_type}} Share</td>
 
                    </tr>
                 {% endfor %}
 
                 </tbody>
+
               </table>
             </div>
             </div>

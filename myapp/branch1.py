@@ -906,6 +906,34 @@ def vacate_br1_guest(request, id):
     return render(request, 'branches/branch1/new_guest/vacate_br1_guest.html', context)
 
 
+def active_guest_details(request,guest_code):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    agd=pg1_new_guest.objects.all().filter(flag=2,guest_code=guest_code)
+    l=[]
+    for i in agd:
+        l.append(i.name)
+    print('lkokok',l)
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'agd' : pg1_new_guest.objects.all().filter(flag=2,guest_code=guest_code),
+    }
+    return render(request, 'branches/branch1/new_guest/active_guest_details.html', context)
+
+
 
 #new guest end here
 ################################
