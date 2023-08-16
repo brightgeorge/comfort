@@ -665,7 +665,7 @@ $('body').ready(function(){
   $('#myInput').keyup(function(){
       $.ajax({
           type: 'POST',
-          url: '/get_countries/',
+          url: "{% url 'get_countries3' %}",
           success: function(data) {
               console.log(data);
               autocomplete(document.getElementById("myInput"), data);
