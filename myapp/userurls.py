@@ -74,6 +74,8 @@ urlpatterns = [
     path('view_all_new_guest/',branch1.view_all_new_guest,name='view_all_new_guest'),
     path('update_br1_admit_guest/<id>',branch1.update_br1_admit_guest,name='update_br1_admit_guest'),
     path('vacate_br1_guest/<id>',branch1.vacate_br1_guest,name='vacate_br1_guest'),
+
+    path('active_guest_details/',branch1.active_guest_details,name='active_guest_details'),
     #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     #path('admit_guest/',views.admit_guest,name='admit_guest'),
 #guest end here
