@@ -315,6 +315,7 @@ function exportTableToExcel(tableID, filename = ''){
               <div class="dropdown-menu dropdown-menu-right">
 
                 <a class="dropdown-item" href="{% url 'details_of_vacate_guest2' id=i.id %}">Payments</a>
+                  <a class="dropdown-item" href="{% url 'guest_details2' guest_code=i.guest_code %}">Guest Details</a>
 
                </div>
               </div>

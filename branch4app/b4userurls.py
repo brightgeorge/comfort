@@ -302,6 +302,8 @@ path('dec_make_payments_advance4/<id>', branch4.dec_make_payments_advance4, name
     path('full_vacated_guest_details4',branch4.full_vacated_guest_details4,name='full_vacated_guest_details4'),
     path('full_vacated_guest_table4',branch4.full_vacated_guest_table4,name='full_vacated_guest_table4'),
 
+    path('guest_details4/<guest_code>', branch4.guest_details4, name='guest_details4'),
+
 
 #********vacate guest payments start here**********
 

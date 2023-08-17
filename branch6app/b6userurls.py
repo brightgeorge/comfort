@@ -524,8 +524,10 @@ path('dec_account_mgt6/<id>',branch6.dec_account_mgt6,name='dec_account_mgt6'),
 
     path('viewall_vacate_guest6/',branch6.viewall_vacate_guest6,name='viewall_vacate_guest6'),
     path('details_of_vacate_guest6/<id>',branch6.details_of_vacate_guest6,name='details_of_vacate_guest6'),
-path('full_vacated_guest_details6',branch6.full_vacated_guest_details6,name='full_vacated_guest_details6'),
-path('full_vacated_guest_table6',branch6.full_vacated_guest_table6,name='full_vacated_guest_table6'),
+    path('full_vacated_guest_details6',branch6.full_vacated_guest_details6,name='full_vacated_guest_details6'),
+    path('full_vacated_guest_table6',branch6.full_vacated_guest_table6,name='full_vacated_guest_table6'),
+
+    path('guest_details6/<guest_code>', branch6.guest_details6, name='guest_details6'),
 
 
 

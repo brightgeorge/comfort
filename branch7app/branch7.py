@@ -9079,6 +9079,39 @@ def dec_make_payments_vacate7(request, id):
 # ************vacate guest payments end here*******
 
 
+
+
+def guest_details7(request,guest_code):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    agd=pg1_new_guest.objects.all().filter(flag=3,guest_code=guest_code)
+    l=[]
+    for i in agd:
+        l.append(i.name)
+    print('lkokok',l)
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgd' : pg1_new_guest.objects.all().filter(flag=3,guest_code=guest_code),
+    }
+    return render(request, 'branches/branch7/vacate_guest/guest_details.html', context)
+
+
+
+
+
 ##################################
 # VACATE GUEST DETAILS END HERE
 ################################

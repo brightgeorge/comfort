@@ -309,6 +309,8 @@ path('full_paid_guest3/',reports3.full_paid_guest3,name='full_paid_guest3'),
     path('full_vacated_guest_details3',branch3.full_vacated_guest_details3,name='full_vacated_guest_details3'),
     path('full_vacated_guest_table3',branch3.full_vacated_guest_table3,name='full_vacated_guest_table3'),
 
+    path('guest_details3/<guest_code>', branch3.guest_details3, name='guest_details3'),
+
 
 #********vacate guest payments start here**********
 

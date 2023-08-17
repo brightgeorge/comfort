@@ -10285,6 +10285,38 @@ def dec_account_mgt2(request,id):
         return render(request,'branches/branch2/due_amt_mgt/monthly_detailes_due_amt/dec/dec_account_mgt.html',context)
 
 
+
+def guest_details2(request,guest_code):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    agd=pg1_new_guest.objects.all().filter(flag=3,guest_code=guest_code)
+    l=[]
+    for i in agd:
+        l.append(i.name)
+    print('lkokok',l)
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vgd' : pg1_new_guest.objects.all().filter(flag=3,guest_code=guest_code),
+    }
+    return render(request, 'branches/branch2/vacate_guest/guest_details.html', context)
+
+
+
+
+
 ########################################
 #DUE AMT MANAGEMENT END HERE
 ###########################

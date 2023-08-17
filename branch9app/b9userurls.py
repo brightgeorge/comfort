@@ -539,6 +539,8 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
     path('full_vacated_guest_details9',branch9.full_vacated_guest_details9,name='full_vacated_guest_details9'),
     path('full_vacated_guest_table9',branch9.full_vacated_guest_table9,name='full_vacated_guest_table9'),
 
+    path('guest_details9/<guest_code>', branch9.guest_details9, name='guest_details9'),
+
     # ********vacate guest payments start here**********
 
     path('jan_manke_payments_vacate9/<id>', branch9.jan_manke_payments_vacate9, name='jan_manke_payments_vacate9'),

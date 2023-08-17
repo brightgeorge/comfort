@@ -556,6 +556,8 @@ path('dec_account_mgt8/<id>',branch8.dec_account_mgt8,name='dec_account_mgt8'),
     path('full_vacated_guest_details8',branch8.full_vacated_guest_details8,name='full_vacated_guest_details8'),
     path('full_vacated_guest_table8',branch8.full_vacated_guest_table8,name='full_vacated_guest_table8'),
 
+    path('guest_details8/<guest_code>', branch8.guest_details8, name='guest_details8'),
+
 #********vacate guest payments start here**********
 
     path('jan_manke_payments_vacate8/<id>', branch8.jan_manke_payments_vacate8, name='jan_manke_payments_vacate8'),

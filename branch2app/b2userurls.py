@@ -316,6 +316,8 @@ path('full_paid_guest2/',reports2.full_paid_guest2,name='full_paid_guest2'),
     path('full_vacated_guest_details2',branch2.full_vacated_guest_details2,name='full_vacated_guest_details2'),
     path('full_vacated_guest_table2',branch2.full_vacated_guest_table2,name='full_vacated_guest_table2'),
 
+    path('guest_details2/<guest_code>', branch2.guest_details2, name='guest_details2'),
+
 #********vacate guest payments start here**********
 
     path('jan_manke_payments_vacate2/<id>', branch2.jan_manke_payments_vacate2, name='jan_manke_payments_vacate2'),
