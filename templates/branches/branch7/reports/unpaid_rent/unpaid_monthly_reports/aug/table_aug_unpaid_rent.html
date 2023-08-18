@@ -277,38 +277,35 @@ function exportTableToExcel(tableID, filename = ''){
               <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr>
-                    <th scope="col">Sl No</th>
+                    <th scope="col">SN</th>
                     <th scope="col">Room No</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Rent Amount</th>
-                      <th scope="col">Paid Amount</th>
+                     <th scope="col">Mob</th>
+                    <th scope="col">Rent Amt</th>
+                      <th scope="col">Paid Amt</th>
                     <th scope="col">Advance</th>
                     <th scope="col">Discount</th>
-                      <th scope="col">Due Amount</th>
                       <th scope="col">Remark</th>
-
+                      <th scope="col">Due Amt</th>
                   </tr>
                 </thead>
+
                 <tbody>
-
                 {% for i in up %}
-
 				   <tr>
-                    <td>{{forloop.counter}}</td>
-				   <td>{{i.room_name}}</td>
-                    <td>{{i.name}}</td>
-                       <td>{{i.monthly_rent}}</td>
-                        <td>{{i.auguest_rent}}</td>
-                        <td>{{i.auguest_advance}}</td>
-                        <td>{{i.auguest_dis_amt}}</td>
-                        <td>{{i.auguest_due_amt}}</td>
-                       <td>{{i.remark}}</td>
-
+                    <td style="height:40px;">{{forloop.counter}}</td>
+				   <td style="height:40px;">{{i.room_name}}</td>
+                    <td style="height:40px;">{{i.name}}</td>
+                       <td style="height:40px;">{{i.self_mob}}</td>
+                       <td style="height:40px;">{{i.monthly_rent}}</td>
+                        <td style="height:40px;">{{i.auguest_rent}}</td>
+                        <td style="height:40px;">{{i.auguest_advance}}</td>
+                        <td style="height:40px;">{{i.auguest_dis_amt}}</td>
+                       <td style="height:40px;">{{i.remark}}</td>
+                        <td style="height:40px;">{{i.auguest_due_amt}}</td>
                        </a></td>
                    </tr>
-
                 {% endfor %}
-
                 </tbody>
               </table>
             </div>

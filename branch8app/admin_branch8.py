@@ -236,61 +236,73 @@ def pg1_bed_create_regi8(request):
                     ic.jan_rent = 0
                     ic.jan_advance = 0
                     ic.jan_due_amt = 0
+                    ic.jan_dis_amt = 0
                     ic.jan_rent_flag = 33
 
                     ic.feb_rent = 0
                     ic.feb_advance = 0
                     ic.feb_due_amt = 0
+                    ic.feb_dis_amt = 0
                     ic.feb_rent_flag = 33
 
                     ic.march_rent = 0
                     ic.march_advance = 0
                     ic.march_due_amt = 0
+                    ic.march_dis_amt = 0
                     ic.march_rent_flag = 33
 
                     ic.april_rent = 0
                     ic.april_advance = 0
                     ic.april_due_amt = 0
+                    ic.april_dis_amt = 0
                     ic.april_rent_flag = 33
 
                     ic.may_rent = 0
                     ic.may_advance = 0
                     ic.may_due_amt = 0
+                    ic.may_dis_amt = 0
                     ic.may_rent_flag = 33
 
                     ic.june_rent = 0
                     ic.june_advance = 0
                     ic.june_due_amt = 0
+                    ic.june_dis_amt = 0
                     ic.june_rent_flag = 33
 
                     ic.july_rent = 0
                     ic.july_advance = 0
                     ic.july_due_amt = 0
+                    ic.july_dis_amt = 0
                     ic.july_rent_flag = 33
 
                     ic.auguest_rent = 0
                     ic.auguest_advance = 0
                     ic.auguest_due_amt = 0
+                    ic.auguest_dis_amt = 0
                     ic.auguest_rent_flag = 33
 
                     ic.sept_rent = 0
                     ic.sept_advance = 0
                     ic.sept_due_amt = 0
+                    ic.sept_dis_amt = 0
                     ic.sept_rent_flag = 33
 
                     ic.october_rent = 0
                     ic.october_advance = 0
                     ic.october_due_amt = 0
+                    ic.october_dis_amt = 0
                     ic.october_rent_flag = 33
 
                     ic.nov_rent = 0
                     ic.nov_advance = 0
                     ic.nov_due_amt = 0
+                    ic.nov_dis_amt = 0
                     ic.nov_rent_flag = 33
 
                     ic.dec_rent = 0
                     ic.dec_advance = 0
                     ic.dec_due_amt = 0
+                    ic.dec_dis_amt = 0
                     ic.dec_rent_flag = 33
 
                     ic.flag = 1

@@ -8217,6 +8217,7 @@ def jan_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8237,6 +8238,7 @@ def jan_account_mgt8(request,id):
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_rec_date = date
             ic.jan_rent_flag = chk
             ic.save()
 
@@ -8246,6 +8248,7 @@ def jan_account_mgt8(request,id):
             ic.jan_dis_amt = discount
             ic.jan_due_amt = due_amt
             ic.remark = remark
+            ic.jan_rent_rec_date = date
             ic.jan_rent_flag = chk
             ic.save()
             return view_jan_account_details8(request)
@@ -8298,6 +8301,7 @@ def feb_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8318,6 +8322,7 @@ def feb_account_mgt8(request,id):
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_rec_date = date
             ic.feb_rent_flag = chk
             ic.save()
 
@@ -8327,6 +8332,7 @@ def feb_account_mgt8(request,id):
             ic.feb_dis_amt = discount
             ic.feb_due_amt = due_amt
             ic.remark = remark
+            ic.feb_rent_rec_date = date
             ic.feb_rent_flag = chk
             ic.save()
             return view_feb_account_details8(request)
@@ -8379,6 +8385,7 @@ def march_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8399,6 +8406,7 @@ def march_account_mgt8(request,id):
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_rec_date = date
             ic.march_rent_flag = chk
             ic.save()
 
@@ -8408,6 +8416,7 @@ def march_account_mgt8(request,id):
             ic.march_dis_amt = discount
             ic.march_due_amt = due_amt
             ic.remark = remark
+            ic.march_rent_rec_date = date
             ic.march_rent_flag = chk
             ic.save()
             return view_march_account_details8(request)
@@ -8460,6 +8469,7 @@ def april_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8480,6 +8490,7 @@ def april_account_mgt8(request,id):
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_rec_date = date
             ic.april_rent_flag = chk
             ic.save()
 
@@ -8489,6 +8500,7 @@ def april_account_mgt8(request,id):
             ic.april_dis_amt = discount
             ic.april_due_amt = due_amt
             ic.remark = remark
+            ic.april_rent_rec_date = date
             ic.april_rent_flag = chk
             ic.save()
             return view_april_account_details8(request)
@@ -8540,6 +8552,7 @@ def may_account_mgt8(request, id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8560,6 +8573,7 @@ def may_account_mgt8(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_rec_date = date
             ic.may_rent_flag = chk
             ic.save()
 
@@ -8569,6 +8583,7 @@ def may_account_mgt8(request, id):
             ic.may_dis_amt = discount
             ic.may_due_amt = due_amt
             ic.remark = remark
+            ic.may_rent_rec_date = date
             ic.may_rent_flag = chk
             ic.save()
             return view_may_account_details8(request)
@@ -8623,6 +8638,7 @@ def june_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8643,6 +8659,7 @@ def june_account_mgt8(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_rec_date = date
             ic.june_rent_flag = chk
             ic.save()
 
@@ -8653,6 +8670,7 @@ def june_account_mgt8(request,id):
             ic.june_dis_amt = discount
             ic.june_due_amt = due_amt
             ic.remark = remark
+            ic.june_rent_rec_date = date
             ic.june_rent_flag = chk
             ic.save()
             return view_june_account_details8(request)
@@ -8707,6 +8725,7 @@ def july_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8727,6 +8746,7 @@ def july_account_mgt8(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_rec_date = date
             ic.july_rent_flag = chk
             ic.save()
 
@@ -8736,6 +8756,7 @@ def july_account_mgt8(request,id):
             ic.july_dis_amt = discount
             ic.july_due_amt = due_amt
             ic.remark = remark
+            ic.july_rent_rec_date = date
             ic.july_rent_flag = chk
             ic.save()
             return view_july_account_details8(request)
@@ -8790,6 +8811,7 @@ def auguest_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8810,6 +8832,7 @@ def auguest_account_mgt8(request,id):
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_rec_date = date
             ic.auguest_rent_flag = chk
             ic.save()
 
@@ -8819,6 +8842,7 @@ def auguest_account_mgt8(request,id):
             ic.auguest_dis_amt = discount
             ic.auguest_due_amt = due_amt
             ic.remark = remark
+            ic.auguest_rent_rec_date = date
             ic.auguest_rent_flag = chk
             ic.save()
             return view_auguest_account_details8(request)
@@ -8871,6 +8895,7 @@ def sept_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8891,6 +8916,7 @@ def sept_account_mgt8(request,id):
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_rec_date = date
             ic.sept_rent_flag = chk
             ic.save()
 
@@ -8900,6 +8926,7 @@ def sept_account_mgt8(request,id):
             ic.sept_dis_amt = discount
             ic.sept_due_amt = due_amt
             ic.remark = remark
+            ic.sept_rent_rec_date = date
             ic.sept_rent_flag = chk
             ic.save()
             return view_sept_account_details8(request)
@@ -8952,6 +8979,7 @@ def october_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -8972,6 +9000,7 @@ def october_account_mgt8(request,id):
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_rec_date = date
             ic.october_rent_flag = chk
             ic.save()
 
@@ -8981,6 +9010,7 @@ def october_account_mgt8(request,id):
             ic.october_dis_amt = discount
             ic.october_due_amt = due_amt
             ic.remark = remark
+            ic.october_rent_rec_date = date
             ic.october_rent_flag = chk
             ic.save()
             return view_october_account_details8(request)
@@ -9033,6 +9063,7 @@ def nov_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -9053,6 +9084,7 @@ def nov_account_mgt8(request,id):
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_rec_date = date
             ic.nov_rent_flag = chk
             ic.save()
 
@@ -9062,6 +9094,7 @@ def nov_account_mgt8(request,id):
             ic.nov_dis_amt = discount
             ic.nov_due_amt = due_amt
             ic.remark = remark
+            ic.nov_rent_rec_date = date
             ic.nov_rent_flag = chk
             ic.save()
             return view_nov_account_details8(request)
@@ -9114,6 +9147,7 @@ def dec_account_mgt8(request,id):
             discount = request.POST.get('dis')
             due_amt = request.POST.get('due')
             remark = request.POST.get('rem')
+            date = request.POST.get('date')
             fl = request.POST.get('eanable_disable')
             chk = 11
             if fl == None:
@@ -9134,6 +9168,7 @@ def dec_account_mgt8(request,id):
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_rec_date = date
             ic.dec_rent_flag = chk
             ic.save()
 
@@ -9143,6 +9178,7 @@ def dec_account_mgt8(request,id):
             ic.dec_dis_amt = discount
             ic.dec_due_amt = due_amt
             ic.remark = remark
+            ic.dec_rent_rec_date = date
             ic.dec_rent_flag = chk
             ic.save()
             return view_dec_account_details8(request)
