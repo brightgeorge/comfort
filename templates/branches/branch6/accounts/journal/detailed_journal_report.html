@@ -354,6 +354,7 @@ function exportTableToExcel(tableID, filename = ''){
                 <thead>
                   <tr>
                       <th>Sl No</th>
+                      <th>Manage</th>
                     <th scope="col">Particulars</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Ledger</th>
@@ -370,6 +371,21 @@ function exportTableToExcel(tableID, filename = ''){
 
                     <tr>
                     <td rowspan="2" >{{forloop.counter}}</td>
+
+                         <td>
+
+                             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_in_exp_items_entry6' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_journal6' id=i.id %}">Delete Selected Entry</a>
+
+               </div>
+              </div>
+                        </td>
+
                     <td>{{i.particulars}}</td>
                       <td>{{i.amount}}</td>
                       <td>{{i.ledger}}</td>
