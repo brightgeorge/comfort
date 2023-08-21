@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright A/C S</title>
+  <title>Open Bright</title>
   <!-- loader-->
   <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
@@ -73,6 +73,7 @@ function exportTableToExcel(tableID, filename = ''){
 
 </head>
 
+
 {% if us == th_us %}
 {% for i in bg %}
 <body class="{{i.theme_name}}" style="background-color:{{i.theme_name}}">
@@ -93,153 +94,86 @@ function exportTableToExcel(tableID, filename = ''){
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
-       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Open Bright A/C S</h5>
+       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Dashtreme Admin</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-     <li class="sidebar-header"><h6 style="text-decoration:underline;">.......* PRESTIGE PG1 *.......</h6></li>
+      <li class="sidebar-header">MAIN NAVIGATION BR4</li>
 
-             <li>
-        <a href="{% url 'accounts_dash_board9' %}">
-          <i class="zmdi zmdi-book"></i> <span>A/C S DASHBOARD</span>
+      <li>
+        <a href="{% url 'branch1_dashboard4' %}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard 4</span>
         </a>
       </li>
 
       <li>
-        <a href="{% url 'branch1_dashboard9' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>PG MANAGEMENT</span>
+        <a href="{% url 'unpaid_rent_choose_months4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests 4</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'paid_rent_choose_months4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests 4</span>
+        </a>
+      </li>
+
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor">Payments 4</span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment 4</span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months4' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment 4</span></a>
+
+  </div>
+</div>
+       </li>
+
+        <li>
+        <a href="{% url 'choose_months_advance4' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance 4</span>
         </a>
       </li>
 
        <li>
-        <a href="{% url 'in_exp_items_entry9' %}">
-          <i class="zmdi zmdi-case-check"></i> <span>Daily Inc Exp Form</span>
+        <a href="{% url 'view_all_new_guest4' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests 4</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Print outs 4</span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacate Guest 4</span>
         </a>
       </li>
 
-                     <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-balance-wallet" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">INCOME EXPENCE Reports</span>
-  </a>
+        <li>
+        <a href="{% url 'view_all_room4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms 4</span>
+        </a>
+      </li>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-warning" href="{% url 'monthly_reports_choose_months9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Detailed</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'single_monthly_reports_choose_months9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Monthly Detailed</span></a>
-
-  </div>
-</div>
-       </li>
-
-              <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Detailed Reports</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-    <a class="dropdown-item btn-danger" href="{% url 'daily_detailed9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Detailed</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'monthly_detailed9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Detailed</span></a>
-       <a class="dropdown-item btn-warning" href="{% url 'yearly_detailed9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Detailed</span></a>
-
-  </div>
-</div>
-       </li>
-
-                     <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Ledger Reports</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-     <a class="dropdown-item btn-danger" href="{% url 'daily_ledger_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily ledger report </span></a>
-<a class="dropdown-item btn-success" href="{% url 'monthly_ledger_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly ledger report </span></a>
-
-      <a class="dropdown-item btn-warning" href="{% url 'ledger_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Ledger Reports</span></a>
+       <li>
+        <a href="{% url 'pg1_view_all_beds4' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds 4</span>
+        </a>
+      </li>
 
 
-  </div>
-</div>
-       </li>
-
-                     <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">A/C S Book Reports</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-      <a class="dropdown-item btn-danger" href="{% url 'daily_accounts_book_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily A/C S Book Based</span></a>
-
-     <a class="dropdown-item btn-success" href="{% url 'monthly_accounts_book_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly A/C S Book Based</span></a>
-
-      <a class="dropdown-item btn-warning" href="{% url 'accounts_book_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly A/C S Book Based</span></a>
-
-
-  </div>
-</div>
-       </li>
-
-                     <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Item Wise Reports</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-
-      <a class="dropdown-item btn-danger" href="{% url 'daily_item_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Item Based</span></a>
-
-      <a class="dropdown-item btn-success" href="{% url 'monthly_item_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Item Based</span></a>
- <a class="dropdown-item btn-warning" href="{% url 'item_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Item Based</span></a>
-
-  </div>
-</div>
-       </li>
-
-
-                            <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-format-list-bulleted" id="mycolor"></i> <span id="mycolor" style="color:white">Category Wise Reports</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-
-      <a class="dropdown-item btn-danger" href="{% url 'daily_category_wise9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Daily Category Based</span></a>
-
-      <a class="dropdown-item btn-success" href="{% url 'monthly_category_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Monthly Category Based</span></a>
- <a class="dropdown-item btn-warning" href="{% url 'yearly_category_based_reports9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Yearly Category Based</span></a>
-
-  </div>
-</div>
-       </li>
-
-
-                            <li id="mycolor">
-       <div class="dropdown show" id="mycolor">
-  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="zmdi zmdi-brush" id="mycolor"></i> <span id="mycolor" style="color:white;font-size:12px;">Creater Master</span>
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
-          <a class="dropdown-item btn-danger" href="{% url 'view_all_category9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Category Creater</span></a>
-    <a class="dropdown-item btn-success" href="{% url 'view_all_items9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Item Creater</span></a>
-    <a class="dropdown-item btn-warning" href="{% url 'view_all_ledger9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Ledger Creater</span></a>
-      <a class="dropdown-item btn-info" href="{% url 'view_all_accounts_book9' %}"><i class="zmdi zmdi-invert-colors"></i> <span>A/C S Book Creater</span></a>
-
-  </div>
-</div>
-       </li>
 
       <li>
         <a href="{% url 'logout' %}">
           <i class="zmdi zmdi-lock"></i> <span>Logout</span>
         </a>
       </li>
-
 
     </ul>
 
@@ -312,7 +246,6 @@ function exportTableToExcel(tableID, filename = ''){
 </header>
 <!--End topbar header-->
 
-
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
@@ -323,12 +256,12 @@ function exportTableToExcel(tableID, filename = ''){
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">VIEW ALL DETAILED JOURNAL ENTRYS</h5>
+              <h5 class="card-title"> VIEW ALL GUEST MANAGEMENT </h5>
 
 
                 {% if messages %}
                 {% for message in messages %}
-        <div class="alert alert-{{msg}}" style="width:95%;">
+        <div class="alert alert-success" style="width:95%;">
          <a href="#" class="close" data-dismiss="alert">
             &times;
          </a>
@@ -340,81 +273,67 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                  <tr>
-
-
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
+                     <th> <a href="{% url 'view_all_new_guest4' %}"> <button style="background-color:green;color:white;"> <= Back</button> </a></th>
+                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
+                     <th> <a href=""> <button style="background-color:green;color:white;"> <= test shift</button> </a></th>
                  <th><button onclick="window.print()">Print</button></th>
-                     <th ><a href="{% url 'in_exp_items_entry9' %}"> <button class="mybutton button1" style="background-color:green;color:white;"> <= BACK </button></a></th>
-
-                     <th ><a href="{% url 'journal_report_deleted9' %}"> <button class="mybutton button1" style="background-color:red;color:white;"><span style="background-color:red;color:white;">DELETED ENTRYS</span> </button></a></th>
                  </tr>
-
            <div class="table-responsive">
-              <table class="table table-sm" id="tbldata" border="1">
+              <table class="table table-bordered" id="tbldata" border="1">
                 <thead>
                   <tr>
-                      <th>Sl No</th>
-                      <th>Manage</th>
-                    <th scope="col">Particulars</th>
+                    <th scope="col">Room</th>
+                    <th scope="col">Manage</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Number</th>
+                      <th scope="col">Advance</th>
                     <th scope="col">Amount</th>
-                    <th scope="col">Ledger</th>
-                    <th scope="col">A/C Book</th>
-                    <th scope="col">Type</th>
-                      <th scope="col">Date</th>
-                      <th scope="col">Flag</th>
-                      <th scope="col">Description</th>
+                    <th scope="col" style="width:150px;height:60px;">Remark</th>
                   </tr>
                 </thead>
                 <tbody>
 
-{% for i in items %}
 
-                    <tr>
+                  <tr>
 
-                    <td rowspan="2" >{{forloop.counter}}</td>
+                      {% for i in vag %}
 
-                        <td>
+ <th scope="row" ">{{i.roon_name}}</th>
 
-                             <div class="dropdown">
+                       <th scope="row" style="height:{{table_height}};">
+                        <div class="dropdown">
              <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
               <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
              </a>
               <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="{% url 'update_in_exp_items_entry9' id=i.id %}">Update Selected Entry</a>
-                <a class="dropdown-item" href="{% url 'delete_journal9' id=i.id %}">Delete Selected Entry</a>
+
+
+                  <a class="dropdown-item" href="{% url 'active_guest_details4' guest_code=i.guest_code %}" style="color:orange;"> Guest Details</a>
+
+                  <a class="dropdown-item" href="{% url 'vacate_br1_guest4' id=i.id %}">Vacate Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest4' id=i.guest_code %}">shift guest 11</a>
+
+                <a class="dropdown-item" href=""></a>
 
                </div>
               </div>
+                    </th>
 
-                        </td>
 
-                    <td>{{i.particulars}}</td>
-                      <td>{{i.amount}}</td>
-                      <td>{{i.ledger}}</td>
-                    <td>{{i.accounts_book_name}}</td>
-                    <td>{{i.type}}</td>
-                      <td>{{i.date}}</td>
-                      <td>{{i.flag}}</td>
-                    <td>{{i.description}}</td>
+                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
+                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
+                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
                   </tr>
-
-<tr>
-
-                        <th scope="row" colspan="8">
-                            <span style="background-color:green;"> {{i.enter_by}} {{i.cb_date}} ||
-
-                           <span style="background-color:orange;"> {{i.updated_by}} {{i.ub_date}} || </span>
-                           <span style="background-color:red;"> {{i.deleted_by}} {{i.db_date}} </span>
-                        </th>
-                    </tr>
-
-{% endfor %}
+                {% endfor %}
 
 
 
 
 
-                <!-- --------------------------------------------------------------- -->
+
+<! ---------------------------------------------------------------------------------------- -->
 
 
 
@@ -448,7 +367,7 @@ function exportTableToExcel(tableID, filename = ''){
    <footer class="footer">
       <div class="container">
         <div class="text-center">
-          <a href="http://hbct.in/">Powred © HBCT.IN</a>
+          Copyright © 2018 Dashtreme Admin
         </div>
       </div>
     </footer>
@@ -460,20 +379,6 @@ function exportTableToExcel(tableID, filename = ''){
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
-
-        <p class="mb-0">Settings</p>
-      <hr>
-
-      <ul>
-
-
-
-
-          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
-
-
-      </ul>
-
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
