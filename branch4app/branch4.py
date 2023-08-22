@@ -867,7 +867,7 @@ def shift_guest4(request,id):
 
         #'vag': pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
         'sd' : pg1_new_beds.objects.get(id=id),
-        'roomno' : set(pg1_new_beds.objects.all().filter(flag=2)),
+        'roomno' : set(pg1_new_beds.objects.values_list(flag=2)),
         'name': pg1_new_beds.objects.all().filter(flag=2).order_by('name').values(),
     }
     return render(request,'branches/branch4/new_guest/shift_guest.html',context)
