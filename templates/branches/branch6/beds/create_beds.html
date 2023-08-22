@@ -283,8 +283,8 @@
 				<label for="input-11">Enter Share Type</label>
 				<select id="cars" class="col-lg-2 form-control" style="display:inline;" name="roomtype" required>
 					<option style="background-color:white;">Select</option>
-                    {% for i in roomno %}
-					<option value="{{i.share_type}}" >{{i.share_type}}</option>
+                    {% for i in roomtype %}
+					<option value="{{i.0}}" >{{i.0}}</option>
                     {% endfor %}
 				</select>
                  </div>

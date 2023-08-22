@@ -168,7 +168,6 @@ def pg1_bed_create(request):
             'th_us': a[0],
             'name': us,
 
-
             'brname':'BRANCH ONE Room Creation Form',
             'brname': 'BRANCH ONE ',
             'roomno' : room_pg1.objects.all(),

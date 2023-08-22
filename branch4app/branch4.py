@@ -866,10 +866,11 @@ def shift_guest4(request,id):
         'name': us,
 
         #'vag': pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
-        #'sd' : pg1_new_beds.objects.get(id=id),
+        'sd' : pg1_new_beds.objects.get(id=id),
         'roomno' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no')
     }
     return render(request,'branches/branch4/new_guest/shift_guest.html',context)
+
 
 
 

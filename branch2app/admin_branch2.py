@@ -79,7 +79,8 @@ def pg1_bed_create2(request):
         context={
             'brname':'BRANCH ONE Room Creation Form',
             'brname': 'BRANCH TWO ',
-            'roomno' : room_pg1.objects.all()
+            'roomno' : room_pg1.objects.all(),
+            'roomtype': set(room_pg1.objects.values_list('share_type')),
         }
         return render(request,'branches/branch2/beds/create_beds.html',context)
     return render(request, 'index.html')

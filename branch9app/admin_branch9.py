@@ -177,7 +177,8 @@ def pg1_bed_create9(request):
 
             'brname': 'BRANCH 9 Room Creation Form',
             'brname': 'BRANCH 9',
-            'roomno': room_pg1.objects.all().order_by('roon_no')
+            'roomno': room_pg1.objects.all().order_by('roon_no'),
+            'roomtype': set(room_pg1.objects.values_list('share_type')),
         }
         return render(request, 'branches/branch9/beds/create_beds.html', context)
     return render(request, 'index.html')

@@ -208,6 +208,30 @@ def login_request(request):
                     'name' : us
                 }
                 return render(request,'branches/branch9/branch1index.html', context)
+            if role=='Branch10':
+                request.session['username'] = username
+                us = request.session['username']
+                context = {
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch10/branch1index.html', context)
+            if role=='Branch11':
+                request.session['username'] = username
+                us = request.session['username']
+                context = {
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch11/branch1index.html', context)
+            if role=='Branch12':
+                request.session['username'] = username
+                us = request.session['username']
+                context = {
+                    'user': loginobj,
+                    'name' : us
+                }
+                return render(request,'branches/branch12/branch1index.html', context)
 
             else:
                 return render(request,'index.html',context={'user':loginobj})
