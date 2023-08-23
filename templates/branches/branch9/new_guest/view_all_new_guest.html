@@ -275,7 +275,8 @@ function exportTableToExcel(tableID, filename = ''){
 
                  <tr>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                 <th><button onclick="window.print()">Print this page</button></th>
+                 <th><button onclick="window.print()">Print </button></th>
+                     <th> <a href="{% url 'view_all_guest9' %}"> <button style="background-color:green;color:white;">View all Guest </button> </a></th>
                  </tr>
            <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
@@ -323,6 +324,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -368,6 +370,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -409,6 +412,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -450,6 +454,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -492,6 +497,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -534,6 +540,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -575,6 +582,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -617,6 +625,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -659,6 +668,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -702,6 +712,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -744,6 +755,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -786,6 +798,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -828,6 +841,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -875,6 +889,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -916,6 +931,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -958,6 +974,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -999,6 +1016,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1041,6 +1059,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1083,6 +1102,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1125,6 +1145,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1167,6 +1188,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1210,6 +1232,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1253,6 +1276,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1294,6 +1318,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1336,6 +1361,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1381,6 +1407,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1422,6 +1449,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1464,6 +1492,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1506,6 +1535,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1548,6 +1578,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1590,6 +1621,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1632,6 +1664,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1717,6 +1750,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1759,6 +1793,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1801,6 +1836,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1843,6 +1879,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1891,6 +1928,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1932,6 +1970,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -1974,6 +2013,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2017,6 +2057,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2058,6 +2099,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2100,6 +2142,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2142,6 +2185,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2184,6 +2228,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2226,6 +2271,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2268,6 +2314,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2310,6 +2357,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2352,6 +2400,7 @@ function exportTableToExcel(tableID, filename = ''){
              </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                  <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                 <a class="dropdown-item" href=""></a>
 
                </div>
@@ -2399,6 +2448,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2440,6 +2490,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2482,6 +2533,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2525,6 +2577,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2566,6 +2619,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2608,6 +2662,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2650,6 +2705,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2692,6 +2748,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2734,6 +2791,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2776,6 +2834,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2818,6 +2877,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>
@@ -2860,6 +2920,7 @@ function exportTableToExcel(tableID, filename = ''){
                  </a>
                   <div class="dropdown-menu dropdown-menu-right">
                       <a class="dropdown-item" href="{% url 'br1_admit_guest9' id=i.id %}">Admit Guest</a>
+                      <a class="dropdown-item" href="{% url 'shift_guest9' id=i.id %}">shift guest</a>
                     <a class="dropdown-item" href=""></a>
 
                    </div>

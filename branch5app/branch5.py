@@ -731,6 +731,441 @@ def active_guest_details5(request,guest_code):
 
 
 
+
+def view_all_guest5(request):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vag' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no')
+    }
+    return render(request,'branches/branch5/new_guest/view_all_guest.html',context)
+
+def shift_guest5(request,id):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        #'vag': pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
+        'sd' : pg1_new_beds.objects.get(id=id),
+        'roomno' : sorted(set(pg1_new_beds.objects.values_list('roon_no'))),
+        'bedno': sorted(set(pg1_new_beds.objects.values_list('share_type'))),
+        'name': pg1_new_beds.objects.all().filter(flag=2).order_by('name').values(),
+    }
+    return render(request,'branches/branch5/new_guest/shift_guest.html',context)
+
+
+
+
+def shift_guest_regi5(request):
+
+    room = request.POST.get('room')
+    bed = request.POST.get('bed')
+    name = request.POST.get('name')
+
+    sg = pg1_new_beds.objects.all().filter(roon_no=room,bed_no=bed,name=name)
+    l=[]
+    s=id
+
+    print(id)
+    print(s)
+
+    for i in sg:
+        l.append(i.name)
+        l.append(i.advance)
+        l.append(i.monthly_rent)
+        l.append(i.self_mob)
+        l.append(i.age)
+        l.append(i.permanent_address)
+        l.append(i.parent_name)
+        l.append(i.parent_mob)
+
+        l.append(i.guest_code)
+        l.append(i.remark)
+        l.append(i.guest_join_date)
+        l.append(i.guest_join_month)
+        l.append(i.guest_vacated_date)
+        l.append(i.guest_vacate_month)
+
+        l.append(i.jan_rent)
+        l.append(i.jan_advance)
+        l.append(i.jan_due_amt)
+        l.append(i.jan_dis_amt)
+        l.append(i.jan_rent_rec_date)
+        l.append(i.jan_rent_flag)
+
+        l.append(i.feb_rent)
+        l.append(i.feb_advance)
+        l.append(i.feb_due_amt)
+        l.append(i.feb_dis_amt)
+        l.append(i.feb_rent_rec_date)
+        l.append(i.feb_rent_flag)
+
+        l.append(i.march_rent)
+        l.append(i.march_advance)
+        l.append(i.march_due_amt)
+        l.append(i.march_dis_amt)
+        l.append(i.march_rent_rec_date)
+        l.append(i.march_rent_flag)
+
+        l.append(i.april_rent)
+        l.append(i.april_advance)
+        l.append(i.april_due_amt)
+        l.append(i.april_dis_amt)
+        l.append(i.april_rent_rec_date)
+        l.append(i.april_rent_flag)
+
+        l.append(i.may_rent)
+        l.append(i.may_advance)
+        l.append(i.may_due_amt)
+        l.append(i.may_dis_amt)
+        l.append(i.may_rent_rec_date)
+        l.append(i.may_rent_flag)
+
+        l.append(i.june_rent)
+        l.append(i.june_advance)
+        l.append(i.june_due_amt)
+        l.append(i.june_dis_amt)
+        l.append(i.june_rent_rec_date)
+        l.append(i.june_rent_flag)
+
+        l.append(i.july_rent)
+        l.append(i.july_advance)
+        l.append(i.july_due_amt)
+        l.append(i.july_dis_amt)
+        l.append(i.july_rent_rec_date)
+        l.append(i.july_rent_flag)
+
+        l.append(i.auguest_rent)
+        l.append(i.auguest_advance)
+        l.append(i.auguest_due_amt)
+        l.append(i.auguest_dis_amt)
+        l.append(i.auguest_rent_rec_date)
+        l.append(i.auguest_rent_flag)
+
+        l.append(i.sept_rent)
+        l.append(i.sept_advance)
+        l.append(i.sept_due_amt)
+        l.append(i.sept_dis_amt)
+        l.append(i.sept_rent_rec_date)
+        l.append(i.sept_rent_flag)
+
+        l.append(i.october_rent)
+        l.append(i.october_advance)
+        l.append(i.october_due_amt)
+        l.append(i.october_dis_amt)
+        l.append(i.october_rent_rec_date)
+        l.append(i.october_rent_flag)
+
+        l.append(i.nov_rent)
+        l.append(i.nov_advance)
+        l.append(i.nov_due_amt)
+        l.append(i.nov_dis_amt)
+        l.append(i.nov_rent_rec_date)
+        l.append(i.nov_rent_flag)
+
+        l.append(i.dec_rent)
+        l.append(i.dec_advance)
+        l.append(i.dec_due_amt)
+        l.append(i.dec_dis_amt)
+        l.append(i.dec_rent_rec_date)
+        l.append(i.dec_rent_flag)
+
+        l.append(i.flag)
+
+        mid = request.POST.get('id')
+        print('my iddd',mid)
+        ic = pg1_new_beds.objects.get(id=mid)
+
+        ic.name = l[0]
+        ic.advance = l[1]
+        ic.monthly_rent = l[2]
+        ic.self_mob = l[3]
+        ic.age = l[4]
+        ic.permanent_address = l[5]
+        ic.parent_name = l[6]
+        ic.parent_mob = l[7]
+
+        ic.guest_code = l[8]
+        ic.remark = l[9]
+        ic.guest_join_date = l[10]
+        ic.guest_join_month = l[11]
+        ic.guest_vacated_date = l[12]
+        ic.guest_vacate_month = l[13]
+
+        ic.jan_rent = l[14]
+        ic.jan_advance = l[15]
+        ic.jan_due_amt = l[16]
+        ic.jan_dis_amt = l[17]
+        ic.jan_rent_rec_date = l[18]
+        ic.jan_rent_flag = l[19]
+
+        ic.feb_rent = l[20]
+        ic.feb_advance = l[21]
+        ic.feb_due_amt = l[22]
+        ic.feb_dis_amt = l[23]
+        ic.feb_rent_rec_date = l[24]
+        ic.feb_rent_flag = l[25]
+
+        ic.march_rent = l[26]
+        ic.march_advance = l[27]
+        ic.march_due_amt = l[28]
+        ic.march_dis_amt = l[29]
+        ic.march_rent_rec_date = l[30]
+        ic.march_rent_flag = l[31]
+
+        ic.april_rent = l[32]
+        ic.april_advance = l[33]
+        ic.april_due_amt = l[34]
+        ic.april_dis_amt = l[35]
+        ic.april_rent_rec_date = l[36]
+        ic.april_rent_flag = l[37]
+
+        ic.may_rent = l[38]
+        ic.may_advance = l[39]
+        ic.may_due_amt = l[40]
+        ic.may_dis_amt = l[41]
+        ic.may_rent_rec_date = l[42]
+        ic.may_rent_flag = l[43]
+
+        ic.june_rent = l[44]
+        ic.june_advance = l[45]
+        ic.june_due_amt = l[46]
+        ic.june_dis_amt = l[47]
+        ic.june_rent_rec_date = l[48]
+        ic.june_rent_flag = l[49]
+
+        ic.july_rent = l[50]
+        ic.july_advance = l[51]
+        ic.july_due_amt = l[52]
+        ic.july_dis_amt = l[53]
+        ic.july_rent_rec_date = l[54]
+        ic.july_rent_flag = l[55]
+
+        ic.auguest_rent = l[56]
+        ic.auguest_advance = l[57]
+        ic.auguest_due_amt = l[58]
+        ic.auguest_dis_amt = l[59]
+        ic.auguest_rent_rec_date = l[60]
+        ic.auguest_rent_flag = l[61]
+
+        ic.sept_rent = l[62]
+        ic.sept_advance = l[63]
+        ic.sept_due_amt = l[64]
+        ic.sept_dis_amt = l[65]
+        ic.sept_rent_rec_date = l[66]
+        ic.sept_rent_flag = l[67]
+
+        ic.october_rent = l[68]
+        ic.october_advance = l[69]
+        ic.october_due_amt = l[70]
+        ic.october_dis_amt = l[71]
+        ic.october_rent_rec_date = l[72]
+        ic.october_rent_flag = l[73]
+
+        ic.nov_rent = l[74]
+        ic.nov_advance = l[75]
+        ic.nov_due_amt = l[76]
+        ic.nov_dis_amt = l[77]
+        ic.nov_rent_rec_date = l[78]
+        ic.nov_rent_flag = l[79]
+
+        ic.dec_rent = l[80]
+        ic.dec_advance = l[81]
+        ic.dec_due_amt = l[82]
+        ic.dec_dis_amt = l[83]
+        ic.dec_rent_rec_date = l[84]
+        ic.dec_rent_flag = l[85]
+
+        ic.flag = 2
+        ic.save()
+
+        #######################
+
+        room = request.POST.get('room')
+        bed = request.POST.get('bed')
+        room_name = request.POST.get('room_name')
+
+        #sg = pg1_new_beds.objects.all().filter(roon_no=room, bed_no=bed, name=name)
+
+        mid = request.POST.get('id')
+        sg = pg1_new_beds.objects.all().filter(id=mid)
+
+        ul=[]
+        for i in sg:
+            ul.append(i.roon_no)
+            ul.append(i.room_name)
+            ul.append(i.bed_no)
+            ul.append(i.guest_code)
+
+        ic = pg1_new_guest.objects.get(guest_code=l[8])
+        ic.roon_no = ul[0]
+        ic.room_name = ul[1]
+        ic.bed_no = ul[2]
+        ic.created_by = request.session['username']
+        ic.save()
+
+    ##############################################
+
+        room = request.POST.get('room')
+        bed = request.POST.get('bed')
+        name = request.POST.get('name')
+
+        ic = pg1_new_beds.objects.get(roon_no=room, bed_no=bed, name=name)
+
+        ic.name = ''
+        ic.advance = ''
+        ic.monthly_rent = ''
+        ic.self_mob = ''
+        ic.age = 0
+        ic.permanent_address = ''
+        ic.parent_name = ''
+        ic.parent_mob = 0
+
+        ic.guest_code = 0
+        ic.remark = ''
+        ic.guest_join_date = ''
+        ic.guest_join_month = ''
+        ic.guest_vacated_date = ''
+        ic.guest_vacate_month = ''
+
+        ic.jan_rent = 0
+        ic.jan_advance = ''
+        ic.jan_due_amt = ''
+        ic.jan_dis_amt = ''
+        ic.jan_rent_rec_date = ''
+        ic.jan_rent_flag = 0
+
+        ic.feb_rent = 0
+        ic.feb_advance = ''
+        ic.feb_due_amt = ''
+        ic.feb_dis_amt = ''
+        ic.feb_rent_rec_date = ''
+        ic.feb_rent_flag = 0
+
+        ic.march_rent = 0
+        ic.march_advance = ''
+        ic.march_due_amt = ''
+        ic.march_dis_amt = ''
+        ic.march_rent_rec_date = ''
+        ic.march_rent_flag = 0
+
+        ic.april_rent = 0
+        ic.april_advance = ''
+        ic.april_due_amt = ''
+        ic.april_dis_amt = ''
+        ic.april_rent_rec_date = ''
+        ic.april_rent_flag = 0
+
+        ic.may_rent = 0
+        ic.may_advance = ''
+        ic.may_due_amt = ''
+        ic.may_dis_amt = ''
+        ic.may_rent_rec_date = ''
+        ic.may_rent_flag = 0
+
+        ic.june_rent = 0
+        ic.june_advance = ''
+        ic.june_due_amt = ''
+        ic.june_dis_amt = ''
+        ic.june_rent_rec_date = ''
+        ic.june_rent_flag = 0
+
+        ic.july_rent = 0
+        ic.july_advance = ''
+        ic.july_due_amt = ''
+        ic.july_dis_amt = ''
+        ic.july_rent_rec_date = ''
+        ic.july_rent_flag = 0
+
+        ic.auguest_rent = 0
+        ic.auguest_advance = ''
+        ic.auguest_due_amt = ''
+        ic.auguest_dis_amt = ''
+        ic.auguest_rent_rec_date = ''
+        ic.auguest_rent_flag = 0
+
+        ic.sept_rent = 0
+        ic.sept_advance = ''
+        ic.sept_due_amt = ''
+        ic.sept_dis_amt = ''
+        ic.sept_rent_rec_date = ''
+        ic.sept_rent_flag = 0
+
+        ic.october_rent = 0
+        ic.october_advance = ''
+        ic.october_due_amt = ''
+        ic.october_dis_amt = ''
+        ic.october_rent_rec_date = ''
+        ic.october_rent_flag = 0
+
+        ic.nov_rent = 0
+        ic.nov_advance = ''
+        ic.nov_due_amt = ''
+        ic.nov_dis_amt = ''
+        ic.nov_rent_rec_date = ''
+        ic.nov_rent_flag = 0
+
+        ic.dec_rent = 0
+        ic.dec_advance = ''
+        ic.dec_due_amt = ''
+        ic.dec_dis_amt = ''
+        ic.dec_rent_rec_date = ''
+        ic.dec_rent_flag = 0
+
+        ic.flag = 3
+        ic.save()
+
+
+    print('lastgg',l)
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vag': pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
+        #'sd' : pg1_new_beds.objects.get(id=id),
+        'roomno' : pg1_new_beds.objects.all().order_by('roon_no')
+    }
+    #return render(request,'branches/branch4/new_guest/view_all_guest.html',context)
+    return view_all_new_guest5 (request)
+
+
+
 # new guest end here
 ################################
 
