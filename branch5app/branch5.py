@@ -10084,26 +10084,27 @@ def custom_background_regi(request):
     return render(request, 'index.html')
 
 def guest_all(request):
-    rn=room_pg1.objects.all().order_by('roon_no')
-    lrn=[]
-    for i in rn:
-        lrn.append(i.roon_no)
-    a = pg1_new_beds.objects.all().order_by('roon_no')
+
+    a=pg1_new_beds.objects.all().order_by('roon_no')
     l=[]
+    t=[]
+    s=[]
     for i in a:
-        s=0
+        if i.roon_no not in l:
+            x=10
+        else:
+            t.append(i.share_type)
+            i.share_type = 101230
+            s.append(i.share_type)
         l.append(i.roon_no)
-        r=i.roon_no
-        print('inside forr loope roo',lrn)
-        if i.roon_no == lrn[s]:
-            i.roon_no = 0
-            l.append(0)
-        s=s+1
-        print('sss',s)
-    print('totla llll',l)
+
+    print('lllp',l)
+    print('ttt',t)
+    print('sss',s)
 
     context={
-
+        #'113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
+        '113_data': a,
     }
     return render(request,'branches/branch5/test.html',context)
 

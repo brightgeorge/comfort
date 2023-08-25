@@ -267,7 +267,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
                  <th><button onclick="window.print()">Print this page</button></th>
-                     <th> <a href="{% url '2' %}"> <button style="background-color:green;color:white;">View all Guest </button> </a></th>
+                     <th> <a href="{% url 'view_all_guest2' %}"> <button style="background-color:green;color:white;">View all Guest </button> </a></th>
                  </tr>
 			  <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">
