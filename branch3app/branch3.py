@@ -843,6 +843,65 @@ def view_all_guest3(request):
     }
     return render(request,'branches/branch3/new_guest/view_all_guest.html',context)
 
+def change_duplicate_guest_status3(request,id):
+    if 'username' in request.session:
+        if request.method == 'POST':
+            ab = pg1_new_guest.objects.all().filter(id=id)
+            l=[]
+            for i in ab:
+                l.append(i.guest_code)
+            ir = pg1_new_beds.objects.all().filter(guest_code=l[0], flag=2).exists()
+            print('my irrr',ir)
+
+            if ir == False:
+                ic = pg1_new_guest.objects.get(id=id)
+                ic.flag = 4
+                ic.save()
+
+                us = request.session['username']
+                bgs = background_color.objects.all().filter(username=us)
+                bg = background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
+                context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
+                    'name': us,
+
+                    'vag' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no'),
+                }
+                messages.info(request, 'DUPLICATE ENTERY REMOVED SUCCESSFULLY')
+                return view_all_guest3(request)
+            messages.info(request, 'THIS IS NOT A DUPLICATE ENTERY')
+            return view_all_guest3(request)
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
+        context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
+
+            'vag': pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no'),
+            'sd' : pg1_new_guest.objects.get(id=id),
+        }
+        return render(request,'branches/branch3/new_guest/change_duplicate_guest_status.html',context)
+    return render(request, 'index.html')
+
+
+
 def shift_guest3(request,id):
 
     us = request.session['username']
@@ -866,7 +925,7 @@ def shift_guest3(request,id):
         'bedno': sorted(set(pg1_new_beds.objects.values_list('share_type'))),
         'name': pg1_new_beds.objects.all().filter(flag=2).order_by('name').values(),
     }
-    return render(request,'branches/branch4/new_guest/shift_guest.html',context)
+    return render(request,'branches/branch3/new_guest/shift_guest.html',context)
 
 
 

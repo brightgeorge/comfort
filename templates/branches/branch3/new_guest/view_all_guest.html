@@ -306,7 +306,6 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                      <th> <a href="{% url 'view_all_new_guest3' %}"> <button style="background-color:green;color:white;"> <= Back</button> </a></th>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                     <th> <a href=""> <button style="background-color:green;color:white;"> <= test shift</button> </a></th>
                  <th><button onclick="window.print()">Print</button></th>
                  </tr>
            <div class="table-responsive">
@@ -341,8 +340,7 @@ function exportTableToExcel(tableID, filename = ''){
 
                   <a class="dropdown-item" href="{% url 'active_guest_details3' guest_code=i.guest_code %}" style="color:orange;"> Guest Details</a>
 
-                  <a class="dropdown-item" href="{% url 'vacate_br1_guest3' id=i.id %}">Vacate Guest</a>
-                  <a class="dropdown-item" href="{% url 'shift_guest3' id=i.guest_code %}">shift guest 11</a>
+                  <a class="dropdown-item" href="{% url 'change_duplicate_guest_status3' id=i.id %}">Remove Double entry</a>
 
                 <a class="dropdown-item" href=""></a>
 

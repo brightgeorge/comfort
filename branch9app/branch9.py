@@ -839,7 +839,7 @@ def view_all_guest9(request):
         'th_us': a[0],
         'name': us,
 
-        'vag' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no')
+        'vag' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no')
     }
     return render(request,'branches/branch9/new_guest/view_all_guest.html',context)
 
