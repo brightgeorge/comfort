@@ -19,7 +19,7 @@ import pymysql as py
 import pymysql.cursors
 
 
-def branch1_dashboard10(request):
+def branch1_dashboard_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
         #a = admin_dashboard_calculations_br9.grand_total_collection()
@@ -83,7 +83,7 @@ def admit_guest_ob_ch(request):
         'name': us,
     }
 
-    return render(request, 'branches/branch_ob_ch/new_guest/admit_guest.html',context)
+    return render(request, 'branches/branch10/new_guest/admit_guest.html',context)
 
 
 def br1_admit_guest_ob_ch(request, id):
@@ -115,6 +115,8 @@ def br1_admit_guest_ob_ch(request, id):
                 address = request.POST.get('paddress')
                 pname = request.POST.get('pname')
                 pmob = request.POST.get('pmob')
+                joindate = request.POST.get('jdate')
+
 
                 ic = pg1_new_beds.objects.get(id=id)
                 ic.name = name
@@ -127,9 +129,20 @@ def br1_admit_guest_ob_ch(request, id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
+                r = joindate
+                l = []
+                for i in r:
+                    l.append(i)
+
+                ll = []
+                for i in l:
+                    ll.append(l[5])
+                    ll.append(l[6])
+                    break
+                s = ''.join(ll)
+
+                ic.guest_join_month = s
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
@@ -180,38 +193,28 @@ def br1_admit_guest_ob_ch(request, id):
                 ic.parent_mob = pmob
 
                 import datetime
-                ic.guest_join_date = datetime.date.today()
-                d = datetime.datetime.now()
-                ic.guest_join_month = d.strftime("%m")
+                ic.guest_join_date = joindate
 
                 gcsaves = pg1_new_guest.objects.all()
                 a = len(gcsaves)
                 ic.guest_code = int(a) + 1
 
                 import datetime
-
-                print(datetime.datetime.now())
-                x = datetime.datetime.now()
-                print(x.strftime("%x"))
-                r = x.strftime("%x")
-                # r='11/2/23'
-                print('my', r)
-                print(type(r))
+                r = joindate
                 l = []
                 for i in r:
                     l.append(i)
-                print(l)
 
                 ll = []
                 for i in l:
-                    ll.append(l[0])
-                    ll.append(l[1])
+                    ll.append(l[5])
+                    ll.append(l[6])
                     break
-                print(ll)
-
-                s = ''
                 s = ''.join(ll)
-                print('mystr', s)
+
+                ic.guest_join_month = s
+
+                print('mystr ssss', s)
                 ml = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
 
                 tot = 0
@@ -354,17 +357,17 @@ def br1_admit_guest_ob_ch(request, id):
 
             'sd': pg1_new_beds.objects.get(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/new_guest/new_guest_creation_page.html', context)
+        return render(request, 'branches/branch10/new_guest/new_guest_creation_page.html', context)
     return render(request, 'index.html')
 
 
 def view_all_new_guest_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -377,11 +380,24 @@ def view_all_new_guest_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            '113_data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/new_guest/view_all_new_guest.html', context)
+        return render(request, 'branches/branch10/new_guest/view_all_new_guest.html', context)
     return render(request, 'index.html')
 
 
@@ -468,7 +484,7 @@ def update_br1_admit_guest_ob_ch(request, id):
 
         'sd': pg1_new_beds.objects.get(id=id)
     }
-    return render(request, 'branches/branch_ob_ch/new_guest/update_br1_admit_guest.html', context)
+    return render(request, 'branches/branch10/new_guest/update_br1_admit_guest.html', context)
 
 
 def vacate_br1_guest_ob_ch(request, id):
@@ -503,7 +519,7 @@ def vacate_br1_guest_ob_ch(request, id):
             for i in vcated_date:
                 dl.append(i)
             dll = []
-            dll.append(dl[_ob_ch])
+            dll.append(dl[5])
             dll.append(dl[6])
             month = ''.join(dll)
 
@@ -644,7 +660,7 @@ def vacate_br1_guest_ob_ch(request, id):
 
         'sd': pg1_new_beds.objects.get(id=id)
     }
-    return render(request, 'branches/branch_ob_ch/new_guest/vacate_br1_guest.html', context)
+    return render(request, 'branches/branch10/new_guest/vacate_br1_guest.html', context)
 
 
 def active_guest_details_ob_ch(request,guest_code):
@@ -672,7 +688,7 @@ def active_guest_details_ob_ch(request,guest_code):
 
         'agd' : pg1_new_guest.objects.all().filter(flag=2,guest_code=guest_code),
     }
-    return render(request, 'branches/branch_ob_ch/new_guest/active_guest_details.html', context)
+    return render(request, 'branches/branch10/new_guest/active_guest_details.html', context)
 
 
 
@@ -696,7 +712,7 @@ def view_all_guest_ob_ch(request):
 
         'vag' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no')
     }
-    return render(request,'branches/branch_ob_ch/new_guest/view_all_guest.html',context)
+    return render(request,'branches/branch10/new_guest/view_all_guest.html',context)
 
 def shift_guest_ob_ch(request,id):
 
@@ -721,7 +737,7 @@ def shift_guest_ob_ch(request,id):
         'bedno': sorted(set(pg1_new_beds.objects.values_list('share_type'))),
         'name': pg1_new_beds.objects.all().filter(flag=2).order_by('name').values(),
     }
-    return render(request,'branches/branch_ob_ch/new_guest/shift_guest.html',context)
+    return render(request,'branches/branch10/new_guest/shift_guest.html',context)
 
 
 
@@ -1143,7 +1159,7 @@ def guest_basic_details(request):
         'month_name': 'APRIL',
         'rs': 8
     }
-    return render(request, 'branches/branch_ob_ch/reports/print/guest_basic_details.html', context)
+    return render(request, 'branches/branch10/reports/print/guest_basic_details.html', context)
 
 
 # **basic guest details end here
@@ -1252,7 +1268,7 @@ def unpaid_rent_choose_months_ob_ch(request):
             'th_us': a[0],
             'name': us,
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_rent_choose_months.html',context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_rent_choose_months.html',context)
 
 
 def jan_unpaid_rent_ob_ch(request):
@@ -1276,7 +1292,7 @@ def jan_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JANUARY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jan/jan_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jan/jan_unpaid_rent.html', context)
 def table_jan_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1298,7 +1314,7 @@ def table_jan_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JANUARY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jan/table_jan_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jan/table_jan_unpaid_rent.html', context)
 
 
 def feb_unpaid_rent_ob_ch(request):
@@ -1322,7 +1338,7 @@ def feb_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/feb/feb_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/feb/feb_unpaid_rent.html', context)
 def table_feb_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1344,7 +1360,7 @@ def table_feb_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/feb/table_feb_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/feb/table_feb_unpaid_rent.html', context)
 
 
 def mar_unpaid_rent_ob_ch(request):
@@ -1368,7 +1384,7 @@ def mar_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/mar/mar_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/mar/mar_unpaid_rent.html', context)
 def table_mar_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1390,7 +1406,7 @@ def table_mar_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/mar/table_mar_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/mar/table_mar_unpaid_rent.html', context)
 
 
 def april_unpaid_rent_ob_ch(request):
@@ -1414,7 +1430,7 @@ def april_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/apr/april_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/apr/april_unpaid_rent.html', context)
 def table_april_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1436,7 +1452,7 @@ def table_april_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/apr/table_april_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/apr/table_april_unpaid_rent.html', context)
 
 
 def may_unpaid_rent_ob_ch(request):
@@ -1460,7 +1476,7 @@ def may_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'MAY',
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/may/may_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/may/may_unpaid_rent.html', context)
 def table_may_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1482,7 +1498,7 @@ def table_may_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'MAY',
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/may/table_may_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/may/table_may_unpaid_rent.html', context)
 
 def june_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
@@ -1505,7 +1521,7 @@ def june_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jun/jun_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jun/jun_unpaid_rent.html', context)
 def table_june_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1527,7 +1543,7 @@ def table_june_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jun/table_june_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jun/table_june_unpaid_rent.html', context)
 
 def july_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
@@ -1550,7 +1566,7 @@ def july_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jul/july_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jul/july_unpaid_rent.html', context)
 def table_july_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1572,7 +1588,7 @@ def table_july_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/jul/table_july_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/jul/table_july_unpaid_rent.html', context)
 
 
 def aug_unpaid_rent_ob_ch(request):
@@ -1596,7 +1612,7 @@ def aug_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/aug/aug_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/aug/aug_unpaid_rent.html', context)
 def table_aug_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1618,7 +1634,7 @@ def table_aug_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/aug/table_aug_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/aug/table_aug_unpaid_rent.html', context)
 
 
 def sept_unpaid_rent_ob_ch(request):
@@ -1642,7 +1658,7 @@ def sept_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/sep/sept_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/sep/sept_unpaid_rent.html', context)
 def table_sept_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1664,7 +1680,7 @@ def table_sept_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/sep/table_sept_unpaid_rent.html', context)
 
 
 def oct_unpaid_rent_ob_ch(request):
@@ -1688,7 +1704,7 @@ def oct_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/oct/oct_unpaid_rent.html', context)
 def table_oct_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1710,7 +1726,7 @@ def table_oct_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/oct/table_oct_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/oct/table_oct_unpaid_rent.html', context)
 
 
 def nov_unpaid_rent_ob_ch(request):
@@ -1734,7 +1750,7 @@ def nov_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/nov/nov_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/nov/nov_unpaid_rent.html', context)
 def table_nov_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1756,7 +1772,7 @@ def table_nov_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/nov/table_nov_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/nov/table_nov_unpaid_rent.html', context)
 
 
 def dec_unpaid_rent_ob_ch(request):
@@ -1780,7 +1796,7 @@ def dec_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/dec/dec_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/dec/dec_unpaid_rent.html', context)
 def table_dec_unpaid_rent_ob_ch(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -1802,7 +1818,7 @@ def table_dec_unpaid_rent_ob_ch(request):
             'name': request.session['username'],
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/unpaid_monthly_reports/dec/table_dec_unpaid_rent.html', context)
+        return render(request, 'branches/branch10/reports/unpaid_rent/unpaid_monthly_reports/dec/table_dec_unpaid_rent.html', context)
 
 
 # details_of_unpaid_guests start here
@@ -1831,7 +1847,7 @@ def details_of_unpaid_guests_ob_ch(request, id):
         'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
-    return render(request, 'branches/branch_ob_ch/reports/unpaid_rent/details_of_unpaid_guests.html', context)
+    return render(request, 'branches/branch10/reports/unpaid_rent/details_of_unpaid_guests.html', context)
 
 
 # details_of_unpaid_guests end here
@@ -1859,7 +1875,7 @@ def paid_rent_choose_months_ob_ch(request):
             'name': us,
         }
 
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_rent_choose_months.html',context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_rent_choose_months.html',context)
 
 
 def jan_paid_rent_ob_ch(request):
@@ -1890,7 +1906,7 @@ def jan_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jan/jan_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jan/jan_paid_rent.html', context)
 def table_jan_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -1919,7 +1935,7 @@ def table_jan_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JAN'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jan/table_jan_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jan/table_jan_paid_rent.html', context)
 
 
 def feb_paid_rent_ob_ch(request):
@@ -1949,7 +1965,7 @@ def feb_paid_rent_ob_ch(request):
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/feb/feb_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/feb/feb_paid_rent.html', context)
 def table_feb_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -1977,7 +1993,7 @@ def table_feb_paid_rent_ob_ch(request):
             'name': request.session['username'], 'amt': s,
             'month_name': 'FEB'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/feb/table_feb_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/feb/table_feb_paid_rent.html', context)
 
 
 def mar_paid_rent_ob_ch(request):
@@ -2008,7 +2024,7 @@ def mar_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/mar/mar_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/mar/mar_paid_rent.html', context)
 def table_mar_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2037,7 +2053,7 @@ def table_mar_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'MARCH'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/mar/table_mar_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/mar/table_mar_paid_rent.html', context)
 
 
 def april_paid_rent_ob_ch(request):
@@ -2070,7 +2086,7 @@ def april_paid_rent_ob_ch(request):
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/apr/april_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/apr/april_paid_rent.html', context)
 def table_april_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2101,7 +2117,7 @@ def table_april_paid_rent_ob_ch(request):
             'pamt': s,
             'month_name': 'APRIL'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/apr/table_april_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/apr/table_april_paid_rent.html', context)
 
 
 def may_paid_rent_ob_ch(request):
@@ -2132,7 +2148,7 @@ def may_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/may/may_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/may/may_paid_rent.html', context)
 def table_may_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2161,7 +2177,7 @@ def table_may_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'MAY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/may/table_may_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/may/table_may_paid_rent.html', context)
 
 def june_paid_rent_ob_ch(request):
     if 'username' in request.session:
@@ -2191,7 +2207,7 @@ def june_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jun/june_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jun/june_paid_rent.html', context)
 def table_june_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2220,7 +2236,7 @@ def table_june_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JUNE'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jun/table_june_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jun/table_june_paid_rent.html', context)
 
 
 def july_paid_rent_ob_ch(request):
@@ -2251,7 +2267,7 @@ def july_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jul/july_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jul/july_paid_rent.html', context)
 def table_july_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2280,7 +2296,7 @@ def table_july_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'JULY'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/jul/table_july_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/jul/table_july_paid_rent.html', context)
 
 
 def aug_paid_rent_ob_ch(request):
@@ -2311,7 +2327,7 @@ def aug_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/aug/aug_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/aug/aug_paid_rent.html', context)
 def table_aug_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2340,7 +2356,7 @@ def table_aug_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'AUGUST'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/aug/table_aug_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/aug/table_aug_paid_rent.html', context)
 
 
 def sept_paid_rent_ob_ch(request):
@@ -2371,7 +2387,7 @@ def sept_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/sep/sept_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/sep/sept_paid_rent.html', context)
 def table_sept_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2400,7 +2416,7 @@ def table_sept_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'SEPT'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/sep/table_sept_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/sep/table_sept_paid_rent.html', context)
 
 
 def oct_paid_rent_ob_ch(request):
@@ -2431,7 +2447,7 @@ def oct_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/oct/oct_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/oct/oct_paid_rent.html', context)
 def table_oct_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2460,7 +2476,7 @@ def table_oct_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'OCTOBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/oct/table_oct_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/oct/table_oct_paid_rent.html', context)
 
 
 def nov_paid_rent_ob_ch(request):
@@ -2491,7 +2507,7 @@ def nov_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/nov/nov_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/nov/nov_paid_rent.html', context)
 def table_nov_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2520,7 +2536,7 @@ def table_nov_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'NOVEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/nov/table_nov_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/nov/table_nov_paid_rent.html', context)
 
 
 def dec_paid_rent_ob_ch(request):
@@ -2551,7 +2567,7 @@ def dec_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/dec/dec_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/dec/dec_paid_rent.html', context)
 def table_dec_paid_rent_ob_ch(request):
     if 'username' in request.session:
         l = []
@@ -2580,7 +2596,7 @@ def table_dec_paid_rent_ob_ch(request):
             'amt': s,
             'month_name': 'DECEMBER'
         }
-        return render(request, 'branches/branch_ob_ch/reports/paid_rent/paid_monthly_reports/dec/table_dec_paid_rent.html', context)
+        return render(request, 'branches/branch10/reports/paid_rent/paid_monthly_reports/dec/table_dec_paid_rent.html', context)
 
 
 
@@ -2613,7 +2629,7 @@ def details_of_paid_guests_ob_ch(request, id):
         'pd': pg1_new_guest.objects.all().filter(roon_no=s, flag=2, may_rent_flag__gt=99),
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
-    return render(request, 'branches/branch_ob_ch/reports/paid_rent/details_of_paid_guests.html', context)
+    return render(request, 'branches/branch10/reports/paid_rent/details_of_paid_guests.html', context)
 
 
 # details_of_paid_guests end here
@@ -2649,7 +2665,7 @@ def choose_months_ob_ch(request):
             'name': us,
         }
 
-        return render(request,'branches/branch_ob_ch/payments/choose_months.html',context)
+        return render(request,'branches/branch10/payments/choose_months.html',context)
 
 #jan make payments start here
 def jan_ob_ch(request):
@@ -2677,7 +2693,7 @@ def jan_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/jan/jan.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/jan/jan.html',context)
 
 def jan_manke_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -2740,7 +2756,7 @@ def jan_manke_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/jan/jan.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/jan/jan.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2778,7 +2794,7 @@ def jan_manke_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/jan/jan_manke_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/jan/jan_manke_payments.html', context)
 
 #jan make payments start here
 
@@ -2806,7 +2822,7 @@ def feb_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/feb/feb.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/feb/feb.html',context)
 
 def feb_manke_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -2869,7 +2885,7 @@ def feb_manke_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/feb/feb.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/feb/feb.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -2907,7 +2923,7 @@ def feb_manke_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/feb/feb_manke_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/feb/feb_manke_payments.html', context)
 
 #feb make payments start here
 
@@ -2935,7 +2951,7 @@ def march_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/march/march.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/march/march.html',context)
 
 def march_manke_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -2998,7 +3014,7 @@ def march_manke_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/march/march.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/march/march.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3036,7 +3052,7 @@ def march_manke_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/march/march_manke_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/march/march_manke_payments.html', context)
 
 #march make payments start here
 
@@ -3066,7 +3082,7 @@ def april_ob_ch(request):
             'room' : room_pg1.objects.all().order_by('roon_no').values(),
             #'room_name': room_pg1.objects.all(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/april/april.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/april/april.html',context)
 
 def april_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3129,7 +3145,7 @@ def april_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/april/april.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/april/april.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3167,7 +3183,7 @@ def april_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/april/april_make_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/april/april_make_payments.html', context)
 
 #april make payments start here
 
@@ -3197,7 +3213,7 @@ def may_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/may/may.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/may/may.html',context)
 
 def may_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3260,7 +3276,7 @@ def may_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/may/may.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/may/may.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3298,7 +3314,7 @@ def may_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/may/may_make_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/may/may_make_payments.html', context)
 
 #may make payments start here
 
@@ -3326,7 +3342,7 @@ def june_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/june/june.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/june/june.html',context)
 
 def june_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3389,7 +3405,7 @@ def june_make_payments_ob_ch(request,id):
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
 
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/june/june.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/june/june.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3427,7 +3443,7 @@ def june_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/june/june_make_payments.html', context)
+        return render(request, 'branches/branch10/payments/details_of_months/june/june_make_payments.html', context)
 
 
 #june make payments start here
@@ -3456,7 +3472,7 @@ def july_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/july/july.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/july/july.html',context)
 
 def july_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3519,7 +3535,7 @@ def july_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/july/july.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/july/july.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3557,7 +3573,7 @@ def july_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/july/july_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/july/july_make_payments.html', context)
 
 
 #july make payments start here
@@ -3586,7 +3602,7 @@ def aug_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/aug/aug.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/aug/aug.html',context)
 
 def aug_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3649,7 +3665,7 @@ def aug_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/aug/aug.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/aug/aug.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3687,7 +3703,7 @@ def aug_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/aug/aug_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/aug/aug_make_payments.html', context)
 
 #aug make payments start here
 
@@ -3715,7 +3731,7 @@ def sept_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/sept/sept.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/sept/sept.html',context)
 
 def sept_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3778,7 +3794,7 @@ def sept_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/sept/sept.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/sept/sept.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3816,7 +3832,7 @@ def sept_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/sept/sept_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/sept/sept_make_payments.html', context)
 
 #sept make payments start here
 
@@ -3844,7 +3860,7 @@ def oct_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/oct/oct.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/oct/oct.html',context)
 
 def oct_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -3910,7 +3926,7 @@ def oct_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/oct/oct.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/oct/oct.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -3948,7 +3964,7 @@ def oct_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/oct/oct_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/oct/oct_make_payments.html', context)
 
 #oct make payments start here
 
@@ -3976,7 +3992,7 @@ def nov_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/nov/nov.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/nov/nov.html',context)
 
 def nov_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -4039,7 +4055,7 @@ def nov_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/nov/nov.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/nov/nov.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4077,7 +4093,7 @@ def nov_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/nov/nov_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/nov/nov_make_payments.html', context)
 
 #nov make payments start here
 
@@ -4105,7 +4121,7 @@ def dec_ob_ch(request):
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/dec/dec.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/dec/dec.html',context)
 
 def dec_make_payments_ob_ch(request,id):
     if 'username' in request.session:
@@ -4169,7 +4185,7 @@ def dec_make_payments_ob_ch(request,id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/payments/details_of_months/dec/dec.html',context)
+            return render(request, 'branches/branch10/payments/details_of_months/dec/dec.html',context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -4207,7 +4223,7 @@ def dec_make_payments_ob_ch(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/payments/details_of_months/dec/dec_make_payments.html', context)
+        return render(request,'branches/branch10/payments/details_of_months/dec/dec_make_payments.html', context)
 
 #dec make payments start here
 
@@ -4241,7 +4257,7 @@ def choose_months_advance_ob_ch(request):
             'name': us,
         }
 
-        return render(request, 'branches/branch_ob_ch/advance/choose_months_advance.html',context)
+        return render(request, 'branches/branch10/advance/choose_months_advance.html',context)
 
 
 def jan_advance_ob_ch(request):
@@ -4268,7 +4284,7 @@ def jan_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/jan/jan_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/jan/jan_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4325,7 +4341,7 @@ def jan_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/jan/jan_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/jan/jan_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4349,7 +4365,7 @@ def jan_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/feb/feb_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4376,7 +4392,7 @@ def feb_advance_ob_ch(request):
             'roomno': rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/feb/feb_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/feb/feb_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4433,7 +4449,7 @@ def feb_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/feb/feb_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/feb/feb_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4457,7 +4473,7 @@ def feb_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/feb/feb_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4484,7 +4500,7 @@ def march_advance_ob_ch(request):
             'roomno': rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/march/march_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/march/march_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4541,7 +4557,7 @@ def march_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/march/march_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/march/march_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4565,7 +4581,7 @@ def march_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/march/march_make_payments_advance.html',
+        return render(request, 'branches/branch10/advance/details_of_months/march/march_make_payments_advance.html',
                       context)
     return render(request, 'index.html')
 
@@ -4594,7 +4610,7 @@ def april_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/april/april_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/april/april_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4651,7 +4667,7 @@ def april_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/april/april_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/april/april_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4675,7 +4691,7 @@ def april_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/april/april_make_payments_advance.html',
+        return render(request, 'branches/branch10/advance/details_of_months/april/april_make_payments_advance.html',
                       context)
     return render(request, 'index.html')
 
@@ -4704,7 +4720,7 @@ def may_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/may/may_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/may/may_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4761,7 +4777,7 @@ def may_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/may/may_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/may/may_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4785,7 +4801,7 @@ def may_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/may/may_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/may/may_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4813,7 +4829,7 @@ def june_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/june/june_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/june/june_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4870,7 +4886,7 @@ def june_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/june/june_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/june/june_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -4894,7 +4910,7 @@ def june_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/june/june_make_payments_advance.html',
+        return render(request, 'branches/branch10/advance/details_of_months/june/june_make_payments_advance.html',
                       context)
     return render(request, 'index.html')
 
@@ -4923,7 +4939,7 @@ def july_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/july/july_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/july/july_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -4980,7 +4996,7 @@ def july_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/july/july_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/july/july_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5004,7 +5020,7 @@ def july_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/july/july_make_payments_advance.html',
+        return render(request, 'branches/branch10/advance/details_of_months/july/july_make_payments_advance.html',
                       context)
     return render(request, 'index.html')
 
@@ -5033,7 +5049,7 @@ def auguest_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/aug/aug_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/aug/aug_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5090,7 +5106,7 @@ def auguest_make_payments_advance_ob_ch(request, id):
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/aug/aug_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/aug/aug_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5114,7 +5130,7 @@ def auguest_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/aug/aug_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/aug/aug_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5142,7 +5158,7 @@ def sept_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/sept/sept_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/sept/sept_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5199,7 +5215,7 @@ def sept_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/sept/sept_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/sept/sept_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5223,7 +5239,7 @@ def sept_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/sept/sept_make_payments_advance.html',
+        return render(request, 'branches/branch10/advance/details_of_months/sept/sept_make_payments_advance.html',
                       context)
     return render(request, 'index.html')
 
@@ -5252,7 +5268,7 @@ def october_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/oct/oct_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/oct/oct_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5309,7 +5325,7 @@ def october_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/oct/oct_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/oct/oct_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5333,7 +5349,7 @@ def october_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/oct/oct_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/oct/oct_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5361,7 +5377,7 @@ def nov_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/nov/nov_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/nov/nov_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5418,7 +5434,7 @@ def nov_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/nov/nov_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/nov/nov_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5442,7 +5458,7 @@ def nov_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/nov/nov_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/nov/nov_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5470,7 +5486,7 @@ def dec_advance_ob_ch(request):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
 
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/dec/dec_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/dec/dec_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5527,7 +5543,7 @@ def dec_make_payments_advance_ob_ch(request, id):
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
                 'room': room_pg1.objects.all().order_by('roon_no').values(),
             }
-            return render(request, 'branches/branch_ob_ch/advance/details_of_months/dec/dec_advance.html', context)
+            return render(request, 'branches/branch10/advance/details_of_months/dec/dec_advance.html', context)
         rn = request.POST.get('rno')
 
         us = request.session['username']
@@ -5551,7 +5567,7 @@ def dec_make_payments_advance_ob_ch(request, id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch_ob_ch/advance/details_of_months/dec/dec_make_payments_advance.html', context)
+        return render(request, 'branches/branch10/advance/details_of_months/dec/dec_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
@@ -5569,11 +5585,11 @@ def dec_make_payments_advance_ob_ch(request, id):
 
 def detail_guest_general_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5586,21 +5602,34 @@ def detail_guest_general_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/detail_guest_general.html', context)
+        return render(request, 'branches/branch10/print_outs/detail_guest_general.html', context)
     return render(request, 'index.html')
 
 
 def jan_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5613,11 +5642,24 @@ def jan_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/jan_print.html', context)
+        return render(request, 'branches/branch10/print_outs/jan_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5646,7 +5688,7 @@ def jan_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(jan='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/jan_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/jan_months_close_page.html')
         if chk == False:
             return feb_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5654,11 +5696,11 @@ def jan_close_decision_page_ob_ch(request):
 
 def feb_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5671,11 +5713,24 @@ def feb_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/feb_print.html', context)
+        return render(request, 'branches/branch10/print_outs/feb_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5704,7 +5759,7 @@ def feb_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(feb='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/feb_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/feb_months_close_page.html')
         if chk == False:
             return march_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5712,11 +5767,11 @@ def feb_close_decision_page_ob_ch(request):
 
 def march_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5729,11 +5784,24 @@ def march_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/march_print.html', context)
+        return render(request, 'branches/branch10/print_outs/march_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5761,7 +5829,7 @@ def mar_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(mar='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/mar_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/mar_months_close_page.html')
         if chk == False:
             return april_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5769,11 +5837,11 @@ def mar_close_decision_page_ob_ch(request):
 
 def april_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5786,12 +5854,25 @@ def april_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
 
-        return render(request, 'branches/branch_ob_ch/print_outs/april_print.html', context)
+        return render(request, 'branches/branch10/print_outs/april_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5819,7 +5900,7 @@ def apr_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(apr='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/apr_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/apr_months_close_page.html')
         if chk == False:
             return may_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5827,11 +5908,11 @@ def apr_close_decision_page_ob_ch(request):
 
 def may_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5844,11 +5925,24 @@ def may_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/may_print.html', context)
+        return render(request, 'branches/branch10/print_outs/may_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5876,7 +5970,7 @@ def may_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(may='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/may_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/may_months_close_page.html')
         if chk == False:
             return june_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5884,11 +5978,11 @@ def may_close_decision_page_ob_ch(request):
 
 def june_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5901,11 +5995,24 @@ def june_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/june_print.html', context)
+        return render(request, 'branches/branch10/print_outs/june_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5933,7 +6040,7 @@ def jun_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(jun='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/jun_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/jun_months_close_page.html')
         if chk == False:
             return july_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5941,11 +6048,11 @@ def jun_close_decision_page_ob_ch(request):
 
 def july_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -5958,11 +6065,24 @@ def july_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/july_print.html', context)
+        return render(request, 'branches/branch10/print_outs/july_print.html', context)
     return render(request, 'index.html')
 
 
@@ -5990,7 +6110,7 @@ def jul_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(jul='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/jul_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/jul_months_close_page.html')
         if chk == False:
             return aug_print_ob_ch(request)
     return render(request, 'index.html')
@@ -5998,11 +6118,11 @@ def jul_close_decision_page_ob_ch(request):
 
 def aug_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -6015,11 +6135,24 @@ def aug_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/aug_print.html', context)
+        return render(request, 'branches/branch10/print_outs/aug_print.html', context)
     return render(request, 'index.html')
 
 
@@ -6047,7 +6180,7 @@ def aug_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(aug='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/aug_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/aug_months_close_page.html')
         if chk == False:
             return sept_print_ob_ch(request)
     return render(request, 'index.html')
@@ -6055,11 +6188,11 @@ def aug_close_decision_page_ob_ch(request):
 
 def sept_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -6072,11 +6205,24 @@ def sept_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/sept_print.html', context)
+        return render(request, 'branches/branch10/print_outs/sept_print.html', context)
     return render(request, 'index.html')
 
 
@@ -6104,7 +6250,7 @@ def sep_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(sep='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/sep_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/sep_months_close_page.html')
         if chk == False:
             return oct_print_ob_ch(request)
     return render(request, 'index.html')
@@ -6112,11 +6258,11 @@ def sep_close_decision_page_ob_ch(request):
 
 def oct_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -6129,11 +6275,24 @@ def oct_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/oct_print.html', context)
+        return render(request, 'branches/branch10/print_outs/oct_print.html', context)
     return render(request, 'index.html')
 
 
@@ -6161,7 +6320,7 @@ def oct_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(oct='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/oct_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/oct_months_close_page.html')
         if chk == False:
             return nov_print_ob_ch(request)
     return render(request, 'index.html')
@@ -6169,11 +6328,11 @@ def oct_close_decision_page_ob_ch(request):
 
 def nov_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -6186,11 +6345,24 @@ def nov_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/nov_print.html', context)
+        return render(request, 'branches/branch10/print_outs/nov_print.html', context)
     return render(request, 'index.html')
 
 
@@ -6218,7 +6390,7 @@ def nov_close_decision_page_ob_ch(request):
         chk = branch_closing.objects.all().filter(nov='', branch_name='branch_ob_ch').exists()
         print(chk)
         if chk == True:
-            return render(request, 'branches/branch_ob_ch/close_months/nov_months_close_page.html')
+            return render(request, 'branches/branch10/close_months/nov_months_close_page.html')
         if chk == False:
             return dec_print_ob_ch(request)
     return render(request, 'index.html')
@@ -6226,11 +6398,11 @@ def nov_close_decision_page_ob_ch(request):
 
 def dec_print_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -6243,11 +6415,24 @@ def dec_print_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
-        return render(request, 'branches/branch_ob_ch/print_outs/dec_print.html', context)
+        return render(request, 'branches/branch10/print_outs/dec_print.html', context)
     return render(request, 'index.html')
 
 
@@ -6943,7 +7128,7 @@ def viewall_vacate_guest_ob_ch(request):
         'll' : vcated_guest_list,
 
     }
-    return render(request, 'branches/branch_ob_ch/vacate_guest/viewall_vacate_guest.html', context)
+    return render(request, 'branches/branch10/vacate_guest/viewall_vacate_guest.html', context)
 
 
 def details_of_vacate_guest_ob_ch(request, id):
@@ -6964,7 +7149,7 @@ def details_of_vacate_guest_ob_ch(request, id):
 
         'user_details': pg1_new_guest.objects.all().filter(id=id),
     }
-    return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+    return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
 def full_vacated_guest_details_ob_ch(request):
 
@@ -6985,7 +7170,7 @@ def full_vacated_guest_details_ob_ch(request):
 
         'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
     }
-    return render(request, 'branches/branch_ob_ch/vacate_guest/full_vacated_guest_details.html', context)
+    return render(request, 'branches/branch10/vacate_guest/full_vacated_guest_details.html', context)
 
 
 def full_vacated_guest_table_ob_ch(request):
@@ -7006,7 +7191,7 @@ def full_vacated_guest_table_ob_ch(request):
 
         'vgs': pg1_new_guest.objects.all().filter(flag=3).order_by('-id'),
     }
-    return render(request, 'branches/branch_ob_ch/vacate_guest/full_vacated_guest_table.html', context)
+    return render(request, 'branches/branch10/vacate_guest/full_vacated_guest_table.html', context)
 
 
 # ***********vacate guest payments start here*******
@@ -7046,7 +7231,7 @@ def jan_manke_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7080,7 +7265,7 @@ def jan_manke_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/jan/jan_manke_payments_vacate.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/jan/jan_manke_payments_vacate.html',context)
 
 
 def feb_manke_payments_vacate_ob_ch(request, id):
@@ -7118,7 +7303,7 @@ def feb_manke_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7152,7 +7337,7 @@ def feb_manke_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/feb/feb_manke_payments_vacate.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/feb/feb_manke_payments_vacate.html',context)
 
 
 def march_manke_payments_vacate_ob_ch(request, id):
@@ -7190,7 +7375,7 @@ def march_manke_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7224,7 +7409,7 @@ def march_manke_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch_ob_ch/payments/details_of_months/march/march_manke_payments_vacate.html',context)
+        return render(request, 'branches/branch10/payments/details_of_months/march/march_manke_payments_vacate.html',context)
 
 
 def april_make_payments_vacate_ob_ch(request, id):
@@ -7262,7 +7447,7 @@ def april_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7296,7 +7481,7 @@ def april_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/april/april_make_payments_vacate.html',context)
 
 
 def may_make_payments_vacate_ob_ch(request, id):
@@ -7334,7 +7519,7 @@ def may_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7368,7 +7553,7 @@ def may_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/may/may_make_payments_vacate.html',context)
 
 
 def june_make_payments_vacate_ob_ch(request, id):
@@ -7406,7 +7591,7 @@ def june_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id)
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7440,7 +7625,7 @@ def june_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/june/june_make_payments_vacate.html',context)
 
 
 def july_make_payments_vacate_ob_ch(request, id):
@@ -7478,7 +7663,7 @@ def july_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
         for i in rno:
@@ -7511,7 +7696,7 @@ def july_make_payments_vacate_ob_ch(request, id):
             'sd': pg1_new_guest.objects.get(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/july/july_make_payments_vacate.html',context)
 
 
 def aug_make_payments_vacate_ob_ch(request, id):
@@ -7549,7 +7734,7 @@ def aug_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7583,7 +7768,7 @@ def aug_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/aug/aug_make_payments_vacate.html',context)
 
 
 def sept_make_payments_vacate_ob_ch(request, id):
@@ -7621,7 +7806,7 @@ def sept_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7655,7 +7840,7 @@ def sept_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/sept/sept_make_payments_vacate.html',context)
 
 
 def oct_make_payments_vacate_ob_ch(request, id):
@@ -7693,7 +7878,7 @@ def oct_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7727,7 +7912,7 @@ def oct_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/oct/oct_make_payments_vacate.html',context)
 
 
 def nov_make_payments_vacate_ob_ch(request, id):
@@ -7765,7 +7950,7 @@ def nov_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7799,7 +7984,7 @@ def nov_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/nov/nov_make_payments_vacate.html',context)
 
 
 def dec_make_payments_vacate_ob_ch(request, id):
@@ -7837,7 +8022,7 @@ def dec_make_payments_vacate_ob_ch(request, id):
 
                 'user_details': pg1_new_guest.objects.all().filter(id=id),
             }
-            return render(request, 'branches/branch_ob_ch/vacate_guest/details_of_vacate_guest.html', context)
+            return render(request, 'branches/branch10/vacate_guest/details_of_vacate_guest.html', context)
 
         rno = pg1_new_guest.objects.all().filter(id=id)
         l = []
@@ -7871,7 +8056,7 @@ def dec_make_payments_vacate_ob_ch(request, id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request,'branches/branch_ob_ch/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html',context)
+        return render(request,'branches/branch10/vacate_guest/vacate_payments/details_of_months/dec/dec_make_payments_vacate.html',context)
 
 
 # ************vacate guest payments end here*******
@@ -7902,7 +8087,7 @@ def view_all_due_amt_ob_ch(request):
 
         'due_amt' : pg1_new_beds.objects.all().filter(flag=2).order_by('roon_no'),
     }
-    return render(request, 'branches/branch_ob_ch/due_amt_mgt/view_all_due_amt.html',context)
+    return render(request, 'branches/branch10/due_amt_mgt/view_all_due_amt.html',context)
 
 def due_amt_mgt_choose_months_ob_ch(request):
     us = request.session['username']
@@ -7921,7 +8106,7 @@ def due_amt_mgt_choose_months_ob_ch(request):
         'name': us,
     }
 
-    return render(request, 'branches/branch_ob_ch/due_amt_mgt/due_amt_mgt_choose_months.html',context)
+    return render(request, 'branches/branch10/due_amt_mgt/due_amt_mgt_choose_months.html',context)
 
 
 def view_jan_account_details_ob_ch(request):
@@ -7942,7 +8127,7 @@ def view_jan_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,jan_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/jan/view_jan_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/jan/view_jan_account_details.html',context)
 def jan_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8005,7 +8190,7 @@ def jan_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/jan/jan_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/jan/jan_account_mgt.html',context)
 
 
 def view_feb_account_details_ob_ch(request):
@@ -8026,7 +8211,7 @@ def view_feb_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,feb_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/feb/view_feb_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/feb/view_feb_account_details.html',context)
 def feb_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8089,7 +8274,7 @@ def feb_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/feb/feb_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/feb/feb_account_mgt.html',context)
 
 
 def view_march_account_details_ob_ch(request):
@@ -8110,7 +8295,7 @@ def view_march_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,march_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/march/view_march_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/march/view_march_account_details.html',context)
 def march_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8173,7 +8358,7 @@ def march_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/march/march_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/march/march_account_mgt.html',context)
 
 
 def view_april_account_details_ob_ch(request):
@@ -8194,7 +8379,7 @@ def view_april_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,april_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/april/view_april_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/april/view_april_account_details.html',context)
 def april_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8257,7 +8442,7 @@ def april_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/april/april_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/april/april_account_mgt.html',context)
 
 
 def view_may_account_details_ob_ch(request):
@@ -8278,7 +8463,7 @@ def view_may_account_details_ob_ch(request):
 
         'due_amt': pg1_new_beds.objects.all().filter(flag=2,may_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request, 'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
+    return render(request, 'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/may/view_may_account_details.html',context)
 def may_account_mgt_ob_ch(request, id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8341,7 +8526,7 @@ def may_account_mgt_ob_ch(request, id):
             'sd': pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request, 'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/may/may_account_mgt.html',context)
+        return render(request, 'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/may/may_account_mgt.html',context)
 
 
 def view_june_account_details_ob_ch(request):
@@ -8362,7 +8547,7 @@ def view_june_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,june_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/june/view_june_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/june/view_june_account_details.html',context)
 def june_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8426,7 +8611,7 @@ def june_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/june/june_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/june/june_account_mgt.html',context)
 
 
 def view_july_account_details_ob_ch(request):
@@ -8447,7 +8632,7 @@ def view_july_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,july_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/july/view_july_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/july/view_july_account_details.html',context)
 def july_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8510,7 +8695,7 @@ def july_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/july/july_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/july/july_account_mgt.html',context)
 
 
 def view_auguest_account_details_ob_ch(request):
@@ -8531,7 +8716,7 @@ def view_auguest_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,auguest_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/auguest/view_auguest_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/auguest/view_auguest_account_details.html',context)
 def auguest_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8594,7 +8779,7 @@ def auguest_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/auguest/auguest_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/auguest/auguest_account_mgt.html',context)
 
 
 def view_sept_account_details_ob_ch(request):
@@ -8615,7 +8800,7 @@ def view_sept_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,sept_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/sept/view_sept_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/sept/view_sept_account_details.html',context)
 def sept_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8678,7 +8863,7 @@ def sept_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/sept/sept_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/sept/sept_account_mgt.html',context)
 
 
 def view_october_account_details_ob_ch(request):
@@ -8699,7 +8884,7 @@ def view_october_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,october_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/october/view_october_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/october/view_october_account_details.html',context)
 def october_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8762,7 +8947,7 @@ def october_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/october/october_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/october/october_account_mgt.html',context)
 
 
 def view_nov_account_details_ob_ch(request):
@@ -8783,7 +8968,7 @@ def view_nov_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,nov_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/nov/view_nov_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/nov/view_nov_account_details.html',context)
 def nov_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8846,7 +9031,7 @@ def nov_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/nov/nov_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/nov/nov_account_mgt.html',context)
 
 
 def view_dec_account_details_ob_ch(request):
@@ -8867,7 +9052,7 @@ def view_dec_account_details_ob_ch(request):
 
         'due_amt': pg1_new_guest.objects.all().filter(flag=2,dec_rent_flag__gt=99).order_by('roon_no'),
     }
-    return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/dec/view_dec_account_details.html',context)
+    return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/dec/view_dec_account_details.html',context)
 def dec_account_mgt_ob_ch(request,id):
     if 'username' in request.session:
         if request.method == 'POST':
@@ -8930,7 +9115,7 @@ def dec_account_mgt_ob_ch(request,id):
             'sd' : pg1_new_guest.objects.get(id=id),
             'user_details': pg1_new_guest.objects.all().filter(id=id),
         }
-        return render(request,'branches/branch_ob_ch/due_amt_mgt/monthly_detailes_due_amt/dec/dec_account_mgt.html',context)
+        return render(request,'branches/branch10/due_amt_mgt/monthly_detailes_due_amt/dec/dec_account_mgt.html',context)
 
 
 
@@ -8958,7 +9143,7 @@ def manage_bed_ob_ch(request):
 
             'bed' : pg1_new_beds.objects.all(),
         }
-        return render(request, 'branches/branch_ob_ch/test/manage_bed.html',context)
+        return render(request, 'branches/branch10/test/manage_bed.html',context)
 
 def manage_new_guest_ob_ch(request):
     if 'username' in request.session:
@@ -8980,7 +9165,7 @@ def manage_new_guest_ob_ch(request):
 
             'bed' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no'),
         }
-        return render(request, 'branches/branch_ob_ch/test/manage_new_guest.html',context)
+        return render(request, 'branches/branch10/test/manage_new_guest.html',context)
 
 
 def manage_update_new_guest_ob_ch(request, id):
@@ -9070,7 +9255,7 @@ def manage_update_new_guest_ob_ch(request, id):
     context = {
         'sd': pg1_new_guest.objects.get(id=id)
     }
-    return render(request, 'branches/branch_ob_ch/test/manage_update_new_guest.html', context)
+    return render(request, 'branches/branch10/test/manage_update_new_guest.html', context)
 
 
 def manage_update_new_guest_ob_ch_test(request, id):
@@ -9157,7 +9342,7 @@ def manage_update_new_guest_ob_ch_test(request, id):
     context = {
         'sd': pg1_new_guest.objects.get(id=id)
     }
-    return render(request, 'branches/branch_ob_ch/test/manage_update_new_guest.html', context)
+    return render(request, 'branches/branch10/test/manage_update_new_guest.html', context)
 
 
 
@@ -9210,7 +9395,7 @@ def manage_update_beds_ob_ch(request, id):
     context = {
         'sd': pg1_new_beds.objects.get(id=id)
     }
-    return render(request, 'branches/branch_ob_ch/test/manage_update_beds.html', context)
+    return render(request, 'branches/branch10/test/manage_update_beds.html', context)
 
 
 
@@ -9248,7 +9433,7 @@ def dynamic(request):
             'mt2':'page five _ob_ch dynamic code',
 
         }
-        return render(request, 'branches/branch_ob_ch/test.html',context)
+        return render(request, 'branches/branch10/test.html',context)
     return branch1_dashboard_ob_ch(request)
 
 
@@ -9269,7 +9454,7 @@ def background(request):
             'us' : us,
             'th_us' : a[0]
         }
-        return render(request, 'branches/branch_ob_ch/test/background.html', context)
+        return render(request, 'branches/branch10/test/background.html', context)
     return render(request, 'index.html')
 
 def background_regi(request):
@@ -9300,7 +9485,7 @@ def background_regi(request):
             'th_us' : l[0]
 
         }
-        return render(request, 'branches/branch_ob_ch/test/background.html', context)
+        return render(request, 'branches/branch10/test/background.html', context)
     return render(request, 'index.html')
 
 
@@ -9332,7 +9517,7 @@ def custom_background_regi(request):
             'th_us' : l[0]
 
         }
-        return render(request, 'branches/branch_ob_ch/test/background.html', context)
+        return render(request, 'branches/branch10/test/background.html', context)
     return render(request, 'index.html')
 
 def guest_all(request):
@@ -9358,7 +9543,7 @@ def guest_all(request):
         #'113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
         '113_data': a,
     }
-    return render(request,'branches/branch_ob_ch/test.html',context)
+    return render(request,'branches/branch10/test.html',context)
 
 
 

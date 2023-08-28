@@ -10,7 +10,7 @@ from . import accounts10
 
 urlpatterns = [
 
-    path('branch1_dashboard10/', branch10.branch1_dashboard10, name='branch1_dashboard10'),
+    path('branch1_dashboard_ob_ch/', branch10.branch1_dashboard_ob_ch, name='branch1_dashboard_ob_ch'),
     path('background',branch10.background,name='background'),
     path('background_regi',branch10.background_regi,name='background_regi'),
     path('custom_background_regi',branch10.custom_background_regi,name='custom_background_regi'),
@@ -620,7 +620,7 @@ urlpatterns = [
     path('single_monthly_reports_choose_months10/', accounts10.single_monthly_reports_choose_months10,name='single_monthly_reports_choose_months10'),
     path('single_monthly_daily_in_exp_items_report10/<mo>',accounts10.single_monthly_daily_in_exp_items_report10,name='single_monthly_daily_in_exp_items_report10'),
 
-    path('accounts_dash_board10/',accounts10.accounts_dash_board10,name='accounts_dash_board10'),
+    path('accounts_dash_board_ob_ch/',accounts10.accounts_dash_board_ob_ch,name='accounts_dash_board_ob_ch'),
 
 
 

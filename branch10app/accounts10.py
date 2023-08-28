@@ -3782,7 +3782,7 @@ def single_monthly_daily_in_exp_items_report10(request,mo):
 ###############################################################
 
 
-def accounts_dash_board10(request):
+def accounts_dash_board_ob_ch(request):
     if 'username' in request.session:
 
         opening_balance = 0
