@@ -62,11 +62,11 @@ def jan_details_live_ob_ch(request):
 
 def jan_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -79,9 +79,22 @@ def jan_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/jan/jan_print_live.html', context)
     return render(request, 'index.html')
@@ -112,11 +125,11 @@ def feb_details_live_ob_ch(request):
 
 def feb_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -129,9 +142,22 @@ def feb_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/feb/feb_print_live.html', context)
     return render(request, 'index.html')
@@ -163,11 +189,11 @@ def march_details_live_ob_ch(request):
 
 def march_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -180,9 +206,22 @@ def march_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/march/march_print_live.html', context)
     return render(request, 'index.html')
@@ -214,11 +253,11 @@ def april_details_live_ob_ch(request):
 
 def april_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -231,9 +270,22 @@ def april_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/april/april_print_live.html', context)
     return render(request, 'index.html')
@@ -264,11 +316,11 @@ def may_details_live_ob_ch(request):
 
 def may_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -281,9 +333,22 @@ def may_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/may/may_print_live.html', context)
     return render(request, 'index.html')
@@ -313,11 +378,11 @@ def june_details_live_ob_ch(request):
 
 def june_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -330,9 +395,22 @@ def june_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/june/june_print_live.html', context)
     return render(request, 'index.html')
@@ -362,11 +440,11 @@ def july_details_live_ob_ch(request):
 
 def july_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -379,9 +457,22 @@ def july_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/july/july_print_live.html', context)
     return render(request, 'index.html')
@@ -412,11 +503,11 @@ def auguest_details_live_ob_ch(request):
 
 def auguest_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -429,9 +520,22 @@ def auguest_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/aug/aug_print_live.html', context)
     return render(request, 'index.html')
@@ -462,11 +566,11 @@ def sept_details_live_ob_ch(request):
 
 def sept_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -479,9 +583,22 @@ def sept_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/sept/sept_print_live.html', context)
     return render(request, 'index.html')
@@ -512,11 +629,11 @@ def october_details_live_ob_ch(request):
 
 def october_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -529,9 +646,22 @@ def october_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/oct/oct_print_live.html', context)
     return render(request, 'index.html')
@@ -562,11 +692,11 @@ def nov_details_live_ob_ch(request):
 
 def nov_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -579,9 +709,22 @@ def nov_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/nov/nov_print_live.html', context)
     return render(request, 'index.html')
@@ -612,11 +755,11 @@ def dec_details_live_ob_ch(request):
 
 def dec_print_live_ob_ch(request):
     if 'username' in request.session:
-        a = pg1_new_beds.objects.all().order_by('roon_no')
+        ag = pg1_new_beds.objects.all().order_by('roon_no')
         l = []
         t = []
         s = []
-        for i in a:
+        for i in ag:
             if i.roon_no not in l:
                 x = 10
             else:
@@ -629,9 +772,22 @@ def dec_print_live_ob_ch(request):
         print('ttt', t)
         print('sss', s)
 
+        us = request.session['username']
+        bgs = background_color.objects.all().filter(username=us)
+        bg = background_color.objects.all().filter(username=us).exists()
+        a = []
+        if bg == True:
+            a.append(us)
+        else:
+            a.append('f')
+
         context = {
+            'bg': bgs,
+            'us': us,
+            'th_us': a[0],
+            'name': us,
             # '113_data' : pg1_new_beds.objects.all().order_by('roon_no'),
-            '113_data': a,
+            'data': ag,
         }
         return render(request, 'branches/branch10/live_print_report/live_monthly_details/dec/dec_print_live.html', context)
     return render(request, 'index.html')

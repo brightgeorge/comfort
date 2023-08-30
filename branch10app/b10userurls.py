@@ -11,9 +11,9 @@ from . import accounts10
 urlpatterns = [
 
     path('branch1_dashboard_ob_ch/', branch10.branch1_dashboard_ob_ch, name='branch1_dashboard_ob_ch'),
-    path('background',branch10.background,name='background'),
-    path('background_regi',branch10.background_regi,name='background_regi'),
-    path('custom_background_regi',branch10.custom_background_regi,name='custom_background_regi'),
+    path('background_ob_ch',branch10.background_ob_ch,name='background_ob_ch'),
+    path('background_regi_ob_ch',branch10.background_regi_ob_ch,name='background_regi_ob_ch'),
+    path('custom_background_regi_ob_ch',branch10.custom_background_regi_ob_ch,name='custom_background_regi_ob_ch'),
 
 #**room creation start herea
     #path('select_branch/',admin_branch1.select_branch,name='select_branch'),
@@ -476,7 +476,7 @@ urlpatterns = [
 # DASHBOARD REPORTS END HERE
 ###########################
 
-    path('guest_all/',branch10.guest_all,name='guest_all'),
+    path('guest_all_ob_ch/',branch10.guest_all_ob_ch,name='guest_all_ob_ch'),
 
 
 

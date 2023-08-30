@@ -203,7 +203,19 @@ def login_request(request):
             if role=='Branch9':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch9app
+                bgs = branch9app.models.background_color.objects.all().filter(username=us)
+                bg = branch9app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }
@@ -211,7 +223,19 @@ def login_request(request):
             if role=='Branch10':
                 request.session['username'] = username
                 us = request.session['username']
+                import branch10app
+                bgs = branch10app.models.background_color.objects.all().filter(username=us)
+                bg = branch10app.models.background_color.objects.all().filter(username=us).exists()
+                a = []
+                if bg == True:
+                    a.append(us)
+                else:
+                    a.append('f')
+
                 context = {
+                    'bg': bgs,
+                    'us': us,
+                    'th_us': a[0],
                     'user': loginobj,
                     'name' : us
                 }

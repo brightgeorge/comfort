@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright</title>
+  <title>Open Bright PG MGT</title>
   <!-- loader-->
   <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
@@ -87,11 +87,11 @@ function exportTableToExcel(tableID, filename = ''){
      <div class="brand-logo">
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Open Bright</h5>
+       <h5 class="logo-text">Open Bright PG MGT</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header"><h6 style="text-decoration:underline;">..........* PERFECT PG 1 *..........</h6></li>
+      <li class="sidebar-header"><h6 style="text-decoration:underline;">.......* HAPPY HOMES 1 *.......</h6></li>
 
       <li>
         <a href="{% url 'branch1_dashboard_ob_ch' %}">
@@ -314,8 +314,11 @@ function exportTableToExcel(tableID, filename = ''){
 
 
                   <tr>
-                    <th scope="row" rowspan="{{g1}}">1</th>
-                      {% for i in g1_data %}
+                    {% for i in data %}
+
+                       {% if i.share_type != 101230 %}
+                    <th scope="row" rowspan="{{i.share_type}}">{{i.room_name}}</th>
+                      {% endif %}
 
                     <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
                     <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
@@ -330,22 +333,7 @@ function exportTableToExcel(tableID, filename = ''){
                   </tr>
                 {% endfor %}
 
-                  <tr>
-                    <th scope="row" rowspan="{{g2}}">2</th>
-                      {% for i in g2_data %}
 
-                    <th scope="row" style="height:{{table_height}};">{{i.april_rent_rec_date}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.april_advance}}</th>
-                      <th scope="row" style="height:{{table_height}};">{{i.april_dis_amt}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.april_rent}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.april_due_amt}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
-
-                  </tr>
-                {% endfor %}
 
 
 
@@ -382,7 +370,7 @@ function exportTableToExcel(tableID, filename = ''){
    <footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © 2018 Dashtreme Admin
+          <a href="http://hbct.in/">powered by © HBCT.IN</a>
         </div>
       </div>
     </footer>

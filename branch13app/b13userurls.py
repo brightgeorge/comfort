@@ -10,7 +10,7 @@ from . import accounts13
 
 urlpatterns = [
 
-    path('branch1_dashboard13/', branch13.branch1_dashboard13, name='branch1_dashboard13'),
+    path('branch1_dashboard_ob_ch13/', branch13.branch1_dashboard_ob_ch13, name='branch1_dashboard_ob_ch13'),
 
 
 

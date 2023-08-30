@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright</title>
+  <title>Open Bright PG MGT</title>
   <!-- loader-->
   <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
   <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
@@ -70,30 +70,112 @@
       <a href="{% url 'admin_dashboard' %}">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
 
-          <h5 class="logo-text">Open Bright</h5>
+          <h5 class="logo-text">Open Bright PG MGT </h5>
      </a>
          {% else %}
 
           <a href="#">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
 
-          <h5 class="logo-text">Open Bright</h5>
+          <h5 class="logo-text">Open Bright PG MGT </h5>
      </a>
 
          {% endif %}
 
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">MAIN NAVIGATION BR11</li>
+       <li class="sidebar-header"><h6 style="text-decoration:underline;">.........* PERFECT PG 1 *.........</h6></li>
 
-
-
-              <li>
-        <a href="{% url 'accounts_dash_board11' %}">
-          <i class="zmdi zmdi-book"></i> <span>Accounts 11</span>
+      <li>
+        <a href="{% url 'branch1_dashboard_ob_ch11' %}">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard </span>
         </a>
       </li>
 
+              <li>
+        <a href="{% url 'accounts_dash_board_ob_ch11' %}">
+          <i class="zmdi zmdi-book"></i> <span>Accounts </span>
+        </a>
+      </li>
+
+
+       <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Reports </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'unpaid_rent_choose_months_ob_ch11' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Unpaid Guests </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'paid_rent_choose_months_ob_ch11' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Paid Guests </span></a>
+   <a class="dropdown-item btn-warning" href="{% url 'partially_paid_guest_choose_months_ob_ch11' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Partially Paid Guests </span></a>
+
+    <a class="dropdown-item btn-info" href="{% url 'detailed_report_choose_months_ob_ch11' %}"> <i class="zmdi zmdi-spinner"></i> <span>Detailed Report </span></a>
+
+  </div>
+</div>
+       </li>
+
+
+              <li id="mycolor">
+       <div class="dropdown show" id="mycolor">
+  <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink mycolor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     <i class="zmdi zmdi-view-dashboard" id="mycolor"></i> <span id="mycolor" style="color:white">Payments </span>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink mycolor">
+    <a class="dropdown-item btn-danger" href="{% url 'choose_user_ob_ch11' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Single Payment </span></a>
+    <a class="dropdown-item btn-success" href="{% url 'choose_months_ob_ch11' %}"><i class="zmdi zmdi-invert-colors"></i> <span>Payment </span></a>
+
+  </div>
+</div>
+       </li>
+
+        <li>
+        <a href="{% url 'choose_months_advance_ob_ch11' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Advance </span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'due_amt_mgt_choose_months_ob_ch11' %}">
+          <i class="zmdi zmdi-format-list-bulleted"></i> <span>Account Mgt </span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'view_all_new_guest_ob_ch11' %}">
+          <i class="zmdi zmdi-face"></i> <span>Guests </span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'detail_guest_general_ob_ch11' %}">
+          <i class="zmdi zmdi-brush"></i> <span>Collection Sheet </span>
+        </a>
+      </li>
+       <li>
+        <a href="{% url 'viewall_vacate_guest_ob_ch11' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>Vacated Guest </span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'view_all_room_ob_ch11' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Rooms </span>
+        </a>
+      </li>
+
+       <li>
+        <a href="{% url 'pg1_view_all_beds_ob_ch11' %}">
+          <i class="zmdi zmdi-invert-colors"></i> <span>View Beds </span>
+        </a>
+      </li>
+
+        <li>
+        <a href="{% url 'viewall_vaccant_room_ob_ch11' %}">
+          <i class="zmdi zmdi-case-check"></i> <span>Vaccant Rooms </span>
+        </a>
+      </li>
 
 
       <li>
@@ -487,7 +569,7 @@ new Chart("myCharts", {
 	<footer class="footer">
       <div class="container">
         <div class="text-center">
-          Copyright © 2018 Open Bright Admin
+          <a href="http://hbct.in/">powered by © HBCT.IN</a>
         </div>
       </div>
     </footer>
