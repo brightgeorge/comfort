@@ -620,7 +620,7 @@ urlpatterns = [
     path('single_monthly_reports_choose_months12/', accounts12.single_monthly_reports_choose_months12,name='single_monthly_reports_choose_months12'),
     path('single_monthly_daily_in_exp_items_report12/<mo>',accounts12.single_monthly_daily_in_exp_items_report12,name='single_monthly_daily_in_exp_items_report12'),
 
-    path('accounts_dash_board12/',accounts12.accounts_dash_board12,name='accounts_dash_board12'),
+    path('accounts_dash_board_ob_ch12/',accounts12.accounts_dash_board_ob_ch12,name='accounts_dash_board_ob_ch12'),
 
 
 

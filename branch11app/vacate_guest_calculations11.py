@@ -411,7 +411,7 @@ def bar_chart():
 
 
 
-def monthly_details_due5(request):
+def monthly_details_due_ob_ch11(request):
     jan_tc = []
     total_guest_br5 = branch11app.models.pg1_new_guest.objects.all().filter(flag=3, jan_rent_flag__gt=99)
     for i in total_guest_br5:

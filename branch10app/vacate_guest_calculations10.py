@@ -411,7 +411,7 @@ def bar_chart():
 
 
 
-def monthly_details_due5(request):
+def monthly_details_due_ob_ch10(request):
     jan_tc = []
     total_guest_br5 = branch10app.models.pg1_new_guest.objects.all().filter(flag=3, jan_rent_flag__gt=99)
     for i in total_guest_br5:
@@ -786,7 +786,7 @@ def monthly_details_due5(request):
         'total_due_amt':total_due_amt,
     }
 
-    return render(request,'branches/branch5/reports/dashboard_reports/due_amount/monthly_details.html',context)
+    return render(request,'branches/branch10/reports/dashboard_reports/due_amount/monthly_details.html',context)
 
 def monthly_collection_details_vcated():
     jan_tc = []
