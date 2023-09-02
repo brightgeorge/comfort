@@ -536,7 +536,7 @@ def view_all_new_guest4(request):
         return render(request, 'branches/branch4/new_guest/view_all_new_guest.html', context)
     return render(request, 'index.html')
 
-
+#assas
 def update_br1_admit_guest4(request, id):
     if request.method == 'POST':
         selfmob = request.POST.get('selfmobno')
