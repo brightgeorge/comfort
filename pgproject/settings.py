@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'branch11app',
     'branch12app',
     'branch13app',
+    'branch14app',
 
 ]
 
@@ -101,8 +102,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'cpg',
         'USER': 'root',
-        'PASSWORD': '#123.com#',
-        #'PASSWORD': '',
+        #'PASSWORD': '#123.com#',
+        'PASSWORD': '',
         'HOST': 'localhost',
 
     }
