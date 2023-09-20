@@ -322,8 +322,14 @@ def pg1_bed_create_regi(request):
 
 
 def single_pg1_bed_create_regi(request):
+
+
+
+
     if 'username' in request.session:
         if request.method == 'POST':
+
+            chk_room_na = request.POST.get('roomname')
 
             chk_bed_no = request.POST.get('bedno')
             print('chk_bed_no', chk_bed_no)
@@ -332,7 +338,9 @@ def single_pg1_bed_create_regi(request):
 
             bd_code = chk_bed_no + chk_room_no
             int_bd_code = int(bd_code)
-            chk_bd_code = pg1_new_beds.objects.all().filter(bed_code=int_bd_code).exists()
+            print('int_bd_code',int_bd_code)
+            chk_bd_code = pg1_new_beds.objects.all().filter(bed_code=int_bd_code,room_name=chk_room_na).exists()
+            print('chk_bd_code',chk_bd_code)
 
             if chk_bd_code == True:
 
