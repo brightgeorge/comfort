@@ -724,7 +724,7 @@ def change_duplicate_guest_status_ob_ch13(request,id):
             nl=[]
             for i in ab:
                 l.append(i.guest_code)
-                nl.append(name)
+                nl.append(i.name)
             ir = pg1_new_beds.objects.all().filter(guest_code=l[0],name=nl[0],flag=2).exists()
             print('my irrr',ir)
 
