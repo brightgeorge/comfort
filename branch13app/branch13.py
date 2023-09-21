@@ -730,6 +730,7 @@ def change_duplicate_guest_status_ob_ch13(request,id):
 
             if ir == False:
                 ic = pg1_new_guest.objects.get(id=id)
+                ic.guest_code = 123456789
                 ic.flag = 4
                 ic.save()
 
