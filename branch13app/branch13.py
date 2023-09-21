@@ -721,9 +721,11 @@ def change_duplicate_guest_status_ob_ch13(request,id):
         if request.method == 'POST':
             ab = pg1_new_guest.objects.all().filter(id=id)
             l=[]
+            nl=[]
             for i in ab:
                 l.append(i.guest_code)
-            ir = pg1_new_beds.objects.all().filter(guest_code=l[0], flag=2).exists()
+                nl.append(name)
+            ir = pg1_new_beds.objects.all().filter(guest_code=l[0],name=nl[0],flag=2).exists()
             print('my irrr',ir)
 
             if ir == False:
