@@ -775,6 +775,25 @@ def change_duplicate_guest_status_ob_ch13(request,id):
         return render(request,'branches/branch13/new_guest/change_duplicate_guest_status.html',context)
     return render(request, 'index.html')
 
+def view_all_duplicate_entry_ob_ch13(request):
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vag' : pg1_new_guest.objects.all().filter(flag=4).order_by('roon_no')
+    }
+    return render(request,'branches/branch13/new_guest/view_all_duplicate_entry.html',context)
 
 
 
