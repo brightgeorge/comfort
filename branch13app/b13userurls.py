@@ -47,6 +47,7 @@ urlpatterns = [
 
     path('active_guest_details_ob_ch13/<guest_code>',branch13.active_guest_details_ob_ch13,name='active_guest_details_ob_ch13'),
     path('view_all_guest_ob_ch13/',branch13.view_all_guest_ob_ch13,name='view_all_guest_ob_ch13'),
+    path('change_duplicate_guest_status_ob_ch13/<id>', branch13.change_duplicate_guest_status_ob_ch13,name='change_duplicate_guest_status_ob_ch13'),
     path('shift_guest_ob_ch13/<id>',branch13.shift_guest_ob_ch13,name='shift_guest_ob_ch13'),
     path('shift_guest_regi_ob_ch13/',branch13.shift_guest_regi_ob_ch13,name='shift_guest_regi_ob_ch13'),
 

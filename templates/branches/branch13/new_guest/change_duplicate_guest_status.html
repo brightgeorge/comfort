@@ -1,75 +1,51 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Open Bright PG MGT</title>
+  <title>Open Bright</title>
   <!-- loader-->
-  <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
-  <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
+  <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
   <!--favicon-->
-  <link rel="icon" href="../assets/images/favicon.ico' %}" type="image/x-icon">
-  <!-- Vector CSS -->
-  <link href="{% static 'admindashboard//assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <link rel="icon" href="{% static 'admindashboard/assets/images/favicon.ico' %}" type="image/x-icon">
   <!-- simplebar CSS-->
-  <link href="{% static 'admindashboard//assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
-  <link href="{% static 'admindashboard//assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="{% static 'admindashboard//assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard/assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="{% static 'admindashboard//assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard/assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
-  <link href="{% static 'admindashboard//assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
-  <link href="{% static 'admindashboard//assets/css/app-style.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
+
+  <style>
+.mybutton {
+  border: none;
+  color: white;
+  /*padding: 16px 32px;*/
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /*margin: 4px 2px;*/
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color:red;
+  color:white;
+  align:right;
+}
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-  <!-- Button trigger modal -->
 
-
-
-<script>
-function exportTableToExcel(tableID, filename = ''){
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
-    var tableSelect = document.getElementById(tableID);
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
-    // Specify file name
-    filename = filename?filename+'.xls':'excel_data.xls';
-
-    // Create download link element
-    downloadLink = document.createElement("a");
-
-    document.body.appendChild(downloadLink);
-
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-
-        // Setting the file name
-        downloadLink.download = filename;
-
-        //triggering the function
-        downloadLink.click();
-    }
-}</script>
-
+</style>
 
 </head>
 
@@ -90,12 +66,12 @@ function exportTableToExcel(tableID, filename = ''){
 <!-- Start wrapper-->
  <div id="wrapper">
 
-  <!--Start sidebar-wrapper-->
+ <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
-       <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
-       <h5 class="logo-text">Dashtreme Admin</h5>
+       <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
+       <h5 class="logo-text">Open Bright</h5>
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
@@ -204,6 +180,7 @@ function exportTableToExcel(tableID, filename = ''){
    </div>
    <!--End sidebar-wrapper-->
 
+
 <!--Start topbar header-->
 <header class="topbar-nav">
  <nav class="navbar navbar-expand fixed-top">
@@ -269,21 +246,20 @@ function exportTableToExcel(tableID, filename = ''){
 </nav>
 </header>
 <!--End topbar header-->
-
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
     <div class="container-fluid">
 
-      <div class="row mt-3">
+    <div class="row mt-3">
+      <div class="col-lg-9" style="margin-left:auto;margin-right:auto;">
+         <div class="card">
+           <div class="card-body">
+		  <a href="{% url 'view_all_guest3' %}"> <button class="mybutton button1">X Close</button></a>
+           <div class="card-title">Double Entry Guest</div>
 
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title"> VIEW ALL GUEST MANAGEMENT </h5>
 
-
-                {% if messages %}
+               {% if messages %}
                 {% for message in messages %}
         <div class="alert alert-success" style="width:95%;">
          <a href="#" class="close" data-dismiss="alert">
@@ -296,112 +272,68 @@ function exportTableToExcel(tableID, filename = ''){
             {% endif %}
 
 
-                 <tr>
-                     <th> <a href="{% url 'view_all_new_guest_ob_ch13' %}"> <button style="background-color:green;color:white;"> <= Back</button> </a></th>
-                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                     <th> <a href=""> <button style="background-color:green;color:white;"> <= test shift</button> </a></th>
-                 <th><button onclick="window.print()">Print</button></th>
-                 </tr>
-           <div class="table-responsive">
-              <table class="table table-bordered" id="tbldata" border="1">
-                <thead>
-                  <tr>
-                    <th scope="col">Room</th>
-                    <th scope="col">Manage</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Number</th>
-                      <th scope="col">Advance</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col" style="width:150px;height:60px;">Remark</th>
-                  </tr>
-                </thead>
-                <tbody>
+           <hr>
+            <form action="{% url 'change_duplicate_guest_status_ob_ch13' sd.id %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
 
 
-                  <tr>
-
-                      {% for i in vag %}
-
- <th scope="row" ">{{i.room_name}}</th>
-
-                       <th scope="row" style="height:{{table_height}};">
-                        <div class="dropdown">
-             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
-              <i class="icon-options1" style="background-color:red;border:1px solid green;">manage</i>
-             </a>
-              <div class="dropdown-menu dropdown-menu-right">
+                <h4 style="color:orange;">{{sd.name}} Double Entry from room no {{sd.room_name}} and bed no {{sd.bed_no}}</h4> <br>
 
 
-                  <a class="dropdown-item" href="{% url 'active_guest_details_ob_ch13' guest_code=i.guest_code %}" style="color:orange;"> Guest Details</a>
+                <br>
+                <h6 style="color:red;">Are You Okay </h6><br>
 
-                  <a class="dropdown-item" href="{% url 'change_duplicate_guest_status_ob_ch13' id=i.id %}">Remove Double entry</a>
+                <br>
 
-                <a class="dropdown-item" href=""></a>
-
-               </div>
-              </div>
-                    </th>
-
-
-                    <th scope="row" style="height:{{table_height}};">{{i.name}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.self_mob}}</th>
-                       <th scope="row" style="height:{{table_height}};">{{i.advance}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.monthly_rent}}</th>
-                    <th scope="row" style="height:{{table_height}};">{{i.remark}}</th>
-                  </tr>
-                {% endfor %}
-
-
-
-
-
-
-<! ---------------------------------------------------------------------------------------- -->
-
-
-
-
-                </tbody>
-              </table>
-            </div>
-            </div>
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Remove Double Entry</button>
           </div>
-        </div>
-      </div><!--End Row-->
+          </form>
+         </div>
+         </div>
+      </div>
 
+    </div><!--End Row-->
 
-
-
-
-
-     <!--start overlay-->
-        <div class="overlay toggle-menu"></div>
-      <!--end overlay-->
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
 
-    </div><!--End content-wrapper-->
+   </div><!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 
-   <!--Start footer-->
-   <footer class="footer">
+	<!--Start footer-->
+	<footer class="footer">
       <div class="container">
         <div class="text-center">
-          <a href="http://hbct.in/">powered by © HBCT.IN</a>
+          Copyright © 2018 Open Bright Admin
         </div>
       </div>
     </footer>
-   <!--End footer-->
+	<!--End footer-->
 
-   <!--start color switcher-->
+	<!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
+
+		<p class="mb-0">Settings</p>
+      <hr>
+
+      <ul>
+        <li style="background-color:red;border:1px solid white;"><a href="uom_creation.html">Create New UOM</a></li>
+        <li style="background-color:red;border:1px solid white;"><a href="create_category.html">Create New Category</a></li>
+        <li style="background-color:red;border:1px solid white;">Create New Kitchen</li>
+
+
+      </ul>
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
@@ -425,7 +357,7 @@ function exportTableToExcel(tableID, filename = ''){
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-      <li id="theme13"></li>
+		<li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -451,6 +383,6 @@ function exportTableToExcel(tableID, filename = ''){
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
 
 
+
 </body>
 </html>
-
