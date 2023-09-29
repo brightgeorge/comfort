@@ -481,7 +481,145 @@ urlpatterns = [
 
     path('guest_all_ob_ch14/',branch14.guest_all_ob_ch14,name='guest_all_ob_ch14'),
 
-    path('accounts_dash_board_ob_ch14/', accounts14.accounts_dash_board_ob_ch14, name='accounts_dash_board_ob_ch14'),
+
+
+
+
+#####********************************************************************************************************
+#ACCOUNTS START HERE
+####***************************************************
+
+#########################################################
+###******CREATER MASTER START HERE
+###################################################################################
+
+##******************CATERGORY CREATER START HERE
+
+    path('view_all_category14/', accounts14.view_all_category14, name='view_all_category14'),
+    path('create_new_category14/', accounts14.create_new_category14, name='create_new_category14'),
+    path('regi_new_category14/', accounts14.regi_new_category14, name='regi_new_category14'),
+    path('update_category14/<id>',accounts14.update_category14,name='update_category14'),
+
+    path('delete_category14/<id>', accounts14.delete_category14, name='delete_category14'),
+    path('view_all_category_delete14/', accounts14.view_all_category_delete14, name='view_all_category_delete14'),
+
+    ##*****************CATERY CREATER END HERE
+
+##******************ITEM CREATER START HERE
+
+    path('view_all_items14/', accounts14.view_all_items14, name='view_all_items14'),
+    path('create_new_item14/', accounts14.create_new_item14, name='create_new_item14'),
+    path('regi_new_item14/', accounts14.regi_new_item14, name='regi_new_item14'),
+    path('delete_item14/<id>',accounts14.delete_item14,name='delete_item14'),
+    path('update_item14/<id>', accounts14.update_item14, name='update_item14'),
+    path('view_all_items_delete14/',accounts14.view_all_items_delete14,name='view_all_items_delete14'),
+
+    ##*****************ITEM CREATER END HERE
+
+##******************LEDGER CREATER START HERE
+
+    path('view_all_ledger14/', accounts14.view_all_ledger14, name='view_all_ledger14'),
+    path('create_new_ledger14/', accounts14.create_new_ledger14, name='create_new_ledger14'),
+    path('regi_new_ledger14/', accounts14.regi_new_ledger14, name='regi_new_ledger14'),
+    path('delete_ledger14/<id>',accounts14.delete_ledger14,name='delete_ledger14'),
+    path('update_ledger14/<id>',accounts14.update_ledger14,name='update_ledger14'),
+    path('view_all_ledger_delete14/',accounts14.view_all_ledger_delete14,name='view_all_ledger_delete14'),
+
+##*****************LEDGER CREATER END HERE
+
+##******************ACCOUNTS_BOOK CREATER START HERE
+
+    path('view_all_accounts_book14/', accounts14.view_all_accounts_book14, name='view_all_accounts_book14'),
+    path('create_new_accounts_book14/', accounts14.create_new_accounts_book14, name='create_new_accounts_book14'),
+    path('regi_new_accounts_book14/', accounts14.regi_new_accounts_book14, name='regi_new_accounts_book14'),
+    path('update_accounts_book14/<id>',accounts14.update_accounts_book14,name='update_accounts_book14'),
+    path('delete_accounts_book14/<id>',accounts14.delete_accounts_book14,name='delete_accounts_book14'),
+    path('view_all_accounts_book_delete14/',accounts14.view_all_accounts_book_delete14,name='view_all_accounts_book_delete14'),
+
+##*****************ACCOUNTS_BOOK CREATER END HERE
+
+#########################################################
+###******CREATER MASTER END HERE
+###################################################################################
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER START HERE
+###################################################################################
+
+    path('get_countries14/', accounts14.get_countries14, name='get_countries14'),
+
+    path('in_exp_items_entry14/', accounts14.in_exp_items_entry14, name='in_exp_items_entry14'),
+    path('reg_in_exp_items_entry14/', accounts14.reg_in_exp_items_entry14, name='reg_in_exp_items_entry14'),
+    path('delete_journal14/<id>',accounts14.delete_journal14,name='delete_journal14'),
+    path('update_in_exp_items_entry14/<id>',accounts14.update_in_exp_items_entry14,name='update_in_exp_items_entry14'),
+    path('detailed_journal_report14/',accounts14.detailed_journal_report14,name='detailed_journal_report14'),
+    path('journal_report_deleted14/',accounts14.journal_report_deleted14,name='journal_report_deleted14'),
+
+#########################################################
+###******INCOME EXPENSE ENTRY FORM MASTER END HERE
+###################################################################################
+#########*******************************************************************************************************************
+#########################################################
+###******ALL REPORTS  START HERE
+###################################################################################
+
+###************* CATEGORY WISE REPORTS  START HERE
+
+    path('daily_category_wise14/', accounts14.daily_category_wise14, name='daily_category_wise14'),
+    path('monthly_category_based_reports14/',accounts14.monthly_category_based_reports14,name='monthly_category_based_reports14'),
+    path('yearly_category_based_reports14/', accounts14.yearly_category_based_reports14,name='yearly_category_based_reports14'),
+
+###*************CATEGORY WISE REPORTS  END HERE
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+    path('daily_detailed14/', accounts14.daily_detailed14, name='daily_detailed14'),
+    path('monthly_detailed14/',accounts14.monthly_detailed14,name='monthly_detailed14'),
+    path('yearly_detailed14/',accounts14.yearly_detailed14,name='yearly_detailed14'),
+
+###*************DAILY DETAILED REPORTS  START HERE
+
+###*************ITEM BASED REPORTS  START HERE
+
+    path('item_based_reports14/', accounts14.item_based_reports14, name='item_based_reports14'),
+    path('daily_item_based_reports14/',accounts14.daily_item_based_reports14,name='daily_item_based_reports14'),
+    path('monthly_item_based_reports14/',accounts14.monthly_item_based_reports14,name='monthly_item_based_reports14'),
+
+###*************ITEM BASED REPORTS  START HERE
+
+###*************LEDGER BASED REPORTS  START HERE
+
+    path('ledger_based_reports14/', accounts14.ledger_based_reports14, name='ledger_based_reports14'),
+    path('monthly_ledger_based_reports14/', accounts14.monthly_ledger_based_reports14, name='monthly_ledger_based_reports14'),
+    path('daily_ledger_based_reports14/',accounts14.daily_ledger_based_reports14,name='daily_ledger_based_reports14'),
+
+###*************LEDGER BASED REPORTS  START HERE
+
+###*************ACCOUNTS-BOOK BASED REPORTS  START HERE
+
+    path('accounts_book_based_reports14/', accounts14.accounts_book_based_reports14, name='accounts_book_based_reports14'),
+    path('daily_accounts_book_based_reports14/',accounts14.daily_accounts_book_based_reports14,name='daily_accounts_book_based_reports14'),
+    path('monthly_accounts_book_based_reports14/',accounts14.monthly_accounts_book_based_reports14,name='monthly_accounts_book_based_reports14'),
+
+###*************ACCOUNTS-BOOK BASED REPORTS  END HERE
+
+
+#########################################################
+###******ALL REPORTS  END HERE
+###################################################################################
+
+    path('monthly_reports_choose_months14/', accounts14.monthly_reports_choose_months14, name='monthly_reports_choose_months14'),
+    path('monthly_detailed_daily_in_exp_items_report14/<mo>',accounts14.monthly_detailed_daily_in_exp_items_report14,name='monthly_detailed_daily_in_exp_items_report14'),
+
+    path('single_monthly_reports_choose_months14/', accounts14.single_monthly_reports_choose_months14,name='single_monthly_reports_choose_months14'),
+    path('single_monthly_daily_in_exp_items_report14/<mo>',accounts14.single_monthly_daily_in_exp_items_report14,name='single_monthly_daily_in_exp_items_report14'),
+
+    path('accounts_dash_board_ob_ch14/',accounts14.accounts_dash_board_ob_ch14,name='accounts_dash_board_ob_ch14'),
+
+
+
+
+
 
 ]
 
