@@ -13,6 +13,10 @@ import branch6app
 import branch7app
 import branch8app
 import branch9app
+import branch10app
+import branch11app
+import branch12app
+import branch13app
 
 def total_guest():
     tg=[]
@@ -35,6 +39,15 @@ def total_guest():
     tg.append(len(total_guest_br8))
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(flag=2)
     tg.append(len(total_guest_br9))
+
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br13))
 
     return sum(tg)
 
@@ -59,6 +72,15 @@ def branchwise_total_guest(request):
     tg.append(len(total_guest_br8))
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(flag=2)
     tg.append(len(total_guest_br9))
+
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(flag=2)
+    tg.append(len(total_guest_br13))
 
     context={
         'tg' : tg,
@@ -88,6 +110,15 @@ def total_vaccant_share1():
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
     tsv.append(len(total_guest_br9))
 
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
+
     return sum(tsv)
 
 def total_vaccant_share2():
@@ -112,6 +143,15 @@ def total_vaccant_share2():
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
     tsv.append(len(total_guest_br9))
 
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
+
     return sum(tsv)
 
 def total_vaccant_share3():
@@ -124,17 +164,26 @@ def total_vaccant_share3():
     tsv.append(len(total_guest_br3))
     total_guest_br4 = branch4app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br4))
-    total_guest_br5 = branch5app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    total_guest_br5 = branch5app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br5))
 
-    total_guest_br6 = branch6app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    total_guest_br6 = branch6app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br6))
-    total_guest_br7 = branch7app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    total_guest_br7 = branch7app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br7))
-    total_guest_br8 = branch8app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    total_guest_br8 = branch8app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br8))
-    total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
     tsv.append(len(total_guest_br9))
+
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
 
     return sum(tsv)
 
@@ -160,6 +209,15 @@ def total_vaccant_share4():
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
     tsv.append(len(total_guest_br9))
 
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
+
     return sum(tsv)
 
 def total_vaccant_share5():
@@ -184,6 +242,15 @@ def total_vaccant_share5():
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
     tsv.append(len(total_guest_br9))
 
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
+
     return sum(tsv)
 
 def total_vaccant_share6():
@@ -207,6 +274,15 @@ def total_vaccant_share6():
     tsv.append(len(total_guest_br8))
     total_guest_br9 = branch9app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
     tsv.append(len(total_guest_br9))
+
+    total_guest_br10 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br10))
+    total_guest_br11 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br11))
+    total_guest_br12 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br12))
+    total_guest_br13 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br13))
 
     return sum(tsv)
 
@@ -372,6 +448,70 @@ def total_vaccant_share_branch9():
     tsv.append(len(total_guest_br5))
     return tsv
 
+def total_vaccant_share_branch10():
+    tsv = []
+    total_guest_br1 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br1))
+    total_guest_br2 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br2))
+    total_guest_br3 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br3))
+    total_guest_br4 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br4))
+    total_guest_br5 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    total_guest_br5 = branch10app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    return tsv
+
+def total_vaccant_share_branch11():
+    tsv = []
+    total_guest_br1 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br1))
+    total_guest_br2 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br2))
+    total_guest_br3 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br3))
+    total_guest_br4 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br4))
+    total_guest_br5 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    total_guest_br5 = branch11app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    return tsv
+
+def total_vaccant_share_branch12():
+    tsv = []
+    total_guest_br1 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br1))
+    total_guest_br2 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br2))
+    total_guest_br3 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br3))
+    total_guest_br4 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br4))
+    total_guest_br5 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    total_guest_br5 = branch12app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    return tsv
+
+def total_vaccant_share_branch13():
+    tsv = []
+    total_guest_br1 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='1').exclude(flag=2)
+    tsv.append(len(total_guest_br1))
+    total_guest_br2 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='2').exclude(flag=2)
+    tsv.append(len(total_guest_br2))
+    total_guest_br3 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='3').exclude(flag=2)
+    tsv.append(len(total_guest_br3))
+    total_guest_br4 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='4').exclude(flag=2)
+    tsv.append(len(total_guest_br4))
+    total_guest_br5 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='5').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    total_guest_br5 = branch13app.models.pg1_new_beds.objects.all().filter(share_type='6').exclude(flag=2)
+    tsv.append(len(total_guest_br5))
+    return tsv
+
 
 
 def total_vaccant_share_choose_branches(request):
@@ -386,6 +526,11 @@ def total_vaccant_share_choose_branches(request):
         'br7': total_vaccant_share_branch7(),
         'br8': total_vaccant_share_branch8(),
         'br9': total_vaccant_share_branch9(),
+
+        'br10': total_vaccant_share_branch10(),
+        'br11': total_vaccant_share_branch11(),
+        'br12': total_vaccant_share_branch12(),
+        'br13': total_vaccant_share_branch13(),
 
     }
     return render(request,'admindashboard/admin_dashboard_reports/total_vaccant_share_choose_branches.html',context)
@@ -403,6 +548,11 @@ def total_gtc():
     a8 = branch8app.admin_dashboard_calculations_br8.grand_total_collection()
     a9 = branch9app.admin_dashboard_calculations_br9.grand_total_collection()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.grand_total_collection()
+    a11 = branch11app.admin_dashboard_calculations_br11.grand_total_collection()
+    a12 = branch12app.admin_dashboard_calculations_br12.grand_total_collection()
+    a13 = branch13app.admin_dashboard_calculations_br13.grand_total_collection()
+
     from datetime import datetime
     cmm = datetime.now().month
     cm = cmm - 1
@@ -416,6 +566,11 @@ def total_gtc():
     l.append(a7[cm])
     l.append(a8[cm])
     l.append(a9[cm])
+
+    l.append(a10[cm])
+    l.append(a11[cm])
+    l.append(a12[cm])
+    l.append(a13[cm])
 
     gtc=sum(l)
     print('this is total branch gtc sum',gtc)
@@ -432,6 +587,11 @@ def total_advance():
     a8 = branch8app.admin_dashboard_calculations_br8.total_collection_advance()
     a9 = branch9app.admin_dashboard_calculations_br9.total_collection_advance()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.total_collection_advance()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_collection_advance()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_collection_advance()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_collection_advance()
+
     l = []
     l.append(a1)
     l.append(a2)
@@ -442,6 +602,11 @@ def total_advance():
     l.append(a7)
     l.append(a8)
     l.append(a9)
+
+    l.append(a10)
+    l.append(a11)
+    l.append(a12)
+    l.append(a13)
 
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
@@ -458,6 +623,11 @@ def total_discount():
     a8 = branch8app.admin_dashboard_calculations_br8.total_discount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_discount()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.total_discount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_discount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_discount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_discount()
+
     l = []
     l.append(a1)
     l.append(a2)
@@ -468,6 +638,11 @@ def total_discount():
     l.append(a7)
     l.append(a8)
     l.append(a9)
+
+    l.append(a10)
+    l.append(a11)
+    l.append(a12)
+    l.append(a13)
 
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
@@ -484,6 +659,11 @@ def all_total_collatable_amount():
     a8 = branch8app.admin_dashboard_calculations_br8.total_colatable_amount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_colatable_amount()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.total_colatable_amount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_colatable_amount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_colatable_amount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_colatable_amount()
+
     l = []
     l.append(a1)
     l.append(a2)
@@ -494,6 +674,11 @@ def all_total_collatable_amount():
     l.append(a7)
     l.append(a8)
     l.append(a9)
+
+    l.append(a10)
+    l.append(a11)
+    l.append(a12)
+    l.append(a13)
 
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
@@ -510,6 +695,11 @@ def all_total_collected_amount():
     a8 = branch8app.admin_dashboard_calculations_br8.total_collected_amount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_collected_amount()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.total_collected_amount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_collected_amount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_collected_amount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_collected_amount()
+
     l = []
     l.append(a1)
     l.append(a2)
@@ -520,6 +710,11 @@ def all_total_collected_amount():
     l.append(a7)
     l.append(a8)
     l.append(a9)
+
+    l.append(a10)
+    l.append(a11)
+    l.append(a12)
+    l.append(a13)
 
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
@@ -536,6 +731,11 @@ def all_total_due():
     a8 = branch8app.admin_dashboard_calculations_br8.total_due()
     a9 = branch9app.admin_dashboard_calculations_br9.total_due()
 
+    a10 = branch10app.admin_dashboard_calculations_br10.total_due()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_due()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_due()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_due()
+
     l = []
     l.append(a1)
     l.append(a2)
@@ -546,6 +746,11 @@ def all_total_due():
     l.append(a7)
     l.append(a8)
     l.append(a9)
+
+    l.append(a10)
+    l.append(a11)
+    l.append(a12)
+    l.append(a13)
 
     gtc = sum(l)
     print('this is total branch gtc sum', gtc)
@@ -565,6 +770,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.grand_total_collection()
     a8 = branch8app.admin_dashboard_calculations_br8.grand_total_collection()
     a9 = branch9app.admin_dashboard_calculations_br9.grand_total_collection()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.grand_total_collection()
+    a11 = branch11app.admin_dashboard_calculations_br11.grand_total_collection()
+    a12 = branch12app.admin_dashboard_calculations_br12.grand_total_collection()
+    a13 = branch13app.admin_dashboard_calculations_br13.grand_total_collection()
+
     from datetime import datetime
     cmm = datetime.now().month
     cm = cmm - 1
@@ -579,6 +790,11 @@ def branchwise_total_collection(request):
     list_total_gtc.append(a8[cm])
     list_total_gtc.append(a9[cm])
 
+    list_total_gtc.append(a10[cm])
+    list_total_gtc.append(a11[cm])
+    list_total_gtc.append(a12[cm])
+    list_total_gtc.append(a13[cm])
+
 #******list_total_advance
 
     a1 = admin_dashboard_calculations_br1.total_collection_advance()
@@ -590,6 +806,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.total_collection_advance()
     a8 = branch8app.admin_dashboard_calculations_br8.total_collection_advance()
     a9 = branch9app.admin_dashboard_calculations_br9.total_collection_advance()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.total_collection_advance()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_collection_advance()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_collection_advance()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_collection_advance()
+
     list_total_advance = []
     list_total_advance.append(a1)
     list_total_advance.append(a2)
@@ -600,6 +822,11 @@ def branchwise_total_collection(request):
     list_total_advance.append(a7)
     list_total_advance.append(a8)
     list_total_advance.append(a9)
+
+    list_total_advance.append(a10)
+    list_total_advance.append(a11)
+    list_total_advance.append(a12)
+    list_total_advance.append(a13)
 
 #***********list_total_discount
 
@@ -612,6 +839,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.total_discount()
     a8 = branch8app.admin_dashboard_calculations_br8.total_discount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_discount()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.total_discount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_discount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_discount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_discount()
+
     total_discount = []
     total_discount.append(a1)
     total_discount.append(a2)
@@ -622,6 +855,11 @@ def branchwise_total_collection(request):
     total_discount.append(a7)
     total_discount.append(a8)
     total_discount.append(a9)
+
+    total_discount.append(a10)
+    total_discount.append(a11)
+    total_discount.append(a12)
+    total_discount.append(a13)
 
 
 #******list_all_total_collatable_amount
@@ -635,6 +873,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.total_colatable_amount()
     a8 = branch8app.admin_dashboard_calculations_br8.total_colatable_amount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_colatable_amount()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.total_colatable_amount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_colatable_amount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_colatable_amount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_colatable_amount()
+
     total_colatable_amount = []
     total_colatable_amount.append(a1)
     total_colatable_amount.append(a2)
@@ -645,6 +889,11 @@ def branchwise_total_collection(request):
     total_colatable_amount.append(a7)
     total_colatable_amount.append(a8)
     total_colatable_amount.append(a9)
+
+    total_colatable_amount.append(a10)
+    total_colatable_amount.append(a11)
+    total_colatable_amount.append(a12)
+    total_colatable_amount.append(a13)
 
 #*******list_all_total_collected_amount
 
@@ -657,6 +906,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.total_collected_amount()
     a8 = branch8app.admin_dashboard_calculations_br8.total_collected_amount()
     a9 = branch9app.admin_dashboard_calculations_br9.total_collected_amount()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.total_collected_amount()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_collected_amount()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_collected_amount()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_collected_amount()
+
     total_collected_amount = []
     total_collected_amount.append(a1)
     total_collected_amount.append(a2)
@@ -667,6 +922,11 @@ def branchwise_total_collection(request):
     total_collected_amount.append(a7)
     total_collected_amount.append(a8)
     total_collected_amount.append(a9)
+
+    total_collected_amount.append(a10)
+    total_collected_amount.append(a11)
+    total_collected_amount.append(a12)
+    total_collected_amount.append(a13)
 
 
 #*****list_all_total_due
@@ -680,6 +940,12 @@ def branchwise_total_collection(request):
     a7 = branch7app.admin_dashboard_calculations_br7.total_due()
     a8 = branch8app.admin_dashboard_calculations_br8.total_due()
     a9 = branch9app.admin_dashboard_calculations_br9.total_due()
+
+    a10 = branch10app.admin_dashboard_calculations_br10.total_due()
+    a11 = branch11app.admin_dashboard_calculations_br11.total_due()
+    a12 = branch12app.admin_dashboard_calculations_br12.total_due()
+    a13 = branch13app.admin_dashboard_calculations_br13.total_due()
+
     total_due = []
     total_due.append(a1)
     total_due.append(a2)
@@ -690,6 +956,11 @@ def branchwise_total_collection(request):
     total_due.append(a7)
     total_due.append(a8)
     total_due.append(a9)
+
+    total_due.append(a10)
+    total_due.append(a11)
+    total_due.append(a12)
+    total_due.append(a13)
 
 
     context={
@@ -911,6 +1182,103 @@ def details_branch9(request):
         'total_collected_amount': branch9app.admin_dashboard_calculations_br9.total_collected_amount(),
         'total_due': branch9app.admin_dashboard_calculations_br9.total_due(),
         'l': branch9app.admin_dashboard_calculations_br9.grand_total(),
+
+    }
+    return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
+
+
+
+def details_branch10(request):
+    a = branch10app.admin_dashboard_calculations_br10.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
+    context = {
+        'tc': branch10app.models.pg1_new_beds.objects.all().filter(flag=2),
+        'vr': branch10app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch10app.admin_dashboard_calculations_br10.total_collection_advance(),
+        'total_discount': branch10app.admin_dashboard_calculations_br10.total_discount(),
+
+        'total_colatable_amount': branch10app.admin_dashboard_calculations_br10.total_colatable_amount(),
+        'total_collected_amount': branch10app.admin_dashboard_calculations_br10.total_collected_amount(),
+        'total_due': branch10app.admin_dashboard_calculations_br10.total_due(),
+        'l': branch10app.admin_dashboard_calculations_br10.grand_total(),
+
+    }
+    return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
+
+
+def details_branch11(request):
+    a = branch11app.admin_dashboard_calculations_br11.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
+    context = {
+        'tc': branch11app.models.pg1_new_beds.objects.all().filter(flag=2),
+        'vr': branch11app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch11app.admin_dashboard_calculations_br11.total_collection_advance(),
+        'total_discount': branch11app.admin_dashboard_calculations_br11.total_discount(),
+
+        'total_colatable_amount': branch11app.admin_dashboard_calculations_br11.total_colatable_amount(),
+        'total_collected_amount': branch11app.admin_dashboard_calculations_br11.total_collected_amount(),
+        'total_due': branch11app.admin_dashboard_calculations_br11.total_due(),
+        'l': branch11app.admin_dashboard_calculations_br11.grand_total(),
+
+    }
+    return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
+
+
+def details_branch12(request):
+    a = branch12app.admin_dashboard_calculations_br12.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
+    context = {
+        'tc': branch12app.models.pg1_new_beds.objects.all().filter(flag=2),
+        'vr': branch12app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch12app.admin_dashboard_calculations_br12.total_collection_advance(),
+        'total_discount': branch12app.admin_dashboard_calculations_br12.total_discount(),
+
+        'total_colatable_amount': branch12app.admin_dashboard_calculations_br12.total_colatable_amount(),
+        'total_collected_amount': branch12app.admin_dashboard_calculations_br12.total_collected_amount(),
+        'total_due': branch12app.admin_dashboard_calculations_br12.total_due(),
+        'l': branch12app.admin_dashboard_calculations_br12.grand_total(),
+
+    }
+    return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
+
+
+def details_branch13(request):
+    a = branch13app.admin_dashboard_calculations_br13.grand_total_collection()
+    from datetime import datetime
+    cmm = datetime.now().month
+    cm = cmm - 1
+    gtc = a[cm]
+
+    context = {
+        'tc': branch13app.models.pg1_new_beds.objects.all().filter(flag=2),
+        'vr': branch13app.models.pg1_new_beds.objects.all().exclude(flag=2).order_by('roon_no'),
+
+        'grand_total_collection': gtc,
+        'total_collection_advance': branch13app.admin_dashboard_calculations_br13.total_collection_advance(),
+        'total_discount': branch13app.admin_dashboard_calculations_br13.total_discount(),
+
+        'total_colatable_amount': branch13app.admin_dashboard_calculations_br13.total_colatable_amount(),
+        'total_collected_amount': branch13app.admin_dashboard_calculations_br13.total_collected_amount(),
+        'total_due': branch13app.admin_dashboard_calculations_br13.total_due(),
+        'l': branch13app.admin_dashboard_calculations_br13.grand_total(),
 
     }
     return render(request,'admindashboard/admin_dashboard_reports/branch_details/details_branch.html',context)
