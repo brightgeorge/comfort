@@ -1,9 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -11,67 +9,28 @@
   <meta name="author" content=""/>
   <title>Open Bright A/C S</title>
   <!-- loader-->
-  <link href="{% static 'admindashboard//assets/css/pace.min.css' %}" rel="stylesheet"/>
-  <script src="{% static 'admindashboard//assets/js/pace.min.js' %}"></script>
+  <link href="{% static 'admindashboard/assets/css/pace.min.css' %}" rel="stylesheet"/>
+  <script src="{% static 'admindashboard/assets/js/pace.min.js' %}"></script>
   <!--favicon-->
-  <link rel="icon" href="../assets/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'admindashboard/assets/images/favicon.ico' %}" type="image/x-icon">
   <!-- Vector CSS -->
-  <link href="{% static 'admindashboard//assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
   <!-- simplebar CSS-->
-  <link href="{% static 'admindashboard//assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
-  <link href="{% static 'admindashboard//assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/css/bootstrap.min.css' %}" rel="stylesheet"/>
   <!-- animate CSS-->
-  <link href="{% static 'admindashboard//assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard/assets/css/animate.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Icons CSS-->
-  <link href="{% static 'admindashboard//assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
+  <link href="{% static 'admindashboard/assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
   <!-- Sidebar CSS-->
-  <link href="{% static 'admindashboard//assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
+  <link href="{% static 'admindashboard/assets/css/sidebar-menu.css' %}" rel="stylesheet"/>
   <!-- Custom Style-->
-  <link href="{% static 'admindashboard//assets/css/app-style.css' %}" rel="stylesheet"/>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-  <!-- Button trigger modal -->
-
-
-
-<script>
-function exportTableToExcel(tableID, filename = ''){
-    var downloadLink;
-    var dataType = 'application/vnd.ms-excel';
-    var tableSelect = document.getElementById(tableID);
-    var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-
-    // Specify file name
-    filename = filename?filename+'.xls':'excel_data.xls';
-
-    // Create download link element
-    downloadLink = document.createElement("a");
-
-    document.body.appendChild(downloadLink);
-
-    if(navigator.msSaveOrOpenBlob){
-        var blob = new Blob(['\ufeff', tableHTML], {
-            type: dataType
-        });
-        navigator.msSaveOrOpenBlob( blob, filename);
-    }else{
-        // Create a link to the file
-        downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-
-        // Setting the file name
-        downloadLink.download = filename;
-
-        //triggering the function
-        downloadLink.click();
-    }
-}</script>
-
+  <link href="{% static 'admindashboard/assets/css/app-style.css' %}" rel="stylesheet"/>
 
 </head>
+
+
 
 {% if us == th_us %}
 {% for i in bg %}
@@ -82,9 +41,6 @@ function exportTableToExcel(tableID, filename = ''){
 {% endif %}
 
 
-<!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
 
 <!-- Start wrapper-->
  <div id="wrapper">
@@ -283,28 +239,29 @@ function exportTableToExcel(tableID, filename = ''){
     </li>
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile"><img src="https://via.placeholder.com/110x1101" class="img-circle" alt="{{name}}"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="{{name}}"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+            <h6 class="mt-2 user-title">{{name}}</h6>
             <p class="user-subtitle">mccoy@example.com</p>
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+
+
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+          <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+
+
       </ul>
     </li>
   </ul>
@@ -313,186 +270,261 @@ function exportTableToExcel(tableID, filename = ''){
 <!--End topbar header-->
 
 
+
+
 <div class="clearfix"></div>
 
   <div class="content-wrapper">
     <div class="container-fluid">
 
-      <div class="row mt-0">
-
-          <div class="col-lg-1"></div>
-
-
-        <div class="col-lg-10">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">DETAILED REPORT OF INCOME AND EXPENSE </h5>
-
-
-                {% if messages %}
-                {% for message in messages %}
-        <div class="alert alert-success" style="width:95%;">
-         <a href="#" class="close" data-dismiss="alert">
-            &times;
-         </a>
-         <strong>!</strong> {{message}}
-
-      </div>
-       {% endfor %}
-            {% endif %}
-
-
-                 <tr>
-
-                     <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
-                 <th><button onclick="window.print()">Print</button></th>
-                     <th> <a href="{% url 'profit_sharing_choose_months5' %}"> <button>Profit Sharing</button> </a></th>
-                 </tr>
-
-
-           <div class="table-responsive">
-              <table class="table table-sm" id="tbldata" border="1">
-                <thead>
-                  <tr >
-                    <th scope="row" style="background-color:purple;color:white;">MONTH</th>
-                    <th scope="col" style="background-color:purple;color:white;" >INCOME</th>
-                    <th scope="col" style="background-color:purple;color:white;">EXPENSE</th>
-                    <th scope="col" style="background-color:purple;color:white;">BALANCE</th>
-
-
-                  </tr>
-                </thead>
-                <tbody>
-
-
-
-       <tr>
-
-                        <th scope="row">APR </th>
-                        <th scope="row">{{income_4}}</th>
-                        <th scope="row">{{expense_4}}</th>
-                        <th scope="row">{{balance_4}}</th>
-                    </tr>
-                    <tr>
-
-                        <th scope="row">MAY </th>
-                        <th scope="row">{{income_5}}</th>
-                        <th scope="row">{{expense_5}}</th>
-                        <th scope="row">{{balance_5}}</th>
-                    </tr>
-                  <tr>
-
-                      <th scope="row">JUN </th>
-                      <th scope="row">{{income_6}}</th>
-                      <th scope="row">{{expense_6}}</th>
-                      <th scope="row">{{balance_6}}</th>
-                  </tr>
-                    <tr>
-
-                        <th scope="row">JUL </th>
-                        <th scope="row">{{income_7}}</th>
-                        <th scope="row">{{expense_7}}</th>
-                        <th scope="row">{{balance_7}}</th>
-                    </tr>
-
-                    <tr>
-
-                    <th scope="row">AUG </th>
-                    <th scope="row">{{income_8}}</th>
-                    <th scope="row">{{expense_8}}</th>
-                        <th scope="row" >{{balance_8}}</th>
-
-
-                </tr>
-                    <tr>
-
-                        <th scope="row">SEP </th>
-                        <th scope="row">{{income_9}}</th>
-                        <th scope="row">{{expense_9}}</th>
-                        <th scope="row" >{{balance_9}}</th>
-
-
-</tr>
-                    <tr>
-
-    <th scope="row">OCT </th>
-    <th scope="row">{{income_10}}</th>
-    <th scope="row">{{expense_10}}</th>
-    <th scope="row">{{balance_10}}</th>
-</tr>
-                    <tr>
-
-    <th scope="row">NOV </th>
-    <th scope="row">{{income_11}}</th>
-    <th scope="row">{{expense_11}}</th>
-    <th scope="row">{{balance_11}}</th>
-</tr>
-                                        <tr>
-
-    <th scope="row">DEC </th>
-    <th scope="row">{{income_12}}</th>
-    <th scope="row">{{expense_12}}</th>
-    <th scope="row">{{balance_12}}</th>
+        <tr>
+    <th> <a href="{% url 'view_share_holders5' %}"> <button>VIEW SHARE HOLDERS</button> </a> </th>
 </tr>
 
+  <!--Start Dashboard Content-->
 
-                    <tr>
-
-                        <th scope="row">JAN </th>
-                        <th scope="row">{{income_1}}</th>
-                        <th scope="row">{{expense_1}}</th>
-                        <th scope="row">{{balance_1}}</th>
-                    </tr>
-                    <tr>
-
-                        <th scope="row">FEB </th>
-                        <th scope="row">{{income_2}}</th>
-                        <th scope="row">{{expense_2}}</th>
-                        <th scope="row">{{balance_2}}</th>
-                    </tr>
-                    <tr>
-
-                        <th scope="row">MAR </th>
-                        <th scope="row">{{income_3}}</th>
-                        <th scope="row">{{expense_3}}</th>
-                        <th scope="row">{{balance_3}}</th>
-                    </tr>
-
-
-
-<tr>
-    <th style="background-color:orange;text-align:right;">TOTAL</th>
-    <th style="background-color:green;">{{sil}}</th>
-    <th style="background-color:red;">{{sel}}</th>
-        <th style="background-color:blue;">{{d_bal}}</th>
-</tr>
+	<div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
 
 
 
 
 
 
-                <!-- --------------------------------------------------------------- -->
 
-
-
-
-                </tbody>
-              </table>
-            </div>
-            </div>
-          </div>
         </div>
-      </div><!--End Row-->
+    </div>
+ </div>
 
 
 
 
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='0' %}">
+                <div class="card-body" style="background-color:yellow;">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">JAN <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='1' %}">
+                <div class="card-body" style="background-color:rgb(122, 181, 96)">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">FEB <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='2' %}">
+                <div class="card-body" style="background-color:#CF9FFF">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">MAR <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='3' %}">
+                <div class="card-body" style="background-color:red">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">APRIL <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </div>
+
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='4' %}">
+                <div class="card-body" style="background-color:#880808">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">MAY<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='5' %}">
+                <div class="card-body" style="background-color:#9acd32">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">JUNE <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='6' %}">
+                <div class="card-body" style="background-color:#00008b">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">JULY <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='7' %}">
+                <div class="card-body" style="background-color:purple">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">AUGUEST <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </div>
+
+ <div class="card mt-3">
+    <div class="card-content">
+        <div class="row row-group m-0">
+
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='8' %}">
+                <div class="card-body" style="background-color:#2A52BE">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">SEPT <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='9' %}">
+                <div class="card-body" style="background-color:#ffd700">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">OCTOBER<span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='10' %}">
+                <div class="card-body" style="background-color:#0D98BA">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">NOVEMBER <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
+            </div>
+
+                        <div class="col-12 col-lg-6 col-xl-3 border-light">
+                <a href="{% url 'profit_sharing5' mo='11' %}">
+                <div class="card-body" style="background-color:green">
+                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                       <div class="progress-bar" style="width:100%"></div>
+                    </div>
+                  <p class="mb-0 text-white small-font">DECEMBER <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+ </div>
+
+	<!--End Row-->
+
+	<div class="row">
+	 <div class="col-12 col-lg-12">
+	   <div class="card">
+	     <div class="card-header">
+		  <div class="card-action">
+             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu1 dropdown-menu-right">
+
+               </div>
+              </div>
+             </div>
+		 </div>
+	       <div class="table-responsive">
+               {% comment %}
+                 <table class="table align-items-center table-flush table-borderless">
+
+                    <thead>
+                   <tr>
+                       <th>Action</th>
+						<th>Sl No</th>
 
 
-     <!--start overlay-->
-        <div class="overlay toggle-menu"></div>
-      <!--end overlay-->
+
+                   </tr>
+                   </thead>
+                   <tbody>
+                   {% for i in con %}
+
+				   <tr>
+                       <td><div class="dropdown1">
+             <a href="javascript:void();" class="dropdown-toggle1 dropdown-toggle-nocaret1" data-toggle="dropdown1">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="{% url 'del_items' id=i.id %}">Delete Current Item</a>
+              <a class="dropdown-item" href="{% url 'update_item' id=i.id %}">Update Current Item</a>
+              <a class="dropdown-item" href="javascript:void();">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:void();">Separated link</a>
+               </div>
+              </div></td>
+
+                    <td>{{forloop.counter}}</td>
+
+                    {% endfor %}
+
+
+
+                   </tr>
+
+
+
+
+                 </tbody>
+
+                 </table>
+               {% endcomment %}
+               </div>
+	   </div>
+	 </div>
+	</div><!--End Row-->
+
+      <!--End Dashboard Content-->
+
+	<!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -502,36 +534,22 @@ function exportTableToExcel(tableID, filename = ''){
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 
-   <!--Start footer-->
-   <footer class="footer">
+	<!--Start footer-->
+	<footer class="footer">
       <div class="container">
         <div class="text-center">
           <a href="http://hbct.in/">Powred © HBCT.IN</a>
         </div>
       </div>
     </footer>
-   <!--End footer-->
+	<!--End footer-->
 
-   <!--start color switcher-->
+  <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
     </div>
     <div class="right-sidebar-content">
-
-        <p class="mb-0">Settings</p>
-      <hr>
-
-      <ul>
-
-
-
-
-          <li style="background-color:red;border:1px solid white;margin-top:5px;"><a href="create_category.html"></a></li>
-
-
-      </ul>
-
 
       <p class="mb-0">Gaussion Texture</p>
       <hr>
@@ -555,7 +573,7 @@ function exportTableToExcel(tableID, filename = ''){
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-      <li id="theme13"></li>
+		<li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -566,7 +584,6 @@ function exportTableToExcel(tableID, filename = ''){
 
   </div><!--End wrapper-->
 
-
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'admindashboard/assets/js/jquery.min.js' %}"></script>
   <script src="{% static 'admindashboard/assets/js/popper.min.js' %}"></script>
@@ -576,11 +593,17 @@ function exportTableToExcel(tableID, filename = ''){
   <script src="{% static 'admindashboard/assets/plugins/simplebar/js/simplebar.js' %}"></script>
   <!-- sidebar-menu js -->
   <script src="{% static 'admindashboard/assets/js/sidebar-menu.js' %}"></script>
-
+  <!-- loader scripts -->
+  <script src="{% static 'admindashboard/assets/js/jquery.loading-indicator.js' %}"></script>
   <!-- Custom scripts -->
   <script src="{% static 'admindashboard/assets/js/app-script.js' %}"></script>
+  <!-- Chart js -->
+
+  <script src="{% static 'admindashboard/assets/plugins/Chart.js/Chart.min.js' %}"></script>
+
+  <!-- Index js -->
+  <script src="{% static 'admindashboard/assets/js/index.js' %}"></script>
 
 
 </body>
 </html>
-

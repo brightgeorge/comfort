@@ -318,20 +318,17 @@ function exportTableToExcel(tableID, filename = ''){
   <div class="content-wrapper">
     <div class="container-fluid">
 
-      <div class="row mt-0">
+      <div class="row mt-3">
 
-          <div class="col-lg-1"></div>
-
-
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">DETAILED REPORT OF INCOME AND EXPENSE </h5>
+              <h5 class="card-title">VIEW ALL LEDGER</h5>
 
 
                 {% if messages %}
                 {% for message in messages %}
-        <div class="alert alert-success" style="width:95%;">
+        <div class="alert alert-{{msg}}" style="width:95%;">
          <a href="#" class="close" data-dismiss="alert">
             &times;
          </a>
@@ -344,129 +341,59 @@ function exportTableToExcel(tableID, filename = ''){
 
                  <tr>
 
+
                      <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright A/C S - Detailed Report of JUNE')">download</button></th>
                  <th><button onclick="window.print()">Print</button></th>
-                     <th> <a href="{% url 'profit_sharing_choose_months5' %}"> <button>Profit Sharing</button> </a></th>
-                 </tr>
+                     <th ><a href="{% url 'create_share_holders5' %}"> <button class="mybutton button1" style="background-color:green;color:white;">ADD SHARE HOLDER </button></a></th>
+                      <th ><a href="{% url 'view_share_holders5' %}"> <button class="mybutton button1" style="background-color:blue;color:white;"><span style="background-color:blue;color:white;">VIEW ALL SHAREHOLDERS</span> </button></a></th>
+                     <th ><a href="{% url 'profit_sharing_choose_months5' %}"> <button class="mybutton button1" style="background-color:orange;color:white;">VIEW SHARED PROFIT </button></a></th>
 
+
+                 </tr>
 
            <div class="table-responsive">
               <table class="table table-sm" id="tbldata" border="1">
                 <thead>
                   <tr >
-                    <th scope="row" style="background-color:purple;color:white;">MONTH</th>
-                    <th scope="col" style="background-color:purple;color:white;" >INCOME</th>
-                    <th scope="col" style="background-color:purple;color:white;">EXPENSE</th>
-                    <th scope="col" style="background-color:purple;color:white;">BALANCE</th>
+                    <th scope="col" >SL NO</th>
+                      <th scope="col" >MANAGE</th>
+                    <th scope="col" >SHARE HOLDER NAME</th>
+                    <th scope="col" >SHARE %</th>
 
 
                   </tr>
                 </thead>
                 <tbody>
 
-
-
-       <tr>
-
-                        <th scope="row">APR </th>
-                        <th scope="row">{{income_4}}</th>
-                        <th scope="row">{{expense_4}}</th>
-                        <th scope="row">{{balance_4}}</th>
-                    </tr>
+{% for i in vsh %}
                     <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <th scope="row">
 
-                        <th scope="row">MAY </th>
-                        <th scope="row">{{income_5}}</th>
-                        <th scope="row">{{expense_5}}</th>
-                        <th scope="row">{{balance_5}}</th>
-                    </tr>
-                  <tr>
+                              <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options1" >Manage</i>
+             </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="{% url 'update_share_holders5' id=i.id %}">Update Selected Entry</a>
+                <a class="dropdown-item" href="{% url 'delete_share_holders5' id=i.id %}">Delete Selected Entry</a>
 
-                      <th scope="row">JUN </th>
-                      <th scope="row">{{income_6}}</th>
-                      <th scope="row">{{expense_6}}</th>
-                      <th scope="row">{{balance_6}}</th>
-                  </tr>
-                    <tr>
+               </div>
+              </div>
 
-                        <th scope="row">JUL </th>
-                        <th scope="row">{{income_7}}</th>
-                        <th scope="row">{{expense_7}}</th>
-                        <th scope="row">{{balance_7}}</th>
+                        </th>
+                        <th scope="row">{{i.share_holders_name}}</th>
+                         <th scope="row">{{i.share_holders_percentage}}</th>
+
+
+                        <th scope="row">
+                            <span style="background-color:green;"> {{i.created_by}} {{i.cb_date}} ||
+
+                           <span style="background-color:orange;"> {{i.updated_by}} {{i.ub_date}} || </span>
+                        </th>
                     </tr>
 
-                    <tr>
-
-                    <th scope="row">AUG </th>
-                    <th scope="row">{{income_8}}</th>
-                    <th scope="row">{{expense_8}}</th>
-                        <th scope="row" >{{balance_8}}</th>
-
-
-                </tr>
-                    <tr>
-
-                        <th scope="row">SEP </th>
-                        <th scope="row">{{income_9}}</th>
-                        <th scope="row">{{expense_9}}</th>
-                        <th scope="row" >{{balance_9}}</th>
-
-
-</tr>
-                    <tr>
-
-    <th scope="row">OCT </th>
-    <th scope="row">{{income_10}}</th>
-    <th scope="row">{{expense_10}}</th>
-    <th scope="row">{{balance_10}}</th>
-</tr>
-                    <tr>
-
-    <th scope="row">NOV </th>
-    <th scope="row">{{income_11}}</th>
-    <th scope="row">{{expense_11}}</th>
-    <th scope="row">{{balance_11}}</th>
-</tr>
-                                        <tr>
-
-    <th scope="row">DEC </th>
-    <th scope="row">{{income_12}}</th>
-    <th scope="row">{{expense_12}}</th>
-    <th scope="row">{{balance_12}}</th>
-</tr>
-
-
-                    <tr>
-
-                        <th scope="row">JAN </th>
-                        <th scope="row">{{income_1}}</th>
-                        <th scope="row">{{expense_1}}</th>
-                        <th scope="row">{{balance_1}}</th>
-                    </tr>
-                    <tr>
-
-                        <th scope="row">FEB </th>
-                        <th scope="row">{{income_2}}</th>
-                        <th scope="row">{{expense_2}}</th>
-                        <th scope="row">{{balance_2}}</th>
-                    </tr>
-                    <tr>
-
-                        <th scope="row">MAR </th>
-                        <th scope="row">{{income_3}}</th>
-                        <th scope="row">{{expense_3}}</th>
-                        <th scope="row">{{balance_3}}</th>
-                    </tr>
-
-
-
-<tr>
-    <th style="background-color:orange;text-align:right;">TOTAL</th>
-    <th style="background-color:green;">{{sil}}</th>
-    <th style="background-color:red;">{{sel}}</th>
-        <th style="background-color:blue;">{{d_bal}}</th>
-</tr>
-
+{% endfor %}
 
 
 

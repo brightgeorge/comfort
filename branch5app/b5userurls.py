@@ -622,6 +622,14 @@ urlpatterns = [
 
     path('accounts_dash_board5/',accounts5.accounts_dash_board5,name='accounts_dash_board5'),
 
+    path('profit_sharing_choose_months5', accounts5.profit_sharing_choose_months5, name='profit_sharing_choose_months5'),
+    path('profit_sharing5/<mo>',accounts5.profit_sharing5,name='profit_sharing5'),
+    path('view_share_holders5',accounts5.view_share_holders5,name='view_share_holders5'),
+    path('create_share_holders5',accounts5.create_share_holders5,name='create_share_holders5'),
+    path('regi_share_holders5', accounts5.regi_share_holders5, name='regi_share_holders5'),
+    path('update_share_holders5/<id>',accounts5.update_share_holders5,name='update_share_holders5'),
+    path('delete_share_holders5/<id>', accounts5.delete_share_holders5, name='delete_share_holders5'),
+    path('view_deleted_share_holders5', accounts5.view_deleted_share_holders5, name='view_deleted_share_holders5'),
 
 
 
