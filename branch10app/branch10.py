@@ -9544,3 +9544,54 @@ def guest_all_ob_ch(request):
         '113_data': a,
     }
     return render(request,'branches/branch10/test.html',context)
+
+#####################################################
+#UPDATE ALL MONTHLY RENT START HERE
+#***************************************
+
+def update_all_rent_ob_ch(request):
+    z=10
+    if z==10:
+        r=6000
+        l=[]
+        res=pg1_new_beds.objects.all()
+        for i in res:
+            print('monthly_rent',i.monthly_rent)
+            if i.monthly_rent == '6000':
+                l.append(i.id)
+
+        print('ll',l)
+        s=0
+        for i in range(len(l)):
+
+            if i.monthly_rent == '6000':
+                id=l[s]
+                ic=pg1_new_beds.objects.get(id)
+                ic.monthly_rent=5
+                ic.save()
+            s=s+1
+
+        r = 6000
+        l = []
+        res = pg1_new_guest.objects.all()
+        for i in res:
+            print('monthly_rent', i.monthly_rent)
+            if i.monthly_rent == '6000':
+                l.append(i.id)
+        s = 0
+        for i in range(len(l)):
+
+            if i.pg1_new_guest == '6000':
+                id = l[s]
+                ic = pg1_new_beds.objects.get(id)
+                ic.monthly_rent = 5
+                ic.save()
+            s = s + 1
+            return z
+
+
+
+
+#####################################################
+#UPDATE ALL MONTHLY RENT END HERE
+#***************************************

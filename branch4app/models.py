@@ -3459,3 +3459,18 @@ class accounts_book(models.Model):
 
 
 ######## ACCOUNTS END EHERE ####################
+
+
+class share_holders(models.Model):
+    share_holders_name = models.CharField(max_length=200)
+    share_holders_percentage = models.CharField(max_length=200)
+    share_holders_amt = models.CharField(max_length=200)
+
+    created_by = models.CharField(max_length=200)
+    cb_date = models.CharField(max_length=200)
+    updated_by = models.CharField(max_length=200)
+    ub_date = models.CharField(max_length=200)
+    deleted_by = models.CharField(max_length=200)
+    db_date = models.CharField(max_length=200)
+    ub_flag = models.IntegerField()
+    flag = models.IntegerField()

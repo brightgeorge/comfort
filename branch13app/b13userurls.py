@@ -628,8 +628,14 @@ urlpatterns = [
 
     path('accounts_dash_board_ob_ch13/',accounts13.accounts_dash_board_ob_ch13,name='accounts_dash_board_ob_ch13'),
 
-
-
+    path('profit_sharing_choose_months13', accounts13.profit_sharing_choose_months13,name='profit_sharing_choose_months13'),
+    path('profit_sharing13/<mo>', accounts13.profit_sharing13, name='profit_sharing13'),
+    path('view_share_holders13', accounts13.view_share_holders13, name='view_share_holders13'),
+    path('create_share_holders13', accounts13.create_share_holders13, name='create_share_holders13'),
+    path('regi_share_holders13', accounts13.regi_share_holders13, name='regi_share_holders13'),
+    path('update_share_holders13/<id>', accounts13.update_share_holders13, name='update_share_holders13'),
+    path('delete_share_holders13/<id>', accounts13.delete_share_holders13, name='delete_share_holders13'),
+    path('view_deleted_share_holders13', accounts13.view_deleted_share_holders13, name='view_deleted_share_holders13'),
 
 ]
 

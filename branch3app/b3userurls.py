@@ -630,6 +630,16 @@ path('dec_account_mgt3/<id>',branch3.dec_account_mgt3,name='dec_account_mgt3'),
 
 
 
+    path('profit_sharing_choose_months3', accounts3.profit_sharing_choose_months3, name='profit_sharing_choose_months3'),
+    path('profit_sharing3/<mo>',accounts3.profit_sharing3,name='profit_sharing3'),
+    path('view_share_holders3',accounts3.view_share_holders3,name='view_share_holders3'),
+    path('create_share_holders3',accounts3.create_share_holders3,name='create_share_holders3'),
+    path('regi_share_holders3', accounts3.regi_share_holders3, name='regi_share_holders3'),
+    path('update_share_holders3/<id>',accounts3.update_share_holders3,name='update_share_holders3'),
+    path('delete_share_holders3/<id>', accounts3.delete_share_holders3, name='delete_share_holders3'),
+    path('view_deleted_share_holders3', accounts3.view_deleted_share_holders3, name='view_deleted_share_holders3'),
+
+
 
 
 

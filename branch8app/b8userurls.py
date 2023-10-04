@@ -742,11 +742,14 @@ path('dec_account_mgt8/<id>',branch8.dec_account_mgt8,name='dec_account_mgt8'),
 
     path('accounts_dash_board8/',accounts8.accounts_dash_board8,name='accounts_dash_board8'),
 
-
-
-
-
-
+    path('profit_sharing_choose_months8', accounts8.profit_sharing_choose_months8,name='profit_sharing_choose_months8'),
+    path('profit_sharing8/<mo>', accounts8.profit_sharing8, name='profit_sharing8'),
+    path('view_share_holders8', accounts8.view_share_holders8, name='view_share_holders8'),
+    path('create_share_holders8', accounts8.create_share_holders8, name='create_share_holders8'),
+    path('regi_share_holders8', accounts8.regi_share_holders8, name='regi_share_holders8'),
+    path('update_share_holders8/<id>', accounts8.update_share_holders8, name='update_share_holders8'),
+    path('delete_share_holders8/<id>', accounts8.delete_share_holders8, name='delete_share_holders8'),
+    path('view_deleted_share_holders8', accounts8.view_deleted_share_holders8, name='view_deleted_share_holders8'),
 
 ]
 

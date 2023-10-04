@@ -633,6 +633,16 @@ path('dec_account_mgt4/<id>',branch4.dec_account_mgt4,name='dec_account_mgt4'),
 
 
 
+    path('profit_sharing_choose_months4', accounts4.profit_sharing_choose_months4, name='profit_sharing_choose_months4'),
+    path('profit_sharing4/<mo>',accounts4.profit_sharing4,name='profit_sharing4'),
+    path('view_share_holders4',accounts4.view_share_holders4,name='view_share_holders4'),
+    path('create_share_holders4',accounts4.create_share_holders4,name='create_share_holders4'),
+    path('regi_share_holders4', accounts4.regi_share_holders4, name='regi_share_holders4'),
+    path('update_share_holders4/<id>',accounts4.update_share_holders4,name='update_share_holders4'),
+    path('delete_share_holders4/<id>', accounts4.delete_share_holders4, name='delete_share_holders4'),
+    path('view_deleted_share_holders4', accounts4.view_deleted_share_holders4, name='view_deleted_share_holders4'),
+
+
 
 
 ]

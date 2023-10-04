@@ -635,6 +635,16 @@ path('dec_account_mgt2/<id>',branch2.dec_account_mgt2,name='dec_account_mgt2'),
 
 
 
+    path('profit_sharing_choose_months2', accounts2.profit_sharing_choose_months2, name='profit_sharing_choose_months2'),
+    path('profit_sharing2/<mo>',accounts2.profit_sharing2,name='profit_sharing2'),
+    path('view_share_holders2',accounts2.view_share_holders2,name='view_share_holders2'),
+    path('create_share_holders2',accounts2.create_share_holders2,name='create_share_holders2'),
+    path('regi_share_holders2', accounts2.regi_share_holders2, name='regi_share_holders2'),
+    path('update_share_holders2/<id>',accounts2.update_share_holders2,name='update_share_holders2'),
+    path('delete_share_holders2/<id>', accounts2.delete_share_holders2, name='delete_share_holders2'),
+    path('view_deleted_share_holders2', accounts2.view_deleted_share_holders2, name='view_deleted_share_holders2'),
+
+
 
 
 ]

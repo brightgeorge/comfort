@@ -655,7 +655,13 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('accounts_dash_board/',accounts1.accounts_dash_board,name='accounts_dash_board'),
 
-
-
+    path('profit_sharing_choose_months', accounts1.profit_sharing_choose_months, name='profit_sharing_choose_months'),
+    path('profit_sharing/<mo>', accounts1.profit_sharing, name='profit_sharing'),
+    path('view_share_holders', accounts1.view_share_holders, name='view_share_holders'),
+    path('create_share_holders', accounts1.create_share_holders, name='create_share_holders'),
+    path('regi_share_holders', accounts1.regi_share_holders, name='regi_share_holders'),
+    path('update_share_holders/<id>', accounts1.update_share_holders, name='update_share_holders'),
+    path('delete_share_holders/<id>', accounts1.delete_share_holders, name='delete_share_holders'),
+    path('view_deleted_share_holders', accounts1.view_deleted_share_holders, name='view_deleted_share_holders'),
 
 ]

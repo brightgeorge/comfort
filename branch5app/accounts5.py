@@ -4030,6 +4030,10 @@ def accounts_dash_board5(request):
 #****** HOME PAGE YEARLY INCOME AND EXP
 ###############################################################
 
+#*****************************************
+#****** PROFIT SHARING STARTING HERE
+###############################################################
+
 def profit_sharing_choose_months5(request):
     if 'username' in request.session:
         us = request.session['username']
@@ -4412,4 +4416,6 @@ def view_deleted_share_holders5(request):
         }
         return render(request, 'branches/branch5/accounts/profit_sharing/view_deleted_share_holders.html',context)
 
-
+#*****************************************
+#****** PROFIT END STARTING HERE
+###############################################################

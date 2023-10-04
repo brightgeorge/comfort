@@ -723,11 +723,14 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
 
     path('accounts_dash_board9/',accounts9.accounts_dash_board9,name='accounts_dash_board9'),
 
-
-
-
-
-
+    path('profit_sharing_choose_months9', accounts9.profit_sharing_choose_months9,name='profit_sharing_choose_months9'),
+    path('profit_sharing9/<mo>', accounts9.profit_sharing9, name='profit_sharing9'),
+    path('view_share_holders9', accounts9.view_share_holders9, name='view_share_holders9'),
+    path('create_share_holders9', accounts9.create_share_holders9, name='create_share_holders9'),
+    path('regi_share_holders9', accounts9.regi_share_holders9, name='regi_share_holders9'),
+    path('update_share_holders9/<id>', accounts9.update_share_holders9, name='update_share_holders9'),
+    path('delete_share_holders9/<id>', accounts9.delete_share_holders9, name='delete_share_holders9'),
+    path('view_deleted_share_holders9', accounts9.view_deleted_share_holders9, name='view_deleted_share_holders9'),
 
 ]
 

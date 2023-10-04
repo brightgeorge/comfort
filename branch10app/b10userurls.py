@@ -52,6 +52,7 @@ urlpatterns = [
 
     #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     #path('admit_guest/',views.admit_guest,name='admit_guest'),
+    path('update_all_rent_ob_ch/',branch10.update_all_rent_ob_ch,name='update_all_rent_ob_ch'),
 
 #guest end here
 
@@ -622,8 +623,14 @@ urlpatterns = [
 
     path('accounts_dash_board_ob_ch/',accounts10.accounts_dash_board_ob_ch,name='accounts_dash_board_ob_ch'),
 
-
-
+    path('profit_sharing_choose_months10', accounts10.profit_sharing_choose_months10,name='profit_sharing_choose_months10'),
+    path('profit_sharing10/<mo>', accounts10.profit_sharing10, name='profit_sharing10'),
+    path('view_share_holders10', accounts10.view_share_holders10, name='view_share_holders10'),
+    path('create_share_holders10', accounts10.create_share_holders10, name='create_share_holders10'),
+    path('regi_share_holders10', accounts10.regi_share_holders10, name='regi_share_holders10'),
+    path('update_share_holders10/<id>', accounts10.update_share_holders10, name='update_share_holders10'),
+    path('delete_share_holders10/<id>', accounts10.delete_share_holders10, name='delete_share_holders10'),
+    path('view_deleted_share_holders10', accounts10.view_deleted_share_holders10, name='view_deleted_share_holders10'),
 
 
 ]

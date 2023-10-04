@@ -729,8 +729,13 @@ path('dec_account_mgt7/<id>',branch7.dec_account_mgt7,name='dec_account_mgt7'),
 
 
 
-
-
-
+    path('profit_sharing_choose_months7', accounts7.profit_sharing_choose_months7,name='profit_sharing_choose_months7'),
+    path('profit_sharing7/<mo>', accounts7.profit_sharing7, name='profit_sharing7'),
+    path('view_share_holders7', accounts7.view_share_holders7, name='view_share_holders7'),
+    path('create_share_holders7', accounts7.create_share_holders7, name='create_share_holders7'),
+    path('regi_share_holders7', accounts7.regi_share_holders7, name='regi_share_holders7'),
+    path('update_share_holders7/<id>', accounts7.update_share_holders7, name='update_share_holders7'),
+    path('delete_share_holders7/<id>', accounts7.delete_share_holders7, name='delete_share_holders7'),
+    path('view_deleted_share_holders7', accounts7.view_deleted_share_holders7, name='view_deleted_share_holders7'),
 
 ]
