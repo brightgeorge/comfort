@@ -2802,8 +2802,8 @@ def jan_manke_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_rent = amt
             jp.jan_dis_amt = dis_amt
             jp.jan_due_amt = due_amt
@@ -2847,9 +2847,9 @@ def jan_manke_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
@@ -2931,8 +2931,8 @@ def feb_manke_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.feb_rent = amt
             jp.feb_dis_amt = dis_amt
             jp.feb_due_amt = due_amt
@@ -2976,9 +2976,9 @@ def feb_manke_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.feb_dis_amt))
 
@@ -3060,8 +3060,8 @@ def march_manke_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.march_rent = amt
             jp.march_dis_amt = dis_amt
             jp.march_due_amt = due_amt
@@ -3105,9 +3105,9 @@ def march_manke_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.march_dis_amt))
 
@@ -3191,8 +3191,8 @@ def april_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.april_rent = amt
             jp.april_dis_amt = dis_amt
             jp.april_due_amt = due_amt
@@ -3236,9 +3236,9 @@ def april_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.april_dis_amt))
 
@@ -3322,8 +3322,8 @@ def may_make_payments_ob_ch14(request,id):
             print('lll',l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.may_rent = amt
             jp.may_dis_amt = dis_amt
             jp.may_due_amt = due_amt
@@ -3367,9 +3367,9 @@ def may_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.may_dis_amt))
 
@@ -3450,8 +3450,8 @@ def june_make_payments_ob_ch14(request,id):
             gc = ''.join(l)
             print('lll', l)
 
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.june_rent = amt
             jp.june_dis_amt = dis_amt
             jp.june_due_amt = due_amt
@@ -3496,9 +3496,9 @@ def june_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2,guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.june_dis_amt))
 
@@ -3581,8 +3581,8 @@ def july_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.july_rent = amt
             jp.july_dis_amt = dis_amt
             jp.july_due_amt = due_amt
@@ -3626,9 +3626,9 @@ def july_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.july_dis_amt))
 
@@ -3711,8 +3711,8 @@ def aug_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.auguest_rent = amt
             jp.auguest_dis_amt = dis_amt
             jp.auguest_due_amt = due_amt
@@ -3756,9 +3756,9 @@ def aug_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.auguest_dis_amt))
 
@@ -3840,8 +3840,8 @@ def sept_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.sept_rent = amt
             jp.sept_dis_amt = dis_amt
             jp.sept_due_amt = due_amt
@@ -3885,9 +3885,9 @@ def sept_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.sept_dis_amt))
 
@@ -3972,8 +3972,8 @@ def oct_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.october_rent = amt
             jp.october_dis_amt = dis_amt
             jp.october_due_amt = due_amt
@@ -4017,9 +4017,9 @@ def oct_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.october_dis_amt))
 
@@ -4101,8 +4101,8 @@ def nov_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.nov_rent = amt
             jp.nov_dis_amt = dis_amt
             jp.nov_due_amt = due_amt
@@ -4146,9 +4146,9 @@ def nov_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.nov_dis_amt))
 
@@ -4231,8 +4231,8 @@ def dec_make_payments_ob_ch14(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branch13app
-            jp = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            jp = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.dec_rent = amt
             jp.dec_dis_amt = dis_amt
             jp.dec_due_amt = due_amt
@@ -4276,9 +4276,9 @@ def dec_make_payments_ob_ch14(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.dec_dis_amt))
 
@@ -5751,7 +5751,7 @@ def jan_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_jan select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_jan select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor(pymysql.cursors.DictCursor)
             cur.execute(query)
@@ -5822,7 +5822,7 @@ def feb_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_feb select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_feb select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -5893,7 +5893,7 @@ def mar_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_mar select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_mar select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -5964,7 +5964,7 @@ def apr_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_apr select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_apr select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6034,7 +6034,7 @@ def may_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_may select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_may select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6104,7 +6104,7 @@ def jun_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_jun select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_jun select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6174,7 +6174,7 @@ def jul_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_jul select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_jul select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6244,7 +6244,7 @@ def aug_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_aug select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_aug select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6314,7 +6314,7 @@ def sep_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_sep select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_sep select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6384,7 +6384,7 @@ def oct_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_oct select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_oct select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -6454,7 +6454,7 @@ def nov_close_ob_ch14(request):
         if chk == True:
             conn = py.connect(host=database_host, user=database_user, password=database_password,
                               database=database_name)
-            query = 'create table branch13app_branch1_closing_nov select * from branch13app_pg1_new_beds'
+            query = 'create table branch14app_branch1_closing_nov select * from branch14app_pg1_new_beds'
             # create cursor object to execute the query
             cur = conn.cursor()
             cur.execute(query)
@@ -7321,9 +7321,9 @@ def jan_manke_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
@@ -7393,9 +7393,9 @@ def feb_manke_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.feb_dis_amt))
 
@@ -7465,9 +7465,9 @@ def march_manke_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.march_dis_amt))
 
@@ -7537,9 +7537,9 @@ def april_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.april_dis_amt))
 
@@ -7609,9 +7609,9 @@ def may_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.may_dis_amt))
 
@@ -7681,9 +7681,9 @@ def june_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.june_dis_amt))
 
@@ -7752,9 +7752,9 @@ def july_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.july_dis_amt))
 
@@ -7824,9 +7824,9 @@ def aug_make_payments_vacate_ob_ch14(request, id):
             gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.auguest_dis_amt))
 
@@ -7896,9 +7896,9 @@ def sept_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.sept_dis_amt))
 
@@ -7968,9 +7968,9 @@ def oct_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.october_dis_amt))
 
@@ -8040,9 +8040,9 @@ def nov_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.nov_dis_amt))
 
@@ -8112,9 +8112,9 @@ def dec_make_payments_vacate_ob_ch14(request, id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branch13app
+        import branch14app
         total_discout_amt = []
-        pg1_new_beds = branch13app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
+        pg1_new_beds = branch14app.models.pg1_new_guest.objects.all().filter(flag=3, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.dec_dis_amt))
 
@@ -8225,14 +8225,14 @@ def jan_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.jan_rent = paid_amt
             ic.jan_advance = advance
             ic.jan_dis_amt = discount
@@ -8309,14 +8309,14 @@ def feb_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.feb_rent = paid_amt
             ic.feb_advance = advance
             ic.feb_dis_amt = discount
@@ -8393,14 +8393,14 @@ def march_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.march_rent = paid_amt
             ic.march_advance = advance
             ic.march_dis_amt = discount
@@ -8477,14 +8477,14 @@ def april_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.april_rent = paid_amt
             ic.april_advance = advance
             ic.april_dis_amt = discount
@@ -8561,14 +8561,14 @@ def may_account_mgt_ob_ch14(request, id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.may_rent = paid_amt
             ic.may_advance = advance
             ic.may_dis_amt = discount
@@ -8645,14 +8645,14 @@ def june_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.june_rent = paid_amt
             ic.june_advance = advance
             ic.june_dis_amt = discount
@@ -8662,8 +8662,8 @@ def june_account_mgt_ob_ch14(request,id):
             ic.june_rent_flag = chk
             ic.save()
 
-            import branch13app
-            ic = branch13app.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_beds.objects.get(guest_code=l[0])
             ic.june_rent = paid_amt
             ic.june_advance = advance
             ic.june_dis_amt = discount
@@ -8730,14 +8730,14 @@ def july_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.july_rent = paid_amt
             ic.july_advance = advance
             ic.july_dis_amt = discount
@@ -8814,14 +8814,14 @@ def auguest_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.auguest_rent = paid_amt
             ic.auguest_advance = advance
             ic.auguest_dis_amt = discount
@@ -8898,14 +8898,14 @@ def sept_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.sept_rent = paid_amt
             ic.sept_advance = advance
             ic.sept_dis_amt = discount
@@ -8982,14 +8982,14 @@ def october_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.october_rent = paid_amt
             ic.october_advance = advance
             ic.october_dis_amt = discount
@@ -9066,14 +9066,14 @@ def nov_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.nov_rent = paid_amt
             ic.nov_advance = advance
             ic.nov_dis_amt = discount
@@ -9150,14 +9150,14 @@ def dec_account_mgt_ob_ch14(request,id):
             else:
                 chk = 200
 
-            import branch13app
-            rno = branch13app.models.pg1_new_guest.objects.all().filter(id=id)
+            import branch14app
+            rno = branch14app.models.pg1_new_guest.objects.all().filter(id=id)
             l = []
             for i in rno:
                 l.append(str(i.guest_code))
 
-            import branch13app
-            ic = branch13app.models.pg1_new_guest.objects.get(guest_code=l[0])
+            import branch14app
+            ic = branch14app.models.pg1_new_guest.objects.get(guest_code=l[0])
             ic.dec_rent = paid_amt
             ic.dec_advance = advance
             ic.dec_dis_amt = discount
@@ -9278,7 +9278,7 @@ def manage_update_new_guest_ob_ch14(request, id):
             may_rent_rec_date = request.POST.get('may_rent_rec_date')
             may_rent_flag = request.POST.get('may_rent_flag')
 
-            ic = branch13app.models.pg1_new_guest.objects.get(id=id)
+            ic = branch14app.models.pg1_new_guest.objects.get(id=id)
 
             ic.may_rent = may_rent
             ic.may_advance = may_advance
@@ -9366,7 +9366,7 @@ def manage_update_new_guest_ob_ch14_test(request, id):
             june_advance = request.POST.get('june_advance')
             june_due_amt = request.POST.get('june_due_amt')
 
-            ic=branch13app.models.pg1_new_guest.objects.get(guest_code=id)
+            ic=branch14app.models.pg1_new_guest.objects.get(guest_code=id)
             #ic.may_due_amt = may_due_amt
             #ic.june_rent = june_rent
             #ic.june_advance = june_advance
