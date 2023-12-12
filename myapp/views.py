@@ -23,15 +23,15 @@ def login_request(request):
             role=loginobj.role
 
             if role=='Admin':
-                ul=[]
-                teul=login.objects.all().filter(user_flage=1)
-                ltuel=len(teul)
+                #ul=[]
+                #teul=login.objects.all().filter(user_flage=1)
+                #ltuel=len(teul)
 
-                tdul = login.objects.all().filter(user_flage=0)
-                ltudl = len(tdul)
+                #tdul = login.objects.all().filter(user_flage=0)
+                #ltudl = len(tdul)
 
-                ul.append(ltuel)
-                ul.append(ltudl)
+                #ul.append(ltuel)
+                #ul.append(ltudl)
 
 
                 request.session['username'] = username
@@ -40,26 +40,26 @@ def login_request(request):
                 context={
                    'user':loginobj,
                     'name': us,
-                    'yy':ul,
-                    'active_user':ltuel,
-                    'total_disableusers':ltudl,
+                    #'yy':ul,
+                    #'active_user':ltuel,
+                    #'total_disableusers':ltudl,
 
-                    'tg' : admin_dahsboard_calculations.total_guest(),
-                    'tsv1' : admin_dahsboard_calculations.total_vaccant_share1(),
-                    'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
-                    'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
-                    'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
-                    'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
-                    'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
-                    'total_vaccant_room' : admin_dahsboard_calculations.total_vaccant_room(),
+                    #'tg' : admin_dahsboard_calculations.total_guest(),
+                    #'tsv1' : admin_dahsboard_calculations.total_vaccant_share1(),
+                    #'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
+                    #'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
+                    #'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
+                    #'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
+                    #'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
+                    #'total_vaccant_room' : admin_dahsboard_calculations.total_vaccant_room(),
 
-                    'grand_total_collection': admin_dahsboard_calculations.total_gtc(),
-                    'total_collection_advance': admin_dahsboard_calculations.total_advance(),
-                    'total_discount': admin_dahsboard_calculations.total_discount(),
+                    #'grand_total_collection': admin_dahsboard_calculations.total_gtc(),
+                    #'total_collection_advance': admin_dahsboard_calculations.total_advance(),
+                    #'total_discount': admin_dahsboard_calculations.total_discount(),
 
-                    'total_colatable_amount': admin_dahsboard_calculations.all_total_collatable_amount(),
-                    'total_collected_amount': admin_dahsboard_calculations.all_total_collected_amount(),
-                    'total_due': admin_dahsboard_calculations.all_total_due(),
+                    #'total_colatable_amount': admin_dahsboard_calculations.all_total_collatable_amount(),
+                    #'total_collected_amount': admin_dahsboard_calculations.all_total_collected_amount(),
+                    #'total_due': admin_dahsboard_calculations.all_total_due(),
                 }
                 return render(request,'admindashboard/adminindex.html',context)
 
@@ -332,41 +332,41 @@ def login_request(request):
 
 
 def admin_dashboard(request):
-    ul = []
-    teul = login.objects.all().filter(user_flage=1)
-    ltuel = len(teul)
+    #ul = []
+    #teul = login.objects.all().filter(user_flage=1)
+    #ltuel = len(teul)
 
-    tdul = login.objects.all().filter(user_flage=0)
-    ltudl = len(tdul)
+    #tdul = login.objects.all().filter(user_flage=0)
+    #ltudl = len(tdul)
 
-    ul.append(ltuel)
-    ul.append(ltudl)
+    #ul.append(ltuel)
+    #ul.append(ltudl)
 
     us = request.session['username']
 
     context = {
         'name': us,
-        'yy': ul,
-        'active_user': ltuel,
-        'total_disableusers': ltudl,
+        #'yy': ul,
+        #'active_user': ltuel,
+        #'total_disableusers': ltudl,
 
-        'tg': admin_dahsboard_calculations.total_guest(),
+        #'tg': admin_dahsboard_calculations.total_guest(),
         #'branchwise_total_guest' : admin_dahsboard_calculations.branchwise_total_guest(),
-        'tsv1': admin_dahsboard_calculations.total_vaccant_share1(),
-        'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
-        'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
-        'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
-        'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
-        'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
-        'total_vaccant_room': admin_dahsboard_calculations.total_vaccant_room(),
+        #'tsv1': admin_dahsboard_calculations.total_vaccant_share1(),
+        #'tsv2': admin_dahsboard_calculations.total_vaccant_share2(),
+        #'tsv3': admin_dahsboard_calculations.total_vaccant_share3(),
+        #'tsv4': admin_dahsboard_calculations.total_vaccant_share4(),
+        #'tsv5': admin_dahsboard_calculations.total_vaccant_share5(),
+        #'tsv6': admin_dahsboard_calculations.total_vaccant_share6(),
+        #'total_vaccant_room': admin_dahsboard_calculations.total_vaccant_room(),
 
-        'grand_total_collection': admin_dahsboard_calculations.total_gtc(),
-        'total_collection_advance' : admin_dahsboard_calculations.total_advance(),
-        'total_discount': admin_dahsboard_calculations.total_discount(),
+        #'grand_total_collection': admin_dahsboard_calculations.total_gtc(),
+        #'total_collection_advance' : admin_dahsboard_calculations.total_advance(),
+        #'total_discount': admin_dahsboard_calculations.total_discount(),
 
-        'total_colatable_amount' : admin_dahsboard_calculations.all_total_collatable_amount(),
-        'total_collected_amount' : admin_dahsboard_calculations.all_total_collected_amount(),
-        'total_due' : admin_dahsboard_calculations.all_total_due(),
+        #'total_colatable_amount' : admin_dahsboard_calculations.all_total_collatable_amount(),
+        #'total_collected_amount' : admin_dahsboard_calculations.all_total_collected_amount(),
+        #'total_due' : admin_dahsboard_calculations.all_total_due(),
     }
     return render (request,'admindashboard/adminindex.html',context)
 
