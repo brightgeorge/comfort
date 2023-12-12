@@ -38,7 +38,6 @@
   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
-
       <a href="index.html">
        <img src="{% static 'admindashboard/assets/images/logo-icon.png' %}" class="logo-icon" alt="logo icon">
        <h5 class="logo-text">Open Bright</h5>
@@ -46,7 +45,6 @@
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">MAIN NAVIGATION</li>
-
       <li>
         <a href="{% url 'admin_dashboard' %}">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
@@ -62,12 +60,6 @@
        <li>
         <a href="{% url 'view_all_users' %}">
           <i class="zmdi zmdi-face"></i> <span>Users</span>
-        </a>
-      </li>
-
-             <li>
-        <a href="{% url 'admin_home' %}">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Admin Home</span>
         </a>
       </li>
 
@@ -161,155 +153,40 @@
         <div class="row row-group m-0">
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">01 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <a href="{% url 'branchwise_total_guest' %}">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{tg}} <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard2' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 2 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard3' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 3 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-        </div>
-    </div>
- </div>
-
- <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard4' %}">
-                <div class="card-body" style="background-color:red;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 4 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard5' %}">
-                <div class="card-body" style="background-color:red">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 5 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard9' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Guests <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
-            </div>
-
-        </div>
-    </div>
- </div>
-
- <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard8' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 2<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
+                </a>
             </div>
 
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard6' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                <a href="{% url 'total_vaccant_share_choose_branches' %}">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">1S={{tsv1}} 2S={{tsv2}} 3S={{tsv3}} 4S={{tsv4}} 5S={{tsv5}} 6S={{tsv6}} <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 3 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard7' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 4<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Vaccant Beds {{total_vaccant_room}} <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
+                </a>
             </div>
 
-        </div>
-    </div>
- </div>
-
- <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
-
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch' %}">
-                <div class="card-body" style="background-color:coral">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <a href="{% url 'branchwise_total_collection' %}">
+                <div class="card-body">
+                  <h5 class="text-white mb-0">{{total_colatable_amount}} - {{total_collected_amount}} = {{total_due}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">HAPPY HOMES 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch11' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 1 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch12' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 2  <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">Total Collection
+                      {{grand_total_collection}}+{{total_collection_advance}}-{{total_discount}}
+
+                      <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
@@ -317,48 +194,191 @@
     </div>
  </div>
 
+	<div class="row">
+     <div class="col-12 col-lg-8 col-xl-8">
+	    <div class="card">
+		 <div class="card-header">Total Category Wise Task
+		   <div class="card-action">
+			 <div class="dropdown">
+			 <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+			  <i class="icon-options"></i>
+			 </a>
+				<div class="dropdown-menu dropdown-menu-right">
+                    <p>Total Order 00</p>
+                <p>Total Profit 00</p>
+
+			   </div>
+			  </div>
+		   </div>
+		 </div>
+		 <div class="card-body">
 
 
 
+			<div class="chart-container-1">
+			  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+                <canvas id="myChart" style="width:100%;"></canvas>
+
+<script>
+var xValues = ["plus", "minus", "times",'divided by',""];
+//var yValues = {{y}};
+var yValues =[10,10,8,5,0]
+var barColors = ["red", "green","blue","yellow",""];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      barPercentage: 1,
+      barThickness: 2,
+        maxBarThickness: 2,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: ""
+    }
+  }
+});
+</script>
+
+			</div>
+		 </div><br/><br/><br/><br/><br/>
+
+            <script>
+        var array = [{% for i in z %}{{i.get_total_f}} {% endfor %}];
+
+        // Getting sum of numbers
+        var sum = array.reduce(function(a, b){
+            return a + b;
+        }, 0);
+
+        document.write(sum); // Prints: 15
+    </script>
+
+
+		 <div class="row m-0 row-group text-center border-top border-light-3">
+		   <div class="col-12 col-lg-3">
+		     <div class="p-3">
+		       <h5 class="mb-0">{{y.0}}</h5>
+			   <small class="mb-0">plus <span> <i class="fa fa-arrow-up"></i> </span></small>
+		     </div>
+		   </div>
+		   <div class="col-12 col-lg-3">
+		     <div class="p-3">
+		       <h5 class="mb-0">{{y.1}}</h5>
+			   <small class="mb-0">minus<span> <i class="fa fa-arrow-up"></i> </span></small>
+		     </div>
+		   </div>
+		   <div class="col-12 col-lg-3">
+		     <div class="p-3">
+		       <h5 class="mb-0">{{y.2}}</h5>
+			   <small class="mb-0">times <span> <i class="fa fa-arrow-up"></i> </span></small>
+		     </div>
+		   </div>
+
+             <div class="col-12 col-lg-3">
+		     <div class="p-3">
+		       <h5 class="mb-0">{{y.3}}</h5>
+			   <small class="mb-0">divided by <span> <i class="fa fa-arrow-up"></i> </span></small>
+		     </div>
+		   </div>
+
+		 </div>
+
+
+		</div>
+	 </div>
+
+     <div class="col-12 col-lg-4 col-xl-4">
+        <div class="card">
+           <div class="card-header">User Details
+             <div class="card-action">
+             <div class="dropdown">
+             <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+              <i class="icon-options"></i>
+             </a>
+              <div class="dropdown-menu1 dropdown-menu-right">
+
+               </div>
+              </div>
+             </div>
+           </div>
+           <div class="card-body">
+		     <div class="chart-container-2">
+               <!--<canvas id="chart2"></canvas>-->
+
+                 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+                <canvas id="myCharts" style="margin-top:-35px;"></canvas>
+
+<script>
+var xValues = ["Branch1", "Branch2", "Branch3",""];
+var yValues = {{yy}};
+//var yValues = [8,6];
+var barColors = ["red","blue"];
+
+new Chart("myCharts", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      barPercentage: 100,
+      barThickness: 2,
+        maxBarThickness: 2,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: ""
+    }
+  }
+});
+</script>
 
 
 
-         <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
+			  </div>
+           </div>
+            <br/><br/><br/><br/><br/><br/><br/>
+           <div class="table-responsive">
+             <table class="table align-items-center">
+               <tbody>
+               <tr>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                 </tr>
+                 <tr>
+                   <td><i class="fa fa-circle text-white mr-2"></i> Active Users</td>
+                   <td>{{active_user}}</td>
+                   <td>+00%</td>
+                 </tr>
+                 <tr>
+                   <td><i class="fa fa-circle text-light-1 mr-2"></i>Deactive Users</td>
+                   <td>{{total_disableusers}}</td>
+                   <td>+00%</td>
+                 </tr>
+                 <tr>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                 </tr>
 
-                        <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch14' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 3 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch13' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 4 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-
-        </div>
-    </div>
- </div>
-
-
-
-
-
-	<!--End Row-->
+               </tbody>
+             </table>
+           </div>
+         </div>
+     </div>
+	</div><!--End Row-->
 
 	<div class="row">
 	 <div class="col-12 col-lg-12">

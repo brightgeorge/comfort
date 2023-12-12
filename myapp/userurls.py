@@ -18,6 +18,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('login_request/', views.login_request, name='login_request'),
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+    path('admin_home/',views.admin_home,name='admin_home'),
     path('select_branch/',views.select_branch,name='select_branch'),
 
     path('backgrounds', branch1.backgrounds, name='backgrounds'),

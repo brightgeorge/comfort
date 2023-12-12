@@ -370,6 +370,11 @@ def admin_dashboard(request):
     }
     return render (request,'admindashboard/adminindex.html',context)
 
+def admin_home(request):
+    if 'username' in request.session:
+        return render(request,'admindashboard/admin_home.html')
+    return render(request,'index.html')
+
 #************USER SECTION STARTED HERE ***************
 
 def view_all_users(request):
