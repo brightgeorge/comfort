@@ -553,7 +553,7 @@ def update_bed_basic_details4(request,id):
             nc.share_type = room_type
             nc.save()
 
-            return pg1_view_all_beds5(request)
+            return pg1_view_all_beds4(request)
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
