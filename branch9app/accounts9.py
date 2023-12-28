@@ -4241,6 +4241,7 @@ def profit_sharing9(request,mo):
         for i in sh:
             ta = float(sha[mon]) / 100 * float(i.share_holders_percentage)
             i.share_holders_amt = ta
+            i.share_holders_amt_total = ta + float(i.share_holders_rent)
 
         #        r_balance_9
 
@@ -4324,10 +4325,12 @@ def regi_share_holders9(request):
             if request.method == 'POST':
                 name = request.POST.get('name')
                 share = request.POST.get('share')
+                rent = request.POST.get('rent')
 
                 ic = share_holders()
                 ic.share_holders_name = name
                 ic.share_holders_percentage = share
+                ic.share_holders_rent = rent
                 ic.created_by = 'CB ' + request.session['username']
                 import datetime
                 ic.cb_date = datetime.datetime.now()
@@ -4345,10 +4348,12 @@ def update_share_holders9(request,id):
         if request.method == 'POST':
             name = request.POST.get('name')
             share = request.POST.get('share')
+            rent = request.POST.get('rent')
 
             ic = share_holders.objects.get(id=id)
             ic.share_holders_name = name
             ic.share_holders_percentage = share
+            ic.share_holders_rent = rent
             ic.updated_by = 'UB ' + request.session['username']
             import datetime
             ic.ub_date = datetime.datetime.now()
