@@ -783,6 +783,8 @@ def monthly_details_due(request):
         'total_collection_monthly':total_collection_monthly,
         'total_collatable_amount':total_collatable_amount,
         'total_due_amt':total_due_amt,
+
+        'totaamt' : dec_tc,
     }
 
     return render(request,'branches/branch1/reports/dashboard_reports/due_amount/monthly_details.html',context)
@@ -1177,3 +1179,10 @@ def bar_chart():
     t.append(c)
     t.append(d)
     return t
+
+
+def test(request):
+    context={
+
+    }
+    return render(request,'test.html',context)
