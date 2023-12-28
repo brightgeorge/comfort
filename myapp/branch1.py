@@ -956,6 +956,28 @@ def view_all_guest(request):
     }
     return render(request,'branches/branch1/new_guest/view_all_guest.html',context)
 
+def view_all_guest_new_guest(request):
+
+    us = request.session['username']
+    bgs = background_color.objects.all().filter(username=us)
+    bg = background_color.objects.all().filter(username=us).exists()
+    a = []
+    if bg == True:
+        a.append(us)
+    else:
+        a.append('f')
+
+    context = {
+        'bg': bgs,
+        'us': us,
+        'th_us': a[0],
+        'name': us,
+
+        'vag' : pg1_new_guest.objects.all().filter(flag=2).order_by('roon_no')
+    }
+    return render(request,'branches/branch1/test.html',context)
+
+
 def shift_guest(request,id):
 
     us = request.session['username']

@@ -300,7 +300,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                      <th> <a href="{% url 'view_all_new_guest' %}"> <button style="background-color:green;color:white;"> <= Back</button> </a></th>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                     <th> <a href=""> <button style="background-color:green;color:white;"> <= test shift</button> </a></th>
+                     <th> <a href="{% url 'view_all_guest_new_guest' %}"> <button style="background-color:green;color:white;"> view pg1_new_guest </button> </a></th>
                  <th><button onclick="window.print()">Print</button></th>
                  </tr>
            <div class="table-responsive">

@@ -87,6 +87,8 @@ urlpatterns = [
     path('shift_guest/<id>',branch1.shift_guest,name='shift_guest'),
     path('shift_guest_regi/',branch1.shift_guest_regi,name='shift_guest_regi'),
 
+    path('view_all_guest_new_guest/',branch1.view_all_guest_new_guest,name='view_all_guest_new_guest'),
+
     #path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     #path('admit_guest/',views.admit_guest,name='admit_guest'),
 #guest end here
