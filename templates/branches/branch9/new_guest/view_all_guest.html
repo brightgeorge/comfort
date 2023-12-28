@@ -300,7 +300,7 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                      <th> <a href="{% url 'view_all_new_guest9' %}"> <button style="background-color:green;color:white;"> <= Back</button> </a></th>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
-                     <th> <a href=""> <button style="background-color:green;color:white;"> <= test shift</button> </a></th>
+                     <th> <a href="{% url 'custom_view_all_new_guest9' %}"> <button style="background-color:green;color:white;"> custom view all guest</button> </a></th>
                  <th><button onclick="window.print()">Print</button></th>
                  </tr>
            <div class="table-responsive">
@@ -308,7 +308,7 @@ function exportTableToExcel(tableID, filename = ''){
                 <thead>
                   <tr>
                     <th scope="col">Room</th>
-                    <th scope="col">Manage</th>
+
                     <th scope="col">Name</th>
                     <th scope="col">Number</th>
                       <th scope="col">Advance</th>

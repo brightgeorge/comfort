@@ -7,6 +7,7 @@ from . import reports9
 from . import payment9
 from . import admin_dashboard_calculations_br9
 from . import accounts9
+from . import mytest9
 
 urlpatterns = [
     path('branch1_dashboard9/', branch9.branch1_dashboard9, name='branch1_dashboard9'),
@@ -47,6 +48,8 @@ urlpatterns = [
 
     # path('branch11_bed_create_update/<id>',branch1.branch11_bed_create_update,name='branch11_bed_create_update'),
     # path('admit_guest/',views.admit_guest,name='admit_guest'),
+
+    path('custom_view_all_new_guest9/',mytest9.custom_view_all_new_guest9,name='custom_view_all_new_guest9'),
 
     # guest end here
 
