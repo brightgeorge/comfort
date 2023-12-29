@@ -4241,6 +4241,7 @@ def profit_sharing10(request,mo):
         for i in sh:
             ta = float(sha[mon]) / 100 * float(i.share_holders_percentage)
             i.share_holders_amt = ta
+            i.share_holders_amt_total = ta + float(i.share_holders_rent)
 
         #        r_balance_9
 

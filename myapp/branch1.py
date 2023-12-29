@@ -978,6 +978,7 @@ def view_all_guest_new_guest(request):
     return render(request,'branches/branch1/test.html',context)
 
 
+
 def shift_guest(request,id):
 
     us = request.session['username']
