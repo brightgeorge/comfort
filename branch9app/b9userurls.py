@@ -415,6 +415,8 @@ path('full_paid_guest9/',reports9.full_paid_guest9,name='full_paid_guest9'),
     path('nov_print9/', branch9.nov_print9, name='nov_print9'),
     path('dec_print9/', branch9.dec_print9, name='dec_print9'),
 
+    path('get_total_due_year_end9/', branch9.get_total_due_year_end9, name='get_total_due_year_end9'),
+
     ##################################
     # PRINT OUTS END HERE
     ################################

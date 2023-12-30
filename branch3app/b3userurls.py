@@ -363,6 +363,8 @@ path('full_paid_guest3/',reports3.full_paid_guest3,name='full_paid_guest3'),
     path('nov_print3/', branch3.nov_print3, name='nov_print3'),
     path('dec_print3/', branch3.dec_print3, name='dec_print3'),
 
+    path('get_total_due_year_end3/', branch3.get_total_due_year_end3, name='get_total_due_year_end3'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

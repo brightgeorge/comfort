@@ -346,6 +346,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('nov_print/', branch1.nov_print, name='nov_print'),
     path('dec_print/', branch1.dec_print, name='dec_print'),
 
+    path('get_total_due_year_end/', branch1.get_total_due_year_end, name='get_total_due_year_end'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################
@@ -374,6 +376,8 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('oct_close_decision_page/', branch1.oct_close_decision_page, name='oct_close_decision_page'),
     path('nov_close/', branch1.nov_close, name='nov_close'),
     path('nov_close_decision_page/', branch1.nov_close_decision_page, name='nov_close_decision_page'),
+
+
 
     ##################################
 #VACATE GUEST DETAILS START HERE

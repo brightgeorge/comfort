@@ -368,6 +368,8 @@ path('full_paid_guest2/',reports2.full_paid_guest2,name='full_paid_guest2'),
     path('nov_print2/', branch2.nov_print2, name='nov_print2'),
     path('dec_print2/', branch2.dec_print2, name='dec_print2'),
 
+    path('get_total_due_year_end2/', branch2.get_total_due_year_end2, name='get_total_due_year_end2'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################

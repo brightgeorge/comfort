@@ -266,6 +266,8 @@ function exportTableToExcel(tableID, filename = ''){
                  <tr>
                       <th style="text-align:center" bgcolor="blue"><button onclick="exportTableToExcel ('tbldata','Open Bright - Order')">download</button></th>
                  <th><button onclick="window.print()">Print this page</button></th>
+                      <th> <a href="{% url 'get_total_due_year_end4' %}"><button >YEAR END REPORT </button></a> </th>
+
                  </tr>
 			  <div class="table-responsive">
               <table class="table table-bordered" id="tbldata" border="1">

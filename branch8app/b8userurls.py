@@ -420,6 +420,8 @@ path('dec_make_payments_advance8/<id>', branch8.dec_make_payments_advance8, name
     path('nov_print8/', branch8.nov_print8, name='nov_print8'),
     path('dec_print8/', branch8.dec_print8, name='dec_print8'),
 
+    path('get_total_due_year_end8/', branch8.get_total_due_year_end8, name='get_total_due_year_end8'),
+
 ##################################
 #PRINT OUTS END HERE
 ################################
