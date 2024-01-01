@@ -11,6 +11,7 @@ from . import admin_dahsboard_calculations
 from . import payment1
 from . import admin_dashboard_calculations_br1
 from . import accounts1
+from . import admin_total_monthly_branch_wise_collection_report
 
 d='test'
 
@@ -670,5 +671,16 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
     path('update_share_holders/<id>', accounts1.update_share_holders, name='update_share_holders'),
     path('delete_share_holders/<id>', accounts1.delete_share_holders, name='delete_share_holders'),
     path('view_deleted_share_holders', accounts1.view_deleted_share_holders, name='view_deleted_share_holders'),
+
+
+    #######################
+    # ADMIN PAGE REPORTS START HERE
+    #************
+
+    path('total_monthly_branch_wise_collection_report/',admin_total_monthly_branch_wise_collection_report.total_monthly_branch_wise_collection_report,name='total_monthly_branch_wise_collection_report'),
+
+    #######################
+    # ADMIN PAGE REPORTS END HERE
+    # ************
 
 ]

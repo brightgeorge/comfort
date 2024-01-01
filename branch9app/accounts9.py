@@ -4236,14 +4236,23 @@ def profit_sharing9(request,mo):
 
         sh = share_holders.objects.all().filter(flag=1)
         mon = int(mo)
-        print('my mo', mo)
-        print('float(sha[mon])', float(sha[mon]))
+        #print('my mo', mo)
+        #('float(sha[mon])', float(sha[mon]))
+        #amt=float(sha[mon]) - 500000
+        lamt=[]
         for i in sh:
-            ta = float(sha[mon]) / 100 * float(i.share_holders_percentage)
+            lamt.append(float(i.share_holders_rent))
+        samt=sum(lamt)
+        print('samt',samt)
+        amt=float(sha[mon]) - samt
+        print('amt',amt)
+        for i in sh:
+            ta = amt / 100 * float(i.share_holders_percentage)
+            print('taa',ta)
             i.share_holders_amt = ta
-            i.share_holders_amt_total = ta + float(i.share_holders_rent)
+            i.share_holders_amt_total =  ta + float(i.share_holders_rent)
 
-        #        r_balance_9
+        #r_balance_9
 
         us = request.session['username']
         bgs = background_color.objects.all().filter(username=us)
