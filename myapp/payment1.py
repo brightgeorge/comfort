@@ -200,7 +200,7 @@ def monthly_jan_make_payments(request,id):
                 l.append(str(i.roon_no))
                 ll.append(str(i.guest_code))
             s=''.join(l)
-            gc=''.join()
+            gc=''.join(ll)
 
             r = pg1_new_guest.objects.all().filter(id=id, flag=2)
             rl = []
@@ -228,7 +228,7 @@ def monthly_jan_make_payments(request,id):
                 'room': room_pg1.objects.all(),
                 'rll' : rl,
             }
-            return render(request, 'branches/branch1/payments/payment_user_details.html',context)
+            return render(request, 'branches/branch1/payments/payment_user_details.html', context)
         rn = request.POST.get('rno')
 
         rno = pg1_new_guest.objects.all().filter(id=id)
@@ -268,7 +268,7 @@ def monthly_jan_make_payments(request,id):
             'user_details': pg1_new_guest.objects.all().filter(id=id),
             'discount_amt': total_discout_amt[0],
         }
-        return render(request, 'branches/branch1/payments/payment_details_of_months/jan/monthly_jan_manke_payments.html', context)
+        return render(request,'branches/branch1/payments/payment_details_of_months/jan/monthly_jan_make_payments.html', context)
 
 #jan make payments start here
 

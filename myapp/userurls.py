@@ -301,6 +301,9 @@ path('full_paid_guest/',reports1.full_paid_guest,name='full_paid_guest'),
 
     path('choose_months_advance/',branch1.choose_months_advance,name='choose_months_advance'),
 
+    path('jan_advance/', branch1.jan_advance, name='jan_advance'),
+    path('jan_make_payments_advance/<id>', branch1.jan_make_payments_advance, name='jan_make_payments_advance'),
+
     path('april_advane/', branch1.april_advane, name='april_advane'),
     path('april_make_payments_advance/<id>', branch1.april_make_payments_advance, name='april_make_payments_advance'),
 

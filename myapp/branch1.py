@@ -3027,8 +3027,8 @@ def jan_manke_payments(request,id):
             print('lll', l)
 
             #jp = pg1_new_beds.objects.get(guest_code=l[0])
-            import branchapp
-            jp = branchapp.models.pg1_new_beds.objects.get(guest_code=l[0])
+            import myapp
+            jp = myapp.models.pg1_new_beds.objects.get(guest_code=l[0])
             jp.jan_rent = amt
             jp.jan_dis_amt = dis_amt
             jp.jan_due_amt = due_amt
@@ -3072,9 +3072,9 @@ def jan_manke_payments(request,id):
         gc = ''.join(l)
         print('lll', l)
 
-        import branchapp
+        import myapp
         total_discout_amt = []
-        pg1_new_beds = branchapp.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
+        pg1_new_beds = myapp.models.pg1_new_guest.objects.all().filter(flag=2, guest_code=l[0])
         for i in pg1_new_beds:
             total_discout_amt.append(int(i.jan_dis_amt))
 
@@ -4603,7 +4603,7 @@ def choose_months_advance(request):
         return render(request,'branches/branch1/advance/choose_months_advance.html',context)
 
 
-def jan_advane(request):
+def jan_advance(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
 
@@ -4626,9 +4626,10 @@ def jan_advane(request):
             'pd':pg1_new_guest.objects.all().filter(roon_no=rn,flag=2,jan_rent_flag__gt=99),
             'roomno':rn,
             'room': room_pg1.objects.all().order_by('roon_no').values(),
+
         }
         return render(request, 'branches/branch1/advance/details_of_months/jan/jan_advance.html',context)
-    return render(request,'index.html')
+    return render(request, 'index.html')
 
 def jan_make_payments_advance(request,id):
     if 'username' in request.session:
@@ -4709,11 +4710,13 @@ def jan_make_payments_advance(request,id):
             'room': room_pg1.objects.all().order_by('roon_no').values(),
             'user_details': pg1_new_guest.objects.all().filter(id=id)
         }
-        return render(request, 'branches/branch1/advance/details_of_months/feb/feb_make_payments_advance.html', context)
+        return render(request, 'branches/branch1/advance/details_of_months/jan/jan_make_payments_advance.html', context)
     return render(request, 'index.html')
 
 
-def feb_advane(request):
+
+
+def feb_advance(request):
     if 'username' in request.session:
         rn = request.POST.get('rno')
 

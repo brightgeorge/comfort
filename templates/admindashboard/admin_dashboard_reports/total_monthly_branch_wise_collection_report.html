@@ -154,38 +154,46 @@
     <div class="card-content">
         <div class="row row-group m-0">
 
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
                 <a href="{% url 'branch1_dashboard' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">01 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_jan_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_jan_tc}} + {{total_jan_adv}} - {{total_jan_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard2' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_feb_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 2 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_feb_tc}} + {{total_feb_adv}} - {{total_feb_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard3' %}">
-                <div class="card-body" style="background-color:orange;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_march_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 3 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_march_tc}} + {{total_march_adv}} - {{total_march_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
+
+
 
         </div>
     </div>
@@ -195,38 +203,47 @@
     <div class="card-content">
         <div class="row row-group m-0">
 
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard4' %}">
-                <div class="card-body" style="background-color:red;">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_april_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 4 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_april_tc}} + {{total_april_adv}} - {{total_april_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard5' %}">
-                <div class="card-body" style="background-color:red">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_may_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">COMFORT BRANCH 5 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_may_tc}} + {{total_may_adv}} - {{total_may_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard9' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_june_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                  <p class="mb-0 text-white small-font">{{total_june_tc}} + {{total_june_adv}} - {{total_june_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
+
+
 
         </div>
     </div>
@@ -236,37 +253,47 @@
     <div class="card-content">
         <div class="row row-group m-0">
 
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard8' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_july_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 2<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_july_tc}} + {{total_july_adv}} - {{total_july_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
 
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard6' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_auguest_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 3 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_auguest_tc}} + {{total_auguest_adv}} - {{total_auguest_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
+
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard7' %}">
-                <div class="card-body" style="background-color:green">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_sept_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PRESTIGE BRANCH 4<span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div>
+                  <p class="mb-0 text-white small-font">{{total_sept_tc}} + {{total_sept_adv}} - {{total_sept_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div></a>
             </div>
+
+
 
         </div>
     </div>
@@ -276,36 +303,47 @@
     <div class="card-content">
         <div class="row row-group m-0">
 
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch' %}">
-                <div class="card-body" style="background-color:coral">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_october_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">HAPPY HOMES 1 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_october_tc}} + {{total_october_adv}} - {{total_october_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
+
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch11' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-view-dashboard"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_nov_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 1 <span class="float-right"><i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_nov_tc}} + {{total_nov_adv}} - {{total_nov_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
+
+
+
+
             <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch12' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                <a href="{% url 'branch1_dashboard' %}">
+                <div class="card-body" style="background-color:orange1;">
+                  <h5 class="text-white mb-0">{{total_receivable_amt}} - {{total_dec_ren}} = {{balance_amt}}<span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
                        <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 2  <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                  <p class="mb-0 text-white small-font">{{total_dec_tc}} + {{total_dec_adv}} - {{total_dec_dis}} <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div></a>
             </div>
+
+
 
         </div>
     </div>
@@ -314,39 +352,6 @@
 
 
 
-
-
-
-         <div class="card mt-3">
-    <div class="card-content">
-        <div class="row row-group m-0">
-
-                        <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch14' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 3 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-            <div class="col-12 col-lg-6 col-xl-4 border-light">
-                <a href="{% url 'branch1_dashboard_ob_ch13' %}">
-                <div class="card-body" style="background-color:purple">
-                  <h5 class="text-white mb-0">00 <span class="float-right"><i class="zmdi zmdi-face"></i></span></h5>
-                    <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:100%"></div>
-                    </div>
-                  <p class="mb-0 text-white small-font">PERFECT BRANCH 4 <span class="float-right"> <i class="zmdi zmdi-long-arrow-up"></i></span></p>
-                </div></a>
-            </div>
-
-
-        </div>
-    </div>
- </div>
 
 
 
