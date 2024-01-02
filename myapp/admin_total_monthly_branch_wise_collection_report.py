@@ -35,6 +35,9 @@ def total_monthly_branch_wise_collection_report(request):
     jan_dis=[]
     jan_ren=[]
 
+    grand_total_receivable_amt=[]
+    grand_balance_amt=[]
+
     for i in range(len(branch)):
         total_collection_br1 = branch[i].models.pg1_new_guest.objects.all().filter(flag=2,jan_rent_flag__gt=99)
         for i in total_collection_br1:
@@ -56,15 +59,17 @@ def total_monthly_branch_wise_collection_report(request):
         jan_dis.clear()
         jan_ren.clear()
 
-    total_receivable_amt=[]
+    jan_total_receivable_amt=[]
     rlen=len(total_jan_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_jan_tc[i] + total_jan_adv[i] - total_jan_dis[i] )
+        jan_total_receivable_amt.append(total_jan_tc[i] + total_jan_adv[i] - total_jan_dis[i] )
+    grand_total_receivable_amt.append(sum(jan_total_receivable_amt))
 
-    balance_amt = []
+    jan_balance_amt = []
     ba = len(total_jan_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_jan_ren[i] )
+        jan_balance_amt.append(jan_total_receivable_amt[i] - total_jan_ren[i] )
+    grand_balance_amt.append(sum(jan_balance_amt))
 
 ##########################
 
@@ -99,17 +104,19 @@ def total_monthly_branch_wise_collection_report(request):
         feb_dis.clear()
         feb_ren.clear()
 
-    total_receivable_amt = []
+    feb_total_receivable_amt = []
     rlen = len(total_feb_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_feb_tc[i] + total_feb_adv[i] - total_feb_dis[i])
+        feb_total_receivable_amt.append(total_feb_tc[i] + total_feb_adv[i] - total_feb_dis[i])
+    grand_total_receivable_amt.append(sum(feb_total_receivable_amt))
 
-    balance_amt = []
+    feb_balance_amt = []
     ba = len(total_feb_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_feb_ren[i])
+        feb_balance_amt.append(feb_total_receivable_amt[i] - total_feb_ren[i])
+    grand_balance_amt.append(sum(feb_balance_amt))
 
-#########################
+    #########################
 
     total_march_tc = []
     total_march_adv = []
@@ -142,17 +149,19 @@ def total_monthly_branch_wise_collection_report(request):
         march_dis.clear()
         march_ren.clear()
 
-    total_receivable_amt = []
+    march_total_receivable_amt = []
     rlen = len(total_march_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_march_tc[i] + total_march_adv[i] - total_march_dis[i])
+        march_total_receivable_amt.append(total_march_tc[i] + total_march_adv[i] - total_march_dis[i])
+    grand_total_receivable_amt.append(sum(march_total_receivable_amt))
 
-    balance_amt = []
+    march_balance_amt = []
     ba = len(total_march_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_march_ren[i])
+        march_balance_amt.append(march_total_receivable_amt[i] - total_march_ren[i])
+    grand_balance_amt.append(sum(march_balance_amt))
 
-##############################
+    ##############################
 
     total_april_tc = []
     total_april_adv = []
@@ -185,17 +194,19 @@ def total_monthly_branch_wise_collection_report(request):
         april_dis.clear()
         april_ren.clear()
 
-    total_receivable_amt = []
+    april_total_receivable_amt = []
     rlen = len(total_april_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_april_tc[i] + total_april_adv[i] - total_april_dis[i])
+        april_total_receivable_amt.append(total_april_tc[i] + total_april_adv[i] - total_april_dis[i])
+    grand_total_receivable_amt.append(sum(april_total_receivable_amt))
 
-    balance_amt = []
+    april_balance_amt = []
     ba = len(total_april_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_april_ren[i])
+        april_balance_amt.append(april_total_receivable_amt[i] - total_april_ren[i])
+    grand_balance_amt.append(sum(april_balance_amt))
 
-############################
+    ############################
 
     total_may_tc = []
     total_may_adv = []
@@ -228,17 +239,19 @@ def total_monthly_branch_wise_collection_report(request):
         may_dis.clear()
         may_ren.clear()
 
-    total_receivable_amt = []
+    may_total_receivable_amt = []
     rlen = len(total_may_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_may_tc[i] + total_may_adv[i] - total_may_dis[i])
+        may_total_receivable_amt.append(total_may_tc[i] + total_may_adv[i] - total_may_dis[i])
+    grand_total_receivable_amt.append(sum(may_total_receivable_amt))
 
-    balance_amt = []
+    may_balance_amt = []
     ba = len(total_may_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_may_ren[i])
+        may_balance_amt.append(may_total_receivable_amt[i] - total_may_ren[i])
+    grand_balance_amt.append(sum(may_balance_amt))
 
-################################3
+    ################################3
 
     total_june_tc = []
     total_june_adv = []
@@ -271,17 +284,19 @@ def total_monthly_branch_wise_collection_report(request):
         june_dis.clear()
         june_ren.clear()
 
-    total_receivable_amt = []
+    june_total_receivable_amt = []
     rlen = len(total_june_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_june_tc[i] + total_june_adv[i] - total_june_dis[i])
+        june_total_receivable_amt.append(total_june_tc[i] + total_june_adv[i] - total_june_dis[i])
+    grand_total_receivable_amt.append(sum(june_total_receivable_amt))
 
-    balance_amt = []
+    june_balance_amt = []
     ba = len(total_june_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_june_ren[i])
+        june_balance_amt.append(june_total_receivable_amt[i] - total_june_ren[i])
+    grand_balance_amt.append(sum(june_balance_amt))
 
-##############################
+    ##############################
 
     total_july_tc = []
     total_july_adv = []
@@ -314,17 +329,19 @@ def total_monthly_branch_wise_collection_report(request):
         july_dis.clear()
         july_ren.clear()
 
-    total_receivable_amt = []
+    july_total_receivable_amt = []
     rlen = len(total_july_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_july_tc[i] + total_july_adv[i] - total_july_dis[i])
+        july_total_receivable_amt.append(total_july_tc[i] + total_july_adv[i] - total_july_dis[i])
+    grand_total_receivable_amt.append(sum(july_total_receivable_amt))
 
-    balance_amt = []
+    july_balance_amt = []
     ba = len(total_july_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_july_ren[i])
+        july_balance_amt.append(july_total_receivable_amt[i] - total_july_ren[i])
+    grand_balance_amt.append(sum(july_balance_amt))
 
-#############################
+    #############################
 
     total_auguest_tc = []
     total_auguest_adv = []
@@ -357,17 +374,19 @@ def total_monthly_branch_wise_collection_report(request):
         auguest_dis.clear()
         auguest_ren.clear()
 
-    total_receivable_amt = []
+    auguest_total_receivable_amt = []
     rlen = len(total_auguest_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_auguest_tc[i] + total_auguest_adv[i] - total_auguest_dis[i])
+        auguest_total_receivable_amt.append(total_auguest_tc[i] + total_auguest_adv[i] - total_auguest_dis[i])
+    grand_total_receivable_amt.append(sum(auguest_total_receivable_amt))
 
-    balance_amt = []
+    auguest_balance_amt = []
     ba = len(total_auguest_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_auguest_ren[i])
+        auguest_balance_amt.append(auguest_total_receivable_amt[i] - total_auguest_ren[i])
+    grand_balance_amt.append(sum(auguest_balance_amt))
 
-#############################
+    #############################
 
     total_sept_tc = []
     total_sept_adv = []
@@ -400,17 +419,19 @@ def total_monthly_branch_wise_collection_report(request):
         sept_dis.clear()
         sept_ren.clear()
 
-    total_receivable_amt = []
+    sept_total_receivable_amt = []
     rlen = len(total_sept_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_sept_tc[i] + total_sept_adv[i] - total_sept_dis[i])
+        sept_total_receivable_amt.append(total_sept_tc[i] + total_sept_adv[i] - total_sept_dis[i])
+    grand_total_receivable_amt.append(sum(sept_total_receivable_amt))
 
-    balance_amt = []
+    sept_balance_amt = []
     ba = len(total_sept_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_sept_ren[i])
+        sept_balance_amt.append(sept_total_receivable_amt[i] - total_sept_ren[i])
+    grand_balance_amt.append(sum(sept_balance_amt))
 
-##########################
+    ##########################
 
     total_october_tc = []
     total_october_adv = []
@@ -443,17 +464,19 @@ def total_monthly_branch_wise_collection_report(request):
         october_dis.clear()
         october_ren.clear()
 
-    total_receivable_amt = []
+    october_total_receivable_amt = []
     rlen = len(total_october_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_october_tc[i] + total_october_adv[i] - total_october_dis[i])
+        october_total_receivable_amt.append(total_october_tc[i] + total_october_adv[i] - total_october_dis[i])
+    grand_total_receivable_amt.append(sum(october_total_receivable_amt))
 
-    balance_amt = []
+    october_balance_amt = []
     ba = len(total_october_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_october_ren[i])
+        october_balance_amt.append(october_total_receivable_amt[i] - total_october_ren[i])
+    grand_balance_amt.append(sum(october_balance_amt))
 
-##########################
+    ##########################
 
     total_nov_tc = []
     total_nov_adv = []
@@ -486,17 +509,19 @@ def total_monthly_branch_wise_collection_report(request):
         nov_dis.clear()
         nov_ren.clear()
 
-    total_receivable_amt = []
+    nov_total_receivable_amt = []
     rlen = len(total_nov_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_nov_tc[i] + total_nov_adv[i] - total_nov_dis[i])
+        nov_total_receivable_amt.append(total_nov_tc[i] + total_nov_adv[i] - total_nov_dis[i])
+    grand_total_receivable_amt.append(sum(nov_total_receivable_amt))
 
-    balance_amt = []
+    nov_balance_amt = []
     ba = len(total_nov_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_nov_ren[i])
+        nov_balance_amt.append(nov_total_receivable_amt[i] - total_nov_ren[i])
+    grand_balance_amt.append(sum(nov_balance_amt))
 
-############################3
+    ############################3
 
     total_dec_tc = []
     total_dec_adv = []
@@ -529,102 +554,104 @@ def total_monthly_branch_wise_collection_report(request):
         dec_dis.clear()
         dec_ren.clear()
 
-    total_receivable_amt = []
+    dec_total_receivable_amt = []
     rlen = len(total_dec_tc)
     for i in range(rlen):
-        total_receivable_amt.append(total_dec_tc[i] + total_dec_adv[i] - total_dec_dis[i])
+        dec_total_receivable_amt.append(total_dec_tc[i] + total_dec_adv[i] - total_dec_dis[i])
+    grand_total_receivable_amt.append(sum(dec_total_receivable_amt))
 
-    balance_amt = []
+    dec_balance_amt = []
     ba = len(total_dec_tc)
     for i in range(ba):
-        balance_amt.append(total_receivable_amt[i] - total_dec_ren[i])
+        dec_balance_amt.append(dec_total_receivable_amt[i] - total_dec_ren[i])
+    grand_balance_amt.append(sum(dec_balance_amt))
 
-######################################
+    ######################################
 
     context={
         'total_jan_tc' : sum(total_jan_tc),
         'total_jan_adv' : sum(total_jan_adv),
         'total_jan_dis': sum(total_jan_dis),
-        'total_receivable_amt' : sum(total_receivable_amt),
+        'total_receivable_amt' : sum(jan_total_receivable_amt),
         'total_jan_ren' : sum(total_jan_ren),
-        'balance_amt' : sum(balance_amt),
+        'balance_amt' : sum(jan_balance_amt),
 
         'total_feb_tc': sum(total_feb_tc),
         'total_feb_adv': sum(total_feb_adv),
         'total_feb_dis': sum(total_feb_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(feb_total_receivable_amt),
         'total_feb_ren': sum(total_feb_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(feb_balance_amt),
 
         'total_march_tc': sum(total_march_tc),
         'total_march_adv': sum(total_march_adv),
         'total_march_dis': sum(total_march_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(march_total_receivable_amt),
         'total_march_ren': sum(total_march_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(march_balance_amt),
 
         'total_april_tc': sum(total_april_tc),
         'total_april_adv': sum(total_april_adv),
         'total_april_dis': sum(total_april_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(apirl_total_receivable_amt),
         'total_april_ren': sum(total_april_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(april_balance_amt),
 
         'total_may_tc': sum(total_may_tc),
         'total_may_adv': sum(total_may_adv),
         'total_may_dis': sum(total_may_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(may_total_receivable_amt),
         'total_may_ren': sum(total_may_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(may_balance_amt),
 
         'total_june_tc': sum(total_june_tc),
         'total_june_adv': sum(total_june_adv),
         'total_june_dis': sum(total_june_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(june_total_receivable_amt),
         'total_june_ren': sum(total_june_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(june_balance_amt),
 
         'total_july_tc': sum(total_july_tc),
         'total_july_adv': sum(total_july_adv),
         'total_july_dis': sum(total_july_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(july_total_receivable_amt),
         'total_july_ren': sum(total_july_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(july_balance_amt),
 
         'total_auguest_tc': sum(total_auguest_tc),
         'total_auguest_adv': sum(total_auguest_adv),
         'total_auguest_dis': sum(total_auguest_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(auguest_total_receivable_amt),
         'total_auguest_ren': sum(total_auguest_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(auguest_balance_amt),
 
         'total_sept_tc': sum(total_sept_tc),
         'total_sept_adv': sum(total_sept_adv),
         'total_sept_dis': sum(total_sept_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(sept_total_receivable_amt),
         'total_sept_ren': sum(total_sept_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(sept_balance_amt),
 
         'total_october_tc': sum(total_october_tc),
         'total_october_adv': sum(total_october_adv),
         'total_october_dis': sum(total_october_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(october_total_receivable_amt),
         'total_october_ren': sum(total_october_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(october_balance_amt),
 
         'total_nov_tc': sum(total_nov_tc),
         'total_nov_adv': sum(total_nov_adv),
         'total_nov_dis': sum(total_nov_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(nov_total_receivable_amt),
         'total_nov_ren': sum(total_nov_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(nov_balance_amt),
 
         'total_dec_tc': sum(total_dec_tc),
         'total_dec_adv': sum(total_dec_adv),
         'total_dec_dis': sum(total_dec_dis),
-        'total_receivable_amt': sum(total_receivable_amt),
+        'total_receivable_amt': sum(dec_total_receivable_amt),
         'total_dec_ren': sum(total_dec_ren),
-        'balance_amt': sum(balance_amt),
+        'balance_amt': sum(dec_balance_amt),
 
     }
 
