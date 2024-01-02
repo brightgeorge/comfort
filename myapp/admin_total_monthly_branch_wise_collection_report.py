@@ -593,7 +593,7 @@ def total_monthly_branch_wise_collection_report(request):
         'total_april_tc': sum(total_april_tc),
         'total_april_adv': sum(total_april_adv),
         'total_april_dis': sum(total_april_dis),
-        'total_receivable_amt': sum(apirl_total_receivable_amt),
+        'total_receivable_amt': sum(april_total_receivable_amt),
         'total_april_ren': sum(total_april_ren),
         'balance_amt': sum(april_balance_amt),
 
